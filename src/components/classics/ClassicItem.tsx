@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import Card from '../ui/Card';
 import { type ClassicT } from '@/app/classics/types';
 import Link from 'next/link';
 
