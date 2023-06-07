@@ -1,10 +1,12 @@
+import { getAllClassics } from './api';
 import ClassicList from '@/components/classics/ClassicList';
-import classics from '@/data/classics.json'
 
 export default async function ClassicsPage() {
+  const classics = await getAllClassics();
+
   return (
     <div>
-      <ClassicList classics={classics} />    
+      <ClassicList classics={classics} />
     </div>
   )
 }
