@@ -1,4 +1,4 @@
-export type Classic = {
+export type ClassicT = {
   id: number;
   title: string;
   composer: string;
