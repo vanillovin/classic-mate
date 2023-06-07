@@ -21,7 +21,7 @@ function MainNavigation() {
   const isScrolled = scrollY > 0;
 
   return (
-    <header className={`w-full max-w-6xl flex items-center justify-between bg-white bg-opacity-60 px-6 h-16 fixed shadow-sm z-50 ${isScrolled ? 'bg-opacity-100 transition-all shadow-md' : ''}`}>
+    <header className={`w-full max-w-6xl flex items-center justify-between bg-white px-6 h-16 fixed shadow-sm z-50 ${isScrolled ? 'bg-opacity-100 transition-all shadow-md' : 'bg-opacity-70'}`}>
       <Link
         href='/'
         className='text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 
