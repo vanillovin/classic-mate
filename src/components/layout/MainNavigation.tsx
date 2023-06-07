@@ -1,19 +1,41 @@
+'use client';
+
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 function MainNavigation() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const isScrolled = scrollY > 0;
+
   return (
-    <header className='flex items-center justify-between bg-yellow-200 p-2'>
-      <div>Classics!</div>
+    <header className={`w-full max-w-6xl flex items-center justify-between bg-white bg-opacity-60 px-6 h-16 fixed shadow-sm z-50 ${isScrolled ? 'bg-opacity-100 transition-all shadow-md' : ''}`}>
+      <Link
+        href='/'
+        className='text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 
+          to-yellow-600 animate-fade-in'
+      >
+        클메<span className='text-xs ml-1'>당신의 클래식 메이트</span>
+      </Link>
       <nav>
-        <ul className='flex'>
-          <li className='mr-2'>
-            <Link href='/'>Home</Link>
+        <ul className='flex font-medium text-sm sm:text-base'>
+          <li className='mr-4 hover:text-yellow-500 transition-all'>
+            <Link href='/classics'>모든 클래식</Link>
           </li>
-          <li className='mr-2'>
-            <Link href='/classics'>All Classics</Link>
-          </li>
-          <li className=''>
-            <Link href='/new-classic'>Add New Classic</Link>
+          <li className='hover:text-yellow-500 transition-all'>
+            <Link href='/tags'>태그로 찾기</Link>
           </li>
         </ul>
       </nav>
