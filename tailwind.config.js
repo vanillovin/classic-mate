@@ -11,6 +11,13 @@ module.exports = {
       fontSize: {
         '2xs': '.5rem',
       },
+      spacing: { 
+        'left-17': '4.25rem', 
+        'left-37': '9.25rem', 
+        'left-47': '11.75rem', 
+        'left-57': '14.25rem', 
+        'left-81': '19.25rem', 
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -21,10 +28,30 @@ module.exports = {
           'from': { opacity: '1' },
           'to': { opacity: '0.5' },
         },
+        'animatePiano': {
+          '0%': { transform : 'translateY(0)' },
+          '50%': { transform: 'translateY(40px)' },
+          '100%': { transform: 'translateY(0)' },
+        },
       },
       animation: {
         'fade-in': 'fade-in 2s alternate infinite linear',
-      }
+        'animate-piano-delay-1': 'animatePiano 1s infinite 0.01s',
+        'animate-piano-delay-2': 'animatePiano 1s infinite 0.03s',
+        'animate-piano-delay-3': 'animatePiano 1s infinite 0.05s',
+        'animate-piano-delay-4': 'animatePiano 1s infinite 0.07s',
+        'animate-piano-delay-5': 'animatePiano 1s infinite 0.09s',
+        'animate-piano-delay-6': 'animatePiano 1s infinite 0.11s',
+        'animate-piano-delay-7': 'animatePiano 1s infinite 0.13s',
+        'animate-piano-delay-8': 'animatePiano 1s infinite 0.15s',
+        'animate-piano-delay-9': 'animatePiano 1s infinite 0.17s',
+        'animate-piano-delay-10': 'animatePiano 1s infinite 0.19s',
+        'animate-piano-delay-11': 'animatePiano 1s infinite 0.21s',
+        'animate-piano-delay-12': 'animatePiano 1s infinite 0.23s',
+        'animate-piano-delay-13': 'animatePiano 1s infinite 0.25s',
+        'animate-piano-delay-14': 'animatePiano 1s infinite 0.27s',
+        'animate-piano-delay-15': 'animatePiano 1s infinite 0.29s',
+      },
     },
   },
   plugins: [],
