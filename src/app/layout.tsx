@@ -1,7 +1,7 @@
 import './globals.css';
 import Layout from '@/components/layout/Layout';
 import Providers from './Providers';
-import { AuthContextProvider } from './context/AuthContext';
+import { AuthProvider } from '@/components/AuthProvider';
 
 export const metadata = {
   title: '클메',
@@ -18,9 +18,9 @@ export default function RootLayout({
       <body>
         <Layout>
           <Providers>
-            <AuthContextProvider>
+            <AuthProvider>
              {children}
-            </AuthContextProvider>
+            </AuthProvider>
           </Providers>
         </Layout>
       </body>
