@@ -44,7 +44,7 @@ function MainNavigation() {
               <Link href={`/profile`}>{auth.user.email?.split('@')[0]}님</Link>
             </li>
           ) : (
-            <li className='bg-yellow-400 bg-opacity-40 text-sm text-white rounded-sm flex items-center px-1'>
+            <li className='bg-yellow-400 bg-opacity-40 text-xs sm:text-sm text-white rounded-sm flex items-center px-1'>
               <Link href='/login'>로그인·회원가입</Link>
             </li>
           )}
