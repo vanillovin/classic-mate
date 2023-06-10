@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 import Link from 'next/link';
-import RegisterForm from './register-form';
 
 export const metadata: Metadata = {
   title: '회원가입 - 클메',
