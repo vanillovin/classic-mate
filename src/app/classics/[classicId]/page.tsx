@@ -1,10 +1,6 @@
 import Link from 'next/link';
 import notFound from './not-found';
 import supabase from '@/lib/supabase/client';
-
-export type ClassicResponse = Awaited<ReturnType<typeof getClassicById>>;
-export type ClassicResponseSuccess = ClassicResponse['data'];
-export type ClassicResponseError = ClassicResponse['error'];
  
 async function getClassicById(id: string) {
   return await supabase.from('allClassics').select().eq('id', id);

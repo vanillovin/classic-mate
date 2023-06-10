@@ -1,14 +1,14 @@
 'use client';
 
-import { ClassicT } from '@/app/classics/types';
 import ClassicList from './ClassicList';
 import { useState } from 'react';
 import ClassicSearchForm from './ClassicSearchForm';
+import { ClassicsResponseSuccess } from '@/app/classics/page';
 
-function ClassicsContainer({ classics }: { classics: ClassicT[] }) {
+function ClassicsContainer({ classics }: { classics: ClassicsResponseSuccess }) {
   const [searchQuery, setSearchQuery] = useState('');
-  const filterdClassics = classics.filter((classic) =>
-    classic.title.toLowerCase().includes(searchQuery.toLowerCase())
+  const filterdClassics = classics?.filter((classic) =>
+    classic?.title?.toLowerCase().includes(searchQuery.toLowerCase())
   );
   const results = searchQuery ? filterdClassics : classics;
 
@@ -19,7 +19,7 @@ function ClassicsContainer({ classics }: { classics: ClassicT[] }) {
         onClick={() => setSearchQuery('')}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
       />
-      <ClassicList classics={results} />    
+      <ClassicList classics={results!} />    
     </div>
   )
 }

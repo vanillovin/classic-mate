@@ -1,11 +1,11 @@
 'use client';
 
+import { ClassicResponseType } from '@/app/classics/page';
 import Image from 'next/image';
-import { type ClassicT } from '@/app/classics/types';
 import Link from 'next/link';
 
 
-function ClassicItem({ classic }: { classic: ClassicT }) {
+function ClassicItem({ classic }: { classic: ClassicResponseType  }) {
   return (
     <Link
       href={`/classics/${classic.id}`}
@@ -18,7 +18,6 @@ function ClassicItem({ classic }: { classic: ClassicT }) {
           {classic.tags.map((tag: string) => (
             <li key={tag} className='my-1 text-xs sm:text-sm rounded-sm p-1 bg-rose-600 text-white mr-1'>
               {tag}
-              {/* <Link href={`/classics/${tag}`}>{tag}</Link> */}
             </li>
           ))}
         </ul>

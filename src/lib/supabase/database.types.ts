@@ -11,37 +11,37 @@ export interface Database {
     Tables: {
       allClassics: {
         Row: {
-          composer: string | null
-          coverImage: string | null
-          description: string | null
-          genre: string | null
+          composer: string
+          coverImage: string
+          description: string
+          genre: string
           id: string
           tags: string[]
-          title: string | null
-          videoUrl: string | null
-          year: string | null
+          title: string
+          videoUrl: string
+          year: string
         }
         Insert: {
-          composer?: string | null
-          coverImage?: string | null
-          description?: string | null
-          genre?: string | null
+          composer?: string
+          coverImage?: string
+          description?: string
+          genre?: string
           id?: string
           tags: string[]
-          title?: string | null
-          videoUrl?: string | null
-          year?: string | null
+          title?: string
+          videoUrl?: string
+          year?: string
         }
         Update: {
-          composer?: string | null
-          coverImage?: string | null
-          description?: string | null
-          genre?: string | null
+          composer?: string
+          coverImage?: string
+          description?: string
+          genre?: string
           id?: string
           tags?: string[]
-          title?: string | null
-          videoUrl?: string | null
-          year?: string | null
+          title?: string
+          videoUrl?: string
+          year?: string
         }
         Relationships: []
       }
