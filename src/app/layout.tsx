@@ -1,7 +1,7 @@
 import './globals.css';
 import Layout from '@/components/layout/Layout';
 import Providers from './Providers';
-import { AuthProvider } from '@/components/AuthProvider';
+import { AuthProvider } from '@/components/providers/AuthProvider';
 import createClient from '@/lib/supabase/supabase-server';
 import { siteConfig } from '@/config/site';
 
@@ -25,13 +25,13 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        <AuthProvider>
-          <Providers>
+        <Providers>
+          <AuthProvider accessToken={accessToken}>
             <Layout>
               {children}
            </Layout>
-          </Providers>
-        </AuthProvider>
+          </AuthProvider>
+        </Providers>
       </body>
     </html>
   )
