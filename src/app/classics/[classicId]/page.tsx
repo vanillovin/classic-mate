@@ -6,7 +6,7 @@ export type ClassicResponse = Awaited<ReturnType<typeof getClassicById>>;
 export type ClassicResponseSuccess = ClassicResponse['data'];
 export type ClassicResponseError = ClassicResponse['error'];
  
-export async function getClassicById(id: string) {
+async function getClassicById(id: string) {
   return await supabase.from('allClassics').select().eq('id', id);
 }
 
