@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useAuth } from '../AuthProvider';
+import { siteConfig } from '@/config/site';
 
 function MainNavigation() {
   const [scrollY, setScrollY] = useState(0);
@@ -29,26 +30,35 @@ function MainNavigation() {
         className='text-xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 
           to-yellow-600 animate-fade-in'
       >
-        클메<span className='text-xs ml-1 hidden sm:inline'>당신의 클래식 메이트</span>
+        {siteConfig.name}
+        <span className='text-xs ml-1 hidden sm:inline'>당신의 클래식 메이트</span>
       </Link>
-      <nav>
-        <ul className='flex font-medium text-sm sm:text-base'>
-          <li className='mr-2 sm:mr-4 hover:text-yellow-500 transition-all'>
-            <Link href='/classics'>모든 클래식</Link>
-          </li>
-          <li className='mr-2 sm:mr-4 hover:text-yellow-500 transition-all'>
-            <Link href='/tags'>태그로 찾기</Link>
-          </li>
-          {auth.user ? (
-            <li className='hover:text-yellow-500 transition-all'>
-              <Link href={`/profile`}>{auth.user.email?.split('@')[0]}님</Link>
-            </li>
-          ) : (
-            <li className='bg-yellow-400 bg-opacity-40 text-xs sm:text-sm text-white rounded-sm flex items-center px-1'>
-              <Link href='/login'>로그인·회원가입</Link>
-            </li>
-          )}
-        </ul>
+      <nav className='flex font-medium text-sm sm:text-base'>
+        <Link href='' className='mr-2 sm:mr-4 hover:text-yellow-500 transition-all'>
+          모든 클래식
+        </Link>
+        <Link href='/tags' className='mr-2 sm:mr-4 hover:text-yellow-500 transition-all'>
+          태그로 찾기
+        </Link>
+        {auth.user ? (
+          <div className='flex items-center'>
+            <Link href={`/profile`} className='hover:text-yellow-500 transition-all mr-2'>
+              {auth.user.email?.split('@')[0]}님
+            </Link>
+            <button onClick={auth.signOut}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-5 text-amber-400">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+              </svg>
+            </button>
+          </div>
+        ) : (
+          <Link
+            href='/login'
+            className='bg-yellow-400 bg-opacity-40 text-xs sm:text-sm text-white rounded-sm flex items-center px-1'
+          >
+            로그인·회원가입
+          </Link>
+        )}
       </nav>
     </header>
   );
