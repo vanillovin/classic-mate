@@ -1,12 +1,12 @@
-import { getAllClassics } from './api';
+import createServerClient from '@/lib/supabase/supabase-server';
 import ClassicsContainer from '@/components/classics/ClassicsContainer';
 
 export default async function ClassicsPage() {
-  const classics = await getAllClassics();
-
+  const supabase = createServerClient();
+  const { data } = await supabase.from('allClassics').select();
   return (
     <div>
-      <ClassicsContainer classics={classics} />
+      <ClassicsContainer classics={data} />
     </div>
   )
 }
