@@ -1,9 +1,10 @@
 import './globals.css';
-import Layout from '@/components/layout/Layout';
 import Providers from './Providers';
-import { AuthProvider } from '@/components/providers/AuthProvider';
-import createClient from '@/lib/supabase/supabase-server';
 import { siteConfig } from '@/config/site';
+import Layout from '@/components/layout/Layout';
+import createClient from '@/lib/supabase/supabase-server';
+import { AuthProvider } from '@/components/providers/AuthProvider';
+import { ToastifyProvider } from '@/components/providers/ToastifyProvider';
 
 export const metadata = {
   title: siteConfig.name,
@@ -27,9 +28,11 @@ export default async function RootLayout({
       <body>
         <Providers>
           <AuthProvider accessToken={accessToken}>
-            <Layout>
-              {children}
-           </Layout>
+            <ToastifyProvider>
+              <Layout>
+                {children}
+              </Layout>
+            </ToastifyProvider>
           </AuthProvider>
         </Providers>
       </body>
