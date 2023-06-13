@@ -1,9 +1,10 @@
 'use client';
 
-import supabase from '@/lib/supabase/client';
-import { Session, User } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
+import { useSupabase } from './supabase-provider';
+import { Session, User } from '@supabase/supabase-js';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import SignOut from '../SignOut';
 
 type AuthProviderProps = {
   children: React.ReactNode;
@@ -22,6 +23,7 @@ export const AuthProvider = ({ children, accessToken }: AuthProviderProps) => {
   const [session, setSession] = useState<Session | null>(null);
   const [user, setUser] = useState<User | null>(null);
   const router = useRouter();
+  const { supabase } = useSupabase()
   
   useEffect(() => {
     async function getSession()  {
@@ -57,9 +59,13 @@ export const AuthProvider = ({ children, accessToken }: AuthProviderProps) => {
     return {
       session,
       user,
-      signOut: () => supabase.auth.signOut()
-    }
-  }, [session, user]);
+      signOut: async () => {
+        const { error } = await supabase.auth.signOut();
+          if (error) throw new Error(error.message);
+          router.refresh();
+        }
+      }
+  }, [session, user, router, supabase.auth]);
   
   return (
     <AuthContext.Provider value={value}>

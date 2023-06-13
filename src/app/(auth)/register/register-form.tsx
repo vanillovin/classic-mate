@@ -38,8 +38,9 @@ export default function RegisterForm() {
     // console.log('signup', data, error);
     if (!error) {
       return toast.success('로그인 링크를 보냈습니다. 이메일을 확인해 주세요!');
+    } else {
+      return toast.error('뭔가 잘못됐어요! ' + error?.message);
     }
-    return toast.error(error?.message);
   };
 
   return (

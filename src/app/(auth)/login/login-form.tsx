@@ -1,11 +1,13 @@
-'use client'
+'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import supabase from '@/lib/supabase/client';
-import { useAuth } from '@/components/providers/AuthProvider';
+import { useAuth } from '@/components/providers/auth-provider';
+import { toast } from 'react-toastify';
 
 export default function LoginForm() {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const router = useRouter();
   const { user } = useAuth();
 
@@ -14,12 +16,19 @@ export default function LoginForm() {
     const formData = new FormData(event.currentTarget);
     const email = formData.get('email') as string;
     const password = formData.get('password') as string;
-    const { data, error } = await supabase.auth.signInWithPassword({
+    setIsLoading(true);
+    const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
-    console.log(data, error);
-    router.push('/');
+    setIsLoading(false);
+    // console.log(data, error);
+    if (!error) {
+      router.back();
+      return toast.success('로그인 완료!');
+    } else {
+      return toast.error('뭔가 잘못됐어요! ' + error?.message);
+    }
   };
 
   useEffect(() => { 
@@ -48,9 +57,14 @@ export default function LoginForm() {
       />
       <button
         type="submit"
-        className="bg-yellow-700 bg-opacity-50 p-2 font-medium text-sm rounded-sm hover:opacity-70 transition-all"
+        disabled={isLoading}
+        className="flex items-center justify-center bg-yellow-700 bg-opacity-50 p-2 font-medium text-sm rounded-sm hover:opacity-70 transition-all"
       >
         이메일로 로그인
+        {isLoading && 
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 animate-spin ml-2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
+          </svg>}
       </button>
     </form>
   )

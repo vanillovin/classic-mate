@@ -5,10 +5,10 @@ import type { SupabaseClient } from "@supabase/auth-helpers-nextjs"
 
 import { siteConfig } from '@/config/site';
 import Layout from '@/components/layout/Layout';
+import { AuthProvider } from '@/components/providers/auth-provider';
 import SupabaseProvider from '@/components/providers/supabase-provider';
 import SupabaseListener from '@/components/providers/supabase-listener';
-import { ToastifyProvider } from '@/components/providers/ToastifyProvider';
-import { AuthProvider } from '@/components/providers/AuthProvider';
+import { ToastifyProvider } from '@/components/providers/toastify-provider';
 
 export type TypedSupabaseClient = SupabaseClient;
 
