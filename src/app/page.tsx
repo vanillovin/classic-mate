@@ -17,7 +17,6 @@ export default async function HomePage() {
     <div className="p-4">
       <Login />
       <h1 className='underline p-1 font-bold'>Hello, {session?.user.email}</h1>
-      {/* @ts-expect-error this will be fixed in TS */}
       <NewTodo />
       <RealtimeTodos todos={todos ?? []} />
     </div>

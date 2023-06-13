@@ -17,11 +17,8 @@ export default function Todo({ todo }: { todo: any }) {
 
   return (
     <li key={todo.id}>
-      <button
-        onClick={markAsComplete}
-        className={`${todo.is_complete ? 'line-through' : ''}`}
-      >
-        📍 {todo.task}
+      <button onClick={markAsComplete}>
+        📍 <span className={`${todo.is_complete ? 'line-through' : ''}`}>{todo.task}</span>
       </button>
     </li>
   )
