@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import supabase from '@/lib/supabase/client';
 import { Session, User } from '@supabase/supabase-js';
@@ -57,12 +57,9 @@ export const AuthProvider = ({ children, accessToken }: AuthProviderProps) => {
     return {
       session,
       user,
-      signOut: () => { 
-        supabase.auth.signOut();
-        router.refresh();
-      }
+      signOut: () => supabase.auth.signOut()
     }
-  }, [session, user, router]);
+  }, [session, user]);
   
   return (
     <AuthContext.Provider value={value}>
