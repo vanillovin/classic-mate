@@ -42,7 +42,7 @@ function MainNavigation() {
         </Link>
         {user ? (
           <div className='flex items-center'>
-            <Link href={`/profile`} className='hover:text-yellow-500 transition-all mr-2'>
+            <Link href={`/profile/${user.id}`} className='hover:text-yellow-500 transition-all mr-2'>
               {user.email?.split('@')[0]}님
             </Link>
             <button onClick={signOut}>

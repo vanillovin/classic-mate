@@ -12,7 +12,7 @@ export default async function RegisterPage() {
       <div
         className='mx-auto flex w-full flex-col items-center justify-center space-y-6 sm:max-w-[350px]'
       >
-        <h1 className='text-2xl'>회원가입</h1>
+        <h1 className='text-2xl font-semibold'>회원가입</h1>
         <RegisterForm />
         <Link href='/login' className='text-sm underline underline-offset-4'>
           계정이 있으신가요? 로그인하기

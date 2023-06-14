@@ -1,11 +1,9 @@
 'use client';
 
-import { ClassicResponseType } from '@/app/classics/page';
 import Image from 'next/image';
 import Link from 'next/link';
 
-
-function ClassicItem({ classic }: { classic: ClassicResponseType  }) {
+function ClassicItem({ classic }: { classic: Classic }) {
   return (
     <Link
       href={`/classics/${classic.id}`}
@@ -33,4 +31,4 @@ function ClassicItem({ classic }: { classic: ClassicResponseType  }) {
   )
 }
 
-export default ClassicItem
+export default ClassicItem;
