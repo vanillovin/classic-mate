@@ -2,7 +2,7 @@ import Link from 'next/link';
 import notFound from './not-found';
 import supabase from '@/lib/supabase/client';
 
-export function convertToEmbeddedURL(url: string) {
+function convertToEmbeddedURL(url: string) {
   const regExp = /^(?:https?:\/\/)?(?:www\.)?(?:(?:youtube.com\/(?:(?:watch\?v=)|(?:embed\/))([a-zA-Z0-9-]{11}))|(?:youtu.be\/([a-zA-Z0-9-]{11})))/;
   const match = url.match(regExp);
   const videoId = match ? match[1] || match[2] : undefined;
@@ -14,7 +14,6 @@ export default async function ClassicDetailPage({ params }: { params: { classicI
   const { data } = await supabase.from('allClassics').select().eq('id', params.classicId);
   const classic = data?.[0];
   if (!classic) return notFound();
-
   return (
     <section className='w-full h-screen flex flex-col items-center p-4'>
       <h1 className='text-xl sm:text-2xl font-semibold'>{classic.title}</h1>
