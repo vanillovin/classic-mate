@@ -24,7 +24,7 @@ function ClassicItem({ classic }: { classic: ClassicResponseType  }) {
       </div>
       <div className='relative rounded-sm overflow-hidden h-28 sm:h-36'>
         <Image
-          src={classic.coverImage}
+          src={classic.cover_image ?? ''}
           alt={`${classic.title} cover`}
           fill={true}
         />

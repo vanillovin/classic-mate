@@ -1,12 +1,8 @@
 import Link from 'next/link';
 import notFound from './not-found';
 import supabase from '@/lib/supabase/client';
- 
-async function getClassicById(id: string) {
-  return await supabase.from('allClassics').select().eq('id', id);
-}
 
-function convertToEmbeddedURL(url: string) {
+export function convertToEmbeddedURL(url: string) {
   const regExp = /^(?:https?:\/\/)?(?:www\.)?(?:(?:youtube.com\/(?:(?:watch\?v=)|(?:embed\/))([a-zA-Z0-9-]{11}))|(?:youtu.be\/([a-zA-Z0-9-]{11})))/;
   const match = url.match(regExp);
   const videoId = match ? match[1] || match[2] : undefined;
@@ -15,7 +11,7 @@ function convertToEmbeddedURL(url: string) {
 }
 
 export default async function ClassicDetailPage({ params }: { params: { classicId: string } }) {
-  const { data, error } = await getClassicById(params.classicId);
+  const { data } = await supabase.from('allClassics').select().eq('id', params.classicId);
   const classic = data?.[0];
   if (!classic) return notFound();
 
@@ -27,10 +23,10 @@ export default async function ClassicDetailPage({ params }: { params: { classicI
         <li className='mr-1 text-sm sm:text-base'>{classic.genre} ·</li>
         <li className='text-sm sm:text-base'>{classic.year}</li>
       </ul>
-      <p className='text-center text-sm sm:text-base my-4'>{classic.description}</p>
+      <p className='text-center text-sm sm:text-base my-4 sm:px-12'>{classic.description}</p>
       <ul className='flex'>
         <li className='font-medium'>태그 :</li>
-        {classic.tags.map(tag =>
+        {classic.tags.map(tag => 
           <li
             key={tag}
             className='border-b-2 border-white rounded-sm mx-1 text-sm sm:text-base hover:text-white transition-all'
@@ -43,7 +39,7 @@ export default async function ClassicDetailPage({ params }: { params: { classicI
       </ul>
       <div className='w-full h-[300px] sm:h-[600px] sm:px-12 mt-8'>
         <iframe
-          src={`${convertToEmbeddedURL(classic?.videoUrl ?? '')}`}
+          src={`${convertToEmbeddedURL(classic.video_url ?? '')}`}
           allowFullScreen
           className='w-full h-full rounded-md'
           ></iframe>

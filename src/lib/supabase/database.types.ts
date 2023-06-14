@@ -12,54 +12,39 @@ export interface Database {
       allClassics: {
         Row: {
           composer: string
-          coverImage: string | null
-          description: string | null
+          cover_image: string
+          description: string
           genre: string
           id: string
+          liked_users: string[] | null
           tags: string[]
           title: string
-          videoUrl: string | null
-          year: string
+          video_url: string
+          year: number
         }
         Insert: {
           composer: string
-          coverImage?: string | null
-          description?: string | null
+          cover_image: string
+          description: string
           genre: string
           id?: string
+          liked_users?: string[] | null
           tags: string[]
           title: string
-          videoUrl?: string | null
-          year: string
+          video_url: string
+          year: number
         }
         Update: {
           composer?: string
-          coverImage?: string | null
-          description?: string | null
+          cover_image?: string
+          description?: string
           genre?: string
           id?: string
+          liked_users?: string[] | null
           tags?: string[]
           title?: string
-          videoUrl?: string | null
-          year?: string
-        }
-        Relationships: []
-      }
-      classicPlaylists: {
-        Row: {
-          id: string
-          musics: Json | null
-          name: string
-        }
-        Insert: {
-          id?: string
-          musics?: Json | null
-          name: string
-        }
-        Update: {
-          id?: string
-          musics?: Json | null
-          name?: string
+          video_url?: string
+          year?: number
         }
         Relationships: []
       }
