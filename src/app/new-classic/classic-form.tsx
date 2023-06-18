@@ -32,11 +32,10 @@ export default function ClassicForm() {
     const description = String(formData.get('description'));
     const cover_image = String(formData.get('cover_image'));
     const video_url = String(formData.get('video_url'));
-    
     const { error } = await supabase.from('allClassics').insert({
       title, genre, composer, year: parseInt(year), description, cover_image, video_url, tags,
     });
-    
+  
     if (!error) {
       router.push('/classics');
       return toast.success('클래식을 성공적으로 추가했습니다~!');
@@ -55,7 +54,7 @@ export default function ClassicForm() {
       <input type="number" name="year" placeholder='year' className="rounded-sm border border-violet-200 p-1" required />
       <textarea name="description" placeholder='description' className="rounded-sm border border-violet-200 p-1 h-16 max-h-24" required />
       <input name="cover_image" placeholder='cover_image' className="rounded-sm border border-violet-200 p-1" required />
-      <input name="tags" placeholder='tags' className="rounded-sm border border-violet-200 p-1" onKeyDown={handleInputChange} required />
+      <input name="tags" placeholder='tags' className="rounded-sm border border-violet-200 p-1" onKeyDown={handleInputChange} />
       <ul className='flex items-center'>
         tags : 
         {tags.length > 0 && tags.map((tag) =>
@@ -68,7 +67,7 @@ export default function ClassicForm() {
       </ul>
       <input name="video_url" placeholder='video_url' className="border border-violet-200 p-1" required />
       <button
-        type="button"
+        type="submit"
         className="p-2 bg-violet-500 rounded-sm text-amber-300 font-semibold"
       >클래식 추가하기</button>
     </form>

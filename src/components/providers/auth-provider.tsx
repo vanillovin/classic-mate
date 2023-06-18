@@ -3,8 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useSupabase } from './supabase-provider';
 import { Session, User } from '@supabase/supabase-js';
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
-import SignOut from '../SignOut';
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 type AuthProviderProps = {
   children: React.ReactNode;
@@ -23,7 +22,7 @@ export const AuthProvider = ({ children, accessToken }: AuthProviderProps) => {
   const [session, setSession] = useState<Session | null>(null);
   const [user, setUser] = useState<User | null>(null);
   const router = useRouter();
-  const { supabase } = useSupabase()
+  const { supabase } = useSupabase();
   
   useEffect(() => {
     async function getSession()  {
@@ -71,7 +70,7 @@ export const AuthProvider = ({ children, accessToken }: AuthProviderProps) => {
     <AuthContext.Provider value={value}>
       {children}
     </AuthContext.Provider>
-  )
+  );
 }
 
 export const useAuth = () => {
