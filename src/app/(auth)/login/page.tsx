@@ -1,12 +1,19 @@
-import { Metadata } from 'next'
 import Link from 'next/link';
+import { Metadata } from 'next'
 import LoginForm from './login-form';
+import { redirect } from 'next/navigation';
+import { createServerClient } from '@/utils/supabase-server';
 
 export const metadata: Metadata = {
   title: '로그인 - 클메',
 };
 
 export default async function LoginPage() {
+  const supabase = createServerClient();
+  const { data: { session } } = await supabase.auth.getSession();
+
+  if (session?.user) redirect('/');
+
   return (
     <div className='w-full flex flex-col items-center justify-center h-screen -mt-20 p-4 sm:p-0'>
       <div

@@ -13,10 +13,17 @@ module.exports = {
       },
       spacing: { 
         'left-17': '4.25rem', 
+        'left-30': '7.50rem', 
         'left-37': '9.25rem', 
+        'left-38': '9.50rem', 
+        'left-46': '11.50rem', 
         'left-47': '11.75rem', 
         'left-57': '14.25rem', 
+        'left-62': '15.50rem', 
         'left-81': '19.25rem', 
+      },
+      backgroundColor: {
+        'audio-gray': '#f1f3f4',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

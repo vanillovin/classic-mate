@@ -1,15 +1,14 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import supabase from '@/lib/supabase/client';
-import { useAuth } from '@/components/providers/auth-provider';
+import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
+import { useSupabase } from '@/components/providers/supabase-provider';
 
 export default function LoginForm() {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const router = useRouter();
-  const { user } = useAuth();
+  const { supabase } = useSupabase();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleSignIn = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -22,7 +21,7 @@ export default function LoginForm() {
       password,
     });
     setIsLoading(false);
-    // console.log(data, error);
+    
     if (!error) {
       router.back();
       return toast.success('로그인 완료!');
@@ -30,10 +29,6 @@ export default function LoginForm() {
       return toast.error('뭔가 잘못됐어요! ' + error?.message);
     }
   };
-
-  useEffect(() => { 
-    if (user) router.push('/');
-  }, [user, router]);
 
   return (
     <form
