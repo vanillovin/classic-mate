@@ -35,23 +35,28 @@ function TagList({ tags, selectedTags }: TagListProps) {
   };
 
   return (
-    <div className="flex flex-wrap items-center">
-      {tags.map(tag => (
+    <details open>
+      <summary className='text-lg font-semibold'>모든 태그</summary>
+      <div className="flex flex-wrap items-center">
+        {tags.map(tag => (
+          <button
+            key={tag}
+            onClick={() => handleTagClick(tag)}
+            className={`rounded-sm p-1 mr-1 mb-1 text-sm sm:text-base 
+              ${selectedTags.includes(tag) ? 'bg-violet-400 text-white' : 'bg-white hover:bg-violet-100'}
+            `}
+          >
+            {tag}
+          </button>
+        ))}
         <button
-          key={tag}
-          onClick={() => handleTagClick(tag)}
-          className={`rounded-sm p-1 mr-1 mb-1 ${selectedTags.includes(tag) ? 'bg-violet-400 text-white' : 'bg-white hover:bg-violet-100'}`}
+          onClick={() => router.push('/tags')}
+          className="bg-rose-400 text-white rounded-sm p-1 mr-1 mb-1 hover:bg-rose-300 text-sm sm:text-base"
         >
-          {tag}
+          태그 지우기
         </button>
-      ))}
-      <button
-        onClick={() => router.push('/tags')}
-        className="bg-rose-400 text-white rounded-sm p-1 mr-1 mb-1 hover:bg-rose-300"
-      >
-        모든 태그 지우기
-      </button>
-    </div>
+      </div>
+    </details>
   );
 }
 

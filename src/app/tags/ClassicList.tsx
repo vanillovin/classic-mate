@@ -8,7 +8,7 @@ type ClassicListProps = {
 
 function ClassicList({ classics, selectedTags }: ClassicListProps) {
   return (
-    <div className="grid grid-cols-4 gap-4 my-6">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 my-6">
       {classics?.map(classic =>
         <Link
           href={`/classics/${classic.id}`}
@@ -20,7 +20,7 @@ function ClassicList({ classics, selectedTags }: ClassicListProps) {
             {classic.tags.map(tag =>
               <li
                 key={tag}
-                className={`border border-gray-200 px-1 rounded-sm mr-1 mb-1 
+                className={`border border-gray-100 px-1 rounded-sm mr-1 mb-1 text-xs sm:text-sm
                   ${selectedTags.includes(tag) ? 'bg-violet-400 text-white' : 'bg-white text-black'}
                 `}
               >{tag}</li>

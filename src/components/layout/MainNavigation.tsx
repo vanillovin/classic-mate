@@ -3,11 +3,16 @@
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { useAuth } from '../providers/auth-provider';
 
 function MainNavigation() {
-  const [scrollY, setScrollY] = useState(0);
+  const pathname = usePathname();
   const { user, signOut } = useAuth();
+  const [scrollY, setScrollY] = useState(0);
+  
+  const isClassics = pathname === '/classics';
+  const isTags = pathname === '/tags';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,10 +39,16 @@ function MainNavigation() {
         <span className='text-xs ml-1 hidden sm:inline'>당신의 클래식 메이트</span>
       </Link>
       <nav className='flex font-medium text-sm sm:text-base'>
-        <Link href='/classics' className='mr-2 sm:mr-4 hover:text-yellow-500 transition-all'>
+        <Link 
+          href='/classics' 
+          className={`mr-2 sm:mr-4 transition-all ${isClassics ? 'text-yellow-500' : 'hover:text-yellow-500'}`}
+        >
           모든 클래식
         </Link>
-        <Link href='/tags' className='mr-2 sm:mr-4 hover:text-yellow-500 transition-all'>
+        <Link 
+          href='/tags' 
+          className={`mr-2 sm:mr-4 transition-all ${isTags ? 'text-yellow-500' : 'hover:text-yellow-500'}`}
+        >
           태그로 찾기
         </Link>
         {user ? (
@@ -46,7 +57,7 @@ function MainNavigation() {
               {user.email?.split('@')[0]}님
             </Link>
             <button onClick={signOut}>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-amber-900 hover:opacity-70">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-yellow-700 hover:opacity-70">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
               </svg>
             </button>
