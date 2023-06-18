@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
 
 function ClassicItem({ classic }: { classic: Classic }) {
   return (
@@ -11,7 +11,9 @@ function ClassicItem({ classic }: { classic: Classic }) {
     >
       <div>
         <h2 className='text-sm sm:text-base font-semibold'>{classic.title}</h2>
-        <p className='text-xs sm:text-sm my-1'>{classic.description}</p>
+        <p className='text-xs sm:text-sm my-1'>
+          {classic.description.length > 60 ? `${classic.description.substring(0, 60)}...` : classic.description}
+        </p>
         <ul className='flex items-center flex-wrap mb-1'>
           {classic.tags.map((tag: string) => (
             <li key={tag} className='my-1 text-xs sm:text-sm rounded-sm p-1 bg-rose-600 text-white mr-1'>
@@ -28,7 +30,7 @@ function ClassicItem({ classic }: { classic: Classic }) {
         />
       </div>
     </Link>
-  )
+  );
 }
 
 export default ClassicItem;
