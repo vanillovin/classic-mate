@@ -2,9 +2,10 @@ type ClassicSearchFormProps = {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onClick: () => void;
+  placeholder: string;
 }
 
-function ClassicSearchForm({ value, onChange, onClick } : ClassicSearchFormProps) {
+function ClassicSearchForm({ value, onChange, onClick, placeholder } : ClassicSearchFormProps) {
   return (
     <div className="relative w-full mb-4">
       <input
@@ -12,7 +13,7 @@ function ClassicSearchForm({ value, onChange, onClick } : ClassicSearchFormProps
         type="text"
         value={value}
         onChange={onChange}
-        placeholder="클래식 제목 검색하기"
+        placeholder={placeholder}
         className={`w-full px-3 py-2 bg-white bg-opacity-80 border-2 rounded-xl border-amber-200 text-sm md:text-base`}
       />
       {value && <CancelButton onClick={onClick} />}

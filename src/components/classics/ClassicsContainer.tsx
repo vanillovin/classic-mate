@@ -17,6 +17,7 @@ function ClassicsContainer({ classics }: { classics: Classic[] }) {
         value={searchQuery}
         onClick={() => setSearchQuery('')}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
+        placeholder='클래식 제목 검색하기'
       />
       <ClassicList classics={results!} />    
     </div>
