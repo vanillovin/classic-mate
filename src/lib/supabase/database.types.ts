@@ -9,14 +9,13 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      allClassics: {
+      all_classics: {
         Row: {
           composer: string
           cover_image: string
           description: string
           genre: string
           id: string
-          liked_users: string[] | null
           tags: string[]
           title: string
           video_url: string
@@ -28,7 +27,6 @@ export interface Database {
           description: string
           genre: string
           id?: string
-          liked_users?: string[] | null
           tags: string[]
           title: string
           video_url: string
@@ -40,13 +38,46 @@ export interface Database {
           description?: string
           genre?: string
           id?: string
-          liked_users?: string[] | null
           tags?: string[]
           title?: string
           video_url?: string
           year?: number
         }
         Relationships: []
+      }
+      classic_likes: {
+        Row: {
+          classic_id: string
+          created_at: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          classic_id: string
+          created_at?: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          classic_id?: string
+          created_at?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "classic_likes_classic_id_fkey"
+            columns: ["classic_id"]
+            referencedRelation: "all_classics"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "classic_likes_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
       }
       profiles: {
         Row: {

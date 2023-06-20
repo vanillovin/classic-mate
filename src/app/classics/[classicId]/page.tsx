@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import notFound from './not-found';
-import supabase from '@/lib/supabase/client';
+import { createServerClient } from '@/utils/supabase-server';
+import ClassicLikeButton from '@/components/classics/ClassicLikeButton';
 
 function convertToEmbeddedURL(url: string) {
   const regExp = /^(?:https?:\/\/)?(?:www\.)?(?:(?:youtube.com\/(?:(?:watch\?v=)|(?:embed\/))([a-zA-Z0-9-]{11}))|(?:youtu.be\/([a-zA-Z0-9-]{11})))/;
@@ -11,9 +12,15 @@ function convertToEmbeddedURL(url: string) {
 }
 
 export default async function ClassicDetailPage({ params }: { params: { classicId: string } }) {
-  const { data } = await supabase.from('allClassics').select().eq('id', params.classicId);
-  const classic = data?.[0];
+  const supabase = createServerClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  const { data: classics } = await supabase.from('all_classics').select().eq('id', params.classicId);
+  const { data: likes } = await supabase.from('classic_likes').select().eq('user_id', user?.id);
+  
+  const classic = classics?.[0];
+
   if (!classic) return notFound();
+
   return (
     <section className='w-full h-screen flex flex-col items-center p-4'>
       <h1 className='text-xl sm:text-2xl font-semibold'>{classic.title}</h1>
@@ -23,6 +30,12 @@ export default async function ClassicDetailPage({ params }: { params: { classicI
         <li className='text-sm sm:text-base'>{classic.year}</li>
       </ul>
       <p className='text-center text-sm sm:text-base my-4 sm:px-12'>{classic.description}</p>
+      <ClassicLikeButton
+        className='rounded-sm bg-white p-1 mb-4 hover:bg-opacity-70 transition-all'
+        classicId={classic.id}
+        likes={likes ?? []}
+        name="좋아요"
+      />
       <ul className='flex'>
         <li className='font-medium'>태그 :</li>
         {classic.tags.map(tag => 

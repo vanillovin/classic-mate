@@ -1,12 +1,15 @@
-import supabase from '@/lib/supabase/client';
+import { createServerClient } from '@/utils/supabase-server';
 import ClassicsContainer from '@/components/classics/ClassicsContainer';
 
 export default async function ClassicsPage() {
-  const { data } = await supabase.from('allClassics').select();
-
+  const supabase = createServerClient();
+  const { data: { user } } = await supabase.auth.getUser();
+  const { data: classics } = await supabase.from('all_classics').select();
+  const { data: likes } = await supabase.from('classic_likes').select().eq('user_id', user?.id);
+  
   return (
     <div>
-      <ClassicsContainer classics={data ?? []} />
+      <ClassicsContainer classics={classics ?? []} likes={likes ?? []} />
     </div>
   )
 }

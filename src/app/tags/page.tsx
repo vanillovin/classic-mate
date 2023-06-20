@@ -16,7 +16,7 @@ export default async function TagsPage(props: Props) {
     decodeURIComponent(props?.searchParams?.tag3 ?? '')
   ];
   
-  const { data } = await supabase.from('allClassics').select();
+  const { data } = await supabase.from('all_classics').select();
   
   return (
     <div className='p-4'>
