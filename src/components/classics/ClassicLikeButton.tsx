@@ -20,28 +20,31 @@ function ClassicLikeButton({ classicId, likes, className, name }: {
 
   const handleLikeClassic = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    let error = null;
-
-    if (isLiked) {
-      error = (await supabase
+    if (!auth.user) return toast.error('로그인 후 이용 가능합니다');
+    if (!isLiked) {
+      const { error } = await supabase
         .from('classic_likes')
-        .delete()
-        .eq('classic_id', classicId)).error;
-      setIsLiked(false);
+        .insert({
+          classic_id: classicId,
+          user_id: auth.user?.id,
+        });      
+      if (!error) {
+        toast.success('좋아요 완료');
+        setIsLiked(true);
+      } else {
+        toast.error('좋아요 실패');
+      }
     } else {
-      error = (await supabase
+      const { error } = await supabase
       .from('classic_likes')
-      .insert({
-        classic_id: classicId,
-        user_id: auth.user?.id,
-      })).error;
-      setIsLiked(true);
-    }
-
-    if (error) {
-      toast.error(isLiked ? '좋아요 취소 실패' : '좋아요 실패');
-    } else {
-      toast.success(isLiked ? '좋아요 취소 완료' : '좋아요 완료');
+      .delete()
+      .eq('classic_id', classicId);
+      if (!error) {
+        toast.success('좋아요 취소 완료');
+        setIsLiked(false);
+      } else {
+        toast.error('좋아요 취소 실패');
+      }
     }
   };
 
@@ -58,7 +61,7 @@ function ClassicLikeButton({ classicId, likes, className, name }: {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-6 h-6 hover:text-rose-700"
+          className="w-5 h-5 sm:w-6 sm:h-6 hover:text-rose-700"
         >
           <path
             strokeLinecap="round"
@@ -66,7 +69,7 @@ function ClassicLikeButton({ classicId, likes, className, name }: {
             className="text-rose-700"
           />
         </svg>
-        {name}
+        {name && <span className='text-sm sm:text-base'>{name}</span>}
       </button>
   );
 }
