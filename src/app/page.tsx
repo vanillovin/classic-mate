@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 import { createServerClient } from '@/utils/supabase-server';
 import Link from 'next/link';
+import MusicPlayer from '@/components/MusicPlayer';
 
 export default async function HomePage() {
   const supabase = createServerClient();
@@ -14,7 +15,11 @@ export default async function HomePage() {
       <h2 className='text-xl sm:text-2xl font-semibold mx-1 mb-2 text-yellow-900 border-b border-yellow-900 pr-4 w-fit'>
         오늘의 추천 곡
       </h2>
-      <div className='flex flex-col sm:grid sm:grid-cols-2 sm:grid-rows-3 gap-x-4 gap-y-8'>
+      <div className='flex flex-col sm:grid sm:grid-cols-2 sm:grid-rows-4 gap-x-4 gap-y-8'>
+        <div className='col-span-2 p-2 flex items-center justify-center'>
+          <MusicPlayer />
+        </div>
+
         <div className='w-full h-[350px] relative rounded-sm overflow-hidden'>
           <Image
             fill
@@ -25,10 +30,10 @@ export default async function HomePage() {
         </div>
 
         <div className='flex flex-col items-center justify-center p-2'>
-          <h3 className='text-base sm:text-lg font-medium'>Tchaikovsky - Piano Concerto No.1.</h3>
+          <h3 className='text-base sm:text-lg font-medium'>Tchaikovsky - Piano Concerto No. 1</h3>
           <p className='my-3 text-center'>
             클래식 음악의 대표작 중 하나로, 첫 소절부터 심장을 울리는 강렬한 감정을 전달합니다.
-            이 곡은 청중들을 환상적인 음악 여행으로 인도하며, 피아니스트의 정교한 연주와 오케스트라의 화려한 연주가 만나 독특하고 매혹적인 분위기를 조성합니다.
+            이 곡은 세 가지 악장으로 구성되어 있으며, 역동적이고 열정적인 멜로디와 아름다운 피아노 연주가 돋보이는 특징을 가지고 있습니다.
             뛰어난 작곡가인 Tchaikovsky의 음악적 재능이 빛나는 작품 중 하나로, 클래식 음악을 사랑하는 이들에게 특별한 감동을 선사합니다.
           </p>
           <Link
@@ -54,7 +59,7 @@ export default async function HomePage() {
           </Link>
         </div>
 
-        <div className='relative w-[500px] sm:w-full h-[350px] sm:h-full'>
+        <div className='relative w-full h-[350px]'>
           <div className='w-full h-full'>
             <iframe
               src={`${convertToEmbeddedURL('https://youtu.be/YXL0dkG-Qro')}`}
@@ -79,13 +84,13 @@ export default async function HomePage() {
               <Link
                 key={classic.id}
                 href={`/classics/${classic.id}`}
-                className='bg-white rounded-sm p-3 flex flex-col hover:bg-yellow-100 transition-all'
+                className='bg-white rounded-sm p-3 flex flex-col hover:bg-yellow-500 hover:bg-opacity-10 transition-all'
               >
                 <h3 className='font-semibold'>{classic.title}</h3>
                 <p className='mt-1 mb-2 leading-5'>{classic.description.substring(0, 60)}..</p>
                 <ul className='flex flex-wrap gap-1'>
                   {classic.tags.map(tag => (
-                    <li key={tag} className='px-1 rounded-sm bg-rose-400 text-white text-sm'>
+                    <li key={tag} className='px-1 rounded-sm bg-yellow-500 text-white text-sm'>
                       {tag}
                     </li>
                   ))}

@@ -42,6 +42,7 @@ module.exports = {
         },
       },
       animation: {
+        'spin-slow': 'spin 3s linear infinite',
         'fade-in': 'fade-in 2s alternate infinite linear',
         'animate-piano-delay-1': 'animatePiano 1s infinite 0.01s',
         'animate-piano-delay-2': 'animatePiano 1s infinite 0.03s',
