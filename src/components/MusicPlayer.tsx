@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
 import Image from 'next/image';
+import React, { useRef, useState } from 'react';
 
 function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -61,7 +61,7 @@ function MusicPlayer() {
             </button>
           </div>
         </div>
-        <div className="absolute sm:left-24 w-28 h-28 sm:w-48 sm:h-48 bg-black rounded-full overflow-hidden shadow-lg">
+        <div className="absolute -left-2 sm:left-24 w-28 h-28 sm:w-48 sm:h-48 bg-black rounded-full overflow-hidden shadow-lg">
           <div className={`w-full h-full bg-center bg-no-repeat bg-contain ${isPlaying ? 'animate-spin-slow' : ''}`}>
             <Image src="/cd.png" alt="CD" fill className="w-full h-full" />
           </div>
@@ -81,7 +81,7 @@ function MusicPlayer() {
             max={duration}
             value={currentTime}
             onInput={handleProgressChange}
-            className="bg-transparent w-full appearance-none absolute -top-0 -left-1"
+            className="bg-transparent w-full appearance-none absolute top-0 left-0 cursor-pointer"
           />
         </div>
         <audio

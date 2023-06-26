@@ -15,7 +15,7 @@ export interface Database {
           cover_image: string
           description: string
           genre: string
-          id: string
+          id: number
           tags: string[]
           title: string
           video_url: string
@@ -26,7 +26,7 @@ export interface Database {
           cover_image: string
           description: string
           genre: string
-          id?: string
+          id?: never
           tags: string[]
           title: string
           video_url: string
@@ -37,7 +37,7 @@ export interface Database {
           cover_image?: string
           description?: string
           genre?: string
-          id?: string
+          id?: never
           tags?: string[]
           title?: string
           video_url?: string
@@ -45,23 +45,60 @@ export interface Database {
         }
         Relationships: []
       }
-      classic_likes: {
+      classic_comments: {
         Row: {
-          classic_id: string
+          classic_id: number
+          content: string
           created_at: string
-          id: string
+          id: number
           user_id: string
         }
         Insert: {
-          classic_id: string
+          classic_id: number
+          content: string
           created_at?: string
-          id?: string
+          id?: never
           user_id: string
         }
         Update: {
-          classic_id?: string
+          classic_id?: number
+          content?: string
           created_at?: string
-          id?: string
+          id?: never
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "classic_comments_classic_id_fkey"
+            columns: ["classic_id"]
+            referencedRelation: "all_classics"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "classic_comments_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      classic_likes: {
+        Row: {
+          classic_id: number
+          created_at: string
+          id: number
+          user_id: string
+        }
+        Insert: {
+          classic_id: number
+          created_at?: string
+          id?: never
+          user_id: string
+        }
+        Update: {
+          classic_id?: number
+          created_at?: string
+          id?: never
           user_id?: string
         }
         Relationships: [

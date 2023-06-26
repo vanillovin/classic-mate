@@ -1,22 +1,20 @@
+import Link from 'next/link';
 import Image from 'next/image';
 
-import { createServerClient } from '@/utils/supabase-server';
-import Link from 'next/link';
 import MusicPlayer from '@/components/MusicPlayer';
+import { createServerClient } from '@/utils/supabase-server';
 
 export default async function HomePage() {
   const supabase = createServerClient();
-  const { data: { session } } = await supabase.auth.getSession();
   const { data: classics } = await supabase.from('all_classics').select().limit(4);
-  // const { data } = await supabase.from('profiles').select().eq('id', session?.user.id);
-
+  
   return (
-    <div className="bg-white bg-opacity-40 p-4 rounded-sm shadow-sm mt-2 mx-4 mb-4">
-      <h2 className='text-xl sm:text-2xl font-semibold mx-1 mb-2 text-yellow-900 border-b border-yellow-900 pr-4 w-fit'>
+    <div className="bg-white bg-opacity-40 p-4 rounded-sm shadow-sm sm:mt-2 mx-4 mb-4">
+      <h2 className='text-xl sm:text-2xl mb-2 sm:mb-0 font-semibold mx-1 text-yellow-900 border-b border-yellow-900 pr-4 w-fit'>
         오늘의 추천 곡
       </h2>
-      <div className='flex flex-col sm:grid sm:grid-cols-2 sm:grid-rows-4 gap-x-4 gap-y-8'>
-        <div className='col-span-2 p-2 flex items-center justify-center'>
+      <div className='flex flex-col sm:grid sm:grid-cols-2 sm:grid-rows-4 gap-x-4 gap-y-6'>
+        <div className='col-span-2 flex items-center justify-center'>
           <MusicPlayer />
         </div>
 
@@ -37,7 +35,7 @@ export default async function HomePage() {
             뛰어난 작곡가인 Tchaikovsky의 음악적 재능이 빛나는 작품 중 하나로, 클래식 음악을 사랑하는 이들에게 특별한 감동을 선사합니다.
           </p>
           <Link
-            href={`/classics/81e0d86e-1fa4-4d9d-b4d1-22f33b65a96b`}
+            href={`/classics/15`}
             className='px-2 py-1 rounded-sm text-yellow-600 bg-white border border-yellow-600 border-opacity-40 hover:bg-opacity-70 hover:text-yellow-500 transition-all'
           >
             더 보기
@@ -75,7 +73,7 @@ export default async function HomePage() {
             <h2 className='text-xl sm:text-2xl font-semibold mx-1 mb-2 text-yellow-900 border-b border-yellow-900 pr-4 w-fit'>
               인기 클래식
             </h2>
-            <Link href='/classics' className='font-medium text-yellow-700 p-1'>
+            <Link href='/classics' className='font-medium text-yellow-700 p-1 hover:opacity-70 transition-all'>
               모든 클래식 보기
             </Link>
           </div>
@@ -84,13 +82,13 @@ export default async function HomePage() {
               <Link
                 key={classic.id}
                 href={`/classics/${classic.id}`}
-                className='bg-white rounded-sm p-3 flex flex-col hover:bg-yellow-500 hover:bg-opacity-10 transition-all'
+                className='bg-white rounded-sm p-3 flex flex-col hover:bg-yellow-500 hover:bg-opacity-20 transition-all'
               >
                 <h3 className='font-semibold'>{classic.title}</h3>
-                <p className='mt-1 mb-2 leading-5'>{classic.description.substring(0, 60)}..</p>
+                <p className='mt-1 mb-2 leading-5 text-sm sm:text-base'>{classic.description.substring(0, 60)}..</p>
                 <ul className='flex flex-wrap gap-1'>
                   {classic.tags.map(tag => (
-                    <li key={tag} className='px-1 rounded-sm bg-yellow-500 text-white text-sm'>
+                    <li key={tag} className='px-1 rounded-sm bg-yellow-500 text-white text-xs sm:text-sm'>
                       {tag}
                     </li>
                   ))}

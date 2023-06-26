@@ -2,18 +2,19 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+
 import ClassicLikeButton from './ClassicLikeButton';
 
 function ClassicItem({ classic, likes }: { classic: Classic; likes: ClassicLike[] }) {
   return (
     <Link
       href={`/classics/${classic.id}`}
-      className='rounded-md shadow-md p-2 cursor-pointer flex flex-col hover:shadow-lg justify-between bg-white bg-opacity-90 transition-all hover:bg-amber-400 hover:bg-opacity-20'
+      className='rounded-md shadow-md p-2 cursor-pointer flex flex-col hover:shadow-lg justify-between bg-white bg-opacity-90 transition-all hover:bg-yellow-500 hover:bg-opacity-20'
     >
       <div>
         <div className="flex items-center justify-between">
           <h2 className="text-sm sm:text-base font-semibold">{classic.title}</h2>
-          <ClassicLikeButton className='' classicId={classic.id} likes={likes} /> 
+          <ClassicLikeButton classicId={classic.id} likes={likes} /> 
         </div>
         <p className="text-xs sm:text-sm my-1">
           {classic.description.length > 60 ? `${classic.description.substring(0, 60)}...` : classic.description}

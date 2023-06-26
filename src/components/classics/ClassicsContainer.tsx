@@ -1,7 +1,8 @@
 'use client';
 
-import ClassicList from './ClassicList';
 import { useState } from 'react';
+
+import ClassicList from './ClassicList';
 import ClassicSearchForm from './ClassicSearchForm';
 
 function ClassicsContainer({ classics, likes }: {

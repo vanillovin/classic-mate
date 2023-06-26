@@ -1,20 +1,23 @@
 'use client';
 
 import { toast } from 'react-toastify';
-import React, { Children, useState } from 'react';
+import React, { useState } from 'react';
+
 import { useAuth } from '../providers/auth-provider';
 import { useSupabase } from '../providers/supabase-provider';
 
 function ClassicLikeButton({ classicId, likes, className, name }: {
   classicId: string,
   likes: ClassicLike[];
-  className: string;
+  className?: string;
   name?: string;
 }) {
   const auth = useAuth();
   const { supabase } = useSupabase();
   const [isHovered, setIsHovered] = useState(false);
-  const [isLiked, setIsLiked] = useState(!!likes.find(like => like.classic_id === classicId));
+  const [isLiked, setIsLiked] = useState(!!likes.find(
+    like => like.classic_id === classicId
+  ));
 
   const handleHover = () => setIsHovered(!isHovered);
 
