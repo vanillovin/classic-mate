@@ -7,7 +7,7 @@ import { useAuth } from '../providers/auth-provider';
 import { useSupabase } from '../providers/supabase-provider';
 
 function ClassicLikeButton({ classicId, likes, className, name }: {
-  classicId: string,
+  classicId: number,
   likes: ClassicLike[];
   className?: string;
   name?: string;
