@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import Comments from './Comments';
 import notFound from './not-found';
 import { createServerClient } from '@/utils/supabase-server';
 import ClassicLikeButton from '@/components/classics/ClassicLikeButton';
@@ -7,21 +8,26 @@ import ClassicLikeButton from '@/components/classics/ClassicLikeButton';
 export default async function ClassicDetailPage({ params }: { params: { classicId: string } }) {
   const supabase = createServerClient();
   const { data: { user } } = await supabase.auth.getUser();
-  const { data: likes } = await supabase
-    .from('classic_likes')
-    .select()
-    .eq('user_id', user?.id);
   const { data: classics } = await supabase
     .from('all_classics')
     .select('*, classic_likes (classic_id)')
     .eq('id', params.classicId);
+  const { data: comments } = await supabase
+    .from('classic_comments')
+    .select('*')
+    .eq('classic_id', params.classicId)
+    .order('created_at', { ascending: false });
+  const { data: likes } = await supabase
+    .from('classic_likes')
+    .select()
+    .eq('user_id', user?.id);
 
   const classic = classics?.[0];
 
   if (!classic) return notFound();
 
   return (
-    <section className='w-full h-screen flex flex-col items-center p-4'>
+    <section className='w-full flex flex-col items-center p-4'>
       <h1 className='text-xl sm:text-2xl font-semibold'>{classic.title}</h1>
       <ul className='flex items-center text-sm sm:text-base'>
         <li className='mr-1 text-sm sm:text-base'>{classic.composer} ·</li>
@@ -55,6 +61,7 @@ export default async function ClassicDetailPage({ params }: { params: { classicI
           className='w-full h-full rounded-md'
         ></iframe>
       </div>
+      <Comments classicId={params.classicId} comments={comments ?? []} />
     </section>
   );
 }
