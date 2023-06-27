@@ -36,13 +36,13 @@ function TagList({ tags, selectedTags }: TagListProps) {
 
   return (
     <details open>
-      <summary className='text-lg font-semibold'>모든 태그</summary>
+      <summary className='sm:text-lg font-semibold'>모든 태그</summary>
       <div className="flex flex-wrap items-center">
         {tags.map(tag => (
           <button
             key={tag}
             onClick={() => handleTagClick(tag)}
-            className={`rounded-sm p-1 mr-1 mb-1 text-sm sm:text-base 
+            className={`rounded-sm p-1 mr-1 mb-1 text-sm sm:text-base
               ${selectedTags.includes(tag) ? 'bg-violet-400 text-white' : 'bg-white hover:bg-violet-100'}
             `}
           >

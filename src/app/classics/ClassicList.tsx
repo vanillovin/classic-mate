@@ -12,7 +12,7 @@ function ClassicList({ classics, likes }: {
         <ClassicItem key={classic.id} classic={classic} likes={likes} />
       )}
     </div>
-  )
+  );
 }
 
-export default ClassicList
+export default ClassicList;

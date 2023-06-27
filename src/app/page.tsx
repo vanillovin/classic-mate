@@ -9,9 +9,9 @@ export default async function HomePage() {
   const { data: classics } = await supabase.from('all_classics').select().limit(4);
   
   return (
-    <div className="bg-white bg-opacity-40 p-4 rounded-sm shadow-sm sm:mt-2 mx-4 mb-4">
+    <div className="bg-white bg-opacity-40 p-4 rounded-sm shadow-sm mt-2 mx-4 mb-4">
       <h2 className='text-xl sm:text-2xl mb-2 sm:mb-0 font-semibold mx-1 text-yellow-900 border-b border-yellow-900 pr-4 w-fit'>
-        오늘의 추천 곡
+        이주의 추천 곡
       </h2>
       <div className='flex flex-col sm:grid sm:grid-cols-2 sm:grid-rows-4 gap-x-4 gap-y-6'>
         <div className='col-span-2 flex items-center justify-center'>
@@ -73,7 +73,7 @@ export default async function HomePage() {
             <h2 className='text-xl sm:text-2xl font-semibold mx-1 mb-2 text-yellow-900 border-b border-yellow-900 pr-4 w-fit'>
               인기 클래식
             </h2>
-            <Link href='/classics' className='font-medium text-yellow-700 p-1 hover:opacity-70 transition-all'>
+            <Link href='/classics' className='font-medium text-yellow-700 p-1 hover:opacity-70 transition-all text-sm sm:text-base'>
               모든 클래식 보기
             </Link>
           </div>
@@ -82,7 +82,7 @@ export default async function HomePage() {
               <Link
                 key={classic.id}
                 href={`/classics/${classic.id}`}
-                className='bg-white rounded-sm p-3 flex flex-col hover:bg-yellow-500 hover:bg-opacity-20 transition-all'
+                className='bg-white rounded-sm p-2 sm:p-3 flex flex-col hover:bg-yellow-500 hover:bg-opacity-20 transition-all'
               >
                 <h3 className='font-semibold'>{classic.title}</h3>
                 <p className='mt-1 mb-2 leading-5 text-sm sm:text-base'>{classic.description.substring(0, 60)}..</p>

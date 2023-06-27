@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import ClassicLikeButton from './ClassicLikeButton';
+import ClassicLikeButton from '@/components/classics/ClassicLikeButton';
 
 function ClassicItem({ classic, likes }: { classic: Classic; likes: ClassicLike[] }) {
   return (

@@ -13,9 +13,9 @@ function ClassicList({ classics, selectedTags }: ClassicListProps) {
         <Link
           href={`/classics/${classic.id}`}
           key={classic.id}
-          className="border border-white rounded-sm p-2 bg-white bg-opacity-60 hover:bg-opacity-90 transition-all"
+          className="border border-white rounded-sm p-1 sm:p-2 bg-white bg-opacity-60 hover:bg-opacity-90 transition-all"
         >
-          <p className="font-medium">{classic.title}</p>
+          <p className="font-medium text-sm sm:text-base">{classic.title}</p>
           <ul className='flex flex-wrap mt-1'>
             {classic.tags.map(tag =>
               <li

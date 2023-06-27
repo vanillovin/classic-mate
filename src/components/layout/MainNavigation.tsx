@@ -34,8 +34,7 @@ function MainNavigation() {
     <header className={`w-full max-w-6xl flex items-center justify-between bg-white px-3 sm:px-6 h-12 sm:h-16 fixed shadow-sm z-50 ${isScrolled ? 'bg-opacity-100 transition-all shadow-md' : 'bg-opacity-70'}`}>
       <Link
         href='/'
-        className='text-xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 
-          to-yellow-600 animate-fade-in'
+        className='text-xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-600 animate-fade-in'
       >
         {siteConfig.name}
         <span className='text-xs ml-1 hidden sm:inline'>당신의 클래식 메이트</span>

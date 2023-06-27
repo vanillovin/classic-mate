@@ -19,7 +19,7 @@ function TagsContainer({ classics, selectedTags }: TagContainerProps) {
     : classics.filter(classic => [...selectedTags, tagInput].some(tag => classic.tags.includes(tag)));
     
   return (
-    <>
+    <div className='p-4'>
       <ClassicSearchForm
         value={tagInput}
         onChange={(e) => setTagInput(e.target.value)}
@@ -28,7 +28,7 @@ function TagsContainer({ classics, selectedTags }: TagContainerProps) {
       />
       <TagList tags={tags} selectedTags={[...selectedTags, tagInput]} />
       <ClassicList classics={filteredClassics} selectedTags={[...selectedTags, tagInput]} />
-    </>
+    </div>
   );
 }
 

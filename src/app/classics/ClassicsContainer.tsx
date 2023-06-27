@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 import ClassicList from './ClassicList';
-import ClassicSearchForm from './ClassicSearchForm';
+import ClassicSearchForm from '@/components/classics/ClassicSearchForm';
 
 function ClassicsContainer({ classics, likes }: {
   classics: Classic[];
@@ -13,6 +13,7 @@ function ClassicsContainer({ classics, likes }: {
   const filterdClassics = classics.filter(classic =>
     classic?.title?.toLowerCase().includes(searchQuery.toLowerCase())
   );
+  
   const results = searchQuery ? filterdClassics : classics;
 
   return (
