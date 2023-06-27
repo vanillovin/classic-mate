@@ -52,6 +52,7 @@ export interface Database {
           created_at: string
           id: number
           nickname: string
+          updated_at: string | null
           user_id: string
         }
         Insert: {
@@ -60,6 +61,7 @@ export interface Database {
           created_at?: string
           id?: never
           nickname: string
+          updated_at?: string | null
           user_id: string
         }
         Update: {
@@ -68,6 +70,7 @@ export interface Database {
           created_at?: string
           id?: never
           nickname?: string
+          updated_at?: string | null
           user_id?: string
         }
         Relationships: [

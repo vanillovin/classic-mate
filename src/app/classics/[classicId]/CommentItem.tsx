@@ -4,21 +4,23 @@ import Link from 'next/link';
 import { toast } from 'react-toastify';
 import React, { useState } from 'react';
 
-import { useSupabase } from '@/components/providers/supabase-provider';
 import { useQueryClient } from '@tanstack/react-query';
+import { useAuth } from '@/components/providers/auth-provider';
+import { useSupabase } from '@/components/providers/supabase-provider';
 
 function CommentItem({ comment }: { comment: ClassicComment }) {
+  const { user } = useAuth();
   const { supabase } = useSupabase();
   const queryClient = useQueryClient();
   const [isEditing, setIsEditing] = useState(false);
   const [content, setContent] = useState(comment.content);
   
   async function handleEditComment() {
+    if (comment.content === content) return;
     const { error } = await supabase
       .from('classic_comments')
-      .update({ content })
+      .update({ content, updated_at: new Date().toISOString() })
       .eq('id', comment.id);
-      
     if (!error) {
       setIsEditing(false);
       queryClient.invalidateQueries(['classicComments', String(comment.classic_id)]);
@@ -34,7 +36,6 @@ function CommentItem({ comment }: { comment: ClassicComment }) {
       .from('classic_comments')
       .delete()
       .eq('id', comment.id);
-
     if (!error) {
       toast.success('댓글 삭제 완료');
       queryClient.invalidateQueries(['classicComments', String(comment.classic_id)]);
@@ -46,39 +47,45 @@ function CommentItem({ comment }: { comment: ClassicComment }) {
   return (
     <li
       key={comment.id}
-      className='first:border-t border-b border-white bg-white bg-opacity-40 p-2'
+      className='border-b last:border-none border-white bg-white bg-opacity-40 p-2'
     >
       {!isEditing ? (
         <>
           <div className='flex items-center justify-between'>
-            <div>
+            <div className='flex items-center'>
               <Link
                 href={`/profile/${comment.user_id}`}
                 className='font-medium hover:underline'
               >
                 {comment.nickname}
               </Link>
-              <span className='text-sm ml-1 text-yellow-800'>
-                {comment.created_at.split('T')[0]}
-                {/* <span className='ml-1'>{comment.created_at.split('T')[1].split('.')[0].substring(0, 5)}</span> */}
+              <span className='text-2xs sm:text-xs ml-1 text-yellow-800'>
+                {formatTimestamp(comment.created_at)}
               </span>
+              {comment.created_at !== comment?.updated_at && (
+                <span className='text-2xs sm:text-xs ml-1 text-yellow-800'>
+                  ·<span className='ml-1 text-rose-800'>수정됨</span>
+                </span>
+              )}
             </div>
-            <div className='flex gap-1'>
-              <button 
-                className='text-gray-800 text-sm px-1 hover:text-yellow-500 transition-all' 
-                onClick={() => setIsEditing(true)}
-              >
-                수정
-              </button>
-              <button 
-                className='text-gray-800 text-sm px-1 hover:text-rose-500 transition-all' 
-                onClick={handleDeleteComment}
-              >
-                삭제
-              </button>
-            </div>
+            {user?.id === comment.user_id && (
+              <div className='flex gap-1'>
+                <button 
+                  className='text-gray-800 text-sm px-1 hover:text-yellow-500 transition-all' 
+                  onClick={() => setIsEditing(true)}
+                >
+                  수정
+                </button>
+                <button 
+                  className='text-gray-800 text-sm px-1 hover:text-rose-500 transition-all' 
+                  onClick={handleDeleteComment}
+                >
+                  삭제
+                </button>
+              </div>
+            )}
           </div>
-          <p className=''>{comment.content}</p>
+          <p className='py-1'>{comment.content}</p>
         </>
       ) : (
         <>
@@ -108,3 +115,29 @@ function CommentItem({ comment }: { comment: ClassicComment }) {
 }
 
 export default CommentItem;
+
+function formatTimestamp(timestamp: string): string {
+  const currentDate: Date = new Date();
+  const inputDate: Date = new Date(timestamp);
+  const diffInMilliseconds: number = currentDate.getTime() - inputDate.getTime();
+  const diffInSeconds: number = Math.floor(diffInMilliseconds / 1000);
+  const diffInMinutes: number = Math.floor(diffInSeconds / 60);
+  const diffInHours: number = Math.floor(diffInMinutes / 60);
+  const diffInDays: number = Math.floor(diffInHours / 24);
+  const diffInMonths: number = Math.floor(diffInDays / 30);
+  const diffInYears: number = Math.floor(diffInMonths / 12);
+
+  if (diffInSeconds < 60) {
+    return '방금 전';
+  } else if (diffInMinutes < 60) {
+    return `${diffInMinutes}분 전`;
+  } else if (diffInHours < 24) {
+    return `${diffInHours}시간 전`;
+  } else if (diffInDays < 30) {
+    return `${diffInDays}일 전`;
+  } else if (diffInMonths < 12) {
+    return `${diffInMonths}달 전`;
+  } else {
+    return `${diffInYears}년 전`;
+  }
+}

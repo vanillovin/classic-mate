@@ -17,7 +17,9 @@ function CommentForm({ classicId }: { classicId: string }) {
   const [inputs, setInputs] = useState(initialInputs);
   const { nickname, content } = inputs;
 
-  function handleChangeInputs(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+  const isButtonDisabled = nickname.trim().length < 1 || content.replace(/\s/g, '').length < 1;
+
+  function handleChangeInputs(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
     setInputs(prev => ({ ...prev, [name]: value }));
   }
@@ -47,30 +49,33 @@ function CommentForm({ classicId }: { classicId: string }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className='flex flex-col'>
-      <div className='flex gap-2'>
+    <form onSubmit={handleSubmit} className='flex flex-col gap-y-2'>
+      <div className='w-full flex gap-1'>
         <input
           name="nickname"
           placeholder="이름"
           value={nickname}
           onChange={handleChangeInputs}
-          className="rounded-sm p-1"
+          maxLength={10}
+          className="w-1/6 rounded-sm p-1"
           required
         />
-        {/* <input type="password" name="password" placeholder="비밀번호" className="rounded-sm" required /> */}
+        <input
+          name="content"
+          placeholder="내용"
+          value={content}
+          onChange={handleChangeInputs}
+          minLength={4}
+          className="w-5/6 rounded-sm p-1 "
+          required
+        />
       </div>
-      <textarea
-        name="content"
-        placeholder="내용"
-        value={content}
-        onChange={handleChangeInputs}
-        minLength={4}
-        className="rounded-sm my-2 p-1 min-h-20 max-h-40 "
-        required
-      />
       <button
         type='submit'
-        className='font-medium bg-yellow-600 bg-opacity-60 rounded-sm p-1 text-white hover:bg-opacity-80 transition-all'
+        disabled={isButtonDisabled}
+        className={`font-medium bg-yellow-600 bg-opacity-60 rounded-sm p-1 text-white 
+          ${!isButtonDisabled && 'hover:bg-opacity-80 transition-all'}
+        `}
       >
         댓글 달기
       </button>
