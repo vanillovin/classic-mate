@@ -38,8 +38,8 @@ export default function LoginForm() {
       <input 
         type="email"
         name="email" 
-        placeholder="name@example.com"
-        className="bg-white bg-opacity-70 py-1 px-2 rounded-sm mb-2 placeholder:text-sm"
+        placeholder="이메일"
+        className="bg-white shadow-md bg-opacity-70 py-1 px-2 rounded-sm mb-2 placeholder:text-sm"
         autoFocus
         required
       />
@@ -47,13 +47,13 @@ export default function LoginForm() {
         type="password"
         placeholder="비밀번호"
         name="password"
-        className="bg-white bg-opacity-70 py-1 px-2 rounded-sm mb-2 placeholder:text-sm"
+        className="bg-white shadow-md bg-opacity-70 py-1 px-2 rounded-sm mb-2 placeholder:text-sm"
         required
       />
       <button
         type="submit"
         disabled={isLoading}
-        className="flex items-center justify-center bg-yellow-700 bg-opacity-50 p-2 font-medium text-sm rounded-sm hover:opacity-70 transition-all"
+        className="flex items-center justify-center p-2 font-medium text-sm rounded-sm hover:opacity-70 transition-all text-white bg-warm-vintage-burnt-orange shadow-md"
       >
         이메일로 로그인
         {isLoading && 

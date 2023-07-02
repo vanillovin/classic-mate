@@ -17,7 +17,7 @@ function ClassicsContainer({ classics, likes }: {
   const results = searchQuery ? filterdClassics : classics;
 
   return (
-    <div className='p-4'>
+    <div className='p-6'>
       <ClassicSearchForm
         value={searchQuery}
         onClick={() => setSearchQuery('')}

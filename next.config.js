@@ -12,7 +12,6 @@ const nextConfig = {
         pathname: '/**',
       },
       {
-        // https://source.unsplash.com/random/?piano
         protocol: 'https',
         hostname: 'source.unsplash.com',
         port: '',
@@ -21,6 +20,12 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 't4.ftcdn.net',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'as1.ftcdn.net',
         port: '',
         pathname: '/**',
       },

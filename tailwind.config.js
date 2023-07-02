@@ -8,6 +8,67 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'warm-vintage': {
+          'off-white': '#fef9f0',
+          'burnt-orange': '#b48b5e',
+          'dusty-mint': '#b8c5bd',
+          'winter-green': '#667061',
+          'granite': '#b5b0a3',
+        },
+        'autumn': {
+          'wine': '#6e0e29',
+          'darkred': '#8c0200',
+          'darkblue': '#041831',
+          'emerald': '#0b4839',
+          'gold': '#ddae66',
+        },
+        'palette-no16': {
+          'red': '#782924',
+          'blue': '#782924',
+          'yellow': '#DC9E2F',
+          'gray': '#8A8A8A',
+          'green': '#0C463F',
+          'black': '#101010',
+        },
+        'bluegold-palette': {
+          'blue1': '#B9D1EA',
+          'blue2': '618ABB',
+          'blue3': '00235E',
+          'yellow': 'FDBA21',
+        },
+        'simple-palette': {
+          'gold': '#e0c389',
+          'blue1': '#d1e6f7',
+          'blue-2': '#01395e',
+        },
+        'old-palette': {
+          'blue': '#04385d',
+          'cream': '#fbf6e0',
+          'gold': '#e0c367',
+          'gray': '#ccc6b8',
+          'wine': '#8b123b',
+        },
+        'vintage-holiday': {
+          'cyan': '#232d34',
+          'red': '#8a0e0a',
+          'gray': '#627272',
+          'green': '#25340f',
+          'yellow': '#ecba66',
+          'brown': '#6e4b4d',
+        },
+        'pantone': {
+          'berkeley-blue': '#003262',
+          'california-gold': '#FDB515',
+          'metallic-gold': '#BC9B64',
+          'dark-navy': '#2e2f36',
+          'brandy-sniffer': '#7e3f3a',
+          'pale-gold': '#bd9865',
+          'white-pepper': '#b6a893',
+          'babys-breath': '#e9e2d1',
+          'sun-kiss': '#ebd1bb',
+        }
+      },
       fontSize: {
         '2xs': '.5rem',
       },

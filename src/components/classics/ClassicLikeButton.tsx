@@ -64,12 +64,12 @@ function ClassicLikeButton({ classicId, likes, className, name }: {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-5 h-5 sm:w-6 sm:h-6 hover:text-rose-700"
+          className="w-5 h-5 sm:w-6 sm:h-6 hover:text-vintage-holiday-red"
         >
           <path
             strokeLinecap="round"
             strokeLinejoin="round" d="M21 8.26c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-            className="text-rose-700"
+            className="text-vintage-holiday-red"
           />
         </svg>
         {name && <span className='text-sm sm:text-base'>{name}</span>}

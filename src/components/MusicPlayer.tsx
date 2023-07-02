@@ -1,13 +1,30 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+
+type TimeOfDay = 'morning' | 'afternoon' | 'evening' | 'night';
 
 function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
+  const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>('morning');
+
+  useEffect(() => {
+    const currentTime = new Date().getHours();
+
+    if (currentTime >= 5 && currentTime < 12) {
+      setTimeOfDay('morning');
+    } else if (currentTime >= 12 && currentTime < 17) {
+      setTimeOfDay('afternoon');
+    } else if (currentTime >= 17 && currentTime < 20) {
+      setTimeOfDay('evening');
+    } else {
+      setTimeOfDay('night');
+    }
+  }, []);
 
   const playAudio = () => {
     audioRef.current?.play();
@@ -33,11 +50,24 @@ function MusicPlayer() {
   };
   
   const progressValue = isNaN((currentTime / duration) * 100) ? 0 : (currentTime / duration) * 100;
-  
+
+  const backgroundImageURLs = {
+    morning: '/morning-sky.jpg',
+    afternoon: '/afternoon-sky.jpg',
+    evening: '/evening-sky.jpg',
+    night: '/night-sky.jpg',
+  } as const;
+
+  const textColor = timeOfDay === 'morning' || timeOfDay === 'afternoon' ? 'text-black' : 'text-white';
+
   return (
-    <div className='w-full flex flex-col sm:flex-row items-center bg-white bg-opacity-40 p-4 rounded-sm shadow-sm select-none'>
+    <div
+      style={{ backgroundImage: `url(${backgroundImageURLs[timeOfDay]})` }}
+      className={`w-full h-full p-6 sm:p-12 flex flex-col sm:flex-row items-center bg-center bg-cover 
+        rounded-sm shadow-md select-none`}
+    >
       <div className='flex relative items-center justify-between'>
-        <div className='w-28 h-28 sm:w-48 sm:h-48 relative overflow-hidden rounded-sm z-10 shadow-lg -ml-16 sm:ml-0'>
+        <div className='w-28 h-28 sm:w-36 sm:h-36 relative overflow-hidden rounded-sm z-10 shadow-lg -ml-16 sm:ml-0'>
           <Image
             fill={true}
             alt=''
@@ -47,7 +77,7 @@ function MusicPlayer() {
           <div className='absolute top-0 left-0 w-full h-full flex items-center justify-center'>
             <button
               onClick={!isPlaying ? playAudio : pauseAudio}
-              className='p-4'
+              className='p-4 hover:opacity-80'
             >
               {!isPlaying ? (
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-8 sm:w-10 h-8 sm:h-10 text-white opacity-80">
@@ -61,8 +91,10 @@ function MusicPlayer() {
             </button>
           </div>
         </div>
-        <div className="absolute -left-2 sm:left-24 w-28 h-28 sm:w-48 sm:h-48 bg-black rounded-full overflow-hidden shadow-lg">
-          <div className={`w-full h-full bg-center bg-no-repeat bg-contain ${isPlaying ? 'animate-spin-slow' : ''}`}>
+        <div className="absolute -left-2 sm:left-16 w-28 h-28 sm:w-36 sm:h-36 bg-black rounded-full overflow-hidden shadow-lg">
+          <div className={`w-full h-full bg-center bg-no-repeat bg-contain
+            ${isPlaying ? 'animate-spin-slow' : ''}
+          `}>
             <Image src="/cd.png" alt="CD" fill className="w-full h-full" />
           </div>
         </div>
@@ -73,7 +105,8 @@ function MusicPlayer() {
           <progress
             max={100}
             value={progressValue}
-            className='w-full [&::-webkit-progress-bar]:h-2 [&::-webkit-progress-bar]:rounded-lg [&::-webkit-progress-value]:rounded-lg [&::-webkit-progress-bar]:bg-gray-200 [&::-webkit-progress-value]:bg-black [&::-moz-progress-bar]:bg-black'
+            className='w-full [&::-webkit-progress-bar]:h-2 [&::-webkit-progress-bar]:rounded-lg [&::-webkit-progress-value]:rounded-lg 
+              [&::-webkit-progress-bar]:bg-gray-200 [&::-webkit-progress-value]:bg-black [&::-moz-progress-bar]:bg-black'
           ></progress>
           <input
             type="range"
@@ -90,7 +123,9 @@ function MusicPlayer() {
           onLoadedMetadata={updateProgress}
           src='/손열음 Yeol Eum Son - 차이코프스키 피아노협주곡 1번 1악장.mp3'
         />
-        <div className='text-base sm:text-lg font-light'>Tchaikovsky: Piano Concerto No.1 1st Movement / Yeol Eum Son</div>
+        <div className={`text-base sm:text-lg text-center font-light drop-shadow-sm ${textColor}`}>
+          Tchaikovsky: Piano Concerto No.1 1st Movement / Yeol Eum Son
+        </div>
       </div>
     </div>
   );

@@ -14,7 +14,7 @@ export default async function RegisterPage() {
       >
         <h1 className='text-2xl font-semibold'>회원가입</h1>
         <RegisterForm />
-        <Link href='/login' className='text-sm underline underline-offset-4'>
+        <Link href='/login' className='text-sm underline underline-offset-4 text-pantone-brandy-sniffer'>
           계정이 있으신가요? 로그인하기
         </Link>
       </div>

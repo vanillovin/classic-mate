@@ -21,7 +21,7 @@ export default async function LoginPage() {
       >
         <h1 className='text-2xl font-semibold'>로그인</h1>
         <LoginForm />
-        <Link href='/register' className='text-sm underline underline-offset-4'>
+        <Link href='/register' className='text-sm underline underline-offset-4 text-pantone-brandy-sniffer'>
           계정이 없으신가요? 가입하기
         </Link>
       </div>
