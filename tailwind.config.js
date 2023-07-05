@@ -40,7 +40,7 @@ module.exports = {
         'simple-palette': {
           'gold': '#e0c389',
           'blue1': '#d1e6f7',
-          'blue-2': '#01395e',
+          'blue2': '#01395e',
         },
         'old-palette': {
           'blue': '#04385d',
@@ -69,6 +69,21 @@ module.exports = {
           'sun-kiss': '#ebd1bb',
         }
       },
+      width: {
+        '68': '17rem',
+        '76': '19rem',
+        '84': '21rem',
+        '91': '23rem',
+        '100': '25rem',
+        '104': '26rem',
+      },
+      height: {
+        '76': '19rem',
+        '84': '22rem',
+        '88': '23rem',
+        '92': '24rem',
+        '100': '25rem',
+      },
       fontSize: {
         '2xs': '.5rem',
       },
@@ -96,15 +111,34 @@ module.exports = {
           'from': { opacity: '1' },
           'to': { opacity: '0.5' },
         },
+        'tada': {
+          '0%': { transform: 'scale(1)' },
+          '10%, 20%': { transform: 'rotate(-2deg)' },
+          '30%, 50%, 70%, 90%': { transform: 'rotate(2deg)' },
+          '40%, 60%, 80%': { transform: 'rotate(-2deg)' },
+          '100%': { transform: 'rotate(0)' },
+        },
         'animatePiano': {
           '0%': { transform : 'translateY(0)' },
           '50%': { transform: 'translateY(40px)' },
           '100%': { transform: 'translateY(0)' },
         },
+        'slide-up': {
+          '0%': {
+            transform: 'translateY(50%)',
+            opacity: '0',
+          },
+          '100%': {
+            transform: 'translateY(0)',
+            opacity: '1',
+          },
+        }
       },
       animation: {
         'spin-slow': 'spin 3s linear infinite',
         'fade-in': 'fade-in 2s alternate infinite linear',
+        'tada': 'tada 1s alternate linear',
+        'on-scroll': 'slide-up 0.5s ease-in-out',
         'animate-piano-delay-1': 'animatePiano 1s infinite 0.01s',
         'animate-piano-delay-2': 'animatePiano 1s infinite 0.03s',
         'animate-piano-delay-3': 'animatePiano 1s infinite 0.05s',
@@ -123,5 +157,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }

@@ -29,6 +29,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "daisyui": "^3.1.7",
     "supabase": "^1.64.8"
   }
 }
