@@ -19,6 +19,12 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 't3.ftcdn.net',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: 't4.ftcdn.net',
         port: '',
         pathname: '/**',
@@ -26,6 +32,12 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'as1.ftcdn.net',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'openweathermap.org',
         port: '',
         pathname: '/**',
       },

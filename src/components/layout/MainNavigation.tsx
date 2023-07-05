@@ -12,9 +12,6 @@ function MainNavigation() {
   const { user } = useAuth();
   const pathname = usePathname();
   const [scrollY, setScrollY] = useState(0);
-  
-  const isClassics = pathname === '/classics';
-  const isTags = pathname === '/tags';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,19 +41,66 @@ function MainNavigation() {
         {siteConfig.name}
         <span className='text-xs ml-1 hidden sm:inline'>당신의 클래식 메이트</span>
       </Link>
-      <nav className='flex font-medium text-sm sm:text-base'>
-        <Link 
-          href='/classics' 
-          className={`mr-2 sm:mr-4 transition-all ${isClassics ? 'text-vintage-holiday-brown' : 'text-pantone-metallic-gold hover:text-vintage-holiday-brown'}`}
-        >
-          모든 클래식
-        </Link>
-        <Link 
-          href='/tags' 
-          className={`mr-2 sm:mr-4 transition-all ${isTags ? 'text-vintage-holiday-brown' : 'text-pantone-metallic-gold hover:text-vintage-holiday-brown'}`}
-        >
-          태그로 찾기
-        </Link>
+      <div className="sm:hidden dropdown dropdown-end">
+        <label tabIndex={0} className="group cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-pantone-pale-gold">
+            <path fillRule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clipRule="evenodd" />
+          </svg>
+        </label>
+        <ul tabIndex={0} className="menu dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+          {user &&
+            <li>
+              <Link
+                href={`/profile/${user.id}`}
+                className='font-semibold rounded-bl-none rounded-br-none bg-pantone-sun-kiss'
+              >
+                {user.email?.split('@')[0]}님
+              </Link>
+            </li>
+          }
+          {
+            siteConfig.mainNav.slice(1, siteConfig.mainNav.length).map((nav, index) => (
+              <li key={index}>
+                <Link
+                  href={nav.href}
+                  className={`
+                    ${index === 0 ? 'rounded-bl-none rounded-br-none' : 'rounded-none'}
+                    ${pathname === nav.href && 'hover:bg-pantone-babys-breath bg-pantone-babys-breath'}
+                  `}>
+                  {nav.title}
+                </Link>
+              </li> 
+            ))
+          }
+          {!user ? (
+            <li>
+              <Link href={'/login'} className='font-semibold rounded-tl-none rounded-tr-none bg-pantone-sun-kiss'>
+                로그인·회원가입
+              </Link>
+            </li>
+          ) : (
+            <li>
+              <SignOutButton className='font-semibold rounded-tl-none rounded-tr-none text-vintage-holiday-red bg-warm-vintage-off-white'>  
+                로그아웃
+              </SignOutButton>
+            </li>
+          )}
+        </ul>
+      </div>
+      <nav className='hidden sm:flex font-medium text-sm sm:text-base'>
+        {
+          siteConfig.mainNav.slice(1, siteConfig.mainNav.length).map((nav, index) => (
+            <Link 
+              key={index}
+              href={nav.href}
+              className={`mr-2 sm:mr-4 transition-all 
+                ${pathname === nav.href ? 'text-vintage-holiday-brown' : 'text-pantone-metallic-gold hover:text-vintage-holiday-brown'}
+              `}
+            >
+              {nav.title}
+            </Link>
+          ))
+        }
         {user ? (
           <div className='flex items-center'>
             <Link href={`/profile/${user.id}`} className='text-vintage-holiday-brown hover:text-yellow-500 transition-all mr-2'>

@@ -14,6 +14,14 @@ export const siteConfig = {
       href: "/classics",
     },
     {
+      title: "추천 클래식",
+      href: "/picks",
+    },
+    {
+      title: "모든 작곡가",
+      href: "/artists",
+    },
+    {
       title: "태그로 찾기",
       href: "/tags",
     },
