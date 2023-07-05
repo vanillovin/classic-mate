@@ -31,7 +31,7 @@ export default async function RootLayout({
   
   return (
     <html lang="en">
-      <body>
+      <body className='example'>
         <Providers>
           <SupabaseProvider session={session}>
             <SupabaseListener serverAccessToken={session?.access_token} />

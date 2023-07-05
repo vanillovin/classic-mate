@@ -14,3 +14,14 @@ body {
 input[type='range']::-webkit-slider-thumb {
   @apply appearance-none bg-black rounded-full w-3 h-3;
 }
+
+/* 클래스명이 example인 요소의 스크롤바를 숨기는 코드 */
+
+.example::-webkit-scrollbar {
+  display: none;
+}
+
+.example {
+  -ms-overflow-style: none;  /* IE and 엣지 */
+  scrollbar-width: none;  /* 파이어폭스 */
+}
