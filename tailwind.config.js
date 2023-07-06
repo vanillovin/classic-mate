@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'mobile': '480px',
+      },
       colors: {
         'warm-vintage': {
           'off-white': '#fef9f0',

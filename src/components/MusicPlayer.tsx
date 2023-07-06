@@ -7,6 +7,7 @@ type TimeOfDay = 'morning' | 'afternoon' | 'evening' | 'night';
 
 function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isFullScreen, setIsFullScreen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -63,11 +64,13 @@ function MusicPlayer() {
   return (
     <div
       style={{ backgroundImage: `url(${backgroundImageURLs[timeOfDay]})` }}
-      className={`w-full h-full p-6 sm:p-12 flex flex-col sm:flex-row items-center bg-center bg-cover 
-        rounded-sm shadow-md select-none`}
+      className={`relative w-full h-full p-6 sm:p-12 flex flex-col sm:flex-row items-center bg-center bg-cover 
+        rounded-sm shadow-md select-none
+        ${isFullScreen ? 'h-screen' : ''}
+      `}
     >
       <div className='flex relative items-center justify-between'>
-        <div className='w-28 h-28 sm:w-36 sm:h-36 relative overflow-hidden rounded-sm z-10 shadow-lg -ml-16 sm:ml-0'>
+        <div className='w-28 h-28 sm:w-36 sm:h-36 relative overflow-hidden rounded-sm shadow-lg -ml-16 sm:ml-0 z-[1]'>
           <Image
             fill={true}
             alt=''
@@ -126,6 +129,20 @@ function MusicPlayer() {
         <div className={`text-base sm:text-lg text-center font-light drop-shadow-sm ${textColor}`}>
           Tchaikovsky: Piano Concerto No.1 1st Movement / Yeol Eum Son
         </div>
+        <button
+          onClick={() => setIsFullScreen(!isFullScreen)}
+          className='hidden sm:block absolute text-white bottom-4 right-4'
+        >
+          {!isFullScreen ? (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+            </svg>
+          ) : (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM13.5 10.5h-6" />
+            </svg>
+          )}
+        </button>
       </div>
     </div>
   );
