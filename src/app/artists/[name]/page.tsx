@@ -17,12 +17,13 @@ export default async function ArtistDetailPage({ params }: { params: { name: str
   return (
     <div className='p-6 flex flex-col gap-y-6'>
       <section className='flex flex-col sm:flex-row gap-2'>
-        <div className='flex items-center justify-center w-full sm:w-[250px] h-[400px] sm:h-[350px] relative overflow-hidden border border-pantone-pale-gold rounded-sm'>
+        <div className='flex items-center justify-center w-full sm:w-[250px] h-[400px] sm:h-[350px] 
+          relative overflow-hidden border border-pantone-metallic-gold rounded-sm shadow-sm'>
           <Image
             src={data.image}
             alt={`${data.englishName} profile image`}
             fill
-            className="w-full h-full rounded-sm"
+            className="w-full h-full"
           />
         </div>
         <div className='flex-1 p-2'>
@@ -39,7 +40,8 @@ export default async function ArtistDetailPage({ params }: { params: { name: str
             <Link
               key={classic.id}
               href={`/classics/${classic.id}`}
-              className='rounded-sm p-4 bg-gradient-conic from-pantone-babys-breath to-old-palette-gold hover:to-pantone-metallic-gold transition-all'
+              className='rounded-sm p-4 bg-gradient-conic from-pantone-babys-breath to-old-palette-gold 
+                hover:to-pantone-metallic-gold shadow-sm transition-all'
             >
               <h3 className='font-semibold'>{classic.title}</h3>
               <p className='text-sm'>
