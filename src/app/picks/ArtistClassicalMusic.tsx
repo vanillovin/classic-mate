@@ -4,19 +4,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
-import { artists } from '../artists/api';
+import { type Artist, artists } from '../artists/api';
 
 function ArtistClassicalMusic() {
   const [index, setIndex] = useState(0);
-  const [isSmSize, setIsSmSize] = useState(false);
-    
-  const data = isSmSize
-    ? [artists[index]]
-    : artists.slice(index * 4, index * 4 + 4);
-    
+  const [isSmSize, setIsSmSize] = useState<boolean | null>(null);
+  const [data, setData] = useState<Artist[] | null>(null);
+
   useEffect(() => {
     const handleResize = () => {
-      setIsSmSize(window.innerWidth <= 640);
+      setIsSmSize(window.innerWidth <= 800);
     };
     // 초기 렌더링 시 크기 확인
     handleResize();
@@ -31,6 +28,14 @@ function ArtistClassicalMusic() {
   useEffect(() => {
     if (isSmSize) setIndex(0);
   }, [isSmSize]);
+
+  // isSmSize 값이 변경될 때마다 data 변수를 업데이트
+  useEffect(() => {
+    const updatedData = isSmSize
+      ? [artists[index]]
+      : artists.slice(index * 4, index * 4 + 4);
+    setData(updatedData);
+  }, [isSmSize, index]);
 
   function handlePrevIndex() {
     setIndex(prevIndex =>
@@ -52,7 +57,7 @@ function ArtistClassicalMusic() {
     <div className='flex items-center justify-center'>
       <Button type='prev' onClick={handlePrevIndex} />
       <div className='flex items-center justify-center sm:gap-4 flex-1 my-0 '>
-        {data.map(artist => (
+        {data?.map(artist => (
           <div
             key={artist.id}
             className='group relative p-2 bg-white shadow-md border border-black rounded-sm w-56 h-72 flex flex-col items-center justify-center'

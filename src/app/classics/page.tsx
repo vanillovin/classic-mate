@@ -7,5 +7,9 @@ export default async function ClassicsPage() {
   const { data: classics } = await supabase.from('all_classics').select();
   const { data: likes } = await supabase.from('classic_likes').select().eq('user_id', user?.id);
   
-  return <ClassicsContainer classics={classics ?? []} likes={likes ?? []} />;
+  return (
+    <div className='p-3 sm:p-6'>
+      <ClassicsContainer classics={classics ?? []} likes={likes ?? []} />
+    </div>
+  );
 }

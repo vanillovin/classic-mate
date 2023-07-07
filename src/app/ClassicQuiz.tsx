@@ -15,7 +15,7 @@ function ClassicQuiz() {
 
   const currentDate = new Date().toISOString().split('T')[0];
   const currentDay = new Date().toLocaleDateString(undefined, { weekday: 'long' });
-  const currentQuiz = quizData[currentDate] ?? quizData['2023-07-06'];
+  const currentQuiz = quizData[currentDate] ?? quizData['2023-07-07'];
 
   const renderOptions = () => {
     return currentQuiz.options.map((option, index) => (
@@ -34,7 +34,7 @@ function ClassicQuiz() {
 
   return (
     <div className="w-full p-4 bg-white border border-black rounded-sm shadow-md text-center">
-      <h2 className="flex flex-col items-center justify-center font-semibold text-2xl sm:text-3xl gap-1 drop-shadow-md">
+      <h2 className="flex flex-col items-center justify-center font-semibold text-2xl sm:text-3xl gap-2 drop-shadow-md">
         <span className='text-sm sm:text-base bg-autumn-gold px-2 py-1 rounded-full'>
           {currentDate.replaceAll('-', '. ')} {currentDay}
         </span>
@@ -62,11 +62,6 @@ function ClassicQuiz() {
 export default ClassicQuiz;
 
 const quizData: QuizData = {
-  '2023-07-06': {
-    question: '비발디의 대표작은?',
-    options: ['운명교향곡', '사계', '로망스', '터키행진곡'],
-    answer: 1,
-  },
   '2023-07-07': {
     question: '베토벤의 9번 교향곡은 몇 번이라고 불리나요?',
     options: ['비창', '명곡', '운명', '영광'],
@@ -81,5 +76,10 @@ const quizData: QuizData = {
     question: '다음 중 가장 짧은 음표는?',
     options: ['♩', '♪', '♫', '♬'],
     answer: 0,
+  },
+  '2023-07-10': {
+    question: '비발디의 대표작은?',
+    options: ['운명교향곡', '사계', '로망스', '터키행진곡'],
+    answer: 1,
   },
 };

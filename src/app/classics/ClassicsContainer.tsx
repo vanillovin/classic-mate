@@ -17,7 +17,7 @@ function ClassicsContainer({ classics, likes }: {
   const results = searchQuery ? filterdClassics : classics;
 
   return (
-    <div className='p-6'>
+    <>
       <ClassicSearchForm
         value={searchQuery}
         onClick={() => setSearchQuery('')}
@@ -25,7 +25,7 @@ function ClassicsContainer({ classics, likes }: {
         placeholder='클래식 제목 검색하기'
       />
       <ClassicList classics={results} likes={likes} />    
-    </div>
+    </>
   )
 }
 

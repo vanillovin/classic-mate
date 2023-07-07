@@ -18,5 +18,9 @@ export default async function TagsPage(props: Props) {
   
   const { data } = await supabase.from('all_classics').select();
   
-  return <TagsContainer classics={data ?? []} selectedTags={selectedTags} />;
+  return (
+    <div className='p-3 sm:p-6'>
+      <TagsContainer classics={data ?? []} selectedTags={selectedTags} />
+    </div>
+  );
 }

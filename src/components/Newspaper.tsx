@@ -35,23 +35,23 @@ function Newspaper() {
   return (
     <div className= {`bg-warm-vintage-granite flex flex-col gap-4 sm:gap-8 p-2 sm:p-4 rounded-sm mb-8 shadow-md  ${gowunBatang.className}`}>
       <div className='border border-warm-vintage-off-white rounded-sm'>
-        <div className='h-20 flex items-center border-t border-b-2 border-warm-vintage-off-white'>
-          <div className='h-full border-r px-8 text-2xl flex items-center justify-center'>
+        <div className='h-16 sm:h-20 flex items-center border-t border-b-2 border-warm-vintage-off-white'>
+          <div className='h-full border-r px-4 sm:px-8 text-xl sm:text-3xl flex items-center justify-center'>
             𝄞
           </div>
-          <div className={`flex-1 font-semibold text-2xl sm:text-3xl text-center`}>
+          <div className={`flex-1 font-semibold text-xl sm:text-3xl text-center`}>
             클래식메이트
-            <div className='font-normal text-base'>- 이 달의 클래식 -</div>
+            <div className='font-normal text-sm sm:text-base'>- 이 달의 클래식 -</div>
           </div>
-          <div className='h-full font-semibold border-l px-4 flex flex-col items-center justify-center'>
-            <div>7월호</div>
+          <div className='h-full font-semibold border-l px-2 sm:px-8 flex flex-col items-center justify-center text-sm sm:text-base'>
+            <div className='text-base sm:text-lg'>7월호</div>
             <div className='-mt-1 text-vintage-holiday-red'>#2307</div>
           </div>
         </div>
         {/* <div className='border-t -mt-7 mb-5'></div> */}
 
         <div className='flex flex-col sm:flex-row p-4'>
-          <div className='w-full h-[500px] relative rounded-sm overflow-hidden shadow-sm'>
+          <div className='w-full h-[300px] sm:h-[500px] relative rounded-sm overflow-hidden shadow-sm'>
             <Image
               fill
               alt='tchaikovsky'
@@ -59,7 +59,7 @@ function Newspaper() {
               src={image}
             />
           </div>
-          <div className='flex flex-col items-center justify-center p-6'>
+          <div className='flex flex-col items-center justify-center pt-6 sm:p-6'>
             <h2 className='text-lg sm:text-2xl font-medium drop-shadow-md text-vintage-holiday-cyan'>
               {composer} : {title}
             </h2>
@@ -78,7 +78,7 @@ function Newspaper() {
         
         <div className='border-t mt-4'></div>
         <div className='flex flex-col sm:flex-row items-center px-4 py-8'>
-          <div className='w-full sm:w-1/2 p-4'>
+          <div className='w-full sm:w-1/2 pb-4 sm:p-4'>
             <h3 className='whitespace-pre-line text-lg font-medium mb-4 text-vintage-holiday-brown drop-shadow-md'>
               {point.title}
             </h3>
@@ -87,7 +87,7 @@ function Newspaper() {
             </p>
           </div>
           <div className='hidden sm:block sm:border-r mr-4 h-84'></div>
-          <div className='w-full sm:w-1/2 h-[300px] relative overflow-hidden'>
+          <div className='w-full sm:w-1/2 h-[200px] sm:h-[300px] relative overflow-hidden'>
             <Image
               fill
               alt=''
@@ -97,17 +97,16 @@ function Newspaper() {
           </div>
         </div>
         <div className='border-t mb-4'></div>
-        
 
         <div className='flex flex-col sm:flex-row p-4'>
-          <div className='sm:w-1/2 h-[350px]'>
+          <div className='sm:w-1/2 h-[200px] mobile:h-[350px]'>
             <iframe
               src={`${convertToEmbeddedURL('https://youtu.be/YXL0dkG-Qro')}`}
               allowFullScreen
               className='w-full h-full rounded-sm'
             />
           </div>
-          <div className='sm:w-1/2 flex flex-col items-center justify-center text-center p-6'>
+          <div className='sm:w-1/2 flex flex-col items-center justify-center py-6 sm:p-6'>
             <p className='font-light leading-6'>
               {performar.description}
             </p>
