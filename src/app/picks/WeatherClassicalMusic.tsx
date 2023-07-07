@@ -13,7 +13,20 @@ function WeatherClassicalMusic() {
   const [weather, setWeather] = useState<Weather | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [timeOfDay, setTimeOfDay] = useState<'daytime' | 'night' | null>(null);
+  console.log(process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY);
 
+  const backgroundImageURL = timeOfDay ? (
+    timeOfDay === 'daytime' ? (
+      weather
+        ? classicsByWeather[weather.weather[0].main].daytimeImage
+        : tempDaytimeImage
+    ) : (
+      weather
+        ? classicsByWeather[weather.weather[0].main].nightImage
+        : tempNightImage
+    )
+  ) : tempDaytimeImage;
+        
   useEffect(() => {
     const currentTime = new Date().getHours();
 
@@ -31,14 +44,11 @@ function WeatherClassicalMusic() {
           const { latitude, longitude }: Coordinates = position.coords;
           fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY}&units=metric`)
             .then(res => res.json())
-            .then(data => {
-              console.log(data);
-              setWeather(data);
-            })
-            .catch(err => console.log(err));
+            .then(data => setWeather(data))
+            .catch(err => setError('날씨 정보를 불러오지 못했습니다.'));
         },
         (error: GeolocationPositionError) => {
-          setError('위치에 접근할 수 없습니다.');
+          setError('위치에 접근할 수 없습니다. 위치 액세스 허용 후 새로고침 해주세요!');
         }
       );
     } else {
@@ -46,47 +56,44 @@ function WeatherClassicalMusic() {
     }
   }, []);
 
+  // const textColor = timeOfDay === 'daytime' ? classicsByWeather[weather.weather[0].main].textColor : 'text-warm-vintage-off-white';
+  
   return (
     <div
       style={{
-        backgroundImage: `url(${timeOfDay === 'daytime'
-          ? (weather
-            ? classicsByWeather[weather.weather[0].main].daytimeImage
-            : tempDaytimeImage)
-          : (weather
-            ? classicsByWeather[weather.weather[0].main].nightImage
-            : tempNightImage)
-        })`
+        backgroundImage: `url(${backgroundImageURL})`
       }}
-      className="h-60 flex items-center justify-center rounded-sm shadow-md bg-center bg-cover border border-black"
+      className="p-4 sm:p-0 sm:h-60 flex items-center justify-center rounded-sm shadow-md bg-center bg-cover border border-black"
     >
       {weather ? (
-        <div className={`flex items-center 
+        <div className={`flex flex-col sm:flex-row items-center justify-center 
           ${timeOfDay === 'daytime' ? classicsByWeather[weather.weather[0].main].textColor : 'text-warm-vintage-off-white'}
         `}>
-          <div>
-            <p className="font-bold text-lg">{`${weather.main.temp.toFixed()}℃`}</p>
-            <p className="font-semibold">
-              {weather.name !== '' &&
-                `${weather.name}, ${weather.sys.country}`}
-            </p>
-            <p className={`${timeOfDay === 'daytime' ? 'text-gray-700' : 'text-gray-400'}`}>
-              {weather.weather[0].description}
-            </p>
+          <div className='flex flex-col sm:flex-row items-center justify-center'>
+            <div>
+              <p className="font-bold text-lg">{`${weather.main.temp.toFixed()}℃`}</p>
+              <p className="font-semibold">
+                {weather.name !== '' &&
+                  `${weather.name}, ${weather.sys.country}`}
+              </p>
+              <p className={`${timeOfDay === 'daytime' ? 'text-gray-600' : 'text-gray-400'}`}>
+                {weather.weather[0].description}
+              </p>
+            </div>
+            <div className="w-20 h-20 relative overflow-hidden">
+              <Image
+                fill
+                className="w-full h-full"
+                alt={weather.weather[0].main}
+                src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`}
+              />
+            </div>
           </div>
-          <div className="w-20 h-20 relative overflow-hidden">
-            <Image
-              fill
-              className="w-full h-full"
-              alt={weather.weather[0].main}
-              src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`}
-            />
-          </div>
-          <div>
-            <h2 className='font-semibold text-lg drop-shadow-md'>
+          <div className='mt-4 sm:mt-0'>
+            <h2 className='font-semibold sm:text-lg drop-shadow-md'>
               {classicsByWeather[weather.weather[0].main].name}
             </h2>
-            <ul className='mt-1'>
+            <ul className='mt-1 text-sm sm:text-base'>
               {classicsByWeather[weather.weather[0].main].data.map(classic => (
                 <li
                   key={classic.id}
@@ -101,9 +108,19 @@ function WeatherClassicalMusic() {
           </div>
         </div>
       ) : (
-        error
-          ? <div className={`${timeOfDay === 'daytime' ? 'text-black' : 'text-white'}`}>{error}</div>
-          : <div className={`${timeOfDay === 'daytime' ? 'text-black' : 'text-white'}`}>날씨 정보를 불러오고 있습니다</div>
+        error ? (
+          <div className={`font-light 
+            ${timeOfDay === 'daytime' ? 'text-black' : 'text-white'}
+          `}>
+            {error}
+          </div>
+        ) : (
+          <div className={`font-light 
+            ${timeOfDay === 'daytime' ? 'text-black' : 'text-white'}
+          `}>
+            날씨 정보를 불러오고 있습니다
+          </div>
+        )
       )}
     </div>
   );

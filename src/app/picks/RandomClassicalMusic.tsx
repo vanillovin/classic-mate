@@ -26,11 +26,11 @@ function RandomClassicalMusic({ classics }: { classics: Classic[] }) {
             <Link
               target='_blank'
               href={`/classics/${randomClassic?.id}`}
-              className={`w-24 sm:w-28 h-24 sm:h-28 font-medium text-sm sm:text-base text-center p-1 sm:p-2 rounded-full flex items-center justify-center shadow-[inset_0_-8px_8px_rgba(0,0,0,.1)] hover:bg-opacity-70 leading-4
-                ${bgColors[Math.floor(Math.random() * bgColors.length)]}
+              className={`w-24 sm:w-28 h-24 sm:h-28 font-medium text-sm sm:text-base text-center p-1 sm:p-2 rounded-full flex items-center justify-center 
+                shadow-[inset_0_-8px_8px_rgba(0,0,0,.1)] hover:bg-opacity-70 ${bgColors[Math.floor(Math.random() * bgColors.length)]}
               `}
             >
-              {randomClassic?.title}
+              <span className='leading-4 sm:leading-5 tracking-tighter'>{randomClassic?.title}</span>
             </Link>
           )}
         </div>
