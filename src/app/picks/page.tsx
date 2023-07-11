@@ -1,6 +1,8 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { DM_Serif_Display } from 'next/font/google';
 
+import { siteConfig } from '@/config/site';
 import TimeClassicalMusic from './TimeClassicalMusic';
 import MoodClassicalMusic from './MoodClassicalMusic';
 import GenreClassicalMusic from './GenreClassicalMusic';
@@ -10,6 +12,8 @@ import WeatherClassicalMusic from './WeatherClassicalMusic';
 import { createServerClient } from '@/utils/supabase-server';
 
 const dmSerifDisplay = DM_Serif_Display({ subsets: ['latin'], weight: ['400'] });
+
+export const metadata: Metadata = siteConfig.metaData['picks'];
 
 export default async function PicksPage() {
   const supabase = createServerClient();

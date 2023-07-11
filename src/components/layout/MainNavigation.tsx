@@ -115,7 +115,7 @@ function MainNavigation() {
         ) : (
           <Link
             href='/login'
-            className='bg-pantone-california-gold bg-opacity-50 text-xs sm:text-sm text-white rounded-sm flex items-center px-1'
+            className='bg-pantone-california-gold bg-opacity-50 text-xs sm:text-sm text-white rounded-sm flex items-center px-1 hover:bg-opacity-70 transition-all'
           >
             로그인·회원가입
           </Link>

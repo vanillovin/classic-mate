@@ -1,12 +1,8 @@
 import Link from 'next/link';
-import { Metadata } from 'next'
-import LoginForm from './login-form';
 import { redirect } from 'next/navigation';
-import { createServerClient } from '@/utils/supabase-server';
 
-export const metadata: Metadata = {
-  title: '로그인 - 클메',
-};
+import LoginForm from './login-form';
+import { createServerClient } from '@/utils/supabase-server';
 
 export default async function LoginPage() {
   const supabase = createServerClient();

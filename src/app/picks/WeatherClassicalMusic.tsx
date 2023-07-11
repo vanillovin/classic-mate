@@ -66,7 +66,7 @@ function WeatherClassicalMusic() {
     >
       {weather ? (
         <div className={`h-full flex flex-col sm:flex-row items-center justify-center ${parentTextColor}`}>
-          <div className='flex items-center justify-center bg-white bg-opacity-20 pl-2 rounded-sm'>
+          <div className='flex items-center justify-center bg-white bg-opacity-20 sm:bg-transparent pl-2 rounded-sm'>
             <div className='flex sm:flex-col items-center sm:items-start'>
               <p className="font-semibold sm:font-bold text-lg">{`${weather.main.temp.toFixed()}℃`}</p>
               <p className="hidden sm:block font-semibold">
@@ -161,7 +161,7 @@ const classicsByWeather: {
     // daytimeImage: 'https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80',
     daytimeImage: 'https://images.unsplash.com/photo-1515694346937-94d85e41e6f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
     nightImage: defaultNightImage,
-    textColor: 'text-warm-vintage-off-white',
+    textColor: 'text-black',
     data: [
       { id: 49, title: '차이콥스키의 백조의 호수' },
       { id: 0, title: '쇼팽의 폴로네이즈' },

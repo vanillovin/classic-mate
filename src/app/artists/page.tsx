@@ -1,9 +1,13 @@
+import type { Metadata } from 'next';
 import { Hahmlet } from 'next/font/google';
 
 import { getArtists } from './api';
 import ArtistList from './ArtistList';
+import { siteConfig } from '@/config/site';
 
 const mont = Hahmlet({ subsets: ['latin'], weight: ['400'] });
+
+export const metadata: Metadata = siteConfig.metaData['artists'];
 
 export default async function ArtistPage() {
   const artists = await getArtists();

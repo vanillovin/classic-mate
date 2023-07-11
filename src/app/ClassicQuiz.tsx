@@ -15,7 +15,7 @@ function ClassicQuiz() {
 
   const currentDate = new Date().toISOString().split('T')[0];
   const currentDay = new Date().toLocaleDateString(undefined, { weekday: 'long' });
-  const currentQuiz = quizData[currentDate] ?? quizData['2023-07-07'];
+  const currentQuiz = quizData[currentDate] ?? quizData['2023-07-11'];
 
   const renderOptions = () => {
     return currentQuiz.options.map((option, index) => (
@@ -62,24 +62,64 @@ function ClassicQuiz() {
 export default ClassicQuiz;
 
 const quizData: QuizData = {
-  '2023-07-07': {
+  '2023-07-11': {
     question: '베토벤의 9번 교향곡은 몇 번이라고 불리나요?',
-    options: ['비창', '명곡', '운명', '영광'],
+    options: ['비창', '영웅', '합창', '영광'],
     answer: 2,
   },
-  '2023-07-08': {
+  '2023-07-12': {
     question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
     options: ['피아노', '바이올린', '첼로', '오보에'],
     answer: 0,
   },
-  '2023-07-09': {
+  '2023-07-13': {
     question: '다음 중 가장 짧은 음표는?',
     options: ['♩', '♪', '♫', '♬'],
     answer: 0,
   },
-  '2023-07-10': {
+  '2023-07-14': {
     question: '비발디의 대표작은?',
     options: ['운명교향곡', '사계', '로망스', '터키행진곡'],
     answer: 1,
+  },
+  '2023-07-15': {
+    question: '베토벤의 5번 교향곡은 몇 번이라고 불리나요?',
+    options: ['비창', '운명', '합창', '명곡'],
+    answer: 1,
+  },
+  '2023-07-16': {
+    question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
+    options: ['O', 'X'],
+    answer: 0,
+  },
+  '2023-07-17': {
+    question: '베토벤의 9번 교향곡은 몇 번이라고 불리나요?',
+    options: ['비창', '영웅', '합창', '영광'],
+    answer: 2,
+  },
+  '2023-07-18': {
+    question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+    options: ['피아노', '바이올린', '첼로', '오보에'],
+    answer: 0,
+  },
+  '2023-07-19': {
+    question: '다음 중 가장 짧은 음표는?',
+    options: ['♩', '♪', '♫', '♬'],
+    answer: 0,
+  },
+  '2023-07-20': {
+    question: '비발디의 대표작은?',
+    options: ['운명교향곡', '사계', '로망스', '터키행진곡'],
+    answer: 1,
+  },
+  '2023-07-21': {
+    question: '베토벤의 5번 교향곡은 몇 번이라고 불리나요?',
+    options: ['비창', '운명', '합창', '명곡'],
+    answer: 1,
+  },
+  '2023-07-22': {
+    question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
+    options: ['O', 'X'],
+    answer: 0,
   },
 };
