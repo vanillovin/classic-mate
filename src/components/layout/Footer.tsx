@@ -5,7 +5,7 @@ import { type SiteConfig, siteConfig } from '@/config/site';
 function Footer() {
   return (
     <footer
-      className="p-8 text-center text-white bg-pantone-metallic-gold"
+      className="sticky top-[100vh] p-8 text-center text-white bg-pantone-metallic-gold"
     >
       <p>
         {Object.keys(siteConfig.links).map((key, index) => (

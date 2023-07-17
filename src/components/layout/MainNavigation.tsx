@@ -29,7 +29,7 @@ function MainNavigation() {
 
   return (
     <header
-      className={`w-full max-w-6xl flex items-center justify-between bg-white px-4 mobile:px-3 h-12 sm:h-16 fixed shadow-sm select-none z-50 
+      className={`w-full max-w-6xl sticky top-0 z-10 flex items-center justify-between bg-white px-4 mobile:px-3 h-12 sm:h-16 shadow-sm select-none
         ${isScrolled ? 'bg-opacity-95 backdrop-blur-sm transition-all shadow-md' : 'bg-opacity-70'}
       `}
     >
