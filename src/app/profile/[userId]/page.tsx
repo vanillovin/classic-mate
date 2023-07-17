@@ -20,8 +20,8 @@ export default async function ProfilePage({ params }: { params: { userId: string
   if (!profile) return notFound();
   
   return (
-    <section className='p-4 flex flex-col sm:flex-row h-screen shadow-sm'>
-      <div className='bg-white flex flex-row sm:flex-col p-3 sm:p-5 w-full sm:w-fit'>
+    <section className='p-4 flex flex-col sm:flex-row h-screen'>
+      <div className='bg-white flex flex-row sm:flex-col p-3 sm:p-5 w-full sm:w-fit shadow-sm'>
         <div className='relative w-24 h-24 sm:w-40 sm:h-40 rounded-sm overflow-hidden'>
           <Image
             src={'/kylie-paz-cbl1K6yJlDI-unsplash.jpg'}
@@ -46,7 +46,7 @@ export default async function ProfilePage({ params }: { params: { userId: string
           </ul>
         </div>
       </div>
-      <div className='flex-1 bg-white bg-opacity-50 p-3 sm:p-5'>
+      <div className='flex-1 bg-white bg-opacity-50 p-3 sm:p-5 shadow-sm'>
         <h2 className='text-lg sm:text-xl font-semibold'>좋아요한 클래식</h2>
         <ul className='bg-white bg-opacity-70 rounded-sm mt-2'>
           {likes?.map(like => (
