@@ -51,7 +51,7 @@ function Newspaper() {
         {/* <div className='border-t -mt-7 mb-5'></div> */}
 
         <div className='flex flex-col sm:flex-row p-4'>
-          <div className='w-full h-[300px] sm:h-[500px] relative rounded-sm overflow-hidden shadow-sm'>
+          <div className='w-full min-w-[300px] h-[500px] relative rounded-sm overflow-hidden shadow-sm'>
             <Image
               fill
               alt='tchaikovsky'

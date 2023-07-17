@@ -29,8 +29,8 @@ function MainNavigation() {
 
   return (
     <header
-      className={`w-full max-w-6xl flex items-center justify-between bg-white px-3 sm:px-6 h-12 sm:h-16 fixed shadow-sm select-none z-50 
-        ${isScrolled ? 'bg-opacity-100 transition-all shadow-md' : 'bg-opacity-70'}
+      className={`w-full max-w-6xl flex items-center justify-between bg-white px-4 mobile:px-3 h-12 sm:h-16 fixed shadow-sm select-none z-50 
+        ${isScrolled ? 'bg-opacity-95 backdrop-blur-sm transition-all shadow-md' : 'bg-opacity-70'}
       `}
     >
       <Link
@@ -63,9 +63,9 @@ function MainNavigation() {
               <li key={index}>
                 <Link
                   href={nav.href}
-                  className={`
+                  className={`hover:bg-pantone-babys-breath
                     ${index === 0 ? 'rounded-bl-none rounded-br-none' : 'rounded-none'}
-                    ${pathname === nav.href && 'hover:bg-pantone-babys-breath bg-pantone-babys-breath'}
+                    ${pathname === nav.href && 'bg-pantone-babys-breath'}
                   `}>
                   {nav.title}
                 </Link>

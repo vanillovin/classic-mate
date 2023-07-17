@@ -9,10 +9,12 @@ import type { Coordinates, Weather } from './types';
 const defaultDaytimeImage = 'https://images.unsplash.com/photo-1533809647112-433f27b871d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80';
 const defaultNightImage = 'https://images.unsplash.com/photo-1472552944129-b035e9ea3744?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80';
 
+type TimeOfDay = 'daytime' | 'night';
+
 function WeatherClassicalMusic() {  
   const [weather, setWeather] = useState<Weather | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [timeOfDay, setTimeOfDay] = useState<'daytime' | 'night' | null>(null);
+  const [timeOfDay, setTimeOfDay] = useState<TimeOfDay | null>(null);
 
   const backgroundImageURL = timeOfDay ? (
     timeOfDay === 'daytime' ? (
@@ -62,20 +64,22 @@ function WeatherClassicalMusic() {
   return (
     <div
       style={{ backgroundImage: `url(${backgroundImageURL})` }}
-      className="h-60 flex items-center justify-center rounded-sm shadow-md bg-center bg-cover border border-black"
+      className="h-60 flex items-center justify-center rounded-sm shadow-md bg-center bg-cover border border-black p-4"
     >
       {weather ? (
         <div className={`h-full flex flex-col sm:flex-row items-center justify-center ${parentTextColor}`}>
-          <div className='flex items-center justify-center bg-white bg-opacity-20 sm:bg-transparent pl-2 rounded-sm'>
+          <div className='flex items-center justify-center bg-white bg-opacity-20 mr-0 sm:mr-2 mobile:bg-transparent pl-2 rounded-sm'>
             <div className='flex sm:flex-col items-center sm:items-start'>
               <p className="font-semibold sm:font-bold text-lg">{`${weather.main.temp.toFixed()}℃`}</p>
               <p className="hidden sm:block font-semibold">
                 {weather.name !== '' &&
                   `${weather.name}, ${weather.sys.country}`}
               </p>
-              <p className={`hidden sm:block  
-                ${timeOfDay === 'daytime' ? 'text-gray-600' : 'text-gray-400'}
-              `}>
+              <p
+                className={`hidden sm:block
+                  ${timeOfDay === 'daytime' ? 'text-gray-600' : 'text-gray-400'}
+                `}
+              >
                 {weather.weather[0].description}
               </p>
             </div>
@@ -88,7 +92,7 @@ function WeatherClassicalMusic() {
               />
             </div>
           </div>
-          <div className='mt-2 sm:mt-0'>
+          <div className='mt-2 sm:mt-0 text-center mobile:text-start'>
             <h2 className='font-semibold sm:text-lg drop-shadow-md'>
               {classicsByWeather[weather.weather[0].main].name}
             </h2>

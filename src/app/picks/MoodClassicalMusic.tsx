@@ -5,11 +5,11 @@ import Link from 'next/link';
 
 function MoodClassicalMusic() {
   return (
-    <div className='flex flex-col items-center justify-center gap-y-4'>
+    <div className='flex flex-col items-center justify-center gap-y-4 md:px-14'>
       {Object.keys(classicalMusicByMood).map(key => (
         <div
           key={key}
-          className={`relative w-full sm:w-[800px] rounded-sm p-4 shadow-md bg-opacity-70 hover:animate-tada
+          className={`relative w-full rounded-sm p-4 shadow-md bg-opacity-70 hover:animate-tada
             ${classicalMusicByMood[key].bgColor}
           `}
         >
@@ -18,11 +18,14 @@ function MoodClassicalMusic() {
           </div>
           <ul className='mt-2 px-1 text-sm sm:text-base'>
             {classicalMusicByMood[key].data.map((classic, index) => (
-              <li key={index} className='pb-1 last:pb-0 text-pantone-dark-navy'>
+              <li
+                key={index}
+                className='pb-1 last:pb-0 text-pantone-dark-navy'
+              >
                 <Link href={`/artists/${classic.composer}`} className='font-medium hover:underline'>
                   {classic.composer}
                 </Link>
-                  <span className='mx-1'>|</span>
+                <span className='mx-1'>|</span>
                 <Link href={`/classics/${classic.id}`} className='font-medium hover:underline'>
                   {classic.title}
                 </Link>
