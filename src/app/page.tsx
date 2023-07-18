@@ -1,11 +1,10 @@
 import { DM_Serif_Display } from 'next/font/google';
 
 import ClassicQuiz from './ClassicQuiz';
+import RealtimeMessages from './realtime-messages';
 import MusicPlayer from './MusicPlayer';
 import Newspaper from './Newspaper';
 import { createServerClient } from '@/utils/supabase-server';
-import Messages from './Messages';
-import RealtimeMessages from './realtime-messages';
 
 const dmSerifDisplay = DM_Serif_Display({ subsets: ['latin'], weight: ['400'] });
 
