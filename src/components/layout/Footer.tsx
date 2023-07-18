@@ -1,11 +1,18 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 import { type SiteConfig, siteConfig } from '@/config/site';
 
 function Footer() {
+  const pathname = usePathname();
+
+  const bgColor = pathname.includes('picks') ? 'bg-pantone-brandy-sniffer' : 'bg-pantone-metallic-gold';
+
   return (
     <footer
-      className="sticky top-[100vh] p-8 text-center text-white bg-pantone-metallic-gold"
+      className={`sticky top-[100vh] p-4 sm:p-8 text-center text-sm sm:text-base text-white ${bgColor}`}
     >
       <p>
         {Object.keys(siteConfig.links).map((key, index) => (
@@ -14,7 +21,7 @@ function Footer() {
               key={index}
               target="_blank"
               href={siteConfig.links[key as keyof SiteConfig['links']]}
-              className=''
+              className='hover:underline'
             >
               {key}
             </Link>
@@ -24,7 +31,7 @@ function Footer() {
       </p>
       <p>© 2023 classic-mate.vercel.app</p>
       <p>Powered By Next.js Hosted By Vercel.</p>
-      <hr className='my-2 border-pantone-babys-breath' />
+      <hr className='my-4 mx-auto border-pantone-babys-breath' />
       <p>Made with 🤍 by ming</p>
     </footer>
   );

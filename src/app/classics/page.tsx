@@ -16,7 +16,7 @@ export default async function ClassicsPage() {
     .eq('user_id', user?.id);
   
   return (
-    <div className='p-3 sm:p-6'>
+    <div className='px-3 sm:px-6 pt-3 sm:pt-6 pb-24'>
       <ClassicsContainer classics={classics ?? []} likes={likes ?? []} />
     </div>
   );

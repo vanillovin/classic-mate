@@ -20,7 +20,7 @@ export default async function ProfilePage({ params }: { params: { userId: string
   if (!profile) return notFound();
   
   return (
-    <section className='p-4 flex flex-col sm:flex-row h-screen'>
+    <section className='px-6 pt-4 pb-24 flex flex-col sm:flex-row h-screen'>
       <div className='bg-white flex flex-row sm:flex-col p-3 sm:p-5 w-full sm:w-fit shadow-sm'>
         <div className='relative w-24 h-24 sm:w-40 sm:h-40 rounded-sm overflow-hidden'>
           <Image

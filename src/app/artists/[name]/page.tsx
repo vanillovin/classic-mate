@@ -15,9 +15,9 @@ export default async function ArtistDetailPage({ params }: { params: { name: str
   if (!data) return notFound();
   
   return (
-    <div className='p-6 flex flex-col gap-y-6'>
+    <div className='px-3 sm:px-6 pt-3 sm:pt-6 pb-24 flex flex-col gap-y-6'>
       <section className='flex flex-col sm:flex-row gap-2'>
-        <div className='flex items-center justify-center w-full sm:w-[250px] h-[400px] sm:h-[350px] 
+        <div className='flex items-center justify-center w-full sm:w-[250px] h-[350px] sm:h-[450px] md:h-[350px] 
           relative overflow-hidden border border-pantone-metallic-gold rounded-sm shadow-sm'>
           <Image
             src={data.image}
@@ -33,9 +33,9 @@ export default async function ArtistDetailPage({ params }: { params: { name: str
           <p className='mt-2 text-sm sm:text-base whitespace-pre-line'>{data.description}</p>
         </div>
       </section>
-      <section>
+      <section className='mt-4'>
         <h2 className='text-2xl font-semibold'>작품목록</h2>
-        <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-2'>
+        <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
           {classics?.map(classic => (
             <Link
               key={classic.id}

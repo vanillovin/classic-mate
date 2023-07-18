@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Gowun_Batang } from 'next/font/google'
+import { Gowun_Batang } from 'next/font/google';
 
 const gowunBatang = Gowun_Batang({ subsets: ['latin'], weight: ['400', '700'] });
 
@@ -50,8 +50,8 @@ function Newspaper() {
         </div>
         {/* <div className='border-t -mt-7 mb-5'></div> */}
 
-        <div className='flex flex-col sm:flex-row p-4'>
-          <div className='w-full min-w-[300px] h-[500px] relative rounded-sm overflow-hidden shadow-sm'>
+        <div className='flex flex-col md:flex-row p-4'>
+          <div className='w-full sm:min-w-[300px] h-[500px] relative rounded-sm overflow-hidden shadow-sm'>
             <Image
               fill
               alt='tchaikovsky'
@@ -77,9 +77,9 @@ function Newspaper() {
 
         
         <div className='border-t mt-4'></div>
-        <div className='flex flex-col sm:flex-row items-center px-4 py-8'>
+        <div className='flex flex-col md:flex-row items-center px-4 py-8'>
           <div className='w-full sm:w-1/2 pb-4 sm:p-4'>
-            <h3 className='whitespace-pre-line text-lg font-medium mb-4 text-vintage-holiday-brown drop-shadow-md'>
+            <h3 className='whitespace-pre-line text-lg text-center md:text-start font-medium mb-4 text-vintage-holiday-brown drop-shadow-md'>
               {point.title}
             </h3>
             <p className='whitespace-pre-line font-light leading-6'>
@@ -98,7 +98,7 @@ function Newspaper() {
         </div>
         <div className='border-t mb-4'></div>
 
-        <div className='flex flex-col sm:flex-row p-4'>
+        <div className='flex flex-col md:flex-row p-4'>
           <div className='sm:w-1/2 h-[200px] mobile:h-[350px]'>
             <iframe
               src={`${convertToEmbeddedURL('https://youtu.be/YXL0dkG-Qro')}`}

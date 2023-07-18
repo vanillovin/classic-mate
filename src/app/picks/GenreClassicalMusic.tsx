@@ -34,11 +34,9 @@ function GenreClassicalMusic({ classics }: { classics: Classic[] }) {
           <Link
             key={result.id}
             href={`/classics/${result.id}`}
-            className='border border-black rounded-sm flex items-center justify-center bg-warm-vintage-off-white p-2 shadow-md hover:bg-pantone-berkeley-blue hover:text-warm-vintage-off-white transition-all'
+            className='text-center font-medium text-sm sm:text-base tracking-tight leading-tight sm:leading-tight border border-black rounded-sm flex items-center justify-center bg-warm-vintage-off-white p-2 shadow-md hover:bg-pantone-berkeley-blue hover:text-warm-vintage-off-white transition-all'
           >
-            <div className='text-center font-medium text-sm sm:text-base'>
-              {result.title}
-            </div>
+            {result.title}
           </Link>
         ))}
       </div>
