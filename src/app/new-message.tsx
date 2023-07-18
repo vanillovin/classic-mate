@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 function NewMessage({ sendMessage }: { sendMessage(text: string, clearText: () => void): void; }) {
   const [text, setText] = useState(''); 
   const clearText = () => setText('');
-  const isDisabled = text.trim().length < 3;
+  const isDisabled = text.trim().length < 4;
 
   return (
     <form
@@ -13,7 +13,7 @@ function NewMessage({ sendMessage }: { sendMessage(text: string, clearText: () =
         evt.preventDefault();
         sendMessage(text, clearText);
       }}
-      className="flex w-full h-10 items-center justify-center"
+      className="flex w-full h-8 mobile:h-10 items-center justify-center"
     >
       <input 
         name="text"
@@ -24,7 +24,7 @@ function NewMessage({ sendMessage }: { sendMessage(text: string, clearText: () =
       />
       <button
         type="submit"
-        className={`h-full px-2 ${isDisabled ? 'bg-gray-200' : 'bg-[#EAAA65] text-white'}`}
+        className={`w-12 h-full ${isDisabled ? 'bg-gray-200' : 'bg-[#EAAA65] text-white hover:bg-[#133331]'}`}
         disabled={isDisabled}
       >
         전송
