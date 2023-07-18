@@ -3,7 +3,7 @@ export type Json =
   | number
   | boolean
   | null
-  | { [key: string]: Json }
+  | { [key: string]: Json | undefined }
   | Json[]
 
 export interface Database {
@@ -52,7 +52,7 @@ export interface Database {
           created_at: string
           id: number
           nickname: string
-          updated_at: string | null
+          updated_at: string
           user_id: string
         }
         Insert: {
@@ -61,7 +61,7 @@ export interface Database {
           created_at?: string
           id?: never
           nickname: string
-          updated_at?: string | null
+          updated_at?: string
           user_id: string
         }
         Update: {
@@ -70,7 +70,7 @@ export interface Database {
           created_at?: string
           id?: never
           nickname?: string
-          updated_at?: string | null
+          updated_at?: string
           user_id?: string
         }
         Relationships: [
@@ -122,6 +122,34 @@ export interface Database {
           }
         ]
       }
+      messages: {
+        Row: {
+          id: number
+          inserted_at: string
+          text: string | null
+          user_id: string
+        }
+        Insert: {
+          id?: number
+          inserted_at?: string
+          text?: string | null
+          user_id: string
+        }
+        Update: {
+          id?: number
+          inserted_at?: string
+          text?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "messages_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -157,37 +185,6 @@ export interface Database {
           {
             foreignKeyName: "profiles_id_fkey"
             columns: ["id"]
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
-      todos: {
-        Row: {
-          id: number
-          inserted_at: string
-          is_complete: boolean | null
-          task: string | null
-          user_id: string
-        }
-        Insert: {
-          id?: number
-          inserted_at?: string
-          is_complete?: boolean | null
-          task?: string | null
-          user_id: string
-        }
-        Update: {
-          id?: number
-          inserted_at?: string
-          is_complete?: boolean | null
-          task?: string | null
-          user_id?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "todos_user_id_fkey"
-            columns: ["user_id"]
             referencedRelation: "users"
             referencedColumns: ["id"]
           }
