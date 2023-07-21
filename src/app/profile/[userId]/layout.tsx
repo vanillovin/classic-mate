@@ -36,18 +36,18 @@ export default async function Layout({
             />
           </div>
           <div className='ml-2 sm:ml-0 sm:p-1'>
-            <p className='font-semibold sm:mt-2'>{profile.nickname || 'nickname'}</p>
-            <p className='text-sm sm:text-base'>{profile.website || 'website'}</p>
-            <p className='text-sm sm:text-base'>{profile.description || 'description'}</p>
+            <p className='font-semibold sm:mt-2'>{profile.nickname || '클메'}</p>
+            <p className='text-sm sm:text-base'>{profile.website}</p>
+            <p className='text-sm sm:text-base'>{profile.description}</p>
             {session.user.id === params.userId && (
               <div className='flex gap-1 py-1'>
                 <Link
                   href={`/profile/${params.userId}/edit`}
-                  className='bg-black text-white rounded-sm p-1 text-sm sm:text-base'
+                  className='rounded-sm p-1 text-sm sm:text-base bg-black text-white hover:bg-pantone-dark-navy'
                 >
                   회원정보수정
                 </Link>
-                <SignOutButton className='border rounded-sm p-1 text-sm sm:text-base bg-[#F2F2F2]'>
+                <SignOutButton className='rounded-sm p-1 text-sm sm:text-base bg-[#F2F2F2] hover:bg-[#D6D8D7]'>
                   로그아웃
                 </SignOutButton>
               </div>

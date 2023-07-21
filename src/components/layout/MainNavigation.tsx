@@ -6,12 +6,25 @@ import { usePathname } from 'next/navigation';
 
 import { siteConfig } from '@/config/site';
 import SignOutButton from '../SignOutButton';
-import { useAuth } from '../providers/auth-provider';
+import { useSupabase } from '../providers/supabase-provider';
 
 function MainNavigation() {
-  const { user } = useAuth();
   const pathname = usePathname();
+  const { supabase, session } = useSupabase();
   const [scrollY, setScrollY] = useState(0);
+  const [nickname, setNickname] = useState('클메');
+
+  useEffect(() => {
+    async function fetchProfile() {
+      const { data } = await supabase
+        .from('profiles')
+        .select()
+        .eq('id', session?.user.id);
+      if (data) setNickname(data[0].nickname)
+    }
+    
+    fetchProfile();
+  }, [supabase, session]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,13 +61,13 @@ function MainNavigation() {
           </svg>
         </label>
         <ul tabIndex={0} className="menu dropdown-content z-10 p-2 shadow bg-base-100 rounded-box w-52 mt-4">
-          {user &&
+          {session &&
             <li>
               <Link
-                href={`/profile/${user.id}`}
+                href={`/profile/${session.user.id}`}
                 className='font-semibold rounded-bl-none rounded-br-none bg-pantone-sun-kiss'
               >
-                {user.email?.split('@')[0]}님
+                {nickname}님
               </Link>
             </li>
           }
@@ -72,7 +85,7 @@ function MainNavigation() {
               </li> 
             ))
           }
-          {!user ? (
+          {!session ? (
             <li>
               <Link href={'/login'} className='font-semibold rounded-tl-none rounded-tr-none bg-pantone-sun-kiss'>
                 로그인·회원가입
@@ -101,10 +114,10 @@ function MainNavigation() {
             </Link>
           ))
         }
-        {user ? (
+        {session ? (
           <div className='flex items-center'>
-            <Link href={`/profile/${user.id}`} className='text-vintage-holiday-brown hover:text-yellow-500 transition-all mr-2'>
-              {user.email?.split('@')[0]}님
+            <Link href={`/profile/${session.user.id}`} className='text-vintage-holiday-brown hover:text-yellow-500 transition-all mr-2'>
+              {nickname}님
             </Link>
             <SignOutButton>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
