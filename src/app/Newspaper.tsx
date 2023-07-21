@@ -86,7 +86,7 @@ function Newspaper() {
               {point.description}
             </p>
           </div>
-          <div className='hidden sm:block sm:border-r mr-4 h-84'></div>
+          <div className='hidden md:block sm:border-r mr-4 h-84'></div>
           <div className='w-full sm:w-1/2 h-[200px] sm:h-[300px] relative overflow-hidden'>
             <Image
               fill

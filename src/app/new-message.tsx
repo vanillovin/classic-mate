@@ -13,7 +13,7 @@ function NewMessage({ sendMessage }: { sendMessage(text: string, clearText: () =
         evt.preventDefault();
         sendMessage(text, clearText);
       }}
-      className="flex w-full h-8 mobile:h-10 items-center justify-center"
+      className="flex w-full h-10 items-center justify-center"
     >
       <input 
         name="text"

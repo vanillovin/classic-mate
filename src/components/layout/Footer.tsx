@@ -14,11 +14,10 @@ function Footer() {
     <footer
       className={`sticky top-[100vh] p-4 sm:p-8 text-center text-sm sm:text-base text-white ${bgColor}`}
     >
-      <p>
+      <div className='flex items-center justify-center'>
         {Object.keys(siteConfig.links).map((key, index) => (
-          <>
+          <p key={index}>
             <Link
-              key={index}
               target="_blank"
               href={siteConfig.links[key as keyof SiteConfig['links']]}
               className='hover:underline'
@@ -26,9 +25,9 @@ function Footer() {
               {key}
             </Link>
             {index < Object.values(siteConfig.links).length - 1 && <span className='mx-1'>|</span>}
-          </>
+          </p>
         ))}
-      </p>
+      </div>
       <p>© 2023 classic-mate.vercel.app</p>
       <p>Powered By Next.js Hosted By Vercel.</p>
       <hr className='my-4 mx-auto border-pantone-babys-breath' />
