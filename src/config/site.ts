@@ -9,6 +9,7 @@ export const siteConfig = {
     { title: '추천 클래식', href: '/picks' },
     { title: '모든 작곡가', href: '/artists' },
     { title: '태그로 찾기', href: '/tags' },
+    { title: '자유 게시판', href: '/community' },
   ],
   metaData: {
     'home': {
@@ -35,6 +36,11 @@ export const siteConfig = {
       title: '태그로 찾기 | 클메',
       description: '태그를 활용하여 원하는 클래식 음악을 찾아보세요.',
       keywords: ['classical music', 'tag', '클래식', '태그'],
+    },
+    'community': {
+      title: '자유 게시판 | 클메',
+      description: '클래식 음악을 사랑하는 모두가 함께 모여 자유롭게 소통하는 공간입니다.',
+      keywords: ['board', 'community', '클래식', '게시판', '자유게시판', '커뮤니티'],
     },
   },
   links: {

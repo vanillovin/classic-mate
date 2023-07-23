@@ -13,7 +13,11 @@ function SignOutButton({ className, children }: SignOutButtonProps) {
   const { signOut } = useAuth();
 
   return (
-    <button className={className} onClick={signOut}>
+    <button
+      data-tip="로그아웃"
+      onClick={signOut}
+      className={`${className}`}
+    >
       {children}
     </button>
   );

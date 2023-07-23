@@ -15,7 +15,7 @@ function ClassicQuiz() {
 
   const currentDate = new Date().toISOString().split('T')[0];
   const currentDay = new Date().toLocaleDateString(undefined, { weekday: 'long' });
-  const currentQuiz = quizData[currentDate] ?? quizData['2023-07-11'];
+  const currentQuiz = quizData[currentDate] ?? quizData['2023-07-23'];
 
   const renderOptions = () => {
     return currentQuiz.options.map((option, index) => (
@@ -62,64 +62,69 @@ function ClassicQuiz() {
 export default ClassicQuiz;
 
 const quizData: QuizData = {
-  '2023-07-11': {
+  '2023-07-23': {
     question: '베토벤의 9번 교향곡은 몇 번이라고 불리나요?',
     options: ['비창', '영웅', '합창', '영광'],
     answer: 2,
   },
-  '2023-07-12': {
+  '2023-07-24': {
     question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
     options: ['피아노', '바이올린', '첼로', '오보에'],
     answer: 0,
   },
-  '2023-07-13': {
+  '2023-07-25': {
     question: '다음 중 가장 짧은 음표는?',
     options: ['♩', '♪', '♫', '♬'],
     answer: 0,
   },
-  '2023-07-14': {
+  '2023-07-26': {
     question: '비발디의 대표작은?',
     options: ['운명교향곡', '사계', '로망스', '터키행진곡'],
     answer: 1,
   },
-  '2023-07-15': {
+  '2023-07-27': {
     question: '베토벤의 5번 교향곡은 몇 번이라고 불리나요?',
     options: ['비창', '운명', '합창', '명곡'],
     answer: 1,
   },
-  '2023-07-16': {
+  '2023-07-28': {
     question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
     options: ['O', 'X'],
     answer: 0,
   },
-  '2023-07-17': {
+  '2023-07-29': {
     question: '베토벤의 9번 교향곡은 몇 번이라고 불리나요?',
     options: ['비창', '영웅', '합창', '영광'],
     answer: 2,
   },
-  '2023-07-18': {
+  '2023-07-30': {
     question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
     options: ['피아노', '바이올린', '첼로', '오보에'],
     answer: 0,
   },
-  '2023-07-19': {
+  '2023-07-31': {
     question: '다음 중 가장 짧은 음표는?',
     options: ['♩', '♪', '♫', '♬'],
     answer: 0,
   },
-  '2023-07-20': {
+  '2023-08-01': {
     question: '비발디의 대표작은?',
     options: ['운명교향곡', '사계', '로망스', '터키행진곡'],
     answer: 1,
   },
-  '2023-07-21': {
+  '2023-08-02': {
     question: '베토벤의 5번 교향곡은 몇 번이라고 불리나요?',
     options: ['비창', '운명', '합창', '명곡'],
     answer: 1,
   },
-  '2023-07-22': {
+  '2023-08-03': {
     question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
     options: ['O', 'X'],
+    answer: 0,
+  },
+  '2023-08-04': {
+    question: '다음 중 가장 짧은 음표는?',
+    options: ['♩', '♪', '♫', '♬'],
     answer: 0,
   },
 };

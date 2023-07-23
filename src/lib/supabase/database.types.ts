@@ -156,7 +156,6 @@ export interface Database {
           description: string | null
           full_name: string | null
           id: string
-          liked_classic: Json[] | null
           nickname: string | null
           updated_at: string | null
           website: string | null
@@ -166,7 +165,6 @@ export interface Database {
           description?: string | null
           full_name?: string | null
           id: string
-          liked_classic?: Json[] | null
           nickname?: string | null
           updated_at?: string | null
           website?: string | null
@@ -176,7 +174,6 @@ export interface Database {
           description?: string | null
           full_name?: string | null
           id?: string
-          liked_classic?: Json[] | null
           nickname?: string | null
           updated_at?: string | null
           website?: string | null
@@ -185,6 +182,101 @@ export interface Database {
           {
             foreignKeyName: "profiles_id_fkey"
             columns: ["id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      test_categories: {
+        Row: {
+          id: string
+          name: string
+        }
+        Insert: {
+          id?: string
+          name: string
+        }
+        Update: {
+          id?: string
+          name?: string
+        }
+        Relationships: []
+      }
+      test_comments: {
+        Row: {
+          content: string
+          id: number
+          nickname: string | null
+          post_id: string
+          user_id: string
+        }
+        Insert: {
+          content: string
+          id?: never
+          nickname?: string | null
+          post_id: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          id?: never
+          nickname?: string | null
+          post_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "test_comments_post_id_fkey"
+            columns: ["post_id"]
+            referencedRelation: "test_posts"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "test_comments_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      test_posts: {
+        Row: {
+          category_name: string | null
+          content: string | null
+          created_at: string
+          id: string
+          nickname: string | null
+          title: string
+          user_id: string
+        }
+        Insert: {
+          category_name?: string | null
+          content?: string | null
+          created_at?: string
+          id: string
+          nickname?: string | null
+          title: string
+          user_id: string
+        }
+        Update: {
+          category_name?: string | null
+          content?: string | null
+          created_at?: string
+          id?: string
+          nickname?: string | null
+          title?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "test_posts_category_name_fkey"
+            columns: ["category_name"]
+            referencedRelation: "test_categories"
+            referencedColumns: ["name"]
+          },
+          {
+            foreignKeyName: "test_posts_user_id_fkey"
+            columns: ["user_id"]
             referencedRelation: "users"
             referencedColumns: ["id"]
           }

@@ -4,7 +4,7 @@ import React from 'react'
 
 function LoadingPiano() {
   return (
-    <div className="w-full h-full mt-20 sm:mt-40 flex items-center justify-center">
+    <div className="w-full h-full mt-20 sm:mt-30 flex items-center justify-center">
       <div className="relative flex">
         <div className="w-8 sm:w-10 h-20 sm:h-24 bg-white bg-opacity-70 border-r border-gray-100 animate-animate-piano-delay-1"></div>
         <div className="z-10 absolute w-5 sm:w-7 h-10 sm:h-14 bg-black bg-opacity-70 border-r border-gray-100 top-0 left-6 sm:left-7 animate-animate-piano-delay-2"></div>

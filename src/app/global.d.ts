@@ -7,4 +7,5 @@ declare global {
   type ClassicLike = DB['public']['Tables']['classic_likes']['Row'];
   type ClassicComment = DB['public']['Tables']['classic_comments']['Row'];
   type Profile = DB['public']['Tables']['profiles']['Row'];
+  type Post = DB['public']['Tables']['test_posts']['Row'];
 }

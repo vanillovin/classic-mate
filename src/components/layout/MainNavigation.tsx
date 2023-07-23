@@ -42,7 +42,7 @@ function MainNavigation() {
 
   return (
     <header
-      className={`w-full max-w-6xl sticky top-0 z-20 flex items-center justify-between bg-white px-4 mobile:px-3 h-12 sm:h-16 shadow-sm select-none
+      className={`w-full max-w-6xl sticky top-0 z-20 flex items-center justify-between px-4 h-12 sm:h-16 shadow-sm select-none bg-white
         ${isScrolled ? 'bg-opacity-95 backdrop-blur-sm transition-all shadow-md' : 'bg-opacity-70'}
       `}
     >
@@ -65,7 +65,7 @@ function MainNavigation() {
             <li>
               <Link
                 href={`/profile/${session.user.id}`}
-                className='font-semibold rounded-bl-none rounded-br-none bg-pantone-sun-kiss'
+                className='font-semibold rounded-bl-none rounded-br-none bg-pantone-powder'
               >
                 {nickname}님
               </Link>
@@ -76,8 +76,7 @@ function MainNavigation() {
               <li key={index}>
                 <Link
                   href={nav.href}
-                  className={`hover:bg-pantone-babys-breath
-                    ${index === 0 ? 'rounded-bl-none rounded-br-none' : 'rounded-none'}
+                  className={`hover:bg-pantone-babys-breath rounded-none
                     ${pathname === nav.href && 'bg-pantone-babys-breath'}
                   `}>
                   {nav.title}
@@ -100,14 +99,16 @@ function MainNavigation() {
           )}
         </ul>
       </div>
-      <nav className='hidden sm:flex font-medium text-sm sm:text-base'>
+      <nav className='hidden sm:flex items-center font-medium text-sm sm:text-base gap-x-3'>
         {
           siteConfig.mainNav.slice(1, siteConfig.mainNav.length).map((nav, index) => (
             <Link 
               key={index}
               href={nav.href}
-              className={`mr-2 sm:mr-4 transition-all 
-                ${pathname === nav.href ? 'text-vintage-holiday-brown' : 'text-pantone-metallic-gold hover:text-vintage-holiday-brown'}
+              className={`transition-all
+                ${pathname === nav.href
+                  ? 'text-vintage-holiday-brown'
+                  : 'text-pantone-metallic-gold hover:text-vintage-holiday-brown'}
               `}
             >
               {nav.title}
@@ -115,12 +116,16 @@ function MainNavigation() {
           ))
         }
         {session ? (
-          <div className='flex items-center'>
-            <Link href={`/profile/${session.user.id}`} className='text-vintage-holiday-brown hover:text-yellow-500 transition-all mr-2'>
+          <div className='flex items-center rounded-sm h-7'>
+            <Link
+              data-tip="프로필"
+              href={`/profile/${session.user.id}`}
+              className='tooltip tooltip-bottom border-r transition-all px-1 h-full flex items-center justify-center bg-pantone-powder hover:bg-pantone-champagne border-pantone-champagne'
+            >
               {nickname}님
             </Link>
-            <SignOutButton>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
+            <SignOutButton className='tooltip tooltip-bottom px-1 h-full bg-pantone-powder hover:bg-pantone-champagne'>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
               </svg>
             </SignOutButton>
