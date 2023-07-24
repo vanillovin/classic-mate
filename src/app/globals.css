@@ -36,7 +36,7 @@ input[type='range']::-webkit-slider-thumb {
 
 /* width */
 .scrollbar::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
   
 /* Track */
@@ -46,11 +46,11 @@ input[type='range']::-webkit-slider-thumb {
   
 /* Handle */
 .scrollbar::-webkit-scrollbar-thumb {
-  background: #8ECCCF;
-  border-radius: 5px;
+  border-radius: 1px;
+  @apply bg-pantone-latte;
 }
-  
+
 /* Handle on hover */
 .scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #6E7C76;
+  @apply bg-pantone-cocoa;
 }

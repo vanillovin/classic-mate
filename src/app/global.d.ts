@@ -8,4 +8,5 @@ declare global {
   type ClassicComment = DB['public']['Tables']['classic_comments']['Row'];
   type Profile = DB['public']['Tables']['profiles']['Row'];
   type Post = DB['public']['Tables']['test_posts']['Row'];
+  type PostComment = DB['public']['Tables']['test_comments']['Row'];
 }

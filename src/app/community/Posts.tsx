@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
 
+import { formatTimestamp } from '@/utils/dateUtils';
 import { useSupabase } from '@/components/providers/supabase-provider';
 
 function Posts({ serverPosts }: { serverPosts: Post[]}) {
@@ -41,7 +42,9 @@ function Posts({ serverPosts }: { serverPosts: Post[]}) {
               </div>
               <div className='text-sm text-end'>
                 <p>{post.nickname}</p>
-                <p className='text-whitemoon-darkgray'>{post.created_at.split('T')[0]}</p>
+                <p className='text-whitemoon-darkgray'>
+                  {formatTimestamp(post.created_at)}
+                </p>
               </div>
             </Link>
           </li>

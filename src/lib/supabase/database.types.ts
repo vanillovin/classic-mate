@@ -205,23 +205,29 @@ export interface Database {
       test_comments: {
         Row: {
           content: string
+          created_at: string
           id: number
-          nickname: string | null
+          nickname: string
           post_id: string
+          updated_at: string
           user_id: string
         }
         Insert: {
           content: string
+          created_at?: string
           id?: never
-          nickname?: string | null
+          nickname: string
           post_id: string
+          updated_at?: string
           user_id: string
         }
         Update: {
           content?: string
+          created_at?: string
           id?: never
-          nickname?: string | null
+          nickname?: string
           post_id?: string
+          updated_at?: string
           user_id?: string
         }
         Relationships: [
@@ -241,30 +247,33 @@ export interface Database {
       }
       test_posts: {
         Row: {
-          category_name: string | null
-          content: string | null
+          category_name: string
+          content: string
           created_at: string
           id: string
-          nickname: string | null
+          nickname: string
           title: string
+          updated_at: string
           user_id: string
         }
         Insert: {
-          category_name?: string | null
-          content?: string | null
+          category_name: string
+          content: string
           created_at?: string
           id: string
-          nickname?: string | null
+          nickname: string
           title: string
+          updated_at?: string
           user_id: string
         }
         Update: {
-          category_name?: string | null
-          content?: string | null
+          category_name?: string
+          content?: string
           created_at?: string
           id?: string
-          nickname?: string | null
+          nickname?: string
           title?: string
+          updated_at?: string
           user_id?: string
         }
         Relationships: [
