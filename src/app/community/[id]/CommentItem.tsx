@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { formatTimestamp } from '@/utils/dateUtils';
 import { useSupabase } from '@/components/providers/supabase-provider';
@@ -11,12 +11,29 @@ function CommentItem({ comment, postId }: { comment: PostComment; postId: string
   const queryClient = useQueryClient();
   const { supabase, session } = useSupabase();
 
+  const [isEditing, setIsEditing] = useState(false);
+  const [content, setContent] = useState(comment.content);
+
+  const isDisabled = content.trim().length < 3 || content === comment.content;
+
   async function deleteComment() {
     const { error } = await supabase
       .from('test_comments')
       .delete()
       .eq('id', comment.id);
     if (!error) {
+      queryClient.invalidateQueries(['postComments', postId]);
+    }
+  }
+
+  async function editComment() {
+    if (isDisabled) return;
+    const { error } = await supabase
+      .from('test_comments')
+      .update({ content, updated_at: new Date().toISOString() })
+      .eq('id', comment.id);
+    if (!error) {
+      setIsEditing(false);
       queryClient.invalidateQueries(['postComments', postId]);
     }
   }
@@ -45,7 +62,7 @@ function CommentItem({ comment, postId }: { comment: PostComment; postId: string
               className='dropdown-content z-[1] p-1 space-y-1 text-sm shadow bg-base-100 rounded-sm w-24 transition-all'
             >
               <li className='w-full flex items-center justify-center p-1 transition-all hover:bg-whitemoon-lightgray'>
-                <button className='flex items-center'>
+                <button className='flex items-center' onClick={() => setIsEditing(true)}>
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-3 h-3">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
                   </svg>
@@ -64,7 +81,32 @@ function CommentItem({ comment, postId }: { comment: PostComment; postId: string
           </div>
         )}
       </div>
-      <p>{comment.content}</p>
+      {!isEditing ? (
+        <p>{comment.content}</p>
+      ) : (
+        <div className='flex items-center h-8'>  
+          <input
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            className='flex-1 h-full px-1 focus:outline-none focus:border'
+          />    
+          <div className='h-full text-white'>
+            <button 
+              onClick={() => setIsEditing(false)} 
+              className='w-10 h-full bg-whitemoon-mint'
+            >
+              취소
+            </button>
+            <button 
+              onClick={editComment} 
+              className='w-10 h-full bg-whitemoon-blue'
+              disabled={isDisabled}
+            >
+              완료
+            </button>
+          </div>
+        </div>
+     )}
     </li>
   );
 }

@@ -78,7 +78,7 @@ function Newspaper() {
         
         <div className='border-t mt-4'></div>
         <div className='flex flex-col md:flex-row items-center px-4 py-8'>
-          <div className='w-full sm:w-1/2 pb-4 sm:p-4'>
+          <div className='w-full md:w-1/2 pb-4 sm:p-4'>
             <h3 className='whitespace-pre-line text-lg text-center md:text-start font-medium mb-4 text-vintage-holiday-brown drop-shadow-md'>
               {point.title}
             </h3>
@@ -87,7 +87,7 @@ function Newspaper() {
             </p>
           </div>
           <div className='hidden md:block sm:border-r mr-4 h-84'></div>
-          <div className='w-full sm:w-1/2 h-[200px] sm:h-[300px] relative overflow-hidden'>
+          <div className='w-full md:w-1/2 h-[200px] sm:h-[300px] relative overflow-hidden'>
             <Image
               fill
               alt=''
@@ -99,14 +99,14 @@ function Newspaper() {
         <div className='border-t mb-4'></div>
 
         <div className='flex flex-col md:flex-row p-4'>
-          <div className='sm:w-1/2 h-[200px] mobile:h-[350px]'>
+          <div className='md:w-1/2 h-[200px] mobile:h-[350px]'>
             <iframe
               src={`${convertToEmbeddedURL('https://youtu.be/YXL0dkG-Qro')}`}
               allowFullScreen
               className='w-full h-full rounded-sm'
             />
           </div>
-          <div className='sm:w-1/2 flex flex-col items-center justify-center py-6 sm:p-6'>
+          <div className='md:w-1/2 flex flex-col items-center justify-center py-6 sm:p-6'>
             <p className='font-light leading-6'>
               {performar.description}
             </p>

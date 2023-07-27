@@ -26,7 +26,7 @@ export default async function Post({ params: { id } }: { params: { id: string } 
   return (
     <article className='px-3 sm:px-6 pt-3 sm:pt-6 pb-24'>
       <div className='grid md:grid-cols-2 gap-1 sm:gap-2 shadow-md bg-gradient-radial from-[#fff] to-[#f4f5f0]'>
-        <section className='h-[300px] md:h-[600px] flex flex-col py-2 p-2'>
+        <section className='h-[350px] md:h-[700px] flex flex-col py-2 p-2'>
           <header className='flex flex-col gap-y-1'>
             <div className='flex items-center justify-between'>
               <h2 className='font-semibold text-lg sm:text-xl'>{post.title}</h2>
@@ -87,7 +87,7 @@ export default async function Post({ params: { id } }: { params: { id: string } 
           />
         </section>
 
-        <section className='h-[300px] md:h-[600px] flex flex-col p-2 gap-y-1 sm:gap-y-2'>
+        <section className='h-[350px] md:h-[700px] flex flex-col p-2 gap-y-1 sm:gap-y-2'>
           <p className='text-sm sm:text-base'>
             <span className='font-medium'>{comments?.length}</span>
             개의 댓글
