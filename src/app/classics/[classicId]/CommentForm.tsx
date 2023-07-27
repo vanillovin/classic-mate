@@ -3,15 +3,13 @@
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 
-import { useAuth } from '@/components/providers/auth-provider';
 import { useSupabase } from '@/components/providers/supabase-provider';
 import { useQueryClient } from '@tanstack/react-query';
 
 const initialInputs = { nickname: '', content: '' };
 
 function CommentForm({ classicId }: { classicId: string }) {
-  const { user } = useAuth();
-  const { supabase } = useSupabase();
+  const { supabase, session } = useSupabase();
   const queryClient = useQueryClient();
 
   const [inputs, setInputs] = useState(initialInputs);
@@ -30,7 +28,7 @@ function CommentForm({ classicId }: { classicId: string }) {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!user) {
+    if (!session) {
       toast.error('로그인 후 이용 가능합니다');
       return;
     }
@@ -39,7 +37,7 @@ function CommentForm({ classicId }: { classicId: string }) {
       .insert({
         nickname,
         content,
-        user_id: user?.id,
+        user_id: session.user.id,
         classic_id: classicId,
       });
     if (!error) {

@@ -1,7 +1,8 @@
-
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-import CommentItem from './CommentItem';
+import CommentForm from './CommentForm';
+import CommentList from './CommentList';
 import { createServerClient } from '@/utils/supabase-server';
 
 // export const revalidate = 60;
@@ -24,8 +25,8 @@ export default async function Post({ params: { id } }: { params: { id: string } 
 
   return (
     <article className='px-3 sm:px-6 pt-3 sm:pt-6 pb-24'>
-      <div className='grid sm:grid-cols-2 gap-1 sm:gap-2 shadow-md bg-gradient-radial from-[#fff] to-[#f4f5f0]'>
-        <section className='h-[300px] sm:h-[600px] flex flex-col py-2 p-2'>
+      <div className='grid md:grid-cols-2 gap-1 sm:gap-2 shadow-md bg-gradient-radial from-[#fff] to-[#f4f5f0]'>
+        <section className='h-[300px] md:h-[600px] flex flex-col py-2 p-2'>
           <header className='flex flex-col gap-y-1'>
             <div className='flex items-center justify-between'>
               <h2 className='font-semibold text-lg sm:text-xl'>{post.title}</h2>
@@ -61,8 +62,15 @@ export default async function Post({ params: { id } }: { params: { id: string } 
               )}
             </div>
             <p className="text-sm sm:text-base">
-              <span className='px-1 rounded-sm mr-1 bg-pantone-powder'>{post.category_name}</span>
-              <span className="font-medium">{post.nickname}</span>
+              <Link
+                href={`/community?cat=${post.category_name}`}
+                className='px-1 rounded-sm mr-1 bg-pantone-powder'
+              >
+                {post.category_name}
+              </Link>
+              <Link href={`/profile/${post.user_id}`} className="font-medium">
+                {post.nickname}
+              </Link>
             </p>
             <div className='flex items-center text-xs sm:text-sm overflow-y-scroll scrollbar'>
               <time dateTime={post.created_at}>
@@ -78,22 +86,14 @@ export default async function Post({ params: { id } }: { params: { id: string } 
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         </section>
-        <section className='h-[300px] sm:h-[600px] flex flex-col p-2 gap-y-1 sm:gap-y-2'>
+
+        <section className='h-[300px] md:h-[600px] flex flex-col p-2 gap-y-1 sm:gap-y-2'>
           <p className='text-sm sm:text-base'>
             <span className='font-medium'>{comments?.length}</span>
             개의 댓글
           </p>
-          <form className='flex border border-pantone-powder focus-within:border-pantone-latte'>
-            <input className='flex-1 p-1 focus:outline-none' />
-            <button className=' sm:w-20 text-sm sm:text-base bg-pantone-powder p-1 hover:bg-pantone-latte'>
-              댓글 쓰기
-            </button>
-          </form>
-          <ul className='overflow-y-scroll scrollbar flex-1'>
-            {comments?.map(comment => (
-              <CommentItem key={comment.id} userId={user?.id ?? ''} comment={comment} />
-            ))}
-          </ul>
+          <CommentForm postId={id} />
+          <CommentList postId={id}  serverComments={comments ?? []} />
         </section>
       </div>
     </article>

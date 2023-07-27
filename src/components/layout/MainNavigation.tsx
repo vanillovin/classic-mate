@@ -54,13 +54,13 @@ function MainNavigation() {
         {siteConfig.name}
         <span className='text-xs ml-1 hidden sm:inline'>당신의 클래식 메이트</span>
       </Link>
-      <div className="sm:hidden dropdown dropdown-end">
+      <div className="md:hidden dropdown dropdown-end">
         <label tabIndex={0} className="group cursor-pointer">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-pantone-pale-gold">
             <path fillRule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clipRule="evenodd" />
           </svg>
         </label>
-        <ul tabIndex={0} className="menu dropdown-content z-10 p-2 shadow bg-base-100 rounded-box w-52 mt-4">
+        <ul tabIndex={0} className="menu dropdown-content z-10 p-2 shadow bg-base-100 rounded-box w-52 mt-4 text-sm sm:text-base">
           {session &&
             <li>
               <Link
@@ -99,7 +99,7 @@ function MainNavigation() {
           )}
         </ul>
       </div>
-      <nav className='hidden sm:flex items-center font-medium text-sm sm:text-base gap-x-3'>
+      <nav className='hidden md:flex items-center font-medium gap-x-3'>
         {
           siteConfig.mainNav.slice(1, siteConfig.mainNav.length).map((nav, index) => (
             <Link 

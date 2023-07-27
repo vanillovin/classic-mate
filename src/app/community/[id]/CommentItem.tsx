@@ -1,21 +1,19 @@
 'use client';
 
+import Link from 'next/link';
 import React from 'react';
 
 import { formatTimestamp } from '@/utils/dateUtils';
+import { useSupabase } from '@/components/providers/supabase-provider';
 
-function CommentItem({
-  userId,
-  comment
-}: {
-  userId: string;
-  comment: PostComment; 
-}) {
+function CommentItem({ comment }: { comment: PostComment; }) {
+  const { session } = useSupabase();
+
   return (
-    <li className='p-1 sm:p-2 sm:px-0 border-b last:border-b-0 text-sm sm:text-base'>
+    <li className='p-1 md:p-2 md:px-0 border-b last:border-b-0 text-sm sm:text-base'>
       <div className='flex items-center justify-between'>
         <div className='flex space-x-1'>
-          <p>{comment.nickname}</p>
+          <Link href={`/profile/${comment.user_id}`}>{comment.nickname}</Link>
           <div className='flex items-center text-xs sm:text-sm text-whitemoon-darkgray'>
             <p>{formatTimestamp(comment.created_at)}</p>
             {comment.created_at !== comment.updated_at && (
@@ -23,7 +21,7 @@ function CommentItem({
             )}
           </div>
         </div>
-        {userId === comment.user_id && (
+        {session?.user.id === comment.user_id && (
           <div className='dropdown dropdown-left'>
             <label tabIndex={0} className='cursor-pointer'>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 hover:text-peachmoon-rose">

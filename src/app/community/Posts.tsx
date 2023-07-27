@@ -24,24 +24,24 @@ function Posts({ serverPosts }: { serverPosts: Post[]}) {
 
   return (
     <div>
-      <ul className='grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1'>
+      <ul className='grid md:grid-cols-2 gap-x-2 gap-y-1'>
         {posts?.map((post) => (
           <li
             key={post.id}
-            className='px-2 py-3 transition-all bg-opacity-90 border-t border-b border-whitemoon-darkblue hover:bg-white'
+            className='px-1 sm:px-2 py-2 sm:py-3 transition-all bg-opacity-90 border-t border-b border-whitemoon-darkblue hover:bg-white'
           >
             <Link
               href={`/community/${post.id}`}
               className='flex items-center justify-between'
             >
-              <div className='font-medium'>
-                <p className='w-fit px-1 rounded-sm text-sm text-center bg-peachmoon-peach'>
+              <div className='text-sm sm:text-base font-medium'>
+                <p className='w-fit px-1 rounded-sm text-xs sm:text-sm text-center bg-peachmoon-peach'>
                   {post.category_name}
                 </p>
                 <p className='font-medium'>{post.title}</p>
               </div>
-              <div className='text-sm text-end'>
-                <p>{post.nickname}</p>
+              <div className='text-xs sm:text-sm text-end'>
+                <Link href={`/profile/${post.user_id}`}>{post.nickname}</Link>
                 <p className='text-whitemoon-darkgray'>
                   {formatTimestamp(post.created_at)}
                 </p>
