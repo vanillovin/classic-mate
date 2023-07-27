@@ -33,6 +33,7 @@ function CommentList({
         <CommentItem
           key={comment.id}
           comment={comment}
+          postId={postId}
         />
       ))}
     </ul>

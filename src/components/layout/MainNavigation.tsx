@@ -20,7 +20,7 @@ function MainNavigation() {
         .from('profiles')
         .select()
         .eq('id', session?.user.id);
-      if (data) setNickname(data[0].nickname)
+      setNickname(data?.[0].nickname ?? '클메')
     }
     
     fetchProfile();

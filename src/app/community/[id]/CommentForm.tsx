@@ -16,12 +16,17 @@ function CommentForm({ postId }: { postId: string }) {
       toast.error('로그인 후 이용 가능합니다.');
       return;
     }
+    const { data } = await supabase
+      .from('profiles')
+      .select('nickname')
+      .eq('id', session.user.id);
+    const nickname = data?.[0].nickname ?? '클메';
     const { error } = await supabase
       .from('test_comments')
       .insert({
         content,
+        nickname,
         post_id: postId,
-        nickname: '클메',
         user_id: session.user.id, 
       });
     if (!error) {
