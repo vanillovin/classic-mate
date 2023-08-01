@@ -1,31 +1,30 @@
 'use client';
 
-import { v4 as uuidv4 } from 'uuid';
 import { toast } from 'react-toastify';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 import { useSupabase } from '@/components/providers/supabase-provider';
 
-function NewForm({ profile }: { profile: Profile }) {
+function NewForm() {
   const router = useRouter();
   const { supabase } = useSupabase();
+  const searchParams = useSearchParams();
+  const { id, category_name, title, content } = Object.fromEntries(searchParams);
 
   async function addNewPost(formData: FormData) {
     const formDataObj = Object.fromEntries(formData);
-    if (formDataObj.category_name === '') {
-      alert('카테고리를 선택해주세요.');
-    }
-    const id = uuidv4();
+    const { category_name: newCat, title: newTit, content: newCon } = formDataObj;
+    if (newCat === '') alert('카테고리를 선택해주세요.');
+    else if (title === newCat || content === newCat) return;
     const { error } = await supabase
       .from('test_posts')
-      .insert({
+      .update({
         ...formDataObj,
-        id,
-        user_id: profile.id,
-        nickname: profile.nickname ?? '클메',
-      });
+        updated_at: new Date().toISOString,
+      })
+      .eq('id', id);
     if (!error) router.push(`/community/${id}`);
-    else toast.error(`게시글을 올리지 못했습니다. ${error.message}`);
+    else toast.error(`게시글을 수정하지 못했습니다. ${error.message}`);
   }
 
   return (
@@ -39,8 +38,9 @@ function NewForm({ profile }: { profile: Profile }) {
       <div className='space-y-1'>
         <label htmlFor="category" className='font-medium'>카테고리</label>
         <select
-          name='category_name'
           id="category"
+          name='category_name'
+          defaultValue={category_name}
           className="w-full block p-2 rounded-sm border focus:outline-none focus:border-black"
           required
         >
@@ -54,6 +54,7 @@ function NewForm({ profile }: { profile: Profile }) {
         <input
           id="title"
           name="title"
+          defaultValue={title}
           placeholder="제목을 입력해주세요."
           className="w-full block p-2 rounded-sm border focus:outline-none focus:border-black"
           minLength={3}
@@ -65,22 +66,25 @@ function NewForm({ profile }: { profile: Profile }) {
         <textarea
           id="content"
           name="content"
+          defaultValue={content}
           placeholder="내용을 입력해주세요."
           minLength={3}
           className="w-full block p-2 rounded-sm border h-80 max-h-96 focus:outline-none focus:border-black"
           required
         />
       </div>
-      <div className="flex items-center gap-x-2 font-medium text-white justify-end">
+      <div className="flex items-center gap-x-2 font-medium justify-end">
         <button
-          onClick={() => router.back()}
-          className="px-4 py-2 transition-colors bg-pantone-biscotti hover:bg-pantone-latte"
+          onClick={() => {
+            confirm('정말로 취소하시겠습니까?') && router.back()
+          }}
+          className="px-4 py-2 transition-colors bg-[#FFD78A] hover:bg-[#FFE7B8]"
         >
           취소
         </button>
         <button
           type="submit"
-          className="px-4 py-2 transition-colors bg-pantone-toffee hover:bg-pantone-cocoa"
+          className="px-4 py-2 transition-colors bg-[#BCC8D1] hover:bg-[#C2D7E8]"
         >
           등록
         </button>
