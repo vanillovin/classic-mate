@@ -44,8 +44,8 @@ function TagList({ tags, selectedTags }: TagListProps) {
             onClick={() => handleTagClick(tag)}
             className={`rounded-sm p-1 mr-1 mb-1 text-sm sm:text-base shadow-sm
               ${selectedTags.includes(tag)
-                ? 'bg-vintage-holiday-gray text-white'
-                : 'bg-white hover:bg-opacity-60'}
+                ? 'text-white bg-watery-2'
+                : 'bg-white hover:bg-opacity-70'}
             `}
           >
             {tag}
@@ -53,7 +53,7 @@ function TagList({ tags, selectedTags }: TagListProps) {
         ))}
         <button
           onClick={() => router.push('/tags')}
-          className="bg-black text-white rounded-sm p-1 mr-1 mb-1 hover:bg-opacity-70 text-sm sm:text-base"
+          className="rounded-sm p-1 mr-1 mb-1 hover:bg-opacity-70 text-sm sm:text-base text-white bg-black"
         >
           태그 지우기
         </button>

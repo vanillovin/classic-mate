@@ -12,6 +12,9 @@ function NewForm({ profile }: { profile: Profile }) {
 
   async function addNewPost(formData: FormData) {
     const formDataObj = Object.fromEntries(formData);
+    if (formDataObj.category_name === '') {
+      alert('카테고리를 선택해주세요.');
+    }
     const id = uuidv4();
     const { error } = await supabase
       .from('test_posts')
@@ -19,10 +22,10 @@ function NewForm({ profile }: { profile: Profile }) {
         ...formDataObj,
         id,
         user_id: profile.id,
-        nickname: profile.nickname
+        nickname: profile.nickname ?? '클메',
       });
     if (!error) router.push(`/community/${id}`);
-    else toast.error(`게시글을 올리지 못했습니다.`);
+    else toast.error(`게시글을 올리지 못했습니다. ${error.message}`);
   }
 
   return (
@@ -41,7 +44,7 @@ function NewForm({ profile }: { profile: Profile }) {
           className="w-full block p-2 rounded-sm border focus:outline-none focus:border-black"
           required
         >
-          <option>카테고리를 선택해주세요.</option>
+          <option value=''>카테고리를 선택해주세요.</option>
           <option value="자유">자유</option>
           <option value="클래식">클래식</option>
         </select>
@@ -53,8 +56,9 @@ function NewForm({ profile }: { profile: Profile }) {
           name="title" 
           placeholder="제목을 입력해주세요."
           className="w-full block p-2 rounded-sm border focus:outline-none focus:border-black"
+          minLength={3}
           required
-        />
+          />
       </div>
       <div>
         <label htmlFor="content" className='font-medium'>내용</label>
@@ -62,6 +66,7 @@ function NewForm({ profile }: { profile: Profile }) {
           id="content"
           name="content" 
           placeholder="내용을 입력해주세요."
+          minLength={3}
           className="w-full block p-2 rounded-sm border h-80 max-h-96 focus:outline-none focus:border-black"
           required
         />

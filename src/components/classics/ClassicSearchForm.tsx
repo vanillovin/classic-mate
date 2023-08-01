@@ -14,12 +14,12 @@ function ClassicSearchForm({ value, onChange, onClick, placeholder } : ClassicSe
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={`w-full px-3 py-2 bg-white bg-opacity-80 border-2 rounded-xl text-sm md:text-base 
-          border-simple-palette-gold hover:border-autumn-gold shadow-sm`}
+        className={`w-full px-3 py-2 bg-opacity-80 border-2 rounded-xl text-sm md:text-base bg-white shadow-sm
+          border-simple-palette-gold hover:border-autumn-gold focus:outline-none focus:border-pantone-metallic-gold`}
       />
       {value && <CancelButton onClick={onClick} />}
       <svg
-        className="absolute right-2 top-2 w-5 h-5 sm:right-3 sm:top-3 text-autumn-emerald"
+        className="absolute top-1/2 right-2 transform -translate-y-1/2 w-5 h-5 sm:right-3 text-autumn-emerald"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -42,7 +42,7 @@ function CancelButton({ onClick } : { onClick : () => void }) {
   return (
     <button
       onClick={onClick}
-      className='absolute right-8 top-2 w-5 h-5 sm:right-10 sm:top-3'
+      className='absolute top-1/2 right-8 transform -translate-y-1/2 w-5 h-5 sm:right-10'
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

@@ -10,6 +10,9 @@
   .font-outline-2 {
     -webkit-text-stroke: .2px white;
   }
+  .modal-btn {
+    @apply text-sm shadow-sm font-medium px-3 sm:px-4 py-2 sm:py-3 rounded-sm transition-colors active:scale-95;
+  }
 }
 
 html,

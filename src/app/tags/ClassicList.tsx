@@ -13,7 +13,7 @@ function ClassicList({ classics, selectedTags }: ClassicListProps) {
         <Link
           href={`/classics/${classic.id}`}
           key={classic.id}
-          className="rounded-sm shadow-md p-1 sm:p-2 bg-white bg-opacity-70 hover:bg-opacity-100 transition-all"
+          className="rounded-sm shadow-md p-1 sm:p-2 bg-opacity-70 hover:bg-opacity-100 transition-all bg-white"
         >
           <p className="font-medium text-sm sm:text-base">{classic.title}</p>
           <ul className='flex flex-wrap mt-1'>
@@ -22,8 +22,8 @@ function ClassicList({ classics, selectedTags }: ClassicListProps) {
                 key={tag}
                 className={`px-1 rounded-sm mr-1 mb-1 text-xs sm:text-sm
                   ${selectedTags.includes(tag)
-                    ? 'bg-vintage-holiday-gray text-white'
-                    : 'bg-warm-vintage-dusty-mint text-black'}
+                    ? 'text-white bg-watery-2'
+                    : 'text-black bg-watery-4'}
                 `}
               >{tag}</li>
             )}

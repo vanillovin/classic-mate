@@ -24,44 +24,42 @@ function Posts({ serverPosts }: { serverPosts: Post[]}) {
 
   return (
     <div>
-      <ul className='grid md:grid-cols-2 gap-x-2 gap-y-1'>
+      <div className='grid md:grid-cols-2 gap-2 sm:gap-4'>
         {posts?.map((post) => (
-          <li
+          <Link
             key={post.id}
-            className='px-1 sm:px-2 py-2 sm:py-3 transition-all bg-opacity-90 border-t border-b border-whitemoon-darkblue hover:bg-white'
+            href={`/community/${post.id}`}
+            className='relative group'
           >
-            <Link
-              href={`/community/${post.id}`}
-              className='flex items-center justify-between'
-            >
+            <div className='flex items-center justify-between px-3 py-3 sm:py-4 transition-all bg-[#BCC8D1] group-hover:bg-[#C2D7E8]'>
               <div className='text-sm sm:text-base font-medium'>
-                <p className='w-fit px-1 rounded-sm text-xs sm:text-sm text-center bg-peachmoon-peach'>
+                <p className='w-fit font-light rounded-sm text-xs sm:text-sm text-center underline underline-offset-4 text-white '>
                   {post.category_name}
                 </p>
                 <p className='font-medium'>{post.title}</p>
               </div>
               <div className='text-xs sm:text-sm text-end'>
-                <Link href={`/profile/${post.user_id}`}>{post.nickname}</Link>
+                <p>{post.nickname}</p>
                 <p className='text-whitemoon-darkgray'>
                   {formatTimestamp(post.created_at)}
                 </p>
               </div>
-            </Link>
-          </li>
+            </div>
+            <div className='w-full h-full absolute top-1 left-1 border border-black' />
+          </Link>
         ))}
-      </ul>
-
-      <div className='flex items-center justify-center my-4'>
-        <nav className='inline-flex gap-x-2 font-medium'>
-          <button className="px-2 sm:px-4 hover:text-peachmoon-rose">1</button>
-          <button className="px-2 sm:px-4 hover:text-peachmoon-rose">2</button>
-          <button className="px-2 sm:px-4 hover:text-peachmoon-rose">3</button>
-          <button className="px-2 sm:px-4 hover:text-peachmoon-rose">4</button>
-          <button className="px-2 sm:px-4 hover:text-peachmoon-rose">5</button>
-          {/* <button className="px-2 sm:px-4 hover:text-peachmoon-rose">...</button>
-          <button className="px-2 sm:px-4 hover:text-peachmoon-rose">100</button> */}
-        </nav>
       </div>
+      {/* <div className='flex items-center justify-center my-8'>
+        <nav className='inline-flex gap-x-2 font-medium'>
+          <button className="px-2 sm:px-4 hover:text-[#FFD78A]">1</button>
+          <button className="px-2 sm:px-4 hover:text-[#FFD78A]">2</button>
+          <button className="px-2 sm:px-4 hover:text-[#FFD78A]">3</button>
+          <button className="px-2 sm:px-4 hover:text-[#FFD78A]">4</button>
+          <button className="px-2 sm:px-4 hover:text-[#FFD78A]">5</button>
+          <button className="px-2 sm:px-4 hover:text-peachmoon-rose">...</button>
+          <button className="px-2 sm:px-4 hover:text-peachmoon-rose">100</button>
+        </nav>
+      </div> */}
     </div>
   );
 }

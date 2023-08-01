@@ -39,7 +39,7 @@ function CommentItem({ comment, postId }: { comment: PostComment; postId: string
   }
 
   return (
-    <li className='p-1 md:p-2 md:px-0 border-b last:border-b-0 text-sm sm:text-base'>
+    <li className='px-1 py-2 border-b last:border-b-0 text-sm sm:text-base'>
       <div className='flex items-center justify-between'>
         <div className='flex space-x-1'>
           <Link href={`/profile/${comment.user_id}`}>{comment.nickname}</Link>
@@ -59,7 +59,7 @@ function CommentItem({ comment, postId }: { comment: PostComment; postId: string
             </label>
             <ul
               tabIndex={0}
-              className='dropdown-content z-[1] p-1 space-y-1 text-sm shadow bg-base-100 rounded-sm w-24 transition-all'
+              className='dropdown-content z-[1] p-1 text-sm shadow bg-base-100 rounded-sm w-24 transition-all'
             >
               <li className='w-full flex items-center justify-center p-1 transition-all hover:bg-whitemoon-lightgray'>
                 <button className='flex items-center' onClick={() => setIsEditing(true)}>

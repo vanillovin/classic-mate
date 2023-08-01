@@ -78,7 +78,7 @@ function Newspaper() {
         
         <div className='border-t mt-4'></div>
         <div className='flex flex-col md:flex-row items-center px-4 py-8'>
-          <div className='w-full md:w-1/2 pb-4 sm:p-4'>
+          <div className='w-full md:w-1/2 pb-8 md:p-4'>
             <h3 className='whitespace-pre-line text-lg text-center md:text-start font-medium mb-4 text-vintage-holiday-brown drop-shadow-md'>
               {point.title}
             </h3>
@@ -106,8 +106,8 @@ function Newspaper() {
               className='w-full h-full rounded-sm'
             />
           </div>
-          <div className='md:w-1/2 flex flex-col items-center justify-center py-6 sm:p-6'>
-            <p className='font-light leading-6'>
+          <div className='md:w-1/2 flex flex-col items-center justify-center py-10 md:p-6'>
+            <p className='text-center font-light leading-6'>
               {performar.description}
             </p>
             <Link

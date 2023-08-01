@@ -30,6 +30,7 @@ function CommentForm({ postId }: { postId: string }) {
         user_id: session.user.id, 
       });
     if (!error) {
+      setContent('');
       queryClient.invalidateQueries(['postComments', postId]);
     } else {
       toast.error('댓글을 올리지 못했습니다.');
@@ -55,7 +56,7 @@ function CommentForm({ postId }: { postId: string }) {
       <button
         type="submit"
         disabled={isDisabled}
-        className={`w-16 sm:w-20 content-sm sm:text-base p-1 bg-pantone-powder 
+        className={`w-16 sm:w-20 text-sm sm:text-base p-1 bg-pantone-powder 
           ${isDisabled ? '' : 'hover:bg-pantone-latte'}
         `}
       >
