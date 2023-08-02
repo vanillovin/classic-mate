@@ -84,25 +84,25 @@ function CommentItem({ comment, postId }: { comment: PostComment; postId: string
       {!isEditing ? (
         <p>{comment.content}</p>
       ) : (
-        <div className='flex items-center h-8'>  
+        <div className='flex items-center gap-1 h-8'>  
           <input
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            className='flex-1 h-full px-1 focus:outline-none focus:border'
+            className='flex-1 h-full px-1 border focus:outline-none focus:border-black'
           />    
-          <div className='h-full text-white'>
+          <div className='h-full space-x-1 text-white'>
             <button 
               onClick={() => setIsEditing(false)} 
-              className='w-10 h-full bg-whitemoon-mint'
+              className='w-10 h-full transition-colors bg-watery-4 hover:bg-watery-3'
             >
               취소
             </button>
             <button 
               onClick={editComment} 
-              className='w-10 h-full bg-whitemoon-blue'
+              className='w-10 h-full transition-colors bg-watery-2 hover:bg-watery-1'
               disabled={isDisabled}
             >
-              완료
+              저장
             </button>
           </div>
         </div>

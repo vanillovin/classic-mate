@@ -1,3 +1,28 @@
+export function getCurrentDateInfo(): {
+  currentDate: Date;
+  currentMonth: number;
+  currentDateISOString: string;
+  currentDateString: string;
+  currentDay: string;
+  currentYearMonth: string;
+} {
+  const currentDate = new Date();
+  const currentMonth = currentDate.getMonth() + 1;
+  const currentDateISOString = currentDate.toISOString();
+  const currentDateString = currentDateISOString.split('T')[0];
+  const currentDay = currentDate.toLocaleDateString(undefined, { weekday: 'long' });
+  const currentYearMonth = `${currentDateISOString.split('-')[0]}-${currentDateISOString.split('-')[1]}`;
+  
+  return { 
+    currentDate, 
+    currentMonth,
+    currentDateISOString,
+    currentDateString,
+    currentDay,
+    currentYearMonth,
+  };
+}
+
 export function formatTimestamp(timestamp: string): string {
   const currentDate: Date = new Date();
   const inputDate: Date = new Date(timestamp);

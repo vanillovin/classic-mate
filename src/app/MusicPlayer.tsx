@@ -3,6 +3,9 @@
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 
+import { monthMusics } from './data';
+import { getCurrentDateInfo } from '@/utils/dateUtils';
+
 type TimeOfDay = 'morning' | 'afternoon' | 'evening' | 'night';
 
 function MusicPlayer() {
@@ -12,6 +15,9 @@ function MusicPlayer() {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>('morning');
+
+  const { currentYearMonth } = getCurrentDateInfo();
+  const { title, src } = monthMusics[currentYearMonth];
 
   useEffect(() => {
     const currentTime = new Date().getHours();
@@ -64,8 +70,7 @@ function MusicPlayer() {
   return (
     <div
       style={{ backgroundImage: `url(${backgroundImageURLs[timeOfDay]})` }}
-      className={`relative w-full h-full p-6 py-10 sm:p-12 flex flex-col sm:flex-row items-center bg-center bg-cover 
-        rounded-sm shadow-md select-none
+      className={`relative w-full h-full p-6 py-10 sm:p-12 flex flex-col sm:flex-row items-center bg-center bg-cover rounded-sm shadow-md select-none
         ${isFullScreen ? 'h-screen' : ''}
       `}
     >
@@ -124,10 +129,10 @@ function MusicPlayer() {
           ref={audioRef}
           onTimeUpdate={updateProgress}
           onLoadedMetadata={updateProgress}
-          src='/손열음 Yeol Eum Son - 차이코프스키 피아노협주곡 1번 1악장.mp3'
+          src={src}
         />
         <div className={`text-sm sm:text-lg text-center leading-4 font-light drop-shadow-sm ${textColor}`}>
-          Tchaikovsky: Piano Concerto No.1 1st Movement / Yeol Eum Son
+          {title}
         </div>
         <button
           onClick={() => setIsFullScreen(!isFullScreen)}

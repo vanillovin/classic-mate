@@ -66,14 +66,16 @@ function PostContainer({ id, serverPost }: { id: string; serverPost: Post; }) {
       />
       <header className='flex flex-col gap-y-1'>
         <div className='flex items-center justify-between'>
-          <div className='flex items-center'>
+          <div className='flex items-center flex-wrap'>
             <Link
               href={`/community?cat=${post.category_name}`}
-              className='px-1 rounded-sm mr-1 bg-pantone-powder'
+              className='px-1 rounded-sm mr-1 text-sm sm:text-base bg-pantone-powder'
             >
               {post.category_name}
             </Link>
-            <h2 className='font-semibold text-lg sm:text-xl'>{post.title}</h2>
+            <h2 className='font-semibold text-base sm:text-lg'>
+              {post.title}
+            </h2>
           </div>
           {session?.user.id === post.user_id && (
             <div className='dropdown dropdown-end'>

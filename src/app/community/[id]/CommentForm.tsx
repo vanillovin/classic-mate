@@ -45,22 +45,25 @@ function CommentForm({ postId }: { postId: string }) {
         e.preventDefault();
         handleAddComment();
       }}
-      className="flex border border-pantone-powder focus-within:border-pantone-latte"
+      className="flex items-center border border-pantone-powder focus-within:border-pantone-latte"
     >
       <input
         value={content}
         onChange={e => setContent(e.target.value)}
-        className="flex-1 p-1 focus:outline-none"
+        className="w-full flex-1 p-1 focus:outline-none"
         required
       />
       <button
         type="submit"
         disabled={isDisabled}
-        className={`w-16 sm:w-20 text-sm sm:text-base p-1 bg-pantone-powder 
+        className={`px-2 sm:px-1 h-full text-sm bg-pantone-powder 
           ${isDisabled ? '' : 'hover:bg-pantone-latte'}
         `}
       >
-        댓글 쓰기
+        <span className='hidden sm:block'>댓글 쓰기</span>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="sm:hidden w-4 h-4">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+        </svg>
       </button>
     </form>
   );

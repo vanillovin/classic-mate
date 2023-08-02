@@ -79,6 +79,12 @@ module.exports = {
           'cocoa': '#82614A',
           'starwhite': '#EFEFE8',
         },
+        'cherish': {
+          'ivory': '#FFEFCD',
+          'natural': '#A58E74',
+          'apricot': '#E09132',
+          'fern': '#424530',
+        },
       },
       width: {
         '68': '17rem',

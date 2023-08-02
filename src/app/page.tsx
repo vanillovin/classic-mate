@@ -11,7 +11,7 @@ export default async function HomePage() {
     <div className="w-full h-full px-3 sm:px-6 pt-3 sm:pt-6 pb-24">
       <ClassicQuiz />
 
-      <h2 className={`mt-12 text-3xl sm:text-4xl font-bold mx-1 text-center drop-shadow-md text-pantone-dark-navy 
+      <h2 className={`mt-12 text-3xl sm:text-4xl mx-1 text-center drop-shadow-md text-pantone-dark-navy 
         ${dmSerifDisplay.className}
       `}>
         Month Classic
