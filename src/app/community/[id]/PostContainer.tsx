@@ -1,35 +1,64 @@
 'use client';
 
 import Link from 'next/link';
-import { useRef } from 'react';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
+import { useCallback, useEffect, useRef } from 'react';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 
 import supabase from '@/lib/supabase/client';
 import DaisyModal from '@/components/DaisyModal';
 import { useSupabase } from '@/components/providers/supabase-provider';
 
-async function fetchPostData(id: string): Promise<Post | null> {
+async function fetchPostData(postId: string): Promise<Post | null> {
   const { data } = await supabase
     .from('test_posts')
     .select('*')
-    .match({ id })
+    .match({ id: postId })
     .single();
   return data;
 }
 
-function PostContainer({ id, serverPost }: { id: string; serverPost: Post; }) {
+type PostContainerProps = {
+  postId: string;
+  serverPost: Post;
+};
+
+function PostContainer({ postId, serverPost }: PostContainerProps) {
   const router = useRouter();
   const queryClient = useQueryClient();
   const { supabase, session } = useSupabase();
   const modalRef = useRef<HTMLDialogElement | null>(null);
   const { data: post, isError } = useQuery({
-    queryKey: ['post', id],
-    queryFn: () => fetchPostData(id),
+    queryKey: ['post', postId],
+    queryFn: () => fetchPostData(postId),
     initialData: serverPost,
     suspense: true,
   });
+
+  const increaseViewCount = useCallback(async () => {
+    await supabase
+      .from('test_posts')
+      .update({ view_count: post!.view_count + 1 })
+      .eq('id', postId);
+  }, [post, postId, supabase]);
+  
+  useEffect(() => {
+    const viewedPosts = localStorage.getItem('viewed_posts');
+    if (viewedPosts) {
+      const viewedPostIds = JSON.parse(viewedPosts);
+      if (!viewedPostIds[postId]) {
+        increaseViewCount();
+        localStorage.setItem('viewed_posts', JSON.stringify({
+          ...viewedPostIds,
+          [postId]: true,
+        }));
+      }
+    } else {
+      increaseViewCount();
+      localStorage.setItem('viewed_posts', JSON.stringify({ [postId]: true }))
+    }
+  }, [post, postId, increaseViewCount]);
 
   if (!post || isError) {
     return (
@@ -47,7 +76,7 @@ function PostContainer({ id, serverPost }: { id: string; serverPost: Post; }) {
     const { error } = await supabase
       .from('test_posts')
       .delete()
-      .eq('id', '7bf9f8c6-6497-4786-b526-4601ea5c5829');
+      .eq('id', postId);
     if (!error) {
       router.push('/community');
       queryClient.invalidateQueries(['posts']);
@@ -91,9 +120,9 @@ function PostContainer({ id, serverPost }: { id: string; serverPost: Post; }) {
                 <li className='w-full flex items-center justify-center p-1 transition-all hover:bg-gray-100'>
                   <Link
                     href={{
-                      pathname: `/community/${id}/edit`,
+                      pathname: `/community/${postId}/edit`,
                       query: {
-                        id,
+                        id: postId,
                         category_name: post?.category_name,
                         title: post?.title,
                         content: post?.content,
@@ -119,7 +148,7 @@ function PostContainer({ id, serverPost }: { id: string; serverPost: Post; }) {
             </div>
           )}
         </div>
-        <div className='flex items-center text-xs sm:text-sm overflow-y-scroll scrollbar'>
+        <div className='flex items-center text-xs sm:text-sm'>
           <Link href={`/profile/${post.user_id}`} className="font-medium hover:underline">
             {post.nickname}
           </Link>
@@ -130,11 +159,19 @@ function PostContainer({ id, serverPost }: { id: string; serverPost: Post; }) {
           {post.created_at !== post.updated_at && (
             <p className='mx-1'>· <span className='text-peachmoon-rose'>수정됨</span></p>
           )}
+          <span className=''>·</span>
+          <span className='mx-1 flex items-center'>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            {post.view_count}
+          </span>
         </div>
       </header>
       <div
         dangerouslySetInnerHTML={{ __html: post.content }}
-        className='border-t my-1 p-2 whitespace-pre-wrap text-sm sm:text-base flex-1 overflow-y-scroll scrollbar mt-2 bg-white'
+        className='comm-scrollbar border-t my-1 p-2 whitespace-pre-wrap text-sm sm:text-base flex-1 overflow-y-scroll mt-2 bg-white'
       />
     </>
   );

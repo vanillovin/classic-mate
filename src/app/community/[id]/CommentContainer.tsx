@@ -35,7 +35,7 @@ function CommentContainer({
         개의 댓글
       </p>
       <CommentForm postId={postId} />
-      <ul className='overflow-y-scroll scrollbar flex-1 mt-2'>      
+      <ul className='comm-scrollbar overflow-y-scroll flex-1 mt-2'>      
         {comments ? (
           comments.length > 0 ?
             comments.map(comment => (

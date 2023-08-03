@@ -13,6 +13,30 @@
   .modal-btn {
     @apply text-sm shadow-sm font-medium px-3 sm:px-4 py-2 sm:py-3 rounded-sm transition-colors active:scale-95;
   }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and 엣지 */
+    scrollbar-width: none;  /* 파이어폭스 */
+  }
+  /* width */
+  .comm-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  /* Track */
+  .comm-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  /* Handle */
+  .comm-scrollbar::-webkit-scrollbar-thumb {
+    border-radius: 1px;
+    @apply bg-pantone-latte;
+  }
+  /* Handle on hover */
+  .comm-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-pantone-cocoa;
+  }
 }
 
 html,
@@ -24,36 +48,4 @@ body {
 
 input[type='range']::-webkit-slider-thumb {
   @apply appearance-none bg-black rounded-full w-2 h-2 sm:w-3 sm:h-3;
-}
-
-/* 클래스명이 example인 요소의 스크롤바를 숨기는 코드 */
-
-.example::-webkit-scrollbar {
-  display: none;
-}
-
-.example {
-  -ms-overflow-style: none;  /* IE and 엣지 */
-  scrollbar-width: none;  /* 파이어폭스 */
-}
-
-/* width */
-.scrollbar::-webkit-scrollbar {
-  width: 4px;
-}
-  
-/* Track */
-.scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-  
-/* Handle */
-.scrollbar::-webkit-scrollbar-thumb {
-  border-radius: 1px;
-  @apply bg-pantone-latte;
-}
-
-/* Handle on hover */
-.scrollbar::-webkit-scrollbar-thumb:hover {
-  @apply bg-pantone-cocoa;
 }

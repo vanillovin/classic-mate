@@ -36,7 +36,7 @@ export default async function CommunityPage() {
           {user && (
             <Link
               href="/community/new"
-              className="px-2 py-1 rounded-sm text-white bg-[#404040]"
+              className="px-2 py-1 rounded-sm text-white transition-colors bg-[#404040] hover:bg-[#000]"
             >
               글쓰기
             </Link>

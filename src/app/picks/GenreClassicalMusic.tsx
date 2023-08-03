@@ -29,7 +29,7 @@ function GenreClassicalMusic({ classics }: { classics: Classic[] }) {
       <p className='text-sm sm:text-base text-center p-4 font-light text-autumn-darkblue'>
         {description}
       </p>
-      <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 rounded-sm max-h-80 overflow-y-auto border p-2 border-black example'>
+      <div className='no-scrollbar grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 rounded-sm max-h-80 overflow-y-auto border p-2 border-black'>
         {results.map(result => (
           <Link
             key={result.id}

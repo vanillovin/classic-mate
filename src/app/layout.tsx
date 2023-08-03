@@ -24,14 +24,14 @@ export const revalidate = 0;
 export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode
-  }) {
+  children: React.ReactNode;
+}) {
   const supabase = createServerClient();
   const { data: { session } } = await supabase.auth.getSession();
   
   return (
-    <html lang="en">
-      <body className='example'>
+    <html>
+      <body className='no-scrollbar'>
         <Providers>
           <SupabaseProvider session={session}>
             <SupabaseListener serverAccessToken={session?.access_token} />

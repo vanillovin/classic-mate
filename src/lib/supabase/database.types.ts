@@ -255,6 +255,7 @@ export interface Database {
           title: string
           updated_at: string
           user_id: string
+          view_count: number
         }
         Insert: {
           category_name: string
@@ -265,6 +266,7 @@ export interface Database {
           title: string
           updated_at?: string
           user_id: string
+          view_count?: number
         }
         Update: {
           category_name?: string
@@ -275,6 +277,7 @@ export interface Database {
           title?: string
           updated_at?: string
           user_id?: string
+          view_count?: number
         }
         Relationships: [
           {
