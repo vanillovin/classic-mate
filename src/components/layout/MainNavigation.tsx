@@ -12,7 +12,7 @@ function MainNavigation() {
   const pathname = usePathname();
   const { supabase, session } = useSupabase();
   const [scrollY, setScrollY] = useState(0);
-  const [nickname, setNickname] = useState('클메');
+  const [nickname, setNickname] = useState('');
 
   useEffect(() => {
     async function fetchProfile() {

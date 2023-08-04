@@ -1,16 +1,23 @@
 'use client';
 
-import React, { useState } from 'react';
 import { toast } from 'react-toastify';
+import React, { useState } from 'react';
 
 import { useSupabase } from '@/components/providers/supabase-provider';
 import { useQueryClient } from '@tanstack/react-query';
 
-function CommentForm({ postId }: { postId: string }) {
+function CommentForm({ postId, commentCount }: { postId: string; commentCount: number; }) {
   const queryClient = useQueryClient();
   const [content, setContent] = useState('');
   const { supabase, session } = useSupabase();
 
+  async function increaseCommentCount() {
+    await supabase
+      .from('test_posts')
+      .update({ comment_count: commentCount + 1 })
+      .eq('id', postId);
+  };
+  
   async function handleAddComment() {
     if (!session) {
       toast.error('로그인 후 이용 가능합니다.');
@@ -32,6 +39,7 @@ function CommentForm({ postId }: { postId: string }) {
     if (!error) {
       setContent('');
       queryClient.invalidateQueries(['postComments', postId]);
+      increaseCommentCount();
     } else {
       toast.error('댓글을 올리지 못했습니다.');
     }

@@ -248,6 +248,7 @@ export interface Database {
       test_posts: {
         Row: {
           category_name: string
+          comment_count: number
           content: string
           created_at: string
           id: string
@@ -259,6 +260,7 @@ export interface Database {
         }
         Insert: {
           category_name: string
+          comment_count?: number
           content: string
           created_at?: string
           id: string
@@ -270,6 +272,7 @@ export interface Database {
         }
         Update: {
           category_name?: string
+          comment_count?: number
           content?: string
           created_at?: string
           id?: string

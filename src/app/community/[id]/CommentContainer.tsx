@@ -34,7 +34,7 @@ function CommentContainer({
         <span className='font-medium'>{comments?.length}</span>
         개의 댓글
       </p>
-      <CommentForm postId={postId} />
+      <CommentForm postId={postId} commentCount={comments?.length ?? 0} />
       <ul className='comm-scrollbar overflow-y-scroll flex-1 mt-2'>      
         {comments ? (
           comments.length > 0 ?
@@ -43,6 +43,7 @@ function CommentContainer({
                 key={comment.id}
                 comment={comment}
                 postId={postId}
+                commentCount={comments.length}
               />
           )) : <p className='py-2 font-light'>아직 댓글이 없어요!</p>
         ) : (

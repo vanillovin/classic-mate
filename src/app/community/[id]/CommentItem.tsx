@@ -2,12 +2,18 @@
 
 import Link from 'next/link';
 import React, { useState } from 'react';
+import { useQueryClient } from '@tanstack/react-query';
 
 import { formatTimestamp } from '@/utils/dateUtils';
 import { useSupabase } from '@/components/providers/supabase-provider';
-import { useQueryClient } from '@tanstack/react-query';
 
-function CommentItem({ comment, postId }: { comment: PostComment; postId: string; }) {
+type CommentItemProps = { 
+  comment: PostComment; 
+  postId: string; 
+  commentCount: number;
+};
+
+function CommentItem({ comment, postId, commentCount }: CommentItemProps) {
   const queryClient = useQueryClient();
   const { supabase, session } = useSupabase();
 
@@ -16,6 +22,14 @@ function CommentItem({ comment, postId }: { comment: PostComment; postId: string
 
   const isDisabled = content.trim().length < 3 || content === comment.content;
 
+  async function decreaseCommentCount() {
+    const { data, error } = await supabase
+      .from('test_posts')
+      .update({ comment_count: commentCount - 1})
+      .eq('id', postId);
+    console.log(data, error);
+  }
+
   async function deleteComment() {
     const { error } = await supabase
       .from('test_comments')
@@ -23,6 +37,7 @@ function CommentItem({ comment, postId }: { comment: PostComment; postId: string
       .eq('id', comment.id);
     if (!error) {
       queryClient.invalidateQueries(['postComments', postId]);
+      decreaseCommentCount();
     }
   }
 
