@@ -1,22 +1,22 @@
 import './globals.css';
-import Providers from './Providers';
-import { createServerClient } from '@/utils/supabase-server';
-import type { SupabaseClient } from "@supabase/auth-helpers-nextjs"
-
+import type { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
 import Layout from '@/components/layout/Layout';
+
+import Providers from './Providers';
 import { AuthProvider } from '@/components/providers/auth-provider';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import SupabaseProvider from '@/components/providers/supabase-provider';
 import SupabaseListener from '@/components/providers/supabase-listener';
+
+import { createServerClient } from '@/utils/supabase-server';
+import type { SupabaseClient } from "@supabase/auth-helpers-nextjs"
 import { ToastifyProvider } from '@/components/providers/toastify-provider';
+
+// import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 export type TypedSupabaseClient = SupabaseClient;
 
-export const metadata = {
-  title: siteConfig.name,
-  description: siteConfig.description,
-};
+export const metadata: Metadata = siteConfig['metaData'].home;
 
 // do not cache this page
 export const revalidate = 0;
@@ -43,7 +43,7 @@ export default async function RootLayout({
                 </ToastifyProvider>
               </AuthProvider>
           </SupabaseProvider>
-          <ReactQueryDevtools initialIsOpen={false} />
+          {/* <ReactQueryDevtools initialIsOpen={false} /> */}
         </Providers>
       </body>
     </html>

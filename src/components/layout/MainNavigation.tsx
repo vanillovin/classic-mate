@@ -10,9 +10,9 @@ import { useSupabase } from '../providers/supabase-provider';
 
 function MainNavigation() {
   const pathname = usePathname();
-  const { supabase, session } = useSupabase();
   const [scrollY, setScrollY] = useState(0);
   const [nickname, setNickname] = useState('');
+  const { supabase, session } = useSupabase();
 
   useEffect(() => {
     async function fetchProfile() {
@@ -20,10 +20,14 @@ function MainNavigation() {
         .from('profiles')
         .select()
         .eq('id', session?.user.id);
-      setNickname(data?.[0].nickname ?? '클메')
+      if (data) {
+        setNickname(data[0].nickname ?? '클메');
+      } else {
+        setNickname('클메');
+      }
     }
     
-    fetchProfile();
+    if (session) fetchProfile();
   }, [supabase, session]);
 
   useEffect(() => {

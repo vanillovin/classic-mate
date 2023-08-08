@@ -46,7 +46,7 @@ function Newspaper() {
           <div className='w-full sm:min-w-[350px] h-[500px] relative rounded-sm overflow-hidden shadow-sm'>
             <Image
               fill
-              alt='tchaikovsky'
+              alt={composer}
               className='w-full h-full'
               src={image}
             />
@@ -81,7 +81,7 @@ function Newspaper() {
           <div className='w-full md:w-1/2 h-[200px] sm:h-[300px] relative rounded-sm overflow-hidden'>
             <Image
               fill
-              alt=''
+              alt='sheet'
               className='w-full h-full'
               src='https://images.unsplash.com/photo-1507838153414-b4b713384a76?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80'
             />

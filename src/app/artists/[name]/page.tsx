@@ -20,9 +20,9 @@ export default async function ArtistDetailPage({ params }: { params: { name: str
         <div className='flex items-center justify-center w-full sm:w-[250px] h-[350px] sm:h-[450px] md:h-[350px] 
           relative overflow-hidden border border-pantone-metallic-gold rounded-sm shadow-sm'>
           <Image
+            fill
             src={data.image}
             alt={`${data.englishName} profile image`}
-            fill
             className="w-full h-full"
           />
         </div>

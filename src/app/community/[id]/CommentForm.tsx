@@ -11,7 +11,7 @@ function CommentForm({ postId, commentCount }: { postId: string; commentCount: n
   const [content, setContent] = useState('');
   const { supabase, session } = useSupabase();
 
-  async function increaseCommentCount() {
+  async function increaseCommentCount(postId: string, commentCount: number) {
     await supabase
       .from('test_posts')
       .update({ comment_count: commentCount + 1 })
@@ -39,7 +39,7 @@ function CommentForm({ postId, commentCount }: { postId: string; commentCount: n
     if (!error) {
       setContent('');
       queryClient.invalidateQueries(['postComments', postId]);
-      increaseCommentCount();
+      increaseCommentCount(postId, commentCount);
     } else {
       toast.error('댓글을 올리지 못했습니다.');
     }

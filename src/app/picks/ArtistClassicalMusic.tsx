@@ -65,7 +65,7 @@ function ArtistClassicalMusic() {
             <div className='w-40 h-52 relative overflow-hidden rounded-sm'>
               <Image
                 fill
-                alt=''
+                alt={`${artist.englishName} profile image`}
                 src={artist.image}
                 className='w-full h-full'
               />

@@ -23,7 +23,7 @@ export default async function CommunityPage() {
 
   return (
     <section className='px-3 sm:px-6 pt-3 sm:pt-6 pb-24'>
-      <div aria-label='제목' className='shadow-sm rounded-sm p-2 sm:p-4 bg-white'>
+      <div aria-label='제목' className='shadow-sm rounded-sm p-3 sm:p-4 bg-white'>
         <h1 className='font-semibold text-lg sm:text-2xl'>자유 게시판</h1>
         <p className='text-sm sm:text-base'>일상과 클래식 관련 주제로 자유롭게 소통하는 공간 ᐛ</p>
       </div>
