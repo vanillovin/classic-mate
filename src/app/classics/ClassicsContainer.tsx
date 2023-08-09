@@ -5,10 +5,7 @@ import { useState } from 'react';
 import ClassicList from './ClassicList';
 import ClassicSearchForm from '@/components/classics/ClassicSearchForm';
 
-function ClassicsContainer({ classics, likes }: {
-  classics: Classic[];
-  likes: ClassicLike[];
-}) {
+function ClassicsContainer({ classics }: { classics: Classic[] }) {
   const [searchQuery, setSearchQuery] = useState('');
   const filterdClassics = classics.filter(classic =>
     classic?.title?.toLowerCase().includes(searchQuery.toLowerCase())
@@ -24,7 +21,7 @@ function ClassicsContainer({ classics, likes }: {
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
         placeholder='클래식 제목 검색하기'
       />
-      <ClassicList classics={results} likes={likes} />    
+      <ClassicList classics={results} />    
     </>
   )
 }

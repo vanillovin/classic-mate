@@ -2,15 +2,15 @@
 
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
+import { useQueryClient } from '@tanstack/react-query';
 
 import { useSupabase } from '@/components/providers/supabase-provider';
-import { useQueryClient } from '@tanstack/react-query';
 
 const initialInputs = { nickname: '', content: '' };
 
 function CommentForm({ classicId }: { classicId: string }) {
-  const { supabase, session } = useSupabase();
   const queryClient = useQueryClient();
+  const { supabase, session } = useSupabase();
 
   const [inputs, setInputs] = useState(initialInputs);
   const { nickname, content } = inputs;
@@ -42,46 +42,34 @@ function CommentForm({ classicId }: { classicId: string }) {
       });
     if (!error) {
       clearInputs();
-      toast.success('댓글 작성 완료');
       queryClient.invalidateQueries(["classicComments", classicId]);
     } else {
-      toast.error(`댓글 작성 실패 ${error.message}`);    
+      toast.error(`댓글을 작성하지 못했습니다.`);
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} className='flex flex-col gap-y-2'>
-      <div className='w-full flex gap-1'>
-        <input
-          name="nickname"
-          placeholder="이름"
-          value={nickname}
-          onChange={handleChangeInputs}
-          maxLength={10}
-          className="w-1/6 rounded-sm p-1"
-          required
-        />
-        <input
-          name="content"
-          placeholder="내용"
-          value={content}
-          onChange={handleChangeInputs}
-          minLength={4}
-          className="w-5/6 rounded-sm p-1 "
-          required
-        />
-      </div>
+    <form onSubmit={handleSubmit} className='flex gap-1'>
+      <input
+        name="content"
+        placeholder=""
+        value={content}
+        onChange={handleChangeInputs}
+        minLength={4}
+        required
+        className="w-5/6 rounded-sm p-1 flex-1 focus:outline-none shadow-sm"
+      />
       <button
         type='submit'
         disabled={isButtonDisabled}
-        className={`font-medium bg-yellow-600 bg-opacity-60 rounded-sm p-1 text-white 
+        className={`font-medium bg-yellow-600 bg-opacity-50 rounded-sm px-2 py-1 text-white  shadow-sm
           ${!isButtonDisabled && 'hover:bg-opacity-80 transition-all'}
         `}
       >
         댓글 달기
       </button>
     </form>
-  )
+  );
 }
 
-export default CommentForm
+export default CommentForm;

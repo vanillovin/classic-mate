@@ -1,8 +1,9 @@
 import Link from 'next/link';
+import notFound from './not-found';
 
 import Comments from './Comments';
-import notFound from './not-found';
 import { createServerClient } from '@/utils/supabase-server';
+import { convertToEmbeddedURL } from '@/utils/youtubeUtils';
 import ClassicLikeButton from '@/components/classics/ClassicLikeButton';
 
 export default async function ClassicDetailPage({ params }: { params: { classicId: string } }) {
@@ -10,17 +11,13 @@ export default async function ClassicDetailPage({ params }: { params: { classicI
   const { data: { user } } = await supabase.auth.getUser();
   const { data: classics } = await supabase
     .from('all_classics')
-    .select('*, classic_likes (classic_id)')
+    .select('*') // , classic_likes (classic_id)' [{ ..., "classic_likes":[{"classic_id":1}, ...] }]
     .eq('id', params.classicId);
   const { data: comments } = await supabase
     .from('classic_comments')
     .select('*')
     .eq('classic_id', params.classicId)
     .order('created_at', { ascending: false });
-  const { data: likes } = await supabase
-    .from('classic_likes')
-    .select()
-    .eq('user_id', user?.id);
 
   const classic = classics?.[0];
 
@@ -36,9 +33,9 @@ export default async function ClassicDetailPage({ params }: { params: { classicI
       </ul>
       <p className='text-center text-sm sm:text-base my-4 sm:px-12'>{classic.description}</p>
       <ClassicLikeButton
+        isShowLikeCount
         classicId={classic.id}
-        likes={likes ?? []}
-        name={String(classic.classic_likes.length)}
+        serverLikeCount={classic.like_count}
         className='rounded-sm bg-white p-1 mb-4 hover:bg-opacity-70 transition-all'
       />
       <ul className='flex'>
@@ -58,17 +55,10 @@ export default async function ClassicDetailPage({ params }: { params: { classicI
         <iframe
           src={`${convertToEmbeddedURL(classic.video_url ?? '')}`}
           allowFullScreen
-          className='w-full h-full rounded-md'
+          className='w-full h-full rounded-sm'
         ></iframe>
       </div>
       <Comments classicId={params.classicId} comments={comments ?? []} />
     </section>
   );
-}
-
-function convertToEmbeddedURL(url: string) {
-  const regExp = /^(?:https?:\/\/)?(?:www\.)?(?:(?:youtube.com\/(?:(?:watch\?v=)|(?:embed\/))([a-zA-Z0-9-]{11}))|(?:youtu.be\/([a-zA-Z0-9-]{11})))/;
-  const match = url.match(regExp);
-  const videoId = match ? match[1] || match[2] : undefined;
-  return videoId ? `https://www.youtube.com/embed/${videoId}` : url;
 }

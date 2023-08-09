@@ -6,16 +6,22 @@ import Image from 'next/image';
 import Tags from '@/components/Tags';
 import ClassicLikeButton from '@/components/classics/ClassicLikeButton';
 
-function ClassicItem({ classic, likes }: { classic: Classic; likes: ClassicLike[] }) {
+function ClassicItem({
+  classic,
+  likeCount
+}: {
+  classic: Classic;
+  likeCount: number;
+}) {
   return (
     <Link
       href={`/classics/${classic.id}`}
-      className='rounded-md shadow-md p-2 cursor-pointer flex flex-col hover:shadow-lg justify-between bg-white bg-opacity-90 transition-all hover:bg-simple-palette-gold hover:bg-opacity-50'
+      className='rounded-md shadow-md p-2 cursor-pointer flex flex-col hover:shadow-lg justify-between transition-colors bg-white bg-opacity-95 hover:bg-pantone-metallic-gold hover:bg-opacity-40'
     >
       <div>
         <div className="flex items-center justify-between">
           <h2 className="text-sm sm:text-base font-semibold">{classic.title}</h2>
-          <ClassicLikeButton classicId={classic.id} likes={likes} /> 
+          <ClassicLikeButton classicId={classic.id} serverLikeCount={likeCount} /> 
         </div>
         <p className="text-xs sm:text-sm my-1">
           {classic.description.length > 60 ? `${classic.description.substring(0, 60)}...` : classic.description}

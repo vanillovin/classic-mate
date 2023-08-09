@@ -10,14 +10,10 @@ export default async function ClassicsPage() {
   const supabase = createServerClient();
   const { data: { user } } = await supabase.auth.getUser();
   const { data: classics } = await supabase.from('all_classics').select();
-  const { data: likes } = await supabase
-    .from('classic_likes')
-    .select()
-    .eq('user_id', user?.id);
   
   return (
     <div className='px-3 sm:px-6 pt-3 sm:pt-6 pb-24'>
-      <ClassicsContainer classics={classics ?? []} likes={likes ?? []} />
+      <ClassicsContainer classics={classics ?? []} />
     </div>
   );
 }

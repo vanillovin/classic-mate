@@ -16,6 +16,7 @@ export interface Database {
           description: string
           genre: string
           id: number
+          like_count: number
           tags: string[]
           title: string
           video_url: string
@@ -27,6 +28,7 @@ export interface Database {
           description: string
           genre: string
           id?: never
+          like_count?: number
           tags: string[]
           title: string
           video_url: string
@@ -38,6 +40,7 @@ export interface Database {
           description?: string
           genre?: string
           id?: never
+          like_count?: number
           tags?: string[]
           title?: string
           video_url?: string
