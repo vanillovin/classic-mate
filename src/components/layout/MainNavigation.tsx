@@ -66,7 +66,7 @@ function MainNavigation() {
         </label>
         <ul
           tabIndex={0}
-          className="menu dropdown-content z-10 p-2 shadow bg-base-100 rounded-box w-52 mt-4 text-sm sm:text-base"
+          className="menu dropdown-content z-10 p-2 shadow bg-base-100 rounded-box w-44 sm:w-48 mt-4 text-sm sm:text-base"
         >
           {session &&
             <li>
@@ -79,21 +79,27 @@ function MainNavigation() {
             </li>
           }
           {
-            siteConfig.mainNav.slice(1, siteConfig.mainNav.length).map((nav, index) => (
-              <li key={index}>
-                <Link
-                  href={nav.href}
-                  className={`hover:bg-pantone-babys-breath rounded-none
-                    ${pathname === nav.href && 'bg-pantone-babys-breath'}
+            siteConfig.mainNav.slice(1, siteConfig.mainNav.length).map(
+              (nav, index) => (
+                <li key={index}>
+                  <Link
+                    href={nav.href}
+                    className={`rounded-none font-medium hover:bg-pantone-cream
+                      ${(!session && index === 0) && 'rounded-tl-lg rounded-tr-lg'}
+                      ${pathname === nav.href && 'font-semibold bg-pantone-cream'}
                   `}>
-                  {nav.title}
-                </Link>
-              </li> 
-            ))
+                    {nav.title}
+                  </Link>
+                </li> 
+              )
+            )
           }
           {!session ? (
             <li>
-              <Link href={'/login'} className='font-semibold rounded-tl-none rounded-tr-none bg-pantone-sun-kiss'>
+              <Link
+                href={'/login'}
+                className='font-semibold rounded-tl-none rounded-tr-none bg-pantone-latte'
+              >
                 로그인·회원가입
               </Link>
             </li>
@@ -114,7 +120,7 @@ function MainNavigation() {
               href={nav.href}
               className={`transition-all
                 ${pathname === nav.href
-                  ? 'text-vintage-holiday-brown'
+                  ? 'text-vintage-holiday-brown font-semibold'
                   : 'text-pantone-metallic-gold hover:text-vintage-holiday-brown'}
               `}
             >

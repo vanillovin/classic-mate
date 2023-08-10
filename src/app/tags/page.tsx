@@ -10,13 +10,12 @@ type Props = {
 
 export default async function TagsPage(props: Props) {
   const supabase = createServerClient();
+  const { data } = await supabase.from('all_classics').select();
   const selectedTags = [
     decodeURIComponent(props?.searchParams?.tag1 ?? ''),
     decodeURIComponent(props?.searchParams?.tag2 ?? ''),
-    decodeURIComponent(props?.searchParams?.tag3 ?? '')
+    decodeURIComponent(props?.searchParams?.tag3 ?? ''),
   ];
-  
-  const { data } = await supabase.from('all_classics').select();
   
   return (
     <div className='px-3 sm:px-6 pt-3 sm:pt-6 pb-24'>

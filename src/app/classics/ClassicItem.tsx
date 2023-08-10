@@ -24,7 +24,9 @@ function ClassicItem({
           <ClassicLikeButton classicId={classic.id} serverLikeCount={likeCount} /> 
         </div>
         <p className="text-xs sm:text-sm my-1">
-          {classic.description.length > 60 ? `${classic.description.substring(0, 60)}...` : classic.description}
+          {classic.description.length > 60
+            ? `${classic.description.substring(0, 60)}...`
+            : classic.description}
         </p>
         <Tags
           tags={classic.tags}

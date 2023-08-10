@@ -5,10 +5,10 @@ import Comments from './Comments';
 import { createServerClient } from '@/utils/supabase-server';
 import { convertToEmbeddedURL } from '@/utils/youtubeUtils';
 import ClassicLikeButton from '@/components/classics/ClassicLikeButton';
+import Tags from '@/components/Tags';
 
 export default async function ClassicDetailPage({ params }: { params: { classicId: string } }) {
   const supabase = createServerClient();
-  const { data: { user } } = await supabase.auth.getUser();
   const { data: classics } = await supabase
     .from('all_classics')
     .select('*') // , classic_likes (classic_id)' [{ ..., "classic_likes":[{"classic_id":1}, ...] }]
@@ -38,19 +38,13 @@ export default async function ClassicDetailPage({ params }: { params: { classicI
         serverLikeCount={classic.like_count}
         className='rounded-sm bg-white p-1 mb-4 hover:bg-opacity-70 transition-all'
       />
-      <ul className='flex'>
-        <li className='font-medium'>태그 :</li>
-        {classic.tags.map(tag =>
-          <li
-            key={tag}
-            className='border-b-2 border-white rounded-sm mx-1 text-sm sm:text-base hover:text-white transition-all'
-          >
-            <Link href={`/tags?`}>
-              {tag}
-            </Link>
-          </li>
-        )}
-      </ul>
+      <div className='flex items-center'>
+        <p className='font-medium'>태그 :</p>
+        <Tags
+          tags={classic.tags}
+          className='border-b-2 border-white px-1 ml-1 text-sm sm:text-base hover:text-white transition-all'
+        />
+      </div>
       <div className='w-full h-[300px] sm:h-[600px] sm:px-12 mt-8'>
         <iframe
           src={`${convertToEmbeddedURL(classic.video_url ?? '')}`}

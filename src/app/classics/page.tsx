@@ -8,7 +8,6 @@ export const metadata: Metadata = siteConfig.metaData['classics'];
 
 export default async function ClassicsPage() {
   const supabase = createServerClient();
-  const { data: { user } } = await supabase.auth.getUser();
   const { data: classics } = await supabase.from('all_classics').select();
   
   return (

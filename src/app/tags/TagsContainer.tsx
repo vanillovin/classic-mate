@@ -16,7 +16,11 @@ function TagsContainer({ classics, selectedTags }: TagContainerProps) {
   const tags = [...new Set(classics?.map(classic => classic.tags).flat())];
   const filteredClassics = selectedTags[0] === ''
     ? classics
-    : classics.filter(classic => [...selectedTags, tagInput].some(tag => classic.tags.includes(tag)));
+    : classics.filter(classic =>
+        [...selectedTags, tagInput].some(
+          tag => classic.tags.includes(tag)
+        )
+      );
     
   return (
     <>
