@@ -1,70 +1,59 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useSupabase } from './supabase-provider';
-import { Session, User } from '@supabase/supabase-js';
+import { Session } from '@supabase/supabase-js';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
+import supabase from '@/lib/supabase/client';
+
 type AuthProviderProps = {
+  session: Session | null;
   children: React.ReactNode;
-  accessToken: Session["access_token"] | null;
 };
 
 type AuthContextType = {
-  session: Session | null;
-  user: User | null,
+  profile: Profile | null,
   signOut(): void;
 };
 
-const AuthContext = createContext<AuthContextType>({ session: null, user: null, signOut: () => { } });
+const AuthContext = createContext<AuthContextType>({ profile: null, signOut: () => {} });
 
-export const AuthProvider = ({ children, accessToken }: AuthProviderProps) => {
-  const [session, setSession] = useState<Session | null>(null);
-  const [user, setUser] = useState<User | null>(null);
+async function getProfile(session: Session): Promise<Profile | null> {
+  const { data, error } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', session.user.id);
+  
+  if (!error && data) {
+    return data[0];
+  } else {
+    return null;
+  }
+}
+
+export const AuthProvider = ({ session, children }: AuthProviderProps) => {
+  const [profile, setProfile] = useState<Profile | null>(null);
   const router = useRouter();
-  const { supabase } = useSupabase();
   
   useEffect(() => {
-    async function getSession()  {
-      try {
-        const { data: { session }, error } = await supabase.auth.getSession();
-        if (session) {
-          setSession(session)
-          setUser(session?.user ?? null);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getSession();
-    
-    const {
-      data: { subscription: authListener }
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (session?.access_token !== accessToken) {
-        router.refresh();
-      }
-      setSession(session);
-      setUser(session?.user ?? null);
-    });
-    
-    return () => {
-      authListener?.unsubscribe();
-    };
+    if (session) {
+      getProfile(session).then(data => {
+        setProfile(data);
+      });
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const value = useMemo(() => {
     return {
-      session,
-      user,
+      profile,
       signOut: async () => {
         const { error } = await supabase.auth.signOut();
           if (error) throw new Error(error.message);
           router.refresh();
         }
       }
-  }, [session, user, router, supabase.auth]);
+  }, [profile, router]);
   
   return (
     <AuthContext.Provider value={value}>

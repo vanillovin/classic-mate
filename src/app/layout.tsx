@@ -1,15 +1,14 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import type { SupabaseClient } from "@supabase/auth-helpers-nextjs";
+
 import { siteConfig } from '@/config/site';
 import Layout from '@/components/layout/Layout';
-
+import { createServerClient } from '@/utils/supabase-server';
 import Providers from './Providers';
 import { AuthProvider } from '@/components/providers/auth-provider';
 import SupabaseProvider from '@/components/providers/supabase-provider';
 import SupabaseListener from '@/components/providers/supabase-listener';
-
-import { createServerClient } from '@/utils/supabase-server';
-import type { SupabaseClient } from "@supabase/auth-helpers-nextjs"
 import { ToastifyProvider } from '@/components/providers/toastify-provider';
 
 // import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
@@ -35,13 +34,13 @@ export default async function RootLayout({
         <Providers>
           <SupabaseProvider session={session}>
             <SupabaseListener serverAccessToken={session?.access_token} />
-              <AuthProvider accessToken={session?.access_token ?? null}>
-                <ToastifyProvider>
-                  <Layout>
-                    {children}
-                  </Layout>
-                </ToastifyProvider>
-              </AuthProvider>
+            <AuthProvider session={session}>
+              <ToastifyProvider>
+                <Layout>
+                  {children}
+                </Layout>
+              </ToastifyProvider>
+            </AuthProvider>
           </SupabaseProvider>
           {/* <ReactQueryDevtools initialIsOpen={false} /> */}
         </Providers>

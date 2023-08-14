@@ -5,10 +5,12 @@ import React, { useState } from 'react';
 
 import { useSupabase } from '@/components/providers/supabase-provider';
 import { useQueryClient } from '@tanstack/react-query';
+import { useAuth } from '@/components/providers/auth-provider';
 
 function CommentForm({ postId, commentCount }: { postId: string; commentCount: number; }) {
   const queryClient = useQueryClient();
   const [content, setContent] = useState('');
+  const { profile } = useAuth();
   const { supabase, session } = useSupabase();
 
   async function increaseCommentCount(postId: string, commentCount: number) {
@@ -23,18 +25,13 @@ function CommentForm({ postId, commentCount }: { postId: string; commentCount: n
       toast.error('로그인 후 이용 가능합니다.');
       return;
     }
-    const { data } = await supabase
-      .from('profiles')
-      .select('nickname')
-      .eq('id', session.user.id);
-    const nickname = data?.[0].nickname ?? '클메';
     const { error } = await supabase
       .from('test_comments')
       .insert({
         content,
-        nickname,
         post_id: postId,
         user_id: session.user.id, 
+        nickname: profile?.nickname ?? '클메',
       });
     if (!error) {
       setContent('');

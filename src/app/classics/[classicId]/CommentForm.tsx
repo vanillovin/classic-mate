@@ -4,26 +4,20 @@ import React, { useState } from 'react'
 import { toast } from 'react-toastify';
 import { useQueryClient } from '@tanstack/react-query';
 
+import { useAuth } from '@/components/providers/auth-provider';
 import { useSupabase } from '@/components/providers/supabase-provider';
-
-const initialInputs = { nickname: '', content: '' };
 
 function CommentForm({ classicId }: { classicId: string }) {
   const queryClient = useQueryClient();
+  const { profile } = useAuth();
   const { supabase, session } = useSupabase();
 
-  const [inputs, setInputs] = useState(initialInputs);
-  const { nickname, content } = inputs;
-
-  const isButtonDisabled = nickname.trim().length < 1 || content.replace(/\s/g, '').length < 1;
-
-  function handleChangeInputs(e: React.ChangeEvent<HTMLInputElement>) {
-    const { name, value } = e.target;
-    setInputs(prev => ({ ...prev, [name]: value }));
-  }
+  const [content, setContent] = useState('');
+  
+  const isButtonDisabled = content.replace(/\s/g, '').length < 3;
 
   function clearInputs() {
-    setInputs(initialInputs);
+    setContent('');
   }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -35,10 +29,10 @@ function CommentForm({ classicId }: { classicId: string }) {
     const { error } = await supabase
       .from('classic_comments')
       .insert({
-        nickname,
         content,
         user_id: session.user.id,
         classic_id: classicId,
+        nickname: profile?.nickname ?? '클메',
       });
     if (!error) {
       clearInputs();
@@ -54,16 +48,16 @@ function CommentForm({ classicId }: { classicId: string }) {
         name="content"
         placeholder=""
         value={content}
-        onChange={handleChangeInputs}
+        onChange={e => setContent(e.target.value)}
         minLength={4}
         required
-        className="w-5/6 rounded-sm p-1 flex-1 focus:outline-none shadow-sm"
+        className="w-5/6 rounded-sm p-1 flex-1 focus:outline-none"
       />
       <button
         type='submit'
         disabled={isButtonDisabled}
-        className={`font-medium bg-yellow-600 bg-opacity-50 rounded-sm px-2 py-1 text-white  shadow-sm
-          ${!isButtonDisabled && 'hover:bg-opacity-80 transition-all'}
+        className={`font-medium bg-opacity-70 rounded-sm px-2 py-1 text-white bg-pantone-california-gold
+          ${!isButtonDisabled && 'hover:bg-opacity-100 transition-all'}
         `}
       >
         댓글 달기

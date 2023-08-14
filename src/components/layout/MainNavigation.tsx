@@ -6,29 +6,14 @@ import { usePathname } from 'next/navigation';
 
 import { siteConfig } from '@/config/site';
 import SignOutButton from '../SignOutButton';
+import { useAuth } from '../providers/auth-provider';
 import { useSupabase } from '../providers/supabase-provider';
 
 function MainNavigation() {
+  const { profile } = useAuth();
+  const { session } = useSupabase();
   const pathname = usePathname();
   const [scrollY, setScrollY] = useState(0);
-  const [nickname, setNickname] = useState('');
-  const { supabase, session } = useSupabase();
-
-  useEffect(() => {
-    async function fetchProfile() {
-      const { data } = await supabase
-        .from('profiles')
-        .select()
-        .eq('id', session?.user.id);
-      if (data) {
-        setNickname(data[0].nickname ?? '클메');
-      } else {
-        setNickname('클메');
-      }
-    }
-    
-    if (session) fetchProfile();
-  }, [supabase, session]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,7 +59,7 @@ function MainNavigation() {
                 href={`/profile/${session.user.id}`}
                 className='font-semibold rounded-bl-none rounded-br-none bg-pantone-starwhite'
               >
-                {nickname}님
+                {profile?.nickname ?? '클메'}님
               </Link>
             </li>
           }
@@ -135,7 +120,7 @@ function MainNavigation() {
               href={`/profile/${session.user.id}`}
               className='tooltip tooltip-bottom border-r transition-all px-1 h-full flex items-center justify-center bg-pantone-powder hover:bg-pantone-champagne border-pantone-champagne'
             >
-              {nickname}님
+              {profile?.nickname ?? '클메'}님
             </Link>
             <SignOutButton className='tooltip tooltip-bottom px-1 h-full bg-pantone-powder hover:bg-pantone-champagne'>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
