@@ -4,7 +4,7 @@ import React from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 
-import type { Artist } from './api'
+import type { Artist } from './api';
 
 function ArtistList({ artists }: { artists: Artist[] }) {
   return (
@@ -34,7 +34,7 @@ function ArtistList({ artists }: { artists: Artist[] }) {
             </div>
           </div>
           <div className='w-64 h-32 text-center flex flex-col items-center justify-center mt-4 shadow-md 
-            bg-white rounded-sm p-2 opacity-95 group-hover:bg-warm-vintage-granite transition-all'>
+            rounded-sm p-2 opacity-95 transition-all bg-white group-hover:bg-warm-vintage-granite'>
             <h2 className='font-semibold'>
               {englishName}
             </h2>

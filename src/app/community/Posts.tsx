@@ -25,12 +25,12 @@ function Posts({ serverPosts }: { serverPosts: Post[] }) {
 
   return (
     <div>
-      <div className='grid md:grid-cols-2 gap-0 sm:gap-4 shadow-md sm:shadow-none'>
+      <div className='grid md:grid-cols-2 gap-0 md:gap-4 shadow-sm sm:shadow-none'>
         {posts?.map((post) => (
           <Link
             key={post.id}
             href={`/community/${post.id}`}
-            className='relative group border-t last:border-b sm:border-0 sm:last:border-b-0 border-black'
+            className='relative group border-b last:border-b-0 sm:border-0 sm:last:border-b-0 border-[#EBE5E1]'
           >
             <div className='flex items-center justify-between px-3 py-3 sm:py-4 transition-all bg-[#BCC8D1] group-hover:bg-[#C2D7E8]'>
               <div className='text-sm sm:text-base font-medium space-y-1'>
@@ -68,17 +68,17 @@ function Posts({ serverPosts }: { serverPosts: Post[] }) {
           </Link>
         ))}
       </div>
-      <div className='flex items-center justify-center mt-8'>
+      {/* <div className='flex items-center justify-center mt-8'>
         <nav className='inline-flex gap-x-2 font-medium'>
-          <button className="px-2 sm:px-4 hover:text-[#41625C]">1</button>
-          <button className="px-2 sm:px-4 hover:text-[#41625C]">2</button>
-          <button className="px-2 sm:px-4 hover:text-[#41625C]">3</button>
-          <button className="px-2 sm:px-4 hover:text-[#41625C]">4</button>
-          <button className="px-2 sm:px-4 hover:text-[#41625C]">5</button>
-          {/* <button className="px-2 sm:px-4">...</button>
-          <button className="px-2 sm:px-4">100</button> */}
+          <button className="px-2 sm:px-4 hover:text-[#]">1</button>
+          <button className="px-2 sm:px-4 hover:text-[#]">2</button>
+          <button className="px-2 sm:px-4 hover:text-[#]">3</button>
+          <button className="px-2 sm:px-4 hover:text-[#]">4</button>
+          <button className="px-2 sm:px-4 hover:text-[#]">5</button>
+          <button className="px-2 sm:px-4">...</button>
+          <button className="px-2 sm:px-4">100</button>
         </nav>
-      </div>
+      </div> */}
     </div>
   );
 }

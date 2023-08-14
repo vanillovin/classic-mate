@@ -51,7 +51,7 @@ function Newspaper() {
               src={image}
             />
           </div>
-          <div className='flex flex-col items-center justify-center pt-6 sm:p-6'>
+          <div className='flex flex-col items-center justify-center pt-6 md:p-6'>
             <h2 className='text-lg text-center sm:text-2xl font-medium drop-shadow-md'>
               {composer} : {title}
             </h2>
