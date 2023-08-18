@@ -6,20 +6,22 @@ import Link from 'next/link';
 import { classicalMusicByMood } from './data';
 
 function MoodClassicalMusic() {
+  const classicalMusicByMoodMap = new Map(Object.entries(classicalMusicByMood));
+
   return (
     <div className='flex flex-col items-center justify-center gap-y-4 md:px-14'>
-      {Object.keys(classicalMusicByMood).map(key => (
+      {[...classicalMusicByMoodMap].map(([key, value]) => (
         <div
           key={key}
           className={`relative w-full rounded-sm p-4 shadow-md bg-opacity-70 hover:animate-tada
-            ${classicalMusicByMood[key].bgColor}
+            ${value.bgColor}
           `}
         >
           <div className='sm:text-lg font-semibold drop-shadow-md'>
-            {classicalMusicByMood[key].name}
+            {value.name}
           </div>
           <ul className='mt-2 px-1 text-sm sm:text-base'>
-            {classicalMusicByMood[key].data.map((classic, index) => (
+            {value.data.map((classic, index) => (
               <li
                 key={index}
                 className='pb-1 last:pb-0 text-pantone-dark-navy'
