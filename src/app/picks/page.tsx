@@ -4,11 +4,11 @@ import { DM_Serif_Display } from 'next/font/google';
 
 import { siteConfig } from '@/config/site';
 import TimeClassicalMusic from './TimeClassicalMusic';
-import MoodClassicalMusic from './MoodClassicalMusic';
-import GenreClassicalMusic from './GenreClassicalMusic';
-import ArtistClassicalMusic from './ArtistClassicalMusic';
-import RandomClassicalMusic from './RandomClassicalMusic';
 import WeatherClassicalMusic from './WeatherClassicalMusic';
+import ArtistClassicalMusic from './ArtistClassicalMusic';
+import GenreClassicalMusic from './GenreClassicalMusic';
+import RandomClassicalMusic from './RandomClassicalMusic';
+import MoodClassicalMusic from './MoodClassicalMusic';
 import { createServerClient } from '@/utils/supabase-server';
 
 const dmSerifDisplay = DM_Serif_Display({ subsets: ['latin'], weight: ['400'] });

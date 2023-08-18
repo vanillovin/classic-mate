@@ -6,11 +6,10 @@ import React, { useState } from 'react';
 
 import { formatTimestamp } from '@/utils/dateUtils';
 import { useQueryClient } from '@tanstack/react-query';
-import { useAuth } from '@/components/providers/auth-provider';
 import { useSupabase } from '@/components/providers/supabase-provider';
 
 function CommentItem({ comment }: { comment: ClassicComment }) {
-  const { user } = useAuth();
+  const { session } = useSupabase();
   const { supabase } = useSupabase();
   const queryClient = useQueryClient();
   const [isEditing, setIsEditing] = useState(false);
@@ -67,7 +66,7 @@ function CommentItem({ comment }: { comment: ClassicComment }) {
                 </span>
               )}
             </div>
-            {user?.id === comment.user_id && (
+            {session?.user.id === comment.user_id && (
               <div className='flex gap-1'>
                 <button 
                   className='text-gray-800 text-sm' 

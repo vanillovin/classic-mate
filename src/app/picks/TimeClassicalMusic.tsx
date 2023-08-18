@@ -2,6 +2,8 @@
 
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
+
+import { classicsByTime } from './data';
     
 function TimeClassicalMusic() {
   const [timeOfDay, setTimeOfDay] = useState('');
@@ -58,33 +60,3 @@ function TimeClassicalMusic() {
 }
 
 export default TimeClassicalMusic;
-
-const classicsByTime: {
-  [key: string]: { id: number; title: string; }[];
-} = {
-  'dawn': [
-    { id: 39, title: '에릭 사티 짐노페디 No.1' },
-    { id: 42, title: '드뷔시 아라베스크' },
-    { id: 45, title: '라벨 물의 유희' },
-  ],
-  'morning': [
-    { id: 41, title: "비발디 사계 중 '봄'" },
-    { id: 43, title: '모차르트 볼로도스, 터키행진곡' },
-    { id: 46, title: '쇼팽 폴로네이즈 영웅' },
-  ],
-  'afternoon': [
-    { id: 47, title: '쇼팽 스케르초 2번' },
-    { id: 48, title: '슈베르트 악흥의 순간 3번' },
-    { id: 49, title: '차이코프스키 - 백조의 호수' },
-  ],
-  'evening': [
-    { id: 50, title: '리스트 사랑의 꿈' },
-    { id: 44, title: '쇼팽 녹턴 9번' },
-    { id: 17, title: '라흐마니노프 피아노 협주곡 2번' },
-  ],
-  'night': [
-    { id: 40, title: '드뷔시 달빛' },
-    { id: 51, title: '슈베르트 아베 마리아' },
-    { id: 52, title: '베토벤 비창 2악장' },
-  ],
-};
