@@ -5,24 +5,39 @@ import { useQuery } from '@tanstack/react-query';
 
 import supabase from '@/lib/supabase/client';
 import { formatTimestamp } from '@/utils/dateUtils';
+import { useSearchParams } from 'next/navigation';
 
-async function fetchPosts() { 
+type SortType = 'created_at' | 'comment_count' | 'view_count';
+
+// https://j~.supabase.co/rest/v1/test_posts?
+//  select =*& title=ilike.% ~ % 25 & order=created_at.desc
+async function fetchPosts(sortType: SortType, keyword: string) { 
+  console.log('fetchPosts')
+  const decodeKeword = decodeURIComponent(keyword);
   const { data } = await supabase
     .from('test_posts')
-    .select()
-    .order('created_at', { ascending: false })
-    .range(0, 20);
+    .select('*')
+    .ilike('title', `%${decodeKeword}%`)
+    .order(sortType, { ascending: false })
+    // .or(`content.ilike.%${decodeKeword}%`) x
+    // .range(0, 20);
+  console.log(data)
   return data;
 }
   
 function Posts({ serverPosts }: { serverPosts: Post[] }) {
+  const searchParams = useSearchParams();
+ 
+  const keyword = searchParams.get('keyword') ?? '';
+  const sortType = (searchParams.get('sort') as SortType) ?? 'created_at';
+
   const { data: posts } = useQuery({
-    queryKey: ['posts'],
-    queryFn: fetchPosts,
-    initialData: serverPosts,
+    queryKey: ['posts', sortType, keyword],
+    queryFn: () => fetchPosts(sortType, keyword),
+    // initialData: serverPosts,
     suspense: true,
   });
-
+  
   return (
     <div>
       <div className='grid md:grid-cols-2 gap-0 md:gap-4 shadow-sm sm:shadow-none'>

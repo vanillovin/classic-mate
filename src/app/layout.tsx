@@ -11,8 +11,6 @@ import SupabaseProvider from '@/components/providers/supabase-provider';
 import SupabaseListener from '@/components/providers/supabase-listener';
 import { ToastifyProvider } from '@/components/providers/toastify-provider';
 
-// import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-
 export type TypedSupabaseClient = SupabaseClient;
 
 export const metadata: Metadata = siteConfig['metaData'].home;
@@ -42,7 +40,6 @@ export default async function RootLayout({
               </ToastifyProvider>
             </AuthProvider>
           </SupabaseProvider>
-          {/* <ReactQueryDevtools initialIsOpen={false} /> */}
         </Providers>
       </body>
     </html>
