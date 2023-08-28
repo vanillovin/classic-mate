@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-import Tags from '@/components/Tags';
 import ClassicLikeButton from '@/components/classics/ClassicLikeButton';
 
 function ClassicItem({
@@ -28,10 +27,13 @@ function ClassicItem({
             ? `${classic.description.substring(0, 60)}...`
             : classic.description}
         </p>
-        <Tags
-          tags={classic.tags}
-          className="my-1 text-xs sm:text-sm rounded-sm p-1 bg-vintage-holiday-red text-white"
-        />
+        <ul className={`flex flex-wrap items-center gap-1`}>
+          {classic.tags.map(tag => (
+            <li key={tag} className='my-1 text-xs sm:text-sm rounded-sm p-1 bg-vintage-holiday-red text-white'>
+              {tag}
+            </li>
+          ))}
+        </ul>
       </div>
       <div className="relative rounded-sm overflow-hidden h-28 sm:h-36">
         <Image
