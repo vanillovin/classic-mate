@@ -2,17 +2,16 @@
 
 import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
+import { useSearchParams } from 'next/navigation';
 
 import supabase from '@/lib/supabase/client';
 import { formatTimestamp } from '@/utils/dateUtils';
-import { useSearchParams } from 'next/navigation';
 
 type SortType = 'created_at' | 'comment_count' | 'view_count';
 
 // https://j~.supabase.co/rest/v1/test_posts?
 //  select =*& title=ilike.% ~ % 25 & order=created_at.desc
 async function fetchPosts(sortType: SortType, keyword: string) { 
-  console.log('fetchPosts')
   const decodeKeword = decodeURIComponent(keyword);
   const { data } = await supabase
     .from('test_posts')
@@ -21,7 +20,6 @@ async function fetchPosts(sortType: SortType, keyword: string) {
     .order(sortType, { ascending: false })
     // .or(`content.ilike.%${decodeKeword}%`) x
     // .range(0, 20);
-  console.log(data)
   return data;
 }
   
@@ -37,15 +35,15 @@ function Posts({ serverPosts }: { serverPosts: Post[] }) {
     // initialData: serverPosts,
     suspense: true,
   });
-  
+
   return (
     <div>
-      <div className='grid md:grid-cols-2 gap-0 md:gap-4 shadow-sm sm:shadow-none'>
+      <div className='grid md:grid-cols-2 gap-0 sm:gap-2 md:gap-4 shadow-sm sm:shadow-none'>
         {posts?.map((post) => (
           <Link
             key={post.id}
             href={`/community/${post.id}`}
-            className='relative group border-b last:border-b-0 sm:border-0 sm:last:border-b-0 border-[#EBE5E1]'
+            className='shadow-sm relative group border-b last:border-b-0 sm:border-0 sm:last:border-b-0 border-[#EBE5E1]'
           >
             <div className='flex items-center justify-between px-3 py-3 sm:py-4 transition-all bg-[#BCC8D1] group-hover:bg-[#C2D7E8]'>
               <div className='text-sm sm:text-base font-medium space-y-1'>

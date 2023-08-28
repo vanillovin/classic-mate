@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-import Tags from '@/components/Tags';
+import TagLinkList from '@/components/TagLinkList';
 import { getArtistById } from '../api'
 import { createServerClient } from '@/utils/supabase-server';
 
@@ -47,7 +47,7 @@ export default async function ArtistDetailPage({ params }: { params: { name: str
               <p className='text-sm'>
                 {classic.description.length > 120 ? `${classic.description.substring(0, 120)}..` : classic.description}
               </p>
-              <Tags className='text-sm bg-black text-white px-1 mt-1' tags={classic.tags} />
+              <TagLinkList className='text-sm bg-black text-white px-1 mt-1' tags={classic.tags} />
             </Link>
           ))}
         </div>

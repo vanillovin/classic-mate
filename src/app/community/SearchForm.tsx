@@ -27,6 +27,7 @@ function SearchForm() {
   }
   
   function cancelSearchKeyword() {
+    setKeyword('');
     const params = new URLSearchParams(searchParams.toString());
     params.delete('keyword');
     const newSearchParams = params.toString();

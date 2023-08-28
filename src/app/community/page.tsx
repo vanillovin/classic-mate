@@ -46,7 +46,6 @@ export default async function CommunityPage() {
           <div className='flex items-center'>
             <p className='font-semibold'>카테고리</p>
           </div>
-          
         </div> */}
 
         <Posts serverPosts={posts ?? []} />

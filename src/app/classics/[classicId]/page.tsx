@@ -1,11 +1,10 @@
-import Link from 'next/link';
 import notFound from './not-found';
 
-import Comments from './Comments';
 import { createServerClient } from '@/utils/supabase-server';
 import { convertToEmbeddedURL } from '@/utils/youtubeUtils';
+import Comments from './Comments';
+import TagLinkList from '@/components/TagLinkList';
 import ClassicLikeButton from '@/components/classics/ClassicLikeButton';
-import Tags from '@/components/Tags';
 
 export default async function ClassicDetailPage({ params }: { params: { classicId: string } }) {
   const supabase = createServerClient();
@@ -40,7 +39,7 @@ export default async function ClassicDetailPage({ params }: { params: { classicI
       />
       <div className='flex items-center'>
         <p className='font-medium'>태그 :</p>
-        <Tags
+        <TagLinkList
           tags={classic.tags}
           className='border-b-2 border-white px-1 ml-1 text-sm sm:text-base hover:text-white transition-all'
         />

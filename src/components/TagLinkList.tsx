@@ -6,7 +6,7 @@ type TagsProps = {
   className: string;
 };
 
-function Tags({ tags, className }: TagsProps) {
+function TagLinkList({ tags, className }: TagsProps) {
   return (
     <ul className={`flex flex-wrap items-center gap-1`}>
       {tags.map(tag => (
@@ -20,4 +20,4 @@ function Tags({ tags, className }: TagsProps) {
   );
 }
 
-export default Tags;
+export default TagLinkList;
