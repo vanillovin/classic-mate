@@ -1,6 +1,8 @@
 import Link from 'next/link';
 
-export default function NotFound() {
+type Props = {};
+
+export default function NotFound({}: Props) {
 	return (
 		<div className='text-center mt-20'>
 			<h2 className='text-2xl mb-5'>아티스트를 찾을 수 없습니다.</h2>

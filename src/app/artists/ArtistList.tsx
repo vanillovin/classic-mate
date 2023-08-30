@@ -28,7 +28,7 @@ function ArtistList({ artists }: { artists: Artist[] }) {
               <Image
                 fill
                 alt='frame'
-                src="/frame.png"
+                src="https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/frame.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL2ZyYW1lLnBuZyIsImlhdCI6MTY5MzM3NjQ5MCwiZXhwIjoxNzI0OTEyNDkwfQ.45RClMsukndAS-vLdCnxOlShS622w7-2-TNTj0szJfA&t=2023-08-30T06%3A21%3A30.733Z"
                 className='absolute w-full h-full'
               />
             </div>

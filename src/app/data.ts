@@ -25,14 +25,21 @@ type QuizData = {
   };
 };
 
+export const musicPlayerBackgroundImageURLs = {
+  morning: 'https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/morning-sky.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL21vcm5pbmctc2t5LmpwZyIsImlhdCI6MTY5MzM3NjkzMCwiZXhwIjoxNzI0OTEyOTMwfQ.Y5Ci1FHkvO8EpHhWV35EeB51GD4Ja9mVxVDiNT8BKAQ&t=2023-08-30T06%3A28%3A50.762Z',
+  afternoon: 'https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/afternoon-sky.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL2FmdGVybm9vbi1za3kuanBnIiwiaWF0IjoxNjkzMzc2OTExLCJleHAiOjE3MjQ5MTI5MTF9.mEOdHbVlALLHMINQVahCZsOry36Dn1BwAPTTJeNzp_k&t=2023-08-30T06%3A28%3A31.729Z',
+  evening: 'https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/evening-sky.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL2V2ZW5pbmctc2t5LmpwZyIsImlhdCI6MTY5MzM3Njg5NywiZXhwIjoxNzI0OTEyODk3fQ.ZOF3hQYVx_n1JwQNoMhnXZ1PGUK41zCeOvj014F7-P4&t=2023-08-30T06%3A28%3A17.133Z',
+  night: 'https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/night-sky.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL25pZ2h0LXNreS5qcGciLCJpYXQiOjE2OTMzNzY5MjIsImV4cCI6MTcyNDkxMjkyMn0.p0bTLlctg2CaOuHUUkFErQxH1kdaF-5yt255LK3f5Ww&t=2023-08-30T06%3A28%3A42.721Z',
+};
+
 export const monthMusics: { [key: string]: { title: string; src: string; } } = {
   '2023-08': {
     title: "비발디, '사계' 여름 (A.Vivaldi, Summer from The Four Seasons Op.8) / 이 무지치",
-    src: '/music/I Musici - Vivaldi Summer.mp3',
+    src: 'https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/I%20Musici%20-%20Vivaldi%20Summer.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL0kgTXVzaWNpIC0gVml2YWxkaSBTdW1tZXIubXAzIiwiaWF0IjoxNjkzMzc3MDM1LCJleHAiOjE3MjQ5MTMwMzV9.NFwwpj9KK01-l9HxK0JhcS6DJPluIlgcmeZqQyl8rwg&t=2023-08-30T06%3A30%3A35.005Z',
   },
   '2023-09': {
     title: 'Tchaikovsky: Piano Concerto No.1 1st Movement / Yeol Eum Son',
-    src: '/music/Yeol Eum Son - Tchikovsky Piano Concerto No1 1st.mp3',
+    src: 'https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/Yeol%20Eum%20Son%20-%20Tchikovsky%20Piano%20Concerto%20No1%201st.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL1llb2wgRXVtIFNvbiAtIFRjaGlrb3Zza3kgUGlhbm8gQ29uY2VydG8gTm8xIDFzdC5tcDMiLCJpYXQiOjE2OTMzNzY5OTcsImV4cCI6MTcyNDkxMjk5N30.W03tfrhNgHrniXqcQk6juV8BLMNifLG8jqdnD5z311o&t=2023-08-30T06%3A29%3A57.507Z',
   }
 };
 

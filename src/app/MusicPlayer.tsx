@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 
-import { monthMusics } from './data';
 import { getCurrentDateInfo } from '@/utils/dateUtils';
+import { monthMusics, musicPlayerBackgroundImageURLs } from './data';
 
 type TimeOfDay = 'morning' | 'afternoon' | 'evening' | 'night';
 
@@ -58,18 +58,11 @@ function MusicPlayer() {
   
   const progressValue = isNaN((currentTime / duration) * 100) ? 0 : (currentTime / duration) * 100;
 
-  const backgroundImageURLs = {
-    morning: '/morning-sky.jpg',
-    afternoon: '/afternoon-sky.jpg',
-    evening: '/evening-sky.jpg',
-    night: '/night-sky.jpg',
-  } as const;
-
   const textColor = timeOfDay === 'morning' || timeOfDay === 'afternoon' ? 'text-black' : 'text-white';
 
   return (
     <div
-      style={{ backgroundImage: `url(${backgroundImageURLs[timeOfDay]})` }}
+      style={{ backgroundImage: `url(${musicPlayerBackgroundImageURLs[timeOfDay]})` }}
       className={`relative w-full h-full p-6 py-10 sm:p-12 flex flex-col sm:flex-row items-center bg-center bg-cover rounded-sm shadow-md select-none
         ${isFullScreen ? 'h-screen' : ''}
       `}
@@ -79,7 +72,7 @@ function MusicPlayer() {
           <Image
             fill={true}
             alt=''
-            src='/kylie-paz-cbl1K6yJlDI-unsplash.jpg'
+            src='https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/I%20Musici%20-%20Vivaldi%20Summer.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL0kgTXVzaWNpIC0gVml2YWxkaSBTdW1tZXIubXAzIiwiaWF0IjoxNjkzMzc3MDM1LCJleHAiOjE3MjQ5MTMwMzV9.NFwwpj9KK01-l9HxK0JhcS6DJPluIlgcmeZqQyl8rwg&t=2023-08-30T06%3A30%3A35.005Z'
             className='object-cover'
           />
           <div className='absolute top-0 left-0 w-full h-full flex items-center justify-center'>
@@ -103,7 +96,12 @@ function MusicPlayer() {
           <div className={`w-full h-full bg-center bg-no-repeat bg-contain
             ${isPlaying ? 'animate-spin-slow' : ''}
           `}>
-            <Image src="/cd.png" alt="CD" fill className="w-full h-full" />
+            <Image
+              fill 
+              alt="CD"
+              src="https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/cd.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL2NkLnBuZyIsImlhdCI6MTY5MzM3NjczOCwiZXhwIjoxNzI0OTEyNzM4fQ.doA15hMyMmeExdoqOmubb0HaLTgf3qs13ItqGYm9iXY&t=2023-08-30T06%3A25%3A38.649Z" 
+              className="w-full h-full"
+            />
           </div>
         </div>
       </div>
