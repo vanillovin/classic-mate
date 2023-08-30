@@ -1,9 +1,21 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { useSupabase } from '@/components/providers/supabase-provider';
 import { toast } from 'react-toastify';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+
+import { useSupabase } from '@/components/providers/supabase-provider';
+
+const getURL = () => {
+  let url =
+    process?.env?.NEXT_PUBLIC_SITE_URL ??
+    process?.env?.NEXT_PUBLIC_VERCEL_URL ??
+    'http://localhost:3000/';
+  url = url.includes('http') ? url : `https://${url}`;
+  url = url.charAt(url.length - 1) === '/' ? url : `${url}/`;
+  return url;
+};
+
 export default function RegisterForm() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { supabase } = useSupabase();
@@ -31,11 +43,10 @@ export default function RegisterForm() {
       email,
       password,
       options: {
-        emailRedirectTo: `${location.origin}/auth/callback`,
+        emailRedirectTo: `${getURL()}/auth/callback`,
       },
     });
     setIsLoading(false);
-    // console.log('signup', data, error);
     if (!error) {
       return toast.success('로그인 링크를 보냈습니다. 이메일을 확인해 주세요!');
     } else {

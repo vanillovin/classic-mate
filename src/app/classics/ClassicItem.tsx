@@ -23,8 +23,8 @@ function ClassicItem({
           <ClassicLikeButton classicId={classic.id} serverLikeCount={likeCount} /> 
         </div>
         <p className="text-xs sm:text-sm my-1">
-          {classic.description.length > 60
-            ? `${classic.description.substring(0, 60)}...`
+          {classic.description.length > 70
+            ? `${classic.description.substring(0, 70)}...`
             : classic.description}
         </p>
         <ul className={`flex flex-wrap items-center gap-1`}>
