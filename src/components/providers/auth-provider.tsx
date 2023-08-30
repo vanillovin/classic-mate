@@ -5,6 +5,7 @@ import { Session } from '@supabase/supabase-js';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 import supabase from '@/lib/supabase/client';
+import { createBrowserClient } from '@/utils/supabase-browser';
 
 type AuthProviderProps = {
   session: Session | null;
@@ -32,8 +33,9 @@ async function getProfile(session: Session): Promise<Profile | null> {
 }
 
 export const AuthProvider = ({ session, children }: AuthProviderProps) => {
-  const [profile, setProfile] = useState<Profile | null>(null);
   const router = useRouter();
+  const supabase = createBrowserClient();
+  const [profile, setProfile] = useState<Profile | null>(null);
   
   useEffect(() => {
     if (session) {
@@ -48,12 +50,12 @@ export const AuthProvider = ({ session, children }: AuthProviderProps) => {
     return {
       profile,
       signOut: async () => {
-        const { error } = await supabase.auth.signOut();
+          const { error } = await supabase.auth.signOut();
           if (error) throw new Error(error.message);
           router.refresh();
         }
       }
-  }, [profile, router]);
+  }, [profile, supabase.auth, router]);
   
   return (
     <AuthContext.Provider value={value}>
