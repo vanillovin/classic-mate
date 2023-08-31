@@ -41,17 +41,17 @@ function SearchForm() {
           e.preventDefault();
           setKeywordParamAndNavigate();
         }}
-        className='h-8 flex items-center gap-x-1'
+        className='h-8 flex items-center border-b border-black focus-within:border-pantone-berkeley-blue'
       >
         <input
           value={keyword}
           onChange={e => setKeyword(e.target.value)}
           placeholder='게시글 제목을 입력해주세요.'
-          className='rounded-sm h-full px-2 focus:outline-none focus:ring-2 focus:ring-pantone-berkeley-blue'
+          className='rounded-sm h-full px-2 focus:outline-none bg-transparent placeholder:font-light'
           required
         />
-        <button type='submit' className='px-2 h-full bg-white'>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" className="w-5 h-5">
+        <button type='submit' className='px-2 h-full bg-transparent'>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1" stroke="currentColor" className="w-5 h-5 text-black ">
             <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
           </svg>
         </button>
@@ -64,7 +64,7 @@ function SearchForm() {
 
       <div className="dropdown dropdown-end">
         <label tabIndex={0} className="group cursor-pointer">
-          <button className='flex items-center'>
+          <button className='flex items-center hover:text-pantone-berkeley-blue'>
             최신순
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25" />
@@ -80,7 +80,7 @@ function SearchForm() {
             { name: 'comment_count', title: '댓글순' },
             { name: 'view_count', title: '조회순' },
           ].map((sort, index) => (
-            <li key={index} className='transition-colors'>
+            <li key={index} className='transition-colors hover:bg-gray-100'>
               <button
                 onClick={() => setSortParamAndNavigate(sort.name)}
                 className='w-full px-3 py-2 text-start'

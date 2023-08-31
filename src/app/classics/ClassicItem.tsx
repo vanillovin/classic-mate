@@ -29,7 +29,10 @@ function ClassicItem({
         </p>
         <ul className={`flex flex-wrap items-center gap-1`}>
           {classic.tags.map(tag => (
-            <li key={tag} className='my-1 text-xs sm:text-sm rounded-sm p-1 bg-vintage-holiday-red text-white'>
+            <li
+              key={tag}
+              className='my-1 text-xs sm:text-sm rounded-sm p-1 bg-vintage-holiday-red text-white'
+            >
               {tag}
             </li>
           ))}
@@ -37,8 +40,8 @@ function ClassicItem({
       </div>
       <div className="relative rounded-sm overflow-hidden h-28 sm:h-36">
         <Image
-          src={classic.cover_image ?? ''}
-          alt={`${classic.title} cover`}
+          src={classic.cover_image}
+          alt={`cover`}
           fill={true}
         />
       </div>

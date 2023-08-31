@@ -1,4 +1,4 @@
-export type Artist = {
+export type Composer = {
   id: number;
   englishName: string;
   koreanName: string;
@@ -8,15 +8,15 @@ export type Artist = {
   description: string;
 };
 
-export async function getArtists(): Promise<Artist[]> {
-  return artists;
+export async function getComposers(): Promise<Composer[]> {
+  return composers;
 }
 
-export async function getArtistById(name: string): Promise<Artist | undefined> {
-  return artists.find(artist => artist.englishName === name);
+export async function getComposerById(name: string): Promise<Composer | undefined> {
+  return composers.find(artist => artist.englishName === name);
 }
 
-export const artists: Artist[] = [
+export const composers: Composer[] = [
   {
     id: 1,
     englishName: 'Frédéric Chopin',

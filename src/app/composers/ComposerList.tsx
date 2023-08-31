@@ -4,14 +4,14 @@ import React from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 
-import type { Artist } from './api';
+import type { Composer } from './api';
 
-function ArtistList({ artists }: { artists: Artist[] }) {
+function ComposerList({ composers }: { composers: Composer[] }) {
   return (
     <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12'>
-      {artists.map(({ id, image, englishName, koreanName, life, shortDesc }) => 
+      {composers.map(({ id, image, englishName, koreanName, life, shortDesc }) =>
         <Link
-          href={`/artists/${englishName}`}
+          href={`/composers/${englishName}`}
           key={id}
           className='group flex flex-col items-center animate-on-scroll'
         >
@@ -46,7 +46,7 @@ function ArtistList({ artists }: { artists: Artist[] }) {
         </Link>
       )}
     </div>
-  )
+  );
 }
 
-export default ArtistList
+export default ComposerList;

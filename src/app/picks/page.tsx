@@ -5,7 +5,7 @@ import { DM_Serif_Display } from 'next/font/google';
 import { siteConfig } from '@/config/site';
 import TimeClassicalMusic from './TimeClassicalMusic';
 import WeatherClassicalMusic from './WeatherClassicalMusic';
-import ArtistClassicalMusic from './ArtistClassicalMusic';
+import ComposerClassicalMusic from './ComposerClassicalMusic';
 import GenreClassicalMusic from './GenreClassicalMusic';
 import RandomClassicalMusic from './RandomClassicalMusic';
 import MoodClassicalMusic from './MoodClassicalMusic';
@@ -62,11 +62,11 @@ export default async function PicksPage() {
         <WeatherClassicalMusic />
       </section>
 
-      <section id="artist" className='h-96'>
+      <section id="composer" className='h-96'>
         <h2 className={`mb-4 text-center text-2xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}>
-          Artist.
+          Composer.
         </h2>
-        <ArtistClassicalMusic />
+        <ComposerClassicalMusic />
       </section>
 
       <section id="genre" className=''>
@@ -96,7 +96,7 @@ export default async function PicksPage() {
 const recommendations = [
   { id: 'time', label: '시간대별', link: '#time' },
   { id: 'weather', label: '날씨별', link: '#weather' },
-  { id: 'artist', label: '아티스트별', link: '#artist' },
+  { id: 'composer', label: '작곡가별', link: '#composer' },
   { id: 'genre', label: '장르별', link: '#genre' },
   { id: 'random', label: '랜덤', link: '#random' },
   { id: 'mood', label: '기분별', link: '#mood' },

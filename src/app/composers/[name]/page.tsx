@@ -2,14 +2,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
+import { getComposerById } from '../api'
 import TagLinkList from '@/components/TagLinkList';
-import { getArtistById } from '../api'
 import { createServerClient } from '@/utils/supabase-server';
 
 export default async function ArtistDetailPage({ params }: { params: { name: string }}) {
   const supabase = createServerClient();
   const composer = decodeURIComponent(params.name);
-  const data = await getArtistById(composer);
+  const data = await getComposerById(composer);
+  
   const { data: classics } = await supabase.from('all_classics').select().eq('composer', composer);
 
   if (!data) return notFound();

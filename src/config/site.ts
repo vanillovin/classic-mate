@@ -7,7 +7,7 @@ export const siteConfig = {
     { title: '홈', href: '/' },
     { title: '모든 클래식', href: '/classics' },
     { title: '추천 클래식', href: '/picks' },
-    { title: '모든 작곡가', href: '/artists' },
+    { title: '모든 작곡가', href: '/composers' },
     { title: '태그로 찾기', href: '/tags' },
     { title: '자유 게시판', href: '/community' },
   ],
