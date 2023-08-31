@@ -1,11 +1,10 @@
-import dynamic from 'next/dynamic';
 import { DM_Serif_Display } from 'next/font/google';
 
-const ClassicQuiz = dynamic(import('./ClassicQuiz'));
-const DailyQuote = dynamic(import('./DailyQuote'));
-const MusicPlayer = dynamic(import('./MusicPlayer'));
-const Newspaper = dynamic(import('./Newspaper'));
-const PopularClassics = dynamic(import('./PopularClassics'));
+import ClassicQuiz from './ClassicQuiz';
+import DailyQuote from './DailyQuote';
+import MusicPlayer from './MusicPlayer';
+import Newspaper from './Newspaper';
+import PopularClassics from './PopularClassics';
 import { createServerClient } from '@/utils/supabase-server';
 
 const dmSerifDisplay = DM_Serif_Display({ subsets: ['latin'], weight: ['400'] });
