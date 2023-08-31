@@ -27,7 +27,7 @@ export const siteConfig = {
       description: '시간대별, 날씨별, 아티스트별, 장르별 등 다양한 클래식 음악을 즐겨보세요!',
       keywords: ['classical music', '클래식', '클래식 음악', '클래식 추천', '날씨별', '시간대별', '아티스트별' , '장르별'],
     },
-    'artists': {
+    'composers': {
       title: '모든 작곡가 | 클메',
       description: '클래식 음악 작곡가의 생애, 주요 작품 등의 정보를 제공합니다.',
       keywords: ['classical music', 'composers', '클래식 음악', '클래식 작곡가'],

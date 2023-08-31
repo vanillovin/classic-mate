@@ -7,7 +7,7 @@ import { siteConfig } from '@/config/site';
 
 const mont = Hahmlet({ subsets: ['latin'], weight: ['400'] });
 
-export const metadata: Metadata = siteConfig.metaData['artists'];
+export const metadata: Metadata = siteConfig.metaData['composers'];
 
 export default async function ComposersPage() {
   const composers = await getComposers();

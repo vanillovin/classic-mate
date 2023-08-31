@@ -1,8 +1,12 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { createServerClient } from '@/utils/supabase-server';
 
+import { siteConfig } from '@/config/site';
 import TagsContainer from './TagsContainer';
 
+
+export const metadata: Metadata = siteConfig.metaData['tags'];
 type Props = {
   params?: { num?: string; };
   searchParams?: { tag1?: string, tag2?: string, tag3?: string };
