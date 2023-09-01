@@ -1,28 +1,13 @@
 'use client';
 
+import React from 'react';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
 
 import { classicsByTime } from './data';
+import useTimeOfDay from '@/hooks/useTimeOfDay';
     
 function TimeClassicalMusic() {
-  const [timeOfDay, setTimeOfDay] = useState('');
-
-  useEffect(() => {
-    const currentTime = new Date().getHours();
-
-    if (currentTime >= 0 && currentTime < 5) {
-      setTimeOfDay('dawn');
-    } else if (currentTime >= 5 && currentTime < 12) {
-      setTimeOfDay('morning');
-    } else if (currentTime >= 12 && currentTime < 17) {
-      setTimeOfDay('afternoon');
-    } else if (currentTime >= 17 && currentTime < 20) {
-      setTimeOfDay('evening');
-    } else {
-      setTimeOfDay('night');
-    }
-  }, []);
+  const timeOfDay = useTimeOfDay();
 
   return (
     <table className='w-full border border-black bg-white rounded-sm shadow-md'>

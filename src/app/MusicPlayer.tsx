@@ -1,12 +1,12 @@
 'use client';
 
 import Image from 'next/image';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
+import useTimeOfDay from '@/hooks/useTimeOfDay';
 import { getCurrentDateInfo } from '@/utils/dateUtils';
 import { monthMusics, musicPlayerBackgroundImageURLs } from './data';
 
-type TimeOfDay = 'morning' | 'afternoon' | 'evening' | 'night';
 
 function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -14,24 +14,10 @@ function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>('morning');
+  const timeOfDay = useTimeOfDay();
 
   const { currentYearMonth } = getCurrentDateInfo();
   const { title, src } = monthMusics[currentYearMonth];
-
-  useEffect(() => {
-    const currentTime = new Date().getHours();
-
-    if (currentTime >= 5 && currentTime < 12) {
-      setTimeOfDay('morning');
-    } else if (currentTime >= 12 && currentTime < 17) {
-      setTimeOfDay('afternoon');
-    } else if (currentTime >= 17 && currentTime < 20) {
-      setTimeOfDay('evening');
-    } else {
-      setTimeOfDay('night');
-    }
-  }, []);
 
   const playAudio = () => {
     audioRef.current?.play();
@@ -71,8 +57,8 @@ function MusicPlayer() {
         <div className='w-24 h-24 sm:w-36 sm:h-36 relative overflow-hidden rounded-sm shadow-lg -ml-16 sm:ml-0 z-[1]'>
           <Image
             fill={true}
-            alt=''
-            src='https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/I%20Musici%20-%20Vivaldi%20Summer.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL0kgTXVzaWNpIC0gVml2YWxkaSBTdW1tZXIubXAzIiwiaWF0IjoxNjkzMzc3MDM1LCJleHAiOjE3MjQ5MTMwMzV9.NFwwpj9KK01-l9HxK0JhcS6DJPluIlgcmeZqQyl8rwg&t=2023-08-30T06%3A30%3A35.005Z'
+            alt='album-cover'
+            src='https://images.unsplash.com/photo-1542300205-6fe56ce087e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
             className='object-cover'
           />
           <div className='absolute top-0 left-0 w-full h-full flex items-center justify-center'>

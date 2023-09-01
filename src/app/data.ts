@@ -26,9 +26,10 @@ type QuizData = {
 };
 
 export const musicPlayerBackgroundImageURLs = {
+  dawn: 'https://images.unsplash.com/photo-1566724121302-0628130eed46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
   morning: 'https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/morning-sky.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL21vcm5pbmctc2t5LmpwZyIsImlhdCI6MTY5MzM3NjkzMCwiZXhwIjoxNzI0OTEyOTMwfQ.Y5Ci1FHkvO8EpHhWV35EeB51GD4Ja9mVxVDiNT8BKAQ&t=2023-08-30T06%3A28%3A50.762Z',
   afternoon: 'https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/afternoon-sky.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL2FmdGVybm9vbi1za3kuanBnIiwiaWF0IjoxNjkzMzc2OTExLCJleHAiOjE3MjQ5MTI5MTF9.mEOdHbVlALLHMINQVahCZsOry36Dn1BwAPTTJeNzp_k&t=2023-08-30T06%3A28%3A31.729Z',
-  evening: 'https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/evening-sky.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL2V2ZW5pbmctc2t5LmpwZyIsImlhdCI6MTY5MzM3Njg5NywiZXhwIjoxNzI0OTEyODk3fQ.ZOF3hQYVx_n1JwQNoMhnXZ1PGUK41zCeOvj014F7-P4&t=2023-08-30T06%3A28%3A17.133Z',
+  evening: 'https://images.unsplash.com/photo-1471032432678-03409d91e045?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
   night: 'https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/night-sky.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL25pZ2h0LXNreS5qcGciLCJpYXQiOjE2OTMzNzY5MjIsImV4cCI6MTcyNDkxMjkyMn0.p0bTLlctg2CaOuHUUkFErQxH1kdaF-5yt255LK3f5Ww&t=2023-08-30T06%3A28%3A42.721Z',
 };
 
@@ -40,7 +41,11 @@ export const monthMusics: { [key: string]: { title: string; src: string; } } = {
   '2023-09': {
     title: 'Tchaikovsky: Piano Concerto No.1 1st Movement / Yeol Eum Son',
     src: 'https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/Yeol%20Eum%20Son%20-%20Tchikovsky%20Piano%20Concerto%20No1%201st.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL1llb2wgRXVtIFNvbiAtIFRjaGlrb3Zza3kgUGlhbm8gQ29uY2VydG8gTm8xIDFzdC5tcDMiLCJpYXQiOjE2OTMzNzY5OTcsImV4cCI6MTcyNDkxMjk5N30.W03tfrhNgHrniXqcQk6juV8BLMNifLG8jqdnD5z311o&t=2023-08-30T06%3A29%3A57.507Z',
-  }
+  },
+  '2023-10': {
+    title: '',
+    src: '',
+  },
 };
 
 export const monthClassics: { [key: string]: MonthClassic } = {
@@ -100,29 +105,27 @@ export const monthClassics: { [key: string]: MonthClassic } = {
       moreLink: 'https://namu.wiki/w/%EC%A1%B0%EC%84%B1%EC%A7%84(%ED%94%BC%EC%95%84%EB%8B%88%EC%8A%A4%ED%8A%B8)',
     },
   },
+  '2023-10': {
+    id: 0,
+    composer: '',
+    title: '',
+    image: '',
+    description: ``,
+    videoUrl: '',
+    point: {
+      title: '곡 구성과 감상 포인트',
+      description: ``,
+    },
+    performar: {
+      name: '',
+      description: ``,
+      instrumentalists: '',
+      moreLink: '',
+    },
+  },
 };
 
 export const quizData: QuizData = {
-  '2023-08-28': {
-    question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
-    options: ['피아노', '바이올린', '첼로', '오보에'],
-    answer: 0,
-  },
-  '2023-08-29': {
-    question: '다음 중 가장 짧은 음표는?',
-    options: ['♩', '♪', '♫', '♬'],
-    answer: 0,
-  },
-  '2023-08-30': {
-    question: '베토벤의 9번 교향곡은 몇 번이라고 불리나요?',
-    options: ['비창', '영웅', '합창', '영광'],
-    answer: 2,
-  },
-  '2023-08-31': {
-    question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
-    options: ['피아노', '바이올린', '첼로', '오보에'],
-    answer: 0,
-  },
   '2023-09-01': {
     question: '다음 중 가장 짧은 음표는?',
     options: ['♩', '♪', '♫', '♬'],
@@ -258,25 +261,24 @@ export const quizData: QuizData = {
     options: ['비창', '영웅', '합창', '영광'],
     answer: 2,
   },
+  '2023-09-28': {
+    question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+    options: ['피아노', '바이올린', '첼로', '오보에'],
+    answer: 0,
+  },
+  '2023-09-29': {
+    question: '다음 중 가장 짧은 음표는?',
+    options: ['♩', '♪', '♫', '♬'],
+    answer: 0,
+  },
+  '2023-09-30': {
+    question: '베토벤의 9번 교향곡은 몇 번이라고 불리나요?',
+    options: ['비창', '영웅', '합창', '영광'],
+    answer: 2,
+  },
 };
 
 export const dailyQuoteData: { [date: string]: { sentence: string; author: string;  }} = {
-  '2023-08-28': {
-    sentence: '음악은 말할 수 없는 곳에, 그리고 침묵이 불가능한 곳에 표현한다.',
-    author: '빅토르 휴'
-  },
-  '2023-08-29': {
-    sentence: '우리는 음악을 만드는 사람들이다. 그리고 우리는 꿈을 꾸는 꿈꾸는 자들이다.',
-    author: '아서 오셔네'
-  },
-  '2023-08-30': {
-    sentence: '만약 내 삶을 한번 더 살수 있는 기회가 주어진다면, 나는 적어도 매주 한 번은 시를 조금 더 읽을것과 음악을 더 많이 들을 계획을 세울것이다.',
-    author: '찰스 다윈'
-  },
-  '2023-08-31': {
-    sentence: '음악은 사람 본성이 그것 없으면 살 수 없는 기쁨을 창출해 낸다.',
-    author: '콘푸시오'
-  },
   '2023-09-01': {
     sentence: '음악이란, 지혜와 철학보다 훨씬 높은 계시이다',
     author: '베토벤'
@@ -456,5 +458,21 @@ export const dailyQuoteData: { [date: string]: { sentence: string; author: strin
   '2023-10-15': {
     sentence: '단어나 언어가 실패한 곳에, 음악이 이야기를 한다.',
     author: '한스 크리스찬 앤더'
+  },
+  '2023-10-16': {
+    sentence: '음악은 말할 수 없는 곳에, 그리고 침묵이 불가능한 곳에 표현한다.',
+    author: '빅토르 휴'
+  },
+  '2023-10-17': {
+    sentence: '우리는 음악을 만드는 사람들이다. 그리고 우리는 꿈을 꾸는 꿈꾸는 자들이다.',
+    author: '아서 오셔네'
+  },
+  '2023-10-18': {
+    sentence: '만약 내 삶을 한번 더 살수 있는 기회가 주어진다면, 나는 적어도 매주 한 번은 시를 조금 더 읽을것과 음악을 더 많이 들을 계획을 세울것이다.',
+    author: '찰스 다윈'
+  },
+  '2023-10-19': {
+    sentence: '음악은 사람 본성이 그것 없으면 살 수 없는 기쁨을 창출해 낸다.',
+    author: '콘푸시오'
   },
 };
