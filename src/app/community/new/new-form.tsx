@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
@@ -9,23 +10,37 @@ import { useSupabase } from '@/components/providers/supabase-provider';
 function NewForm({ profile }: { profile: Profile }) {
   const router = useRouter();
   const { supabase } = useSupabase();
+  const [isLoading, setIsLoading] = useState(false);
 
   async function addNewPost(formData: FormData) {
-    const formDataObj = Object.fromEntries(formData);
+    setIsLoading(true);
+    const formDataObj = Object.fromEntries(formData.entries());
+    
     if (formDataObj.category_name === '') {
-      alert('카테고리를 선택해주세요.');
+      toast.info('카테고리를 선택해주세요.');
+      setIsLoading(false);
+      return;
     }
+
     const id = uuidv4();
-    const { error } = await supabase
+
+    try {
+      const { error } = await supabase
       .from('test_posts')
       .insert({
-        ...formDataObj,
         id,
         user_id: profile.id,
         nickname: profile.nickname ?? '클메',
+        ...formDataObj,
       });
-    if (!error) router.push(`/community/${id}`);
-    else toast.error(`게시글을 올리지 못했습니다. ${error.message}`);
+      if (error) throw error; 
+      router.push(`/community/${id}`);
+    } catch (error: any) {
+      console.error("Error creating post.", error);
+      toast.error(`게시글을 올리지 못했습니다. ${error.message}`);
+    }
+
+    setIsLoading(false);
   }
 
   return (
@@ -57,6 +72,7 @@ function NewForm({ profile }: { profile: Profile }) {
           placeholder="제목을 입력해주세요."
           className="w-full block p-2 rounded-sm border focus:outline-none focus:border-black"
           minLength={3}
+          maxLength={50}
           required
         />
       </div>
@@ -82,7 +98,7 @@ function NewForm({ profile }: { profile: Profile }) {
           type="submit"
           className="px-4 py-2 transition-colors bg-pantone-toffee hover:bg-pantone-cocoa"
         >
-          등록
+          {isLoading ? '등록 중...': '등록'}
         </button>
       </div>
     </form>
