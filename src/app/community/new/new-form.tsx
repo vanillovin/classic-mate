@@ -38,9 +38,9 @@ function NewForm({ profile }: { profile: Profile }) {
     } catch (error: any) {
       console.error("Error creating post.", error);
       toast.error(`게시글을 올리지 못했습니다. ${error.message}`);
+    } finally {
+      setIsLoading(false);
     }
-
-    setIsLoading(false);
   }
 
   return (

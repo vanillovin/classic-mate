@@ -1,8 +1,8 @@
 'use client';
 
+import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useRouter, useSearchParams } from 'next/navigation';
-
 import { useSupabase } from '@/components/providers/supabase-provider';
 
 type EditPostFormData = {
@@ -13,35 +13,39 @@ type EditPostFormData = {
 
 function validateAndPrepareData(
   oldDataObj: Omit<EditPostFormData, 'category_name'>,
-  formDataObj: EditPostFormData
+  formDataObj: EditPostFormData,
+  stopLoading: () => void
 ) {
   const { title, content } = oldDataObj;
   const { category_name: newCat, title: newTit, content: newCon } = formDataObj;
-  
   if (newCat === '') {
-    alert('카테고리를 선택해주세요.');
+    stopLoading();
     return null;
   }
-  
-  if (title === newTit && content === newCon) return null;
-
+  if (title === newTit && content === newCon) {
+    stopLoading();
+    return null;
+  }
   return {
     ...formDataObj,
     updated_at: new Date().toISOString(),
   };
 }
-
-
+  
 function NewForm() {
   const router = useRouter();
   const { supabase } = useSupabase();
   const searchParams = useSearchParams();
+  const [isLoading, setIsLoading] = useState(false);
   const { id, category_name, title, content } = Object.fromEntries(searchParams);
 
   async function updatePost(formData: FormData) {
+    setIsLoading(true);
     const oldDataObj = { title, content };
     const formDataObj = Object.fromEntries(formData) as EditPostFormData;
-    const updateData = validateAndPrepareData(oldDataObj, formDataObj);
+    const updateData = validateAndPrepareData(
+      oldDataObj, formDataObj, () => setIsLoading(false)
+    );
     
     if (!updateData) return;
 
@@ -53,9 +57,11 @@ function NewForm() {
       
       if (error) throw error; 
       router.push(`/community/${id}`);  
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error updating post", error);
-      toast.error(`게시글을 수정하지 못했습니다.`);
+      toast.error(`게시글을 수정하지 못했습니다. ${error.message}`);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -118,7 +124,7 @@ function NewForm() {
           type="submit"
           className="px-4 py-2 transition-colors bg-[#BCC8D1] hover:bg-[#C2D7E8]"
         >
-          등록
+          {isLoading ? '등록 중...' : '등록'}
         </button>
       </div>
     </form>
