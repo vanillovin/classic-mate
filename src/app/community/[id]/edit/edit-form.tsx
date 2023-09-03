@@ -5,33 +5,65 @@ import { useRouter, useSearchParams } from 'next/navigation';
 
 import { useSupabase } from '@/components/providers/supabase-provider';
 
+type EditPostFormData = {
+  category_name: string;
+  title: string;
+  content: string;
+};
+
+function validateAndPrepareData(
+  oldDataObj: Omit<EditPostFormData, 'category_name'>,
+  formDataObj: EditPostFormData
+) {
+  const { title, content } = oldDataObj;
+  const { category_name: newCat, title: newTit, content: newCon } = formDataObj;
+  
+  if (newCat === '') {
+    alert('카테고리를 선택해주세요.');
+    return null;
+  }
+  
+  if (title === newTit && content === newCon) return null;
+
+  return {
+    ...formDataObj,
+    updated_at: new Date().toISOString(),
+  };
+}
+
+
 function NewForm() {
   const router = useRouter();
   const { supabase } = useSupabase();
   const searchParams = useSearchParams();
   const { id, category_name, title, content } = Object.fromEntries(searchParams);
 
-  async function addNewPost(formData: FormData) {
-    const formDataObj = Object.fromEntries(formData);
-    const { category_name: newCat, title: newTit, content: newCon } = formDataObj;
-    if (newCat === '') alert('카테고리를 선택해주세요.');
-    else if (title === newCat || content === newCat) return;
-    const { error } = await supabase
-      .from('test_posts')
-      .update({
-        ...formDataObj,
-        updated_at: new Date().toISOString,
-      })
-      .eq('id', id);
-    if (!error) router.push(`/community/${id}`);
-    else toast.error(`게시글을 수정하지 못했습니다. ${error.message}`);
+  async function updatePost(formData: FormData) {
+    const oldDataObj = { title, content };
+    const formDataObj = Object.fromEntries(formData) as EditPostFormData;
+    const updateData = validateAndPrepareData(oldDataObj, formDataObj);
+    
+    if (!updateData) return;
+
+    try {
+      const { error } = await supabase
+        .from('test_posts')
+        .update(updateData)
+        .eq('id', id);
+      
+      if (error) throw error; 
+      router.push(`/community/${id}`);  
+    } catch (error) {
+      console.error("Error updating post", error);
+      toast.error(`게시글을 수정하지 못했습니다.`);
+    }
   }
 
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        addNewPost(new FormData(e.currentTarget));
+        updatePost(new FormData(e.currentTarget));
       }}
       className="grid grid-cols-1 gap-y-4"
     >

@@ -58,7 +58,7 @@ function MusicPlayer() {
           <Image
             fill={true}
             alt='album-cover'
-            src='https://images.unsplash.com/photo-1542300205-6fe56ce087e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
+            src='https://images.unsplash.com/photo-1583119912267-cc97c911e416?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80'
             className='object-cover'
           />
           <div className='absolute top-0 left-0 w-full h-full flex items-center justify-center'>
