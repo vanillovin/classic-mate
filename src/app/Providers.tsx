@@ -6,23 +6,23 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 function Providers({ children }: React.PropsWithChildren) {
 	const [client] = React.useState(
-    new QueryClient({
-      defaultOptions: {
-        queries: {
-          // cacheTime: ,
-          retry: false,
-          staleTime: 5 * 1000,
-          refetchOnReconnect: false,
-          refetchOnWindowFocus: false,
-        }
-      }
-    })
+		new QueryClient({
+			defaultOptions: {
+				queries: {
+					// cacheTime: ,
+					retry: false,
+					staleTime: 5 * 1000,
+					refetchOnReconnect: false,
+					refetchOnWindowFocus: false,
+				},
+			},
+		}),
 	);
 
 	return (
 		<QueryClientProvider client={client}>
-      {children}
-      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+			{children}
+			{/* <ReactQueryDevtools initialIsOpen={false} /> */}
 		</QueryClientProvider>
 	);
 }

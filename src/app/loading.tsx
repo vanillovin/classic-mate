@@ -1,5 +1,5 @@
-import LoadingPiano from '@/components/LoadingPiano';
+import LoadingPiano from "@/components/LoadingPiano";
 
 export default function loading() {
-  return <LoadingPiano />
+	return <LoadingPiano />;
 }
