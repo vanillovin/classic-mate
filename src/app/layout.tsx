@@ -5,7 +5,7 @@ import type { SupabaseClient } from "@supabase/auth-helpers-nextjs";
 import { siteConfig } from "@/config/site";
 import Layout from "@/components/layout/Layout";
 import { createServerClient } from "@/utils/supabase-server";
-import Providers from "./Providers";
+import ReactQueryProvider from "./ReactQueryProvider";
 import { AuthProvider } from "@/components/providers/auth-provider";
 import SupabaseProvider from "@/components/providers/supabase-provider";
 import SupabaseListener from "@/components/providers/supabase-listener";
@@ -29,9 +29,10 @@ export default async function RootLayout({
 	} = await supabase.auth.getSession();
 
 	return (
-		<html>
+    <html>
+      <head />
 			<body className="no-scrollbar">
-				<Providers>
+				<ReactQueryProvider>
 					<SupabaseProvider session={session}>
 						<SupabaseListener serverAccessToken={session?.access_token} />
 						<AuthProvider session={session}>
@@ -40,7 +41,7 @@ export default async function RootLayout({
 							</ToastifyProvider>
 						</AuthProvider>
 					</SupabaseProvider>
-				</Providers>
+				</ReactQueryProvider>
 			</body>
 		</html>
 	);
