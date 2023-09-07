@@ -36,14 +36,14 @@ function ClassicItem({
 					{classic.tags.map((tag) => (
 						<li
 							key={tag}
-							className="my-1 text-xs sm:text-sm rounded-sm p-1 bg-vintage-holiday-red text-white"
+							className="text-xs sm:text-sm rounded-sm p-1 bg-vintage-holiday-red text-white"
 						>
 							{tag}
 						</li>
 					))}
 				</ul>
 			</div>
-			<div className="relative rounded-sm overflow-hidden h-28 sm:h-36">
+			<div className="relative rounded-sm overflow-hidden h-28 sm:h-36 mt-1">
 				<Image src={classic.cover_image} alt={`cover`} fill={true} />
 			</div>
 		</Link>

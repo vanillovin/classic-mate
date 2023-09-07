@@ -2,14 +2,13 @@
 
 import Link from 'next/link';
 import { useState } from "react";
+import { useQuery } from '@tanstack/react-query';
 import { useSearchParams } from 'next/navigation';
 
-import { useQuery } from '@tanstack/react-query';
+import { getClassics } from './getClassics';
 import { getPagination } from '@/utils/pagination';
 import ClassicList from "./ClassicList";
 import ClassicSearchForm from "@/components/classics/ClassicSearchForm";
-import LoadingPiano from '@/components/LoadingPiano';
-import { getClassics } from './getClassics';
 
 // const SELECTED_FIELDS = "id, title, author"; // 필요한 필드
 const ITEMS_PER_PAGE = 16; // 페이지당 아이템 수
@@ -26,8 +25,6 @@ function ClassicsContainer() {
 		queryFn: () => getClassics(from, to),
 		suspense: true,
   });
-  
-  if (isLoading) return <LoadingPiano />;
   
   if (!data || isError) {
     return (

@@ -1,6 +1,6 @@
 import React from "react";
-import LoadingPiano from "@/components/LoadingPiano";
+import LoadingSkeleton from './LoadingSkeleton';
 
 export default function Loading() {
-	return <LoadingPiano />;
+	return <LoadingSkeleton />
 }
