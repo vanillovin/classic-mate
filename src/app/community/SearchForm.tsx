@@ -77,7 +77,7 @@ function SearchForm() {
 				)}
 			</form>
 
-			<div className="dropdown dropdown-end">
+			<div className="dropdown dropdown-bottom mobile:dropdown-end">
 				<label tabIndex={0} className="group cursor-pointer">
 					<button className="flex items-center hover:text-pantone-berkeley-blue">
 						최신순
