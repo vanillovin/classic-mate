@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 import Posts from "./Posts";
+import SearchForm from "./SearchForm";
 import { siteConfig } from "@/config/site";
 import { createServerClient } from "@/utils/supabase-server";
-import SearchForm from "./SearchForm";
 
 export const metadata: Metadata = siteConfig.metaData["community"];
 
@@ -15,14 +15,9 @@ export default async function CommunityPage() {
 	const {
 		data: { user },
 	} = await supabase.auth.getUser();
-	const { data: posts } = await supabase
-		.from("test_posts")
-		.select("*")
-		.order("created_at", { ascending: false })
-		// .eq('category_name', props.searchParams?.cat)
-		.range(0, 20);
-
-	if (!posts) return <p>No posts found.</p>;
+  const { data: posts, count } = await supabase
+    .from("test_posts")
+    .select("*", { count: 'exact' });
 
 	return (
 		<section className="px-3 sm:px-6 pt-3 sm:pt-6 pb-24">
@@ -49,13 +44,14 @@ export default async function CommunityPage() {
 			</div>
 
 			<div className="flex flex-col">
-				{/* <div className='flex gap-x-2 pb-4 items-center justify-between'>
-          <div className='flex items-center'>
-            <p className='font-semibold'>카테고리</p>
+        {!posts || !count ? (
+          <div className="text-center">
+            <h2>게시글이 없습니다.</h2>
+            <p>첫 번째로 게시글을 작성해 보세요!</p>
           </div>
-        </div> */}
-
-				<Posts serverPosts={posts ?? []} />
+        ): (
+          <Posts count={count} />
+        )}
 			</div>
 		</section>
 	);

@@ -4,37 +4,38 @@ import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 
-import supabase from "@/lib/supabase/client";
+import { getPosts } from './getPosts';
+import { getPagination } from '@/utils/pagination';
 import { formatTimestamp } from "@/utils/dateUtils";
+import Pagination from '@/components/Pagination';
 
-type SortType = "created_at" | "comment_count" | "view_count";
+export type SortType = "created_at" | "comment_count" | "view_count";
 
-// https://j~.supabase.co/rest/v1/test_posts?
-//  select =*& title=ilike.% ~ % 25 & order=created_at.desc
-async function fetchPosts(sortType: SortType, keyword: string) {
-	const decodeKeword = decodeURIComponent(keyword);
-	const { data } = await supabase
-		.from("test_posts")
-		.select("*")
-		.ilike("title", `%${decodeKeword}%`)
-		.order(sortType, { ascending: false });
-	// .or(`content.ilike.%${decodeKeword}%`) x
-	// .range(0, 20);
-	return data;
-}
+const ITEMS_PER_PAGE = 16;
 
-function Posts({ serverPosts }: { serverPosts: Post[] }) {
+function Posts({ count }: { count: number }) {
 	const searchParams = useSearchParams();
-
+  const page = searchParams.get("page") ?? "1";
 	const keyword = searchParams.get("keyword") ?? "";
 	const sortType = (searchParams.get("sort") as SortType) ?? "created_at";
 
-	const { data: posts } = useQuery({
-		queryKey: ["posts", sortType, keyword],
-		queryFn: () => fetchPosts(sortType, keyword),
-		// initialData: serverPosts,
+  const { from, to } = getPagination(count, +page, 16);
+	const { data: posts, isError } = useQuery({
+		queryKey: ["posts", page, sortType, keyword],
+		queryFn: () => getPosts(sortType, keyword, from, to),
 		suspense: true,
-	});
+  });
+  
+  if (!posts || isError) {
+    return (
+      <div className="text-center mt-20">
+        <p>요청하신 페이지가 없거나 데이터가 존재하지 않습니다.</p>
+        <Link href="/community" className="underline font-medium">
+          게시글 목록으로 돌아가기
+        </Link>
+      </div>
+    );
+  }
 
 	return (
 		<div>
@@ -107,17 +108,13 @@ function Posts({ serverPosts }: { serverPosts: Post[] }) {
 					</Link>
 				))}
 			</div>
-			{/* <div className='flex items-center justify-center mt-8'>
-        <nav className='inline-flex gap-x-2 font-medium'>
-          <button className="px-2 sm:px-4 hover:text-[#]">1</button>
-          <button className="px-2 sm:px-4 hover:text-[#]">2</button>
-          <button className="px-2 sm:px-4 hover:text-[#]">3</button>
-          <button className="px-2 sm:px-4 hover:text-[#]">4</button>
-          <button className="px-2 sm:px-4 hover:text-[#]">5</button>
-          <button className="px-2 sm:px-4">...</button>
-          <button className="px-2 sm:px-4">100</button>
-        </nav>
-      </div> */}
+      <div>
+        <Pagination
+          pathname="/community"
+					currentPage={+page}
+					totalPages={Math.ceil(count / ITEMS_PER_PAGE)}
+        />
+      </div>
 		</div>
 	);
 }
