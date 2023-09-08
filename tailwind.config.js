@@ -175,7 +175,7 @@ module.exports = {
         'animate-piano-delay-12': 'animatePiano 1s infinite 0.23s',
         'animate-piano-delay-13': 'animatePiano 1s infinite 0.25s',
         'animate-piano-delay-14': 'animatePiano 1s infinite 0.27s',
-        'animate-piano-delay-15': 'animatePiano 1s infinite 0.29s'
+        'animate-piano-delay-15': 'animatePiano 1s infinite 0.29s',
       },
     },
   },

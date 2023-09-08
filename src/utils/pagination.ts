@@ -9,14 +9,14 @@
 // 	return { from, to }; // 시작 인덱스, 종료 인덱스
 // };
 
-export function getPagination (
-  count: number, // 전체 행 수
-  page: number, // 페이지 번호
-  size: number, // 페이지 항목 수
-): { from: number; to: number } {  
-  const limit = size ? +size : 16;
+export function getPagination(
+	count: number, // 전체 행 수
+	page: number, // 페이지 번호
+	size: number, // 페이지 항목 수
+): { from: number; to: number } {
+	const limit = size ? +size : 16;
 	const from = page ? (page - 1) * limit : 0;
-	const to = Math.min(from + limit - 1 , count - 1);
+	const to = Math.min(from + limit - 1, count - 1);
 
-	return { from, to }; 
-};
+	return { from, to };
+}

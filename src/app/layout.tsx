@@ -29,8 +29,8 @@ export default async function RootLayout({
 	} = await supabase.auth.getSession();
 
 	return (
-    <html>
-      <head />
+		<html>
+			<head />
 			<body className="no-scrollbar">
 				<ReactQueryProvider>
 					<SupabaseProvider session={session}>

@@ -43,7 +43,7 @@ function ClassicItem({
 					))}
 				</ul>
 			</div>
-			<div className="relative rounded-sm overflow-hidden h-28 sm:h-36 mt-1">
+			<div className="relative rounded-sm overflow-hidden h-28 sm:h-36 mt-2">
 				<Image src={classic.cover_image} alt={`cover`} fill={true} />
 			</div>
 		</Link>
