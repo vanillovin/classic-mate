@@ -1,16 +1,18 @@
 import supabase from "@/lib/supabase/client";
 import type { PostgrestError } from "@supabase/supabase-js";
 
-export async function getClassics(
-	from: number = 0,
-	to: number = 15,
-	keyword: string = "",
-): Promise<{
+export type ClassicsResult = {
 	classics: Classic[] | null;
 	count: number | null;
 	took: string;
 	error?: PostgrestError | null;
-}> {
+};
+
+export async function getClassics(
+	from: number = 0,
+	to: number = 15,
+	keyword: string = "",
+): Promise<ClassicsResult> {
 	const start = Date.now();
 	const decodeKeword = decodeURIComponent(keyword);
 
