@@ -50,8 +50,8 @@ export const classicsByWeather: {
 			"https://images.unsplash.com/photo-1507502707541-f369a3b18502?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80",
 		textColor: "text-black",
 		data: [
-			{ id: 0, title: "쇼팽의 녹턴 2번" },
-			{ id: 0, title: "차이콥스키의 호두까기 제 1곡 작은 서곡" },
+			{ id: 44, title: "쇼팽의 녹턴 2번" },
+			{ id: 92, title: "차이콥스키의 호두까기 제 1곡 작은 서곡" },
 		],
 	},
 	Clouds: {
@@ -62,7 +62,7 @@ export const classicsByWeather: {
 		textColor: "text-black",
 		data: [
 			{ id: 19, title: "드보르작의 유모레스크" },
-			{ id: 0, title: "그리그의 피아노 협주곡" },
+			{ id: 93, title: "그리그의 피아노 협주곡" },
 		],
 	},
 	Rain: {
@@ -74,7 +74,7 @@ export const classicsByWeather: {
 		textColor: "text-black",
 		data: [
 			{ id: 49, title: "차이콥스키의 백조의 호수" },
-			{ id: 0, title: "쇼팽의 폴로네이즈" },
+			{ id: 75, title: "쇼팽의 폴로네이즈" },
 		],
 	},
 	Drizzle: {
@@ -84,7 +84,7 @@ export const classicsByWeather: {
 		nightImage: defaultNightImage,
 		textColor: "text-warm-vintage-off-white",
 		data: [
-			{ id: 0, title: "브람스의 피아노 협주곡 1번" },
+			{ id: 75, title: "브람스의 피아노 협주곡 1번" },
 			{ id: 42, title: "드뷔시의 아라베스크 1번" },
 		],
 	},
@@ -95,8 +95,8 @@ export const classicsByWeather: {
 		nightImage: defaultNightImage,
 		textColor: "text-warm-vintage-off-white",
 		data: [
-			{ id: 0, title: "차이콥스키의 교향곡 5번" },
-			{ id: 0, title: "베토벤의 교향곡 5번" },
+			{ id: 77, title: "차이콥스키의 교향곡 5번" },
+			{ id: 3, title: "베토벤의 교향곡 5번" },
 		],
 	},
 	Snow: {
@@ -106,7 +106,7 @@ export const classicsByWeather: {
 		nightImage: defaultNightImage,
 		textColor: "text-black",
 		data: [
-			{ id: 0, title: "비발디의 사계 중 겨울" },
+			{ id: 78, title: "비발디의 사계 중 겨울" },
 			{ id: 2, title: "쇼팽의 피아노 협주곡 1번" },
 		],
 	},
@@ -118,7 +118,7 @@ export const classicsByWeather: {
 		textColor: "text-warm-vintage-off-white",
 		data: [
 			{ id: 45, title: "라벨의 물의 유희" },
-			{ id: 0, title: "쇼팽의 녹턴 20번" },
+			{ id: 79, title: "쇼팽의 녹턴 20번" },
 		],
 	},
 	Smoke: {
@@ -128,8 +128,8 @@ export const classicsByWeather: {
 		nightImage: defaultNightImage,
 		textColor: "text-warm-vintage-off-white",
 		data: [
-			{ id: 0, title: "드뷔시의 녹턴" },
-			{ id: 0, title: "파가니니의 라캄파넬라" },
+			{ id: 80, title: "드뷔시의 녹턴" },
+			{ id: 81, title: "파가니니의 라캄파넬라" },
 		],
 	},
 	Haze: {
@@ -139,8 +139,8 @@ export const classicsByWeather: {
 		nightImage: defaultNightImage,
 		textColor: "text-black",
 		data: [
-			{ id: 0, title: "슈베르트의 즉흥곡" },
-			{ id: 0, title: "멘델스존의 피아노 협주곡 1번" },
+			{ id: 82, title: "슈베르트의 즉흥곡" },
+			{ id: 83, title: "멘델스존의 피아노 협주곡 1번" },
 		],
 	},
 	Dust: {
@@ -161,8 +161,8 @@ export const classicsByWeather: {
 		nightImage: defaultNightImage,
 		textColor: "text-black",
 		data: [
-			{ id: 0, title: "라벨의 스페인광시곡" },
-			{ id: 0, title: "본 윌리엄스, 푸른 옷소매 주제에 의한 환상곡" },
+			{ id: 84, title: "라벨의 스페인광시곡" },
+			{ id: 87, title: "본 윌리엄스, 푸른 옷소매 주제에 의한 환상곡" },
 		],
 	},
 	Sand: {
@@ -173,7 +173,7 @@ export const classicsByWeather: {
 		textColor: "text-warm-vintage-off-white",
 		data: [
 			{ id: 49, title: "차이콥스키의 백조의 호수" },
-			{ id: 0, title: "모차르트의 피아노 협주곡 23번" },
+			{ id: 85, title: "모차르트의 피아노 협주곡 23번" },
 		],
 	},
 	Ash: {
@@ -183,8 +183,8 @@ export const classicsByWeather: {
 		nightImage: defaultNightImage,
 		textColor: "text-black",
 		data: [
-			{ id: 0, title: '차이콥스키의 교향곡 6번 "비창"' },
-			{ id: 0, title: "베토벤의 교향곡 7번" },
+			{ id: 90, title: '차이콥스키의 교향곡 6번 "비창"' },
+			{ id: 86, title: "베토벤의 교향곡 7번" },
 		],
 	},
 	Squall: {
@@ -194,8 +194,8 @@ export const classicsByWeather: {
 		nightImage: defaultNightImage,
 		textColor: "text-warm-vintage-off-white",
 		data: [
-			{ id: 0, title: "베토벤의 교향곡 5번" },
-			{ id: 0, title: "브람스의 교향곡 4번" },
+			{ id: 3, title: "베토벤의 교향곡 5번 '운명'" },
+			{ id: 88, title: "브람스의 교향곡 4번" },
 		],
 	},
 	Tornado: {
@@ -205,8 +205,8 @@ export const classicsByWeather: {
 		nightImage: defaultNightImage,
 		textColor: "text-warm-vintage-off-white",
 		data: [
-			{ id: 0, title: "베토벤의 교향곡 9번" },
-			{ id: 0, title: '프로코피예프: 로미오와 줄리엣 중 "기사들의 춤"' },
+			{ id: 91, title: "베토벤의 교향곡 9번 '합창'" },
+			{ id: 89, title: '프로코피예프: 로미오와 줄리엣 중 "기사들의 춤"' },
 		],
 	},
 };

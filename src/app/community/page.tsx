@@ -15,9 +15,9 @@ export default async function CommunityPage() {
 	const {
 		data: { user },
 	} = await supabase.auth.getUser();
-  const { data: posts, count } = await supabase
-    .from("test_posts")
-    .select("*", { count: 'exact' });
+	const { data: posts, count } = await supabase
+		.from("test_posts")
+		.select("*", { count: "exact" });
 
 	return (
 		<section className="px-3 sm:px-6 pt-3 sm:pt-6 pb-24">
@@ -44,14 +44,14 @@ export default async function CommunityPage() {
 			</div>
 
 			<div className="flex flex-col">
-        {!posts || !count ? (
-          <div className="text-center">
-            <h2>게시글이 없습니다.</h2>
-            <p>첫 번째로 게시글을 작성해 보세요!</p>
-          </div>
-        ): (
-          <Posts count={count} />
-        )}
+				{!posts || !count ? (
+					<div className="text-center">
+						<h2>게시글이 없습니다.</h2>
+						<p>첫 번째로 게시글을 작성해 보세요!</p>
+					</div>
+				) : (
+					<Posts count={count} />
+				)}
 			</div>
 		</section>
 	);

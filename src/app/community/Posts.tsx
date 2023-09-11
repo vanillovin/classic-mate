@@ -4,10 +4,10 @@ import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 
-import { getPosts } from './getPosts';
-import { getPagination } from '@/utils/pagination';
+import { getPosts } from "./getPosts";
+import { getPagination } from "@/utils/pagination";
 import { formatTimestamp } from "@/utils/dateUtils";
-import Pagination from '@/components/Pagination';
+import Pagination from "@/components/Pagination";
 
 export type SortType = "created_at" | "comment_count" | "view_count";
 
@@ -15,27 +15,27 @@ const ITEMS_PER_PAGE = 16;
 
 function Posts({ count }: { count: number }) {
 	const searchParams = useSearchParams();
-  const page = searchParams.get("page") ?? "1";
+	const page = searchParams.get("page") ?? "1";
 	const keyword = searchParams.get("keyword") ?? "";
 	const sortType = (searchParams.get("sort") as SortType) ?? "created_at";
 
-  const { from, to } = getPagination(count, +page, 16);
+	const { from, to } = getPagination(count, +page, 16);
 	const { data: posts, isError } = useQuery({
 		queryKey: ["posts", page, sortType, keyword],
 		queryFn: () => getPosts(sortType, keyword, from, to),
 		suspense: true,
-  });
-  
-  if (!posts || isError) {
-    return (
-      <div className="text-center mt-20">
-        <p>요청하신 페이지가 없거나 데이터가 존재하지 않습니다.</p>
-        <Link href="/community" className="underline font-medium">
-          게시글 목록으로 돌아가기
-        </Link>
-      </div>
-    );
-  }
+	});
+
+	if (!posts || isError) {
+		return (
+			<div className="text-center mt-20">
+				<p>요청하신 페이지가 없거나 데이터가 존재하지 않습니다.</p>
+				<Link href="/community" className="underline font-medium">
+					게시글 목록으로 돌아가기
+				</Link>
+			</div>
+		);
+	}
 
 	return (
 		<div>
@@ -108,13 +108,13 @@ function Posts({ count }: { count: number }) {
 					</Link>
 				))}
 			</div>
-      <div>
-        <Pagination
-          pathname="/community"
+			<div>
+				<Pagination
+					pathname="/community"
 					currentPage={+page}
 					totalPages={Math.ceil(count / ITEMS_PER_PAGE)}
-        />
-      </div>
+				/>
+			</div>
 		</div>
 	);
 }

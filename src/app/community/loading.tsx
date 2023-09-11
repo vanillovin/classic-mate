@@ -1,10 +1,10 @@
 import React from "react";
-import SearchForm from './SearchForm';
+import SearchForm from "./SearchForm";
 import LoadingSkeleton from "./LoadingSkeleton";
 
 export default function Loading() {
-  return (
-    <section className="px-3 sm:px-6 pt-3 sm:pt-6 pb-24">
+	return (
+		<section className="px-3 sm:px-6 pt-3 sm:pt-6 pb-24">
 			<div
 				aria-label="제목"
 				className="shadow-sm rounded-sm p-3 sm:p-4 bg-white"
@@ -21,5 +21,5 @@ export default function Loading() {
 
 			<LoadingSkeleton />
 		</section>
-  );
+	);
 }
