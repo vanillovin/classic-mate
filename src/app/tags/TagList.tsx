@@ -15,14 +15,14 @@ function TagList({ tags, selectedTags }: TagListProps) {
 	const handleTagClick = (tagName: string) => {
 		const encodedTagName = encodeURIComponent(tagName);
 		const params = new URLSearchParams(searchParams.toString());
-		let nextTagIndex = 1;
+		let nextTagIndex = 1; // 다음 추가될 태그 인덱스 번호 (초기 값 1)
 		while (params.has(`tag${nextTagIndex}`) && nextTagIndex <= 3) {
-			nextTagIndex++;
+			nextTagIndex++; // 설정된 태그 중 빈 자리 찾기
 		}
 
 		const existingTagIndex = Array.from(params.keys()).find(
 			(key) => key.startsWith("tag") && params.get(key) === encodedTagName,
-		);
+		); // 클릭된 태그가 이미 선택돼 있는지 확인
 
 		if (existingTagIndex) {
 			params.delete(existingTagIndex);
@@ -31,13 +31,12 @@ function TagList({ tags, selectedTags }: TagListProps) {
 		}
 
 		const newSearchParams = params.toString();
-
 		router.push(`tags?${newSearchParams}`);
 	};
 
 	return (
-		<details open>
-			<summary className="sm:text-lg font-semibold">모든 태그</summary>
+		<details open className="p-1">
+			<summary className="font-semibold cursor-pointer">모든 태그</summary>
 			<div className="flex flex-wrap items-center">
 				{tags.map((tag) => (
 					<button

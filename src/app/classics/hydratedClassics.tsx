@@ -7,9 +7,8 @@ import ClassicsContainer from "./ClassicsContainer";
 
 export default async function HydratedClassics() {
 	const queryClient = getQueryClient();
-	await queryClient.prefetchQuery(
-		["classics", "1", ""],
-		() => getClassics(0, 15),
+	await queryClient.prefetchQuery(["classics", "1", ""], () =>
+		getClassics(0, 15),
 	);
 	const dehydratedState = dehydrate(queryClient);
 

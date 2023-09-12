@@ -20,7 +20,9 @@ function ClassicsContainer() {
 	const page = searchParams.get("page") ?? "1";
 	const keyword = searchParams.get("keyword") ?? "";
 	const prefetchedData = queryClient.getQueryData<ClassicsResult>([
-		"classics", page, keyword,
+		"classics",
+		page,
+		keyword,
 	]);
 
 	const { from, to } = getPagination(
