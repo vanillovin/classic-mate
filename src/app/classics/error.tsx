@@ -15,7 +15,7 @@ export default function Error({
   }, [error])
  
   return (
-    <div className="flex flex-col items-center space-y-2 pt-20">
+    <div className="h-screen flex flex-col items-center space-y-2 pt-20">
       <h2>무언가 잘못됐어요!</h2>
       <button
         className="rounded-sm px-1 hover:bg-opacity-70 text-white bg-pantone-cocoa"
