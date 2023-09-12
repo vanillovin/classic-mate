@@ -5,6 +5,7 @@ import DailyQuote from "./DailyQuote";
 import MusicPlayer from "./MusicPlayer";
 import Newspaper from "./Newspaper";
 import PopularClassics from "./PopularClassics";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 import { createServerClient } from "@/utils/supabase-server";
 
 const dmSerifDisplay = DM_Serif_Display({
@@ -55,6 +56,8 @@ export default async function HomePage() {
 				</h2>
 				<PopularClassics classicsByLikeCount={classicsByLikeCount ?? []} />
 			</div>
+
+			<ScrollToTopButton />
 		</div>
 	);
 }
