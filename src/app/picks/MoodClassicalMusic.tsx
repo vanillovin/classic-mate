@@ -24,7 +24,7 @@ function MoodClassicalMusic() {
 						{value.data.map((classic, index) => (
 							<li key={index} className="pb-1 last:pb-0 text-pantone-dark-navy">
 								<Link
-									href={`/artists/${classic.composer}`}
+									href={`/composers/${classic.composer}`}
 									className="font-medium hover:underline"
 								>
 									{classic.composer}

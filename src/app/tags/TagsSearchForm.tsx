@@ -8,42 +8,42 @@ function TagsSearchForm({ tags }: { tags: string[] }) {
 	const searchParams = useSearchParams();
 	const [searchInput, setSearchInput] = useState("");
 
-  const isValidTag = (tag: string) => {
+	const isValidTag = (tag: string) => {
 		return /^[가-힣\s]+$/g.test(tag);
-  };
-  
-  const handleSearchSubmit = () => {
-    if (searchInput.trim() !== "" && isValidTag(searchInput)) {
-      const params = new URLSearchParams(searchParams.toString());
-      let nextTagIndex = 1;
+	};
 
-      while (params.has(`tag${nextTagIndex}`) && nextTagIndex <= 3) {
-        nextTagIndex++;
-      }
+	const handleSearchSubmit = () => {
+		if (searchInput.trim() !== "" && isValidTag(searchInput)) {
+			const params = new URLSearchParams(searchParams.toString());
+			let nextTagIndex = 1;
 
-      if (nextTagIndex <= 3) {
-        const matchingTag = tags.find((tag) => tag === searchInput);
+			while (params.has(`tag${nextTagIndex}`) && nextTagIndex <= 3) {
+				nextTagIndex++;
+			}
 
-        if (!matchingTag) {
-          alert("일치하는 태그가 없습니다.");
-          return;
-        }
+			if (nextTagIndex <= 3) {
+				const matchingTag = tags.find((tag) => tag === searchInput);
 
-        for (let i = 1; i <= 3; i++) {
-          if (params.get(`tag${i}`) === encodeURIComponent(matchingTag)) {
-            alert("이미 선택된 태그입니다.");
-            return;
-          }
-        }
+				if (!matchingTag) {
+					alert("일치하는 태그가 없습니다.");
+					return;
+				}
 
-        params.set(`tag${nextTagIndex}`, encodeURIComponent(matchingTag));
-        router.push(`tags?${params.toString()}`);
-        setSearchInput("");
-      } else {
-        alert("최대 3개의 태그를 선택할 수 있습니다.");
-      }
-    }
-  };
+				for (let i = 1; i <= 3; i++) {
+					if (params.get(`tag${i}`) === encodeURIComponent(matchingTag)) {
+						alert("이미 선택된 태그입니다.");
+						return;
+					}
+				}
+
+				params.set(`tag${nextTagIndex}`, encodeURIComponent(matchingTag));
+				router.push(`tags?${params.toString()}`);
+				setSearchInput("");
+			} else {
+				alert("최대 3개의 태그를 선택할 수 있습니다.");
+			}
+		}
+	};
 
 	return (
 		<form

@@ -29,7 +29,7 @@ export default async function TagsPage(props: Props) {
 	return (
 		<div className="px-3 sm:px-6 pt-3 sm:pt-6 pb-24">
 			<TagsContainer classics={data ?? []} selectedTags={selectedTags} />
-      <ScrollToTopButton />
+			<ScrollToTopButton />
 		</div>
 	);
 }
