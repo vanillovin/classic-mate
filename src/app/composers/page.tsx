@@ -20,8 +20,8 @@ export default async function ComposersPage() {
 			>
 				시간을 넘어선 음악: <span>클래식 음악의 명장들</span>
 			</h1>
-      <ComposerList composers={composers} />
-      <ScrollToTopButton />
+			<ComposerList composers={composers} />
+			<ScrollToTopButton />
 		</section>
 	);
 }
