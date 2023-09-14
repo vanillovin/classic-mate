@@ -5,7 +5,7 @@ import React from "react";
 export default function LoadingSkeleton() {
 	return (
 		<div className="w-full flex flex-col sm:flex-row shadow-md bg-gradient-radial from-[#fff] to-[#f4f5f0]">
-			<section className="w-full md:w-1/2 h-[350px] md:h-[700px] flex flex-col py-2 p-2 border-r">
+			<section className="w-full md:w-1/2 h-[350px] md:h-[700px] flex flex-col py-2 p-2 border-b md:border-r">
 				<div
 					className="
             flex flex-col h-full

@@ -39,7 +39,7 @@ const ScrollToTopButton = () => {
 		<button
 			onClick={handleScrollToTop}
 			aria-label="위로 가기"
-			className="fixed left-1/2 bottom-4 transform -translate-x-1/2 p-2 sm:p-4 rounded-full shadow-inner bg-white/40 hover:bg-white/60"
+			className="fixed left-1/2 bottom-4 transform -translate-x-1/2 p-3 sm:p-4 rounded-full shadow-inner bg-white/40 hover:bg-white/60"
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@ const ScrollToTopButton = () => {
 				viewBox="0 0 24 24"
 				strokeWidth={1.5}
 				stroke="currentColor"
-				className="w-4 h-4 sm:w-6 sm:h-6"
+				className="w-5 h-5 sm:w-6 sm:h-6"
 			>
 				<path
 					strokeLinecap="round"
