@@ -19,6 +19,7 @@ function ClassicQuiz() {
 					checked={userAnswer === index}
 					onChange={(e) => setUserAnswer(parseInt(e.target.value))}
 					className="radio checked:bg-warm-vintage-burnt-orange border mr-1"
+          aria-label={`선택지 ${index + 1}: ${option}`}
 				/>
 				{option}
 			</label>

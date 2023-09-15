@@ -9,7 +9,6 @@ import { monthMusics, musicPlayerBackgroundImageURLs } from "./data";
 
 function MusicPlayer() {
 	const audioRef = useRef<HTMLAudioElement | null>(null);
-	const [isFullScreen, setIsFullScreen] = useState(false);
 	const [isPlaying, setIsPlaying] = useState(false);
 	const [currentTime, setCurrentTime] = useState(0);
 	const [duration, setDuration] = useState(0);
@@ -55,9 +54,7 @@ function MusicPlayer() {
 			style={{
 				backgroundImage: `url(${musicPlayerBackgroundImageURLs[timeOfDay]})`,
 			}}
-			className={`relative w-full h-full p-6 py-10 sm:p-12 flex flex-col sm:flex-row items-center bg-center bg-cover rounded-sm shadow-md select-none
-        ${isFullScreen ? "h-screen" : ""}
-      `}
+			className="relative w-full h-full p-6 py-10 sm:p-12 flex flex-col sm:flex-row items-center bg-center bg-cover rounded-sm shadow-md select-none"
 		>
 			<div className="flex relative items-center justify-between">
 				<div className="w-24 h-24 sm:w-36 sm:h-36 relative overflow-hidden rounded-sm shadow-lg -ml-16 sm:ml-0 z-[1]">
@@ -68,7 +65,8 @@ function MusicPlayer() {
 						className="object-cover"
 					/>
 					<div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-						<button
+            <button
+              aria-label={!isPlaying ? '재생' : '정지'}
 							onClick={!isPlaying ? playAudio : pauseAudio}
 							className="p-4 hover:opacity-80"
 						>
@@ -137,55 +135,21 @@ function MusicPlayer() {
 						value={currentTime}
 						onInput={handleProgressChange}
 						className="bg-transparent w-full appearance-none absolute top-0 left-0 cursor-pointer"
+            aria-label="재생 진행률"
 					/>
 				</div>
 				<audio
 					ref={audioRef}
 					onTimeUpdate={updateProgress}
 					onLoadedMetadata={updateProgress}
-					src={src}
+          src={src}
+          aria-label={`현재 재생 중인 음악: ${title}`}
 				/>
 				<div
 					className={`text-sm sm:text-lg text-center leading-4 font-light drop-shadow-sm ${textColor}`}
 				>
 					{title}
 				</div>
-				<button
-					onClick={() => setIsFullScreen(!isFullScreen)}
-					className="hidden sm:block absolute text-white bottom-4 right-4"
-				>
-					{!isFullScreen ? (
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							strokeWidth={1.5}
-							stroke="currentColor"
-							className="w-5 h-5"
-						>
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6"
-							/>
-						</svg>
-					) : (
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							strokeWidth={1.5}
-							stroke="currentColor"
-							className="w-5 h-5"
-						>
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM13.5 10.5h-6"
-							/>
-						</svg>
-					)}
-				</button>
 			</div>
 		</div>
 	);
