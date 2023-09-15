@@ -5,19 +5,17 @@ import React from "react";
 export default function LoadingSkeleton() {
 	return (
 		<div className="w-full flex flex-col sm:flex-row shadow-md bg-gradient-radial from-[#fff] to-[#f4f5f0]">
-			<section className="w-full md:w-1/2 h-[350px] md:h-[700px] flex flex-col py-2 p-2 border-b md:border-r">
+			<section className="w-full md:w-1/2 h-[350px] md:h-[700px] flex flex-col p-4 border-b md:border-r">
 				<div
 					className="
             flex flex-col h-full
-            space-y-4 rounded-md p-4 
+            space-y-4 rounded-md
             before:absolute before:inset-0
             before:-translate-x-full
             before:animate-[shimmer_2s_infinite]
             before:bg-gradient-to-r
             before:from-transparent before:via-gray-100/20 before:to-transparent
-            isolate
-            overflow-hidden
-            before:border-t before:border-rose-100/10
+            isolate before:border-t before:border-rose-100/10
           "
 				>
 					<div className="space-y-2">
@@ -35,17 +33,16 @@ export default function LoadingSkeleton() {
 					</div>
 				</div>
 			</section>
-			<section className="w-full md:w-1/2 h-[350px] md:h-[700px] flex flex-col p-2 gap-y-1 sm:gap-y-2">
+			<section className="w-full md:w-1/2 h-[350px] md:h-[700px] flex flex-col p-4 gap-y-1 sm:gap-y-2">
 				<div
 					className="
-            space-y-6 rounded-md p-4 
+            space-y-6 rounded-md
             before:absolute before:inset-0
             before:-translate-x-full
             before:animate-[shimmer_2s_infinite]
             before:bg-gradient-to-r
             before:from-transparent before:via-gray-100/20 before:to-transparent
-            isolate
-            before:border-t before:border-rose-100/10
+            isolate before:border-t before:border-rose-100/10
           "
 				>
 					<div className="h-3 w-1/5 rounded-md bg-black/10"></div>

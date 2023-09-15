@@ -30,7 +30,7 @@ function CommentContainer({
 
 	return (
 		<>
-			<p className="text-sm sm:text-base py-2">
+			<p className="text-sm sm:text-base pb-1">
 				<span className="font-medium">{comments?.length}</span>
 				개의 댓글
 			</p>
