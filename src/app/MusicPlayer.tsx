@@ -65,8 +65,8 @@ function MusicPlayer() {
 						className="object-cover"
 					/>
 					<div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
-            <button
-              aria-label={!isPlaying ? '재생' : '정지'}
+						<button
+							aria-label={!isPlaying ? "재생" : "정지"}
 							onClick={!isPlaying ? playAudio : pauseAudio}
 							className="p-4 hover:opacity-80"
 						>
@@ -135,15 +135,15 @@ function MusicPlayer() {
 						value={currentTime}
 						onInput={handleProgressChange}
 						className="bg-transparent w-full appearance-none absolute top-0 left-0 cursor-pointer"
-            aria-label="재생 진행률"
+						aria-label="재생 진행률"
 					/>
 				</div>
 				<audio
 					ref={audioRef}
 					onTimeUpdate={updateProgress}
 					onLoadedMetadata={updateProgress}
-          src={src}
-          aria-label={`현재 재생 중인 음악: ${title}`}
+					src={src}
+					aria-label={`현재 재생 중인 음악: ${title}`}
 				/>
 				<div
 					className={`text-sm sm:text-lg text-center leading-4 font-light drop-shadow-sm ${textColor}`}

@@ -2,17 +2,20 @@
 
 import { toast } from "react-toastify";
 import React, { useState } from "react";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
+import HeartIcon from "../icons/HeartIcon";
 import supabase from "@/lib/supabase/client";
 import { useSupabase } from "../providers/supabase-provider";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
 
-type Props = {
+type ClassicLikeButtonProps = {
 	classicId: number;
 	className?: string;
 	serverLikeCount: number;
 	isShowLikeCount?: boolean;
 };
+
+const CLASSIC_LIKES_QUERY_KEY = (userId: string) => ["classicLikes", userId];
 
 async function fetchClssicLikes(userId: string): Promise<ClassicLike[]> {
 	const { data } = await supabase
@@ -24,96 +27,95 @@ async function fetchClssicLikes(userId: string): Promise<ClassicLike[]> {
 
 function ClassicLikeButton({
 	classicId,
-	className,
+	className = "",
 	serverLikeCount,
 	isShowLikeCount = false,
-}: Props) {
+}: ClassicLikeButtonProps) {
 	const queryClient = useQueryClient();
 	const { supabase, session } = useSupabase();
+
 	const { data: likes } = useQuery({
-		queryKey: ["classicLikes", session?.user.id],
-		queryFn: () => {
-			if (session) {
-				return fetchClssicLikes(session.user.id);
-			} else {
-				return [];
-			}
-		},
+		queryKey: CLASSIC_LIKES_QUERY_KEY(session?.user.id ?? ""),
+		queryFn: () => fetchClssicLikes(session!.user.id),
+		enabled: !!session,
 	});
 	const [isHovered, setIsHovered] = useState(false);
 	const isLiked = !!likes?.find((like) => like.classic_id === classicId);
 	const [likeCount, setLikeCount] = useState(serverLikeCount);
-	const handleHover = () => setIsHovered(!isHovered);
+	const handleHoverInAndOut = () => setIsHovered(!isHovered);
 
-	async function increaseLikeCount() {
-		const { error } = await supabase
+	async function addLike() {
+		const { error } = await supabase.from("classic_likes").insert({
+			classic_id: classicId,
+			user_id: session!.user.id,
+		});
+		if (error) throw error;
+
+		const { error: updateError } = await supabase
 			.from("all_classics")
 			.update({ like_count: likeCount + 1 })
 			.eq("id", classicId);
-		if (!error) setLikeCount(likeCount + 1);
+		if (updateError) throw updateError;
 	}
 
-	async function decreaseLikeCount() {
+	async function removeLike() {
 		const { error } = await supabase
+			.from("classic_likes")
+			.delete()
+			.eq("classic_id", classicId);
+		if (error) throw error;
+
+		const { error: updateError } = await supabase
 			.from("all_classics")
 			.update({ like_count: likeCount - 1 })
 			.eq("id", classicId);
-		if (!error) setLikeCount(likeCount - 1);
+		if (updateError) throw updateError;
 	}
 
-	async function handleLikeClassic(e: React.MouseEvent<HTMLButtonElement>) {
-		e.preventDefault();
-		if (!session) {
-			return toast.error("로그인 후 이용 가능합니다");
-		}
+	const addLikeMutation = useMutation(addLike, {
+		onError: (error) => {
+			console.error("addLikeMutation error", error);
+			toast.error("좋아요 추가 중 오류가 발생했습니다.");
+			setLikeCount((prev) => prev - 1);
+		},
+		onSuccess: () => {},
+		onSettled: () => {
+			queryClient.invalidateQueries(["classicLikes", session!.user.id]);
+		},
+	});
 
-		if (!isLiked) {
-			const { error } = await supabase.from("classic_likes").insert({
-				classic_id: classicId,
-				user_id: session.user.id,
-			});
-			if (!error) {
-				increaseLikeCount();
-				queryClient.invalidateQueries(["classicLikes", session.user.id]);
-			} else {
-				toast.error("좋아요 실패");
-			}
-		} else {
-			const { error } = await supabase
-				.from("classic_likes")
-				.delete()
-				.eq("classic_id", classicId);
-			if (!error) {
-				decreaseLikeCount();
-				queryClient.invalidateQueries(["classicLikes", session.user.id]);
-			} else {
-				toast.error("좋아요 취소 실패");
-			}
+	const removeLikeMutation = useMutation(removeLike, {
+		onError: (error) => {
+			console.error("removeLikeMutation error", error);
+			toast.error("좋아요 취소 중 오류가 발생했습니다.");
+			setLikeCount((prev) => prev + 1);
+		},
+		onSuccess: () => {},
+		onSettled: () => {
+			queryClient.invalidateQueries(["classicLikes", session!.user.id]);
+		},
+	});
+
+	async function handleAddOrRemoveLike() {
+		if (!session) {
+			return toast.error("로그인 후 이용 가능합니다.");
 		}
+		setLikeCount((prev) => (isLiked ? prev - 1 : prev + 1));
+		const mutationFn = isLiked ? removeLikeMutation : addLikeMutation;
+		mutationFn.mutate();
 	}
 
 	return (
 		<button
-			onMouseEnter={handleHover}
-			onMouseLeave={handleHover}
-			onClick={handleLikeClassic}
+			aria-label="좋아요"
+			onMouseEnter={handleHoverInAndOut}
+			onMouseLeave={handleHoverInAndOut}
+			onClick={handleAddOrRemoveLike}
 			className={`flex items-center justify-center ${className}`}
 		>
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
+			<HeartIcon
 				fill={isLiked ? "currentColor" : isHovered ? "currentColor " : "none"}
-				viewBox="0 0 24 24"
-				strokeWidth={1.5}
-				stroke="currentColor"
-				className="w-5 h-5 sm:w-6 sm:h-6 hover:text-vintage-holiday-red"
-			>
-				<path
-					strokeLinecap="round"
-					strokeLinejoin="round"
-					d="M21 8.26c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-					className="text-vintage-holiday-red"
-				/>
-			</svg>
+			/>
 			{isShowLikeCount && (
 				<span className="text-sm sm:text-base">{likeCount}</span>
 			)}

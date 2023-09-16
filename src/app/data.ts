@@ -1,4 +1,4 @@
-type MonthClassic = {
+export type MonthClassic = {
 	id: number;
 	composer: string;
 	title: string;
@@ -17,7 +17,7 @@ type MonthClassic = {
 	};
 };
 
-type QuizData = {
+export type QuizData = {
 	[date: string]: {
 		question: string;
 		options: string[];

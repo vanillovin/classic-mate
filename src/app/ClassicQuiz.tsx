@@ -8,7 +8,7 @@ import { getCurrentDateInfo } from "@/utils/dateUtils";
 function ClassicQuiz() {
 	const [userAnswer, setUserAnswer] = useState<number | null>(null);
 	const { currentDateString, currentDay } = getCurrentDateInfo();
-	const currentQuiz = quizData[currentDateString] ?? quizData["2023-08-14"];
+	const currentQuiz = quizData[currentDateString] ?? quizData["2023-09-01"];
 
 	const renderOptions = () => {
 		return currentQuiz.options.map((option, index) => (
@@ -19,7 +19,7 @@ function ClassicQuiz() {
 					checked={userAnswer === index}
 					onChange={(e) => setUserAnswer(parseInt(e.target.value))}
 					className="radio checked:bg-warm-vintage-burnt-orange border mr-1"
-          aria-label={`선택지 ${index + 1}: ${option}`}
+					aria-label={`선택지 ${index + 1}: ${option}`}
 				/>
 				{option}
 			</label>
