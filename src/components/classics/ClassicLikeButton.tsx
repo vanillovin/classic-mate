@@ -73,6 +73,9 @@ function ClassicLikeButton({
 	}
 
 	const addLikeMutation = useMutation(addLike, {
+    onMutate: () => {
+      setLikeCount(prev => prev + 1);
+    },
 		onError: (error) => {
 			console.error("addLikeMutation error", error);
 			toast.error("좋아요 추가 중 오류가 발생했습니다.");
@@ -85,6 +88,9 @@ function ClassicLikeButton({
 	});
 
 	const removeLikeMutation = useMutation(removeLike, {
+    onMutate: () => {
+      setLikeCount(prev => prev - 1);
+    },
 		onError: (error) => {
 			console.error("removeLikeMutation error", error);
 			toast.error("좋아요 취소 중 오류가 발생했습니다.");
@@ -100,7 +106,6 @@ function ClassicLikeButton({
 		if (!session) {
 			return toast.error("로그인 후 이용 가능합니다.");
 		}
-		setLikeCount((prev) => (isLiked ? prev - 1 : prev + 1));
 		const mutationFn = isLiked ? removeLikeMutation : addLikeMutation;
 		mutationFn.mutate();
 	}
