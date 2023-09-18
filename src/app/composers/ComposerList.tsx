@@ -16,12 +16,12 @@ function ComposerList({ composers }: { composers: Composer[] }) {
 						key={id}
 						className="group flex flex-col items-center animate-on-scroll"
 					>
-						<div className="relative w-72 h-84">
+						<article className="relative w-72 h-84">
 							<div className="absolute top-6 left-8 w-56 h-76 overflow-hidden">
 								<Image
 									fill
-									alt={englishName}
 									src={image}
+									alt={`${englishName}의 초상화`}
 									className="w-full h-full rounded-sm"
 								/>
 							</div>
@@ -33,7 +33,7 @@ function ComposerList({ composers }: { composers: Composer[] }) {
 									className="absolute w-full h-full"
 								/>
 							</div>
-						</div>
+						</article>
 						<div
 							className="w-64 h-32 text-center flex flex-col items-center justify-center mt-4 shadow-md 
             rounded-sm p-2 opacity-95 transition-all bg-white group-hover:bg-warm-vintage-granite"

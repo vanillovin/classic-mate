@@ -18,6 +18,7 @@ function TimeClassicalMusic() {
 						className="border-b border-black last:border-0 text-sm sm:text-base"
 					>
 						<th
+							scope="row"
 							className={`border-r border-black p-1 sm:p-3
               ${
 								key === timeOfDay &&
@@ -30,7 +31,7 @@ function TimeClassicalMusic() {
 						{classicsByTime[key].map((classic) => (
 							<td
 								key={classic.id}
-								className={`px-1 py-2 sm:px-4 sm:py-0 leading-4
+								className={`leading-4 text-center
                   ${
 										key === timeOfDay &&
 										"bg-pantone-brandy-sniffer text-pantone-sun-kiss"
@@ -39,7 +40,7 @@ function TimeClassicalMusic() {
 							>
 								<Link
 									href={`/classics/${classic.id}`}
-									className="hover:underline"
+									className="block w-full h-full px-1 py-4 sm:px-4 sm:py-2 hover:underline "
 								>
 									{classic.title}
 								</Link>

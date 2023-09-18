@@ -1,7 +1,7 @@
 import notFound from "./not-found";
 
-import { createServerClient } from "@/utils/supabase-server";
 import { convertToEmbeddedURL } from "@/utils/youtubeUtils";
+import { createServerClient } from "@/utils/supabase-server";
 import Comments from "./Comments";
 import TagLinkList from "@/components/TagLinkList";
 import ClassicLikeButton from "@/components/classics/ClassicLikeButton";
@@ -12,7 +12,7 @@ export default async function ClassicDetailPage({
 	const supabase = createServerClient();
 	const { data: classics } = await supabase
 		.from("all_classics")
-		.select("*") // , classic_likes (classic_id)' [{ ..., "classic_likes":[{"classic_id":1}, ...] }]
+		.select("*")
 		.eq("id", params.classicId);
 	const { data: comments } = await supabase
 		.from("classic_comments")
@@ -50,7 +50,9 @@ export default async function ClassicDetailPage({
 			</div>
 			<div className="w-full h-[300px] sm:h-[600px] sm:px-12 mt-8">
 				<iframe
+					loading="lazy"
 					src={`${convertToEmbeddedURL(classic.video_url ?? "")}`}
+					title={`${classic.title} 유튜브 동영상 재생`}
 					allowFullScreen
 					className="w-full h-full rounded-sm"
 				></iframe>

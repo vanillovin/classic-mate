@@ -44,7 +44,7 @@ function CommentForm({ classicId }: { classicId: string }) {
 		<form onSubmit={handleSubmit} className="flex gap-1">
 			<input
 				name="content"
-				placeholder=""
+				placeholder="댓글을 입력해 주세요."
 				value={content}
 				onChange={(e) => setContent(e.target.value)}
 				minLength={4}
@@ -54,6 +54,7 @@ function CommentForm({ classicId }: { classicId: string }) {
 			<button
 				type="submit"
 				disabled={isButtonDisabled}
+				aria-label="댓글 달기"
 				className={`font-medium bg-opacity-70 rounded-sm px-2 py-1 text-white bg-pantone-california-gold
           ${!isButtonDisabled && "hover:bg-opacity-100 transition-all"}
         `}

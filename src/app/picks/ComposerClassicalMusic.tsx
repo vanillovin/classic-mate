@@ -15,11 +15,8 @@ function ComposerClassicalMusic() {
 		const handleResize = () => {
 			setIsSmSize(window.innerWidth <= 800);
 		};
-		// 초기 렌더링 시 크기 확인
 		handleResize();
-		// 윈도우 리사이즈 이벤트 구독
 		window.addEventListener("resize", handleResize);
-		// 컴포넌트 언마운트 시 이벤트 구독 해제
 		return () => {
 			window.removeEventListener("resize", handleResize);
 		};
@@ -29,7 +26,6 @@ function ComposerClassicalMusic() {
 		if (isSmSize) setIndex(0);
 	}, [isSmSize]);
 
-	// isSmSize 값이 변경될 때마다 data 변수를 업데이트
 	useEffect(() => {
 		const updatedData = isSmSize
 			? [composers[index]]
@@ -66,7 +62,7 @@ function ComposerClassicalMusic() {
 			<Button type="prev" onClick={handlePrevIndex} />
 			<div className="flex items-center justify-center sm:gap-4 flex-1 my-0 ">
 				{data?.map((composer) => (
-					<div
+					<article
 						key={composer.id}
 						className="group relative p-2 bg-white shadow-md border border-black rounded-sm w-56 h-72 flex flex-col items-center justify-center"
 					>
@@ -82,7 +78,10 @@ function ComposerClassicalMusic() {
 							<span className="leading-4">{composer.englishName}</span>
 							<span className="text-sm font-normal">({composer.life})</span>
 						</div>
-						<div className="absolute top-0 left-0 p-4 hidden group-hover:flex flex-col items-center justify-center text-white text-center bg-black bg-opacity-50 w-full h-full">
+						<div
+							aria-hidden="false"
+							className="absolute top-0 left-0 p-4 hidden group-hover:flex flex-col items-center justify-center text-white text-center bg-black bg-opacity-50 w-full h-full"
+						>
 							{composer.shortDesc}
 							<Link
 								href={`/composers/${encodeURIComponent(composer.englishName)}`}
@@ -91,7 +90,7 @@ function ComposerClassicalMusic() {
 								더 보기
 							</Link>
 						</div>
-					</div>
+					</article>
 				))}
 			</div>
 			<Button type="next" onClick={handleNextIndex} />

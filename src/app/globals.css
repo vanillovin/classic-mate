@@ -49,3 +49,16 @@ body {
 input[type='range']::-webkit-slider-thumb {
   @apply appearance-none bg-black rounded-full w-2 h-2 sm:w-3 sm:h-3;
 }
+
+.sr-only {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px); /* IE6/7 */
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position:absolute;
+	width: 1px;
+	word-wrap:normal; /* IE9+ */
+}

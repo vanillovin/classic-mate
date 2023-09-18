@@ -17,15 +17,16 @@ function MoodClassicalMusic() {
             ${value.bgColor}
           `}
 				>
-					<div className="sm:text-lg font-semibold drop-shadow-md">
+					<h3 className="sm:text-lg font-semibold drop-shadow-md">
 						{value.name}
-					</div>
+					</h3>
 					<ul className="mt-2 px-1 text-sm sm:text-base">
 						{value.data.map((classic, index) => (
 							<li key={index} className="pb-1 last:pb-0 text-pantone-dark-navy">
 								<Link
 									href={`/composers/${classic.composer}`}
 									className="font-medium hover:underline"
+									aria-label={`${classic.composer} 작곡가 페이지로 이동`}
 								>
 									{classic.composer}
 								</Link>

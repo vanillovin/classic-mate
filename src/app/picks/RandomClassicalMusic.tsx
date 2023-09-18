@@ -14,18 +14,22 @@ function RandomClassicalMusic({ classics }: { classics: Classic[] }) {
 			</div>
 			<div className="flex gap-4 sm:gap-8 items-center justify-center border-8 w-full sm:w-[500px] h-[200px] sm:h-[300px] rounded-bl-lg rounded-br-lg bg-bluegold-palette-blue1 shadow-md">
 				<button
+					tabIndex={0}
+					aria-label="랜덤 클래식 음악 추천 버튼"
 					onClick={() => setRandomClassic(getRandomElement(classics))}
 					className="w-28 sm:w-36 h-28 sm:h-36 rounded-full bg-vintage-holiday-red text-pantone-babys-breath hover:bg-opacity-70 active:scale-90 shadow-sm"
 				>
 					click!
 				</button>
 				<div className="w-28 sm:w-36 h-28 sm:h-36 rounded-sm bg-vintage-holiday-gray flex items-center justify-center shadow-sm">
-					{randomClassic && (
+					{randomClassic ? (
 						<Link
+							tabIndex={0}
 							target="_blank"
 							href={`/classics/${randomClassic?.id}`}
+							aria-label={`${randomClassic?.title} 상세 정보 보기`}
 							className={`w-24 sm:w-28 h-24 sm:h-28 font-medium text-sm sm:text-base text-center p-1 sm:p-2 rounded-full flex items-center justify-center 
-                shadow-[inset_0_-8px_8px_rgba(0,0,0,.1)] hover:bg-opacity-70 ${
+                shadow-[inset_0_-8px_8px_rgba(0,0,0,.1)] hover:underline hover:bg-opacity-70 ${
 									bgColors[Math.floor(Math.random() * bgColors.length)]
 								}
               `}
@@ -34,6 +38,10 @@ function RandomClassicalMusic({ classics }: { classics: Classic[] }) {
 								{randomClassic?.title}
 							</span>
 						</Link>
+					) : (
+						<div className="text-center p-2">
+							버튼을 클릭해 랜덤 클래식 음악을 추천받으세요!
+						</div>
 					)}
 				</div>
 			</div>

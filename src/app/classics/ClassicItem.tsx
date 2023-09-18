@@ -23,6 +23,7 @@ function ClassicItem({
 						{classic.title}
 					</h2>
 					<ClassicLikeButton
+						className="pl-1 pb-1"
 						classicId={classic.id}
 						serverLikeCount={likeCount}
 					/>

@@ -10,29 +10,34 @@ export default function LoginForm() {
 	const { supabase } = useSupabase();
 	const [isLoading, setIsLoading] = useState<boolean>(false);
 
-	const handleSignIn = async (event: React.FormEvent<HTMLFormElement>) => {
+	async function handleSignIn(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
 		const formData = new FormData(event.currentTarget);
 		const email = formData.get("email") as string;
 		const password = formData.get("password") as string;
 		setIsLoading(true);
-		const { error } = await supabase.auth.signInWithPassword({
-			email,
-			password,
-		});
-		setIsLoading(false);
-
-		if (!error) {
+		try {
+			const { error } = await supabase.auth.signInWithPassword({
+				email,
+				password,
+			});
+			if (error) throw error;
 			router.back();
-			return toast.success("로그인 완료!");
-		} else {
-			return toast.error("뭔가 잘못됐어요! " + error?.message);
+			toast.success("로그인이 완료됐습니다!");
+		} catch (err: any) {
+			toast.error("뭔가 잘못됐어요! " + err.message);
+		} finally {
+			setIsLoading(false);
 		}
-	};
+	}
 
 	return (
 		<form onSubmit={handleSignIn} className="w-full flex flex-col">
+			<label htmlFor="email" className="sr-only">
+				이메일
+			</label>
 			<input
+				id="email"
 				type="email"
 				name="email"
 				placeholder="이메일"
@@ -41,7 +46,11 @@ export default function LoginForm() {
 				required
 				pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$"
 			/>
+			<label htmlFor="password" className="sr-only">
+				비밀번호
+			</label>
 			<input
+				id="password"
 				type="password"
 				name="password"
 				placeholder="비밀번호"
@@ -53,9 +62,15 @@ export default function LoginForm() {
 			<button
 				type="submit"
 				disabled={isLoading}
-				className="flex items-center justify-center p-2 font-medium text-sm rounded-sm hover:opacity-70 transition-all text-white bg-warm-vintage-burnt-orange shadow-md"
+				aria-label={isLoading ? "이메일 로그인 처리 중..." : "이메일로 로그인"}
+				className={`flex items-center justify-center p-2 font-medium text-sm rounded-sm hover:opacity-70 transition-all text-white bg-warm-vintage-burnt-orange shadow-md
+          ${isLoading ? "cursor-not-allowed" : ""}
+        `}
 			>
-				이메일로 로그인
+				{/* aria-live="polite": 현재 읽고 있는 내용을 끝낸 후에 변경된 내용을 읽어달라 */}
+				<span aria-live="polite">
+					{isLoading ? "이메일 로그인 처리 중..." : "이메일로 로그인"}
+				</span>
 				{isLoading && (
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

@@ -3,7 +3,6 @@
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-
 import { useSupabase } from "@/components/providers/supabase-provider";
 
 const getURL = () => {
@@ -33,30 +32,37 @@ export default function RegisterForm() {
 		void checkSession();
 	}, [supabase.auth, router]);
 
-	const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
+	async function handleSignUp(event: React.FormEvent<HTMLFormElement>) {
 		event.preventDefault();
 		const formData = new FormData(event.currentTarget);
 		const email = String(formData.get("email"));
 		const password = String(formData.get("password"));
 		setIsLoading(true);
-		const { error } = await supabase.auth.signUp({
-			email,
-			password,
-			options: {
-				emailRedirectTo: `${getURL()}/auth/callback`,
-			},
-		});
-		setIsLoading(false);
-		if (!error) {
-			return toast.success("로그인 링크를 보냈습니다. 이메일을 확인해 주세요!");
-		} else {
-			return toast.error("뭔가 잘못됐어요! " + error?.message);
+		try {
+			const { error } = await supabase.auth.signUp({
+				email,
+				password,
+				options: {
+					emailRedirectTo: `${getURL()}/auth/callback`,
+				},
+			});
+			if (error) throw error;
+			toast.success("로그인 링크를 보냈습니다. 이메일을 확인해 주세요!");
+		} catch (err: any) {
+			console.error(err);
+			toast.error("뭔가 잘못됐어요! " + err.message);
+		} finally {
+			setIsLoading(false);
 		}
-	};
+	}
 
 	return (
 		<form onSubmit={handleSignUp} className="w-full flex flex-col">
+			<label htmlFor="email" className="sr-only">
+				이메일
+			</label>
 			<input
+				id="email"
 				type="email"
 				name="email"
 				placeholder="이메일"
@@ -65,7 +71,11 @@ export default function RegisterForm() {
 				required
 				pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$"
 			/>
+			<label htmlFor="password" className="sr-only">
+				비밀번호
+			</label>
 			<input
+				id="password"
 				type="password"
 				name="password"
 				placeholder="비밀번호"
@@ -77,9 +87,14 @@ export default function RegisterForm() {
 			<button
 				type="submit"
 				disabled={isLoading}
-				className="flex items-center justify-center p-2 font-medium text-sm rounded-sm hover:opacity-70 transition-all text-white bg-warm-vintage-burnt-orange shadow-md"
+				aria-label={isLoading ? "이메일로 가입 처리 중..." : "이메일로 가입"}
+				className={`flex items-center justify-center p-2 font-medium text-sm rounded-sm hover:opacity-70 transition-all text-white bg-warm-vintage-burnt-orange shadow-md
+          ${isLoading ? "cursor-not-allowed" : ""}
+        `}
 			>
-				이메일로 가입
+				<span aria-live="polite">
+					{isLoading ? "이메일로 가입 처리 중..." : "이메일로 가입"}
+				</span>
 				{isLoading && (
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
