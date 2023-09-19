@@ -46,7 +46,7 @@ export default async function ArtistDetailPage({
 					</p>
 				</div>
 			</section>
-			<section className="mt-4">
+			<section className="mt-4 space-y-2">
 				<h2 className="text-2xl font-semibold">작품목록</h2>
 				<div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
 					{classics?.map((classic) => (
@@ -56,14 +56,16 @@ export default async function ArtistDetailPage({
 							className="rounded-sm p-4 bg-gradient-conic from-pantone-babys-breath to-old-palette-gold 
                 hover:to-pantone-metallic-gold shadow-sm transition-all"
 						>
-							<h3 className="font-semibold">{classic.title}</h3>
+							<h3 className="font-semibold overflow-hidden whitespace-nowrap truncate">
+								{classic.title}
+							</h3>
 							<p className="text-sm">
-								{classic.description.length > 120
-									? `${classic.description.substring(0, 120)}..`
+								{classic.description.length > 100
+									? `${classic.description.substring(0, 100)}..`
 									: classic.description}
 							</p>
 							<TagLinkList
-								className="text-sm bg-black text-white px-1 mt-1"
+								className="text-sm bg-black/95 text-white px-1 mt-1"
 								tags={classic.tags}
 							/>
 						</Link>
