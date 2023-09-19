@@ -14,6 +14,7 @@ export default async function Layout({
 	children: React.ReactNode;
 }) {
 	const supabase = createServerClient();
+
 	const {
 		data: { session },
 	} = await supabase.auth.getSession();
@@ -24,14 +25,14 @@ export default async function Layout({
 
 	const profile = data?.[0];
 
-	if (!session) redirect("/unauthenticated");
+	// if (!session) redirect("/unauthenticated");
 
 	if (!profile) return notFound();
 
 	return (
 		<section className="px-6 pt-6 pb-24 h-screen">
 			<div className="flex flex-col sm:flex-row shadow-md h-full">
-				<div className="flex flex-row sm:flex-col p-3 sm:p-5 w-full sm:w-fit bg-[#fff]">
+				<div className="flex flex-row sm:flex-col p-3 sm:p-5 w-full sm:w-fit bg-[#FFF]">
 					<div className="relative w-24 h-24 sm:w-40 sm:h-40 rounded-sm overflow-hidden">
 						<Image
 							src={"/kylie-paz-cbl1K6yJlDI-unsplash.jpg"}
@@ -46,7 +47,7 @@ export default async function Layout({
 						</p>
 						<p className="text-sm sm:text-base">{profile.website}</p>
 						<p className="text-sm sm:text-base">{profile.description}</p>
-						{session.user.id === params.userId && (
+						{session && session.user.id === params.userId && (
 							<div className="flex gap-1 py-1">
 								<Link
 									href={`/profile/${params.userId}/edit`}
@@ -62,7 +63,9 @@ export default async function Layout({
 						<ul className=""></ul>
 					</div>
 				</div>
-				<div className="flex-1 p-3 sm:p-5 bg-[#F2F2F2]">{children}</div>
+				<div className="flex-1 p-3 sm:p-5 overflow-y-scroll profile-scrollbar bg-[#F2F2F2]">
+					{children}
+				</div>
 			</div>
 		</section>
 	);

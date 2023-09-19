@@ -55,14 +55,19 @@ function CommentItem({ comment, postId, commentCount }: CommentItemProps) {
 
 	return (
 		<li className="px-1 py-2 border-b last:border-b-0 text-sm sm:text-base">
-			<div className="flex items-center justify-between">
+			<div className="flex items-center justify-between pb-1">
 				<div className="flex space-x-1">
-					<Link href={`/profile/${comment.user_id}`}>{comment.nickname}</Link>
-					<div className="flex items-center text-xs sm:text-sm text-whitemoon-darkgray">
-						<p>{formatTimestamp(comment.created_at)}</p>
+					<Link
+						href={`/profile/${comment.user_id}`}
+						className="font-semibold hover:underline underline-offset-2"
+					>
+						{comment.nickname}
+					</Link>
+					<div className="flex items-center text-xs sm:text-sm text-gray-400">
+						<p>· {formatTimestamp(comment.created_at)}</p>
 						{comment.created_at !== comment.updated_at && (
 							<p className="mx-1">
-								· <span className="text-peachmoon-rose">수정됨</span>
+								· <span className="text-vintage-holiday-red/60">수정됨</span>
 							</p>
 						)}
 					</div>
@@ -91,8 +96,9 @@ function CommentItem({ comment, postId, commentCount }: CommentItemProps) {
 						>
 							<li className="w-full flex items-center justify-center p-1 transition-all hover:bg-gray-100">
 								<button
-									className="flex items-center"
+									aria-label="댓글 수정하기"
 									onClick={() => setIsEditing(true)}
+									className="flex items-center"
 								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
@@ -112,7 +118,11 @@ function CommentItem({ comment, postId, commentCount }: CommentItemProps) {
 								</button>
 							</li>
 							<li className="w-full flex items-center justify-center p-1 transition-all hover:bg-gray-100">
-								<button className="flex items-center" onClick={deleteComment}>
+								<button
+									aria-label="댓글 삭제하기"
+									onClick={deleteComment}
+									className="flex items-center"
+								>
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										fill="none"
@@ -135,7 +145,7 @@ function CommentItem({ comment, postId, commentCount }: CommentItemProps) {
 				)}
 			</div>
 			{!isEditing ? (
-				<p>{comment.content}</p>
+				<p className="font-ligiht">{comment.content}</p>
 			) : (
 				<div className="flex items-center gap-1 h-8">
 					<input
@@ -146,14 +156,20 @@ function CommentItem({ comment, postId, commentCount }: CommentItemProps) {
 					<div className="h-full space-x-1 text-white">
 						<button
 							onClick={() => setIsEditing(false)}
-							className="w-10 h-full transition-colors bg-watery-4 hover:bg-watery-3"
+							aria-label="댓글 수정 취소"
+							className="w-10 h-full transition-colors bg-pantone-cream hover:bg-pantone-natural"
 						>
 							취소
 						</button>
 						<button
 							onClick={editComment}
-							className="w-10 h-full transition-colors bg-watery-2 hover:bg-watery-1"
 							disabled={isDisabled}
+							aria-label="댓글 수정 완료"
+							className={`w-10 h-full transition-colors ${
+								isDisabled
+									? "bg-pantone-latte"
+									: "bg-pantone-toffee hover:bg-pantone-cocoa"
+							}`}
 						>
 							저장
 						</button>

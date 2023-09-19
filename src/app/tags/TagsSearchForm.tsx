@@ -4,9 +4,9 @@ import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const isValidTag = (tag: string) => {
-  return /^[가-힣]+$/g.test(tag);
+	return /^[가-힣]+$/g.test(tag);
 };
-  
+
 function TagsSearchForm({ tags }: { tags: string[] }) {
 	const router = useRouter();
 	const searchParams = useSearchParams();
@@ -56,7 +56,7 @@ function TagsSearchForm({ tags }: { tags: string[] }) {
 					evt.preventDefault();
 					handleSearchSubmit();
 				}}
-				className="relative w-full mb-4"
+				className="relative w-full mb-8"
 			>
 				<input
 					type="text"
@@ -85,7 +85,7 @@ function TagsSearchForm({ tags }: { tags: string[] }) {
 					</svg>
 				</button>
 				{error && (
-					<p role="alert" className="p-1 text-vintage-holiday-red">
+					<p role="alert" className="absolute pl-1 text-vintage-holiday-red">
 						{error}
 					</p>
 				)}

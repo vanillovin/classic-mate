@@ -10,6 +10,7 @@ import { useSupabase } from "../providers/supabase-provider";
 
 type ClassicLikeButtonProps = {
 	classicId: number;
+	classicTitle: string;
 	className?: string;
 	serverLikeCount: number;
 	isShowLikeCount?: boolean;
@@ -27,6 +28,7 @@ async function fetchClssicLikes(userId: string): Promise<ClassicLike[]> {
 
 function ClassicLikeButton({
 	classicId,
+	classicTitle,
 	className = "",
 	serverLikeCount,
 	isShowLikeCount = false,
@@ -46,14 +48,14 @@ function ClassicLikeButton({
 
 	async function addLike() {
 		const { error } = await supabase.from("classic_likes").insert({
+			classic_title: classicTitle,
 			classic_id: classicId,
 			user_id: session!.user.id,
 		});
 		if (error) throw error;
-
 		const { error: updateError } = await supabase
 			.from("all_classics")
-			.update({ like_count: likeCount + 1 })
+			.update({ like_count: likeCount })
 			.eq("id", classicId);
 		if (updateError) throw updateError;
 	}
@@ -67,7 +69,7 @@ function ClassicLikeButton({
 
 		const { error: updateError } = await supabase
 			.from("all_classics")
-			.update({ like_count: likeCount - 1 })
+			.update({ like_count: likeCount })
 			.eq("id", classicId);
 		if (updateError) throw updateError;
 	}

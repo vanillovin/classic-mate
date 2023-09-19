@@ -47,10 +47,10 @@ function CommentContainer({
 							/>
 						))
 					) : (
-						<p className="py-2 font-light">아직 댓글이 없어요!</p>
+						<p className="px-1 py-2 font-light">아직 댓글이 없어요!</p>
 					)
 				) : (
-					<p className="py-2 font-light">댓글을 불러오지 못했어요!</p>
+					<p className="px-1 py-2 font-light">댓글을 불러오지 못했어요!</p>
 				)}
 			</ul>
 		</>

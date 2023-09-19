@@ -94,18 +94,21 @@ export interface Database {
 			classic_likes: {
 				Row: {
 					classic_id: number;
+					classic_title: string;
 					created_at: string;
 					id: number;
 					user_id: string;
 				};
 				Insert: {
 					classic_id: number;
+					classic_title: string;
 					created_at?: string;
 					id?: never;
 					user_id: string;
 				};
 				Update: {
 					classic_id?: number;
+					classic_title?: string;
 					created_at?: string;
 					id?: never;
 					user_id?: string;

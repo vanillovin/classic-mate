@@ -56,24 +56,28 @@ function CommentForm({
 			<input
 				value={content}
 				onChange={(e) => setContent(e.target.value)}
-				className="w-full flex-1 p-1 focus:outline-none"
+				className="w-full flex-1 px-2 py-1 focus:outline-none placeholder:font-light"
+				placeholder="댓글을 입력해 주세요."
 				required
 			/>
 			<button
 				type="submit"
+				aria-label="댓글 쓰기"
 				disabled={isDisabled}
-				className={`px-2 sm:px-1 h-full text-sm bg-pantone-powder 
-          ${isDisabled ? "" : "hover:bg-pantone-latte"}
+				className={`px-2 h-full text-sm transition-colors ${
+					isDisabled
+						? "bg-pantone-powder"
+						: "bg-pantone-latte hover:bg-pantone-cocoa hover:text-pantone-starwhite"
+				}
         `}
 			>
-				<span className="hidden sm:block">댓글 쓰기</span>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					fill="none"
 					viewBox="0 0 24 24"
 					strokeWidth={1.5}
 					stroke="currentColor"
-					className="sm:hidden w-4 h-4"
+					className="w-4 h-4"
 				>
 					<path
 						strokeLinecap="round"

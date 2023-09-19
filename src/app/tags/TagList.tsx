@@ -46,7 +46,7 @@ function TagList({ tags, selectedTags }: TagListProps) {
               ${
 								selectedTags.includes(tag)
 									? "text-white bg-watery-2"
-									: "bg-white hover:bg-opacity-70"
+									: "bg-white hover:bg-watery-3/30"
 							}
             `}
 					>

@@ -38,6 +38,7 @@ export default async function ClassicDetailPage({
 			<ClassicLikeButton
 				isShowLikeCount
 				classicId={classic.id}
+				classicTitle={classic.title}
 				serverLikeCount={classic.like_count}
 				className="rounded-sm bg-white p-1 mb-4 hover:bg-opacity-70 transition-all"
 			/>

@@ -11,11 +11,13 @@ function ClassicList({ classics, selectedTags }: ClassicListProps) {
 		<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 my-6">
 			{classics?.map((classic) => (
 				<Link
-					href={`/classics/${classic.id}`}
 					key={classic.id}
-					className="rounded-sm shadow-md p-1 sm:p-2 bg-opacity-70 hover:bg-opacity-100 transition-all bg-white"
+					href={`/classics/${classic.id}`}
+					className="group rounded-sm shadow-md p-1 sm:p-2 bg-opacity-60 hover:bg-opacity-100 transition-all bg-white"
 				>
-					<p className="font-medium text-sm sm:text-base">{classic.title}</p>
+					<p className="font-medium text-sm sm:text-base group-hover:underline underline-offset-2">
+						{classic.title}
+					</p>
 					<ul className="flex flex-wrap mt-1">
 						{classic.tags.map((tag) => (
 							<li
