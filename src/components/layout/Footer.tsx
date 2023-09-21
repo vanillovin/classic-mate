@@ -14,7 +14,7 @@ function Footer() {
 
 	return (
 		<footer
-			className={`sticky top-[100vh] p-4 sm:p-8 text-center text-sm sm:text-base text-white ${bgColor}`}
+			className={`sticky max-w-6xl mx-auto top-[100vh] p-4 sm:p-8 text-center text-sm sm:text-base text-white ${bgColor}`}
 		>
 			<div className="flex items-center justify-center">
 				{Object.keys(siteConfig.links).map((key, index) => (
