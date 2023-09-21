@@ -22,7 +22,7 @@ export default async function HomePage() {
 		.range(0, 15);
 
 	return (
-		<div className="w-full h-full px-3 sm:px-6 pt-3 sm:pt-6 pb-24">
+		<div className="w-full max-w-6xl mx-auto h-full px-3 sm:px-6 pt-3 sm:pt-6 pb-24">
 			<ClassicQuiz />
 
 			<div className="my-12">

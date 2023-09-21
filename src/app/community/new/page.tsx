@@ -24,7 +24,7 @@ export default async function NewPostPage() {
 	}
 
 	return (
-		<div className="px-6 sm:px-12 pt-6 sm:pt-12 pb-24">
+		<div className="max-w-6xl mx-auto px-6 sm:px-12 pt-6 sm:pt-12 pb-24">
 			<NewForm profile={profiles[0]} />
 		</div>
 	);

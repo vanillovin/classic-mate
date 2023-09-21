@@ -7,7 +7,7 @@ function Layout({ children }: PropsWithChildren) {
 	return (
 		<div className="w-full min-h-screen h-full">
 			<MainNavigation />
-			<main className="max-w-6xl mx-auto pt-2 sm:pt-4">{children}</main>
+			<main className="mx-auto pt-2 sm:pt-4">{children}</main>
 			<Footer />
 		</div>
 	);

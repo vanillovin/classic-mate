@@ -25,89 +25,91 @@ export default async function PicksPage() {
 
 	return (
 		<div className="flex flex-col px-3 sm:px-6 sm:pt-6 pb-24 gap-y-8 sm:gap-y-16 -mt-2 sm:-mt-4 pt-8 w-full h-full bg-pantone-white-pepper">
-			<div className="rounded-sm border border-black bg-pantone-babys-breath shadow-md p-3 sm:p-4">
-				<div className="font-semibold text-lg sm:text-2xl">
-					무슨 클래식 음악을 들어야 할지 모르겠다면?
-					<br />
-					<span className="text-vintage-holiday-red">클메</span>
-					가 추천해드릴게요!
+			<div className="max-w-6xl mx-auto">
+				<div className="rounded-sm border border-black bg-pantone-babys-breath shadow-md p-3 sm:p-4">
+					<div className="font-semibold text-lg sm:text-2xl">
+						무슨 클래식 음악을 들어야 할지 모르겠다면?
+						<br />
+						<span className="text-vintage-holiday-red">클메</span>
+						가 추천해드릴게요!
+					</div>
+
+					<ul className="w-fit flex flex-wrap items-center mt-2">
+						{recommendations.map((item, index) => (
+							<li
+								key={item.id}
+								className="text-sm sm:text-lg hover:underline hover:text-autumn-emerald"
+							>
+								<a href={item.link} className="p-1">
+									{item.label}
+								</a>
+								{index !== recommendations.length - 1 && (
+									<span className="">|</span>
+								)}
+							</li>
+						))}
+					</ul>
 				</div>
 
-				<ul className="w-fit flex flex-wrap items-center mt-2">
-					{recommendations.map((item, index) => (
-						<li
-							key={item.id}
-							className="text-sm sm:text-lg hover:underline hover:text-autumn-emerald"
-						>
-							<a href={item.link} className="p-1">
-								{item.label}
-							</a>
-							{index !== recommendations.length - 1 && (
-								<span className="">|</span>
-							)}
-						</li>
-					))}
-				</ul>
+				<section id="time">
+					<h2
+						className={`mb-4 text-center text-2xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
+					>
+						Time.
+					</h2>
+					{/* <p className='text-center text-pantone-dark-navy'>
+            시간대별 듣기 좋은 클래식
+          </p> */}
+					<TimeClassicalMusic />
+				</section>
+
+				<section id="weather">
+					<h2
+						className={`mb-4 text-center text-2xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
+					>
+						Weather.
+					</h2>
+					<WeatherClassicalMusic />
+				</section>
+
+				<section id="composer" className="h-96">
+					<h2
+						className={`mb-4 text-center text-2xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
+					>
+						Composer.
+					</h2>
+					<ComposerClassicalMusic />
+				</section>
+
+				<section id="genre" className="">
+					<h2
+						className={`mb-4 text-center text-2xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
+					>
+						Genre.
+					</h2>
+					<GenreClassicalMusic classics={data ?? []} />
+				</section>
+
+				<section id="random" className="">
+					<h2
+						className={`mb-4 text-center text-2xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
+					>
+						Random.
+					</h2>
+					<RandomClassicalMusic classics={data ?? []} />
+				</section>
+
+				<section id="mood" className="">
+					<h2
+						className={`mb-4 text-center text-2xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
+					>
+						Mood.
+					</h2>
+					<MoodClassicalMusic />
+				</section>
+
+				<ScrollToTopButton />
 			</div>
-
-			<section id="time">
-				<h2
-					className={`mb-4 text-center text-2xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
-				>
-					Time.
-				</h2>
-				{/* <p className='text-center text-pantone-dark-navy'>
-          시간대별 듣기 좋은 클래식
-        </p> */}
-				<TimeClassicalMusic />
-			</section>
-
-			<section id="weather">
-				<h2
-					className={`mb-4 text-center text-2xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
-				>
-					Weather.
-				</h2>
-				<WeatherClassicalMusic />
-			</section>
-
-			<section id="composer" className="h-96">
-				<h2
-					className={`mb-4 text-center text-2xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
-				>
-					Composer.
-				</h2>
-				<ComposerClassicalMusic />
-			</section>
-
-			<section id="genre" className="">
-				<h2
-					className={`mb-4 text-center text-2xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
-				>
-					Genre.
-				</h2>
-				<GenreClassicalMusic classics={data ?? []} />
-			</section>
-
-			<section id="random" className="">
-				<h2
-					className={`mb-4 text-center text-2xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
-				>
-					Random.
-				</h2>
-				<RandomClassicalMusic classics={data ?? []} />
-			</section>
-
-			<section id="mood" className="">
-				<h2
-					className={`mb-4 text-center text-2xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
-				>
-					Mood.
-				</h2>
-				<MoodClassicalMusic />
-			</section>
-
-			<ScrollToTopButton />
 		</div>
 	);
 }

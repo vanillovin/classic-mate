@@ -25,7 +25,7 @@ export default async function ClassicDetailPage({
 	if (!classic) return notFound();
 
 	return (
-		<section className="w-full flex flex-col items-center p-3 sm:p-6">
+		<section className="w-full max-w-6xl mx-auto flex flex-col items-center p-3 sm:p-6">
 			<h1 className="text-xl sm:text-2xl font-semibold">{classic.title}</h1>
 			<ul className="flex items-center text-sm sm:text-base">
 				<li className="mr-1 text-sm sm:text-base">{classic.composer} ·</li>

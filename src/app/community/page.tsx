@@ -20,7 +20,7 @@ export default async function CommunityPage() {
 		.select("*", { count: "exact" });
 
 	return (
-		<section className="px-3 sm:px-6 pt-3 sm:pt-6 pb-24">
+		<section className="max-w-6xl mx-auto px-3 sm:px-6 pt-3 sm:pt-6 pb-24">
 			<div
 				aria-label="제목"
 				className="shadow-sm rounded-sm p-3 sm:p-4 bg-white"

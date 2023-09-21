@@ -21,7 +21,7 @@ export default async function ArtistDetailPage({
 	if (!data) return notFound();
 
 	return (
-		<div className="px-3 sm:px-6 pt-3 sm:pt-6 pb-24 flex flex-col gap-y-6">
+		<div className="max-w-6xl mx-auto px-3 sm:px-6 pt-3 sm:pt-6 pb-24 flex flex-col gap-y-6">
 			<section className="flex flex-col sm:flex-row gap-2">
 				<div
 					className="flex items-center justify-center w-full sm:w-[250px] h-[350px] sm:h-[450px] md:h-[350px] 

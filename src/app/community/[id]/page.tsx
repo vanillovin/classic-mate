@@ -25,7 +25,7 @@ export default async function PostPage({
 	if (!post) notFound();
 
 	return (
-		<article className="px-3 sm:px-6 pt-3 sm:pt-6 pb-24">
+		<article className="max-w-6xl mx-auto px-3 sm:px-6 pt-3 sm:pt-6 pb-24">
 			<div className="w-full flex flex-col sm:flex-row shadow-md bg-gradient-radial from-[#fff] to-[#f4f5f0]">
 				<section className="w-full md:w-1/2 h-[350px] md:h-[700px] flex flex-col p-4 border-b md:border-r">
 					<PostContainer postId={id} serverPost={post} />
