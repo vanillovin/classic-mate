@@ -44,6 +44,18 @@ const nextConfig = {
         pathname: '/**',
       },
       {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.namu.wiki',
+        port: '',
+        pathname: '/**',
+      },
+      {
         protocol: 'http',
         hostname: 'openweathermap.org',
         port: '',

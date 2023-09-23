@@ -128,6 +128,48 @@ export interface Database {
 					},
 				];
 			};
+			composers: {
+				Row: {
+					birth_date: string;
+					death_date: string;
+					id: number;
+					image_url: string;
+					long_desc: string;
+					name: string;
+					name_kr: string;
+					nationality: string;
+					period: string;
+					short_desc: string;
+					style: string;
+				};
+				Insert: {
+					birth_date?: string;
+					death_date?: string;
+					id?: number;
+					image_url?: string;
+					long_desc?: string;
+					name?: string;
+					name_kr?: string;
+					nationality?: string;
+					period?: string;
+					short_desc?: string;
+					style?: string;
+				};
+				Update: {
+					birth_date?: string;
+					death_date?: string;
+					id?: number;
+					image_url?: string;
+					long_desc?: string;
+					name?: string;
+					name_kr?: string;
+					nationality?: string;
+					period?: string;
+					short_desc?: string;
+					style?: string;
+				};
+				Relationships: [];
+			};
 			messages: {
 				Row: {
 					id: number;

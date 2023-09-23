@@ -8,16 +8,6 @@ export type Composer = {
 	description: string;
 };
 
-export async function getComposers(): Promise<Composer[]> {
-	return composers;
-}
-
-export async function getComposerById(
-	name: string,
-): Promise<Composer | undefined> {
-	return composers.find((artist) => artist.englishName === name);
-}
-
 export const composers: Composer[] = [
 	{
 		id: 1,

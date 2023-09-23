@@ -9,4 +9,5 @@ declare global {
 	type Profile = DB["public"]["Tables"]["profiles"]["Row"];
 	type Post = DB["public"]["Tables"]["test_posts"]["Row"];
 	type PostComment = DB["public"]["Tables"]["test_comments"]["Row"];
+	type Composer = DB["public"]["Tables"]["composers"]["Row"];
 }

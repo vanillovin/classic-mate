@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
-import { type Composer, composers } from "../composers/api";
+import { type Composer, composers } from "../composers/data";
 
 function ComposerClassicalMusic() {
 	const [index, setIndex] = useState(0);
