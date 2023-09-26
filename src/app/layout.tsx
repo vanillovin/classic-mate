@@ -29,7 +29,7 @@ export default async function RootLayout({
 	} = await supabase.auth.getSession();
 
 	return (
-		<html>
+		<html lang="ko">
 			<head />
 			<body className="no-scrollbar">
 				<ReactQueryProvider>

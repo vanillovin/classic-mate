@@ -23,7 +23,7 @@ function PopularClassics({
 						<Link
 							key={index}
 							href={`/classics/${classic.id}`}
-							className="rounded-sm p-2 flex flex-col gap-y-1 mobile:gap-y-2 justify-between shadow-sm bg-white"
+							className="rounded-sm p-2 flex flex-col gap-y-1 mobile:gap-y-2 justify-between shadow-sm bg-white hover:bg-old-palette-cream transition-colors"
 						>
 							<div className="flex flex-col items-center gap-y-1">
 								<p
@@ -64,7 +64,7 @@ function PopularClassics({
 						<Link
 							key={index}
 							href={`/classics/${classic.id}`}
-							className="rounded-sm p-2 flex flex-col gap-y-1 mobile:gap-y-2 justify-between shadow-sm bg-white"
+							className="rounded-sm p-2 flex flex-col gap-y-1 mobile:gap-y-2 justify-between shadow-sm bg-white hover:bg-old-palette-cream transition-colors"
 						>
 							<div className="flex flex-col items-center gap-y-1">
 								<p
@@ -105,7 +105,7 @@ function PopularClassics({
 						<Link
 							key={index}
 							href={`/classics/${classic.id}`}
-							className="rounded-sm p-2 flex flex-col gap-y-1 mobile:gap-y-2 justify-between shadow-sm bg-white"
+							className="rounded-sm p-2 flex flex-col gap-y-1 mobile:gap-y-2 justify-between shadow-sm bg-white hover:bg-old-palette-cream transition-colors"
 						>
 							<div className="flex flex-col items-center gap-y-1">
 								<p
@@ -146,7 +146,7 @@ function PopularClassics({
 						<Link
 							key={index}
 							href={`/classics/${classic.id}`}
-							className="rounded-sm p-2 flex flex-col gap-y-1 mobile:gap-y-2 justify-between shadow-sm bg-white"
+							className="rounded-sm p-2 flex flex-col gap-y-1 mobile:gap-y-2 justify-between shadow-sm bg-white hover:bg-old-palette-cream transition-colors"
 						>
 							<div className="flex flex-col items-center gap-y-1">
 								<p

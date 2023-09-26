@@ -47,7 +47,7 @@ function Newspaper() {
 					</div>
 					<div className="h-full font-semibold border-l px-2 sm:px-8 flex flex-col items-center justify-center text-sm sm:text-base border-cherish-ivory">
 						<div className="text-base sm:text-lg">{currentMonth}월호</div>
-						<div className="-mt-1 text-pantone-brandy-sniffer">
+						<div className="-mt-1 text-vintage-holiday-red">
 							#{currentYearMonth.substring(2, 7).replace("-", "")}
 						</div>
 					</div>
@@ -55,7 +55,7 @@ function Newspaper() {
 				{/* <div className='border-t -mt-7 mb-5'></div> */}
 
 				<div className="flex flex-col md:flex-row p-4 items-center">
-					<div className="w-full sm:min-w-[350px] h-[500px] relative rounded-sm overflow-hidden shadow-sm">
+					<div className="w-full mobile:min-w-[350px] h-[400px] mobile:h-[500px] relative rounded-sm overflow-hidden shadow-sm">
 						<Image fill alt={composer} className="w-full h-full" src={image} />
 					</div>
 					<div className="flex flex-col items-center justify-center pt-6 md:p-6">
@@ -74,7 +74,7 @@ function Newspaper() {
 
 				<div className="flex flex-col md:flex-row items-center px-4 py-8 border-t border-y my-4 border-cherish-ivory">
 					<div className="w-full md:w-1/2 pb-8 md:p-4">
-						<h3 className="whitespace-pre-line text-lg text-center md:text-start font-medium mb-4  drop-shadow-md text-cherish-fern">
+						<h3 className="whitespace-pre-line text-lg text-center md:text-start font-medium mb-4  drop-shadow-md text-autumn-darkblue">
 							{point.title}
 						</h3>
 						<p className="whitespace-pre-line leading-6">{point.description}</p>
@@ -93,8 +93,9 @@ function Newspaper() {
 				<div className="flex flex-col md:flex-row p-4">
 					<div className="md:w-1/2 h-[200px] mobile:h-[350px]">
 						<iframe
-							src={`${convertToEmbeddedURL(videoUrl)}`}
 							allowFullScreen
+							title={`${title} 유튜브 동영상 재생`}
+							src={`${convertToEmbeddedURL(videoUrl)}`}
 							className="w-full h-full rounded-sm"
 						/>
 					</div>
@@ -102,10 +103,11 @@ function Newspaper() {
 						<p className="text-center leading-6">{performar.description}</p>
 						<Link
 							target="_blank"
-							className="mt-4 hover:opacity-70 text-sm underline underline-offset-4 text-cherish-fern"
+							className="mt-4 text-sm font-medium hover:underline underline-offset-4 text-autumn-darkblue"
 							href={performar.moreLink}
 						>
-							{performar.name} {performar.instrumentalists}가 더 궁금하다면!
+							{performar.name} {performar.instrumentalists}가 더 궁금하다면
+							클릭!
 						</Link>
 					</div>
 				</div>

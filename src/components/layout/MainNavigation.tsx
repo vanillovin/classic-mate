@@ -13,31 +13,25 @@ function MainNavigation() {
 	const { profile } = useAuth();
 	const { session } = useSupabase();
 	const pathname = usePathname();
-	const [scrollY, setScrollY] = useState(0);
+	// const [scrollY, setScrollY] = useState(0);
 
-	useEffect(() => {
-		const handleScroll = () => {
-			setScrollY(window.scrollY);
-		};
+	// useEffect(() => {
+	// 	const handleScroll = () => {
+	// 		setScrollY(window.scrollY);
+	// 	};
 
-		window.addEventListener("scroll", handleScroll);
+	// 	window.addEventListener("scroll", handleScroll);
 
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
-	}, []);
+	// 	return () => {
+	// 		window.removeEventListener("scroll", handleScroll);
+	// 	};
+	// }, []);
 
-	const isScrolled = scrollY > 0;
+	// const isScrolled = scrollY > 0;
 
 	return (
 		<header
-			className={`w-full sticky top-0 z-20 flex items-center justify-center px-4 h-12 sm:h-16 shadow-sm select-none bg-white
-        ${
-					!isScrolled
-						? "bg-opacity-80"
-						: "bg-opacity-95 backdrop-blur-sm transition-all shadow-md"
-				}
-      `}
+			className={`w-full sticky top-0 z-20 flex items-center justify-center px-4 h-12 sm:h-16 select-none bg-white/95 backdrop-blur-sm transition-all shadow-sm`}
 		>
 			<nav className="w-full max-w-6xl flex items-center justify-between">
 				<Link
@@ -51,7 +45,12 @@ function MainNavigation() {
 					</span>
 				</Link>
 				<div className="md:hidden dropdown dropdown-end">
-					<label tabIndex={0} className="group cursor-pointer">
+					<button
+						aria-haspopup="true"
+						aria-controls="dropdown-menu"
+						className="flex items-center justify-center group cursor-pointer"
+					>
+						<title>드롭다운 메뉴 열기</title>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 24 24"
@@ -64,8 +63,9 @@ function MainNavigation() {
 								clipRule="evenodd"
 							/>
 						</svg>
-					</label>
+					</button>
 					<ul
+						id="dropdown-menu"
 						tabIndex={0}
 						className="menu dropdown-content z-10 p-2 shadow bg-base-100 rounded-box w-44 sm:w-48 mt-4 text-sm sm:text-base"
 					>
@@ -73,7 +73,7 @@ function MainNavigation() {
 							<li>
 								<Link
 									href={`/profile/${session.user.id}`}
-									className="font-semibold rounded-bl-none rounded-br-none bg-pantone-starwhite"
+									className="font-medium rounded-bl-none rounded-br-none"
 								>
 									{profile?.nickname ?? "클메"}님
 								</Link>
@@ -85,16 +85,13 @@ function MainNavigation() {
 								<li key={index}>
 									<Link
 										href={nav.href}
-										className={`rounded-none font-medium hover:bg-pantone-cream
+										className={`rounded-none font-medium
                         ${
 													!session &&
 													index === 0 &&
 													"rounded-tl-lg rounded-tr-lg"
 												}
-                        ${
-													pathname === nav.href &&
-													"font-semibold bg-pantone-cream"
-												}
+                        ${pathname === nav.href && "font-semibold bg-gray-200"}
                     `}
 									>
 										{nav.title}
@@ -105,14 +102,14 @@ function MainNavigation() {
 							<li>
 								<Link
 									href={"/login"}
-									className="font-semibold rounded-tl-none rounded-tr-none bg-pantone-latte"
+									className="font-semibold rounded-tl-none rounded-tr-none bg-pantone-starwhite"
 								>
 									로그인·회원가입
 								</Link>
 							</li>
 						) : (
 							<li>
-								<SignOutButton className="font-semibold rounded-tl-none rounded-tr-none text-vintage-holiday-red bg-warm-vintage-off-white">
+								<SignOutButton className="font-semibold rounded-tl-none rounded-tr-none text-vintage-holiday-red">
 									로그아웃
 								</SignOutButton>
 							</li>
@@ -139,7 +136,7 @@ function MainNavigation() {
 							</li>
 						))}
 					{session ? (
-						<div className="flex items-center rounded-sm h-7">
+						<li className="flex items-center rounded-sm h-7">
 							<Link
 								data-tip="프로필"
 								href={`/profile/${session.user.id}`}
@@ -163,14 +160,16 @@ function MainNavigation() {
 									/>
 								</svg>
 							</SignOutButton>
-						</div>
+						</li>
 					) : (
-						<Link
-							href="/login"
-							className="bg-pantone-california-gold bg-opacity-50 text-xs sm:text-sm text-white rounded-sm flex items-center px-1 hover:bg-opacity-70 transition-all"
-						>
-							로그인·회원가입
-						</Link>
+						<li>
+							<Link
+								href="/login"
+								className="bg-pantone-california-gold bg-opacity-50 text-xs sm:text-sm text-white rounded-sm flex items-center px-1 hover:bg-opacity-70 transition-all"
+							>
+								로그인·회원가입
+							</Link>
+						</li>
 					)}
 				</ul>
 			</nav>
