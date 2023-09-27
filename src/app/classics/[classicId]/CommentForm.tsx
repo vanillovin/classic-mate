@@ -30,7 +30,7 @@ function CommentForm({ classicId }: { classicId: string }) {
 			content,
 			user_id: session.user.id,
 			classic_id: classicId,
-			nickname: profile?.nickname ?? "클메",
+			nickname: profile?.nickname ?? "꿀메",
 		});
 		if (!error) {
 			clearInputs();

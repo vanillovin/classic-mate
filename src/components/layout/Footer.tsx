@@ -33,10 +33,10 @@ function Footer() {
 						</li>
 					))}
 				</ul>
-				<p>© 2023 classic-mate.vercel.app</p>
+				<p>© 2023 kkulassic.vercel.app</p>
 				<p>Powered By Next.js Hosted By Vercel.</p>
 				<hr className="my-4 mx-auto border-pantone-babys-breath" />
-				<p>Made with 🤍 by ming</p>
+				<p>Made with 🤍 by Ming</p>
 			</div>
 		</footer>
 	);

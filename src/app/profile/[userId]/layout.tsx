@@ -43,7 +43,7 @@ export default async function Layout({
 					</div>
 					<div className="ml-2 sm:ml-0 sm:p-1">
 						<p className="font-semibold sm:mt-2">
-							{profile.nickname || "클메"}
+							{profile.nickname || "꿀메"}
 						</p>
 						<p className="text-sm sm:text-base">{profile.website}</p>
 						<p className="text-sm sm:text-base">{profile.description}</p>

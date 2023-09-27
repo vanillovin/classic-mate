@@ -80,7 +80,7 @@ function ComposerClassicalMusic() {
 						</div>
 						<div
 							aria-hidden="false"
-							className="absolute top-0 left-0 p-4 hidden group-hover:flex flex-col items-center justify-center text-white text-center bg-black bg-opacity-50 w-full h-full"
+							className="absolute top-0 left-0 p-4 hidden group-hover:flex flex-col items-center justify-center text-white text-center bg-black bg-opacity-60 w-full h-full"
 						>
 							{composer.shortDesc}
 							<Link

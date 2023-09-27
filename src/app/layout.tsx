@@ -13,7 +13,7 @@ import { ToastifyProvider } from "@/components/providers/toastify-provider";
 
 export type TypedSupabaseClient = SupabaseClient;
 
-export const metadata: Metadata = siteConfig["metaData"].home;
+export const metadata: Metadata = siteConfig.metaData["home"];
 
 // do not cache this page
 export const revalidate = 0;

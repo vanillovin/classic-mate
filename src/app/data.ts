@@ -37,19 +37,36 @@ export const musicPlayerBackgroundImageURLs = {
 		"https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/night-sky.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL25pZ2h0LXNreS5qcGciLCJpYXQiOjE2OTMzNzY5MjIsImV4cCI6MTcyNDkxMjkyMn0.p0bTLlctg2CaOuHUUkFErQxH1kdaF-5yt255LK3f5Ww&t=2023-08-30T06%3A28%3A42.721Z",
 };
 
-export const monthMusics: { [key: string]: { title: string; src: string } } = {
+export const monthMusics: {
+	[key: string]: { title: string; coverImgUrl: string; musicSrcUrl: string };
+} = {
 	"2023-08": {
 		title:
 			"비발디, '사계' 여름 (A.Vivaldi, Summer from The Four Seasons Op.8) / 이 무지치",
-		src: "https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/I%20Musici%20-%20Vivaldi%20Summer.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL0kgTXVzaWNpIC0gVml2YWxkaSBTdW1tZXIubXAzIiwiaWF0IjoxNjkzMzc3MDM1LCJleHAiOjE3MjQ5MTMwMzV9.NFwwpj9KK01-l9HxK0JhcS6DJPluIlgcmeZqQyl8rwg&t=2023-08-30T06%3A30%3A35.005Z",
+		coverImgUrl:
+			"https://images.unsplash.com/photo-1513883049090-d0b7439799bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+		musicSrcUrl:
+			"https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/I%20Musici%20-%20Vivaldi%20Summer.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL0kgTXVzaWNpIC0gVml2YWxkaSBTdW1tZXIubXAzIiwiaWF0IjoxNjkzMzc3MDM1LCJleHAiOjE3MjQ5MTMwMzV9.NFwwpj9KK01-l9HxK0JhcS6DJPluIlgcmeZqQyl8rwg&t=2023-08-30T06%3A30%3A35.005Z",
 	},
 	"2023-09": {
 		title: "Tchaikovsky: Piano Concerto No.1 1st Movement / Yeol Eum Son",
-		src: "https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/Yeol%20Eum%20Son%20-%20Tchikovsky%20Piano%20Concerto%20No1%201st.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL1llb2wgRXVtIFNvbiAtIFRjaGlrb3Zza3kgUGlhbm8gQ29uY2VydG8gTm8xIDFzdC5tcDMiLCJpYXQiOjE2OTMzNzY5OTcsImV4cCI6MTcyNDkxMjk5N30.W03tfrhNgHrniXqcQk6juV8BLMNifLG8jqdnD5z311o&t=2023-08-30T06%3A29%3A57.507Z",
+		coverImgUrl:
+			"https://images.unsplash.com/photo-1513883049090-d0b7439799bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+		musicSrcUrl:
+			"https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/Yeol%20Eum%20Son%20-%20Tchikovsky%20Piano%20Concerto%20No1%201st.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL1llb2wgRXVtIFNvbiAtIFRjaGlrb3Zza3kgUGlhbm8gQ29uY2VydG8gTm8xIDFzdC5tcDMiLCJpYXQiOjE2OTMzNzY5OTcsImV4cCI6MTcyNDkxMjk5N30.W03tfrhNgHrniXqcQk6juV8BLMNifLG8jqdnD5z311o&t=2023-08-30T06%3A29%3A57.507Z",
 	},
 	"2023-10": {
-		title: "Tchaikovsky: Piano Concerto No.1 1st Movement / Yeol Eum Son",
-		src: "https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/Yeol%20Eum%20Son%20-%20Tchikovsky%20Piano%20Concerto%20No1%201st.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL1llb2wgRXVtIFNvbiAtIFRjaGlrb3Zza3kgUGlhbm8gQ29uY2VydG8gTm8xIDFzdC5tcDMiLCJpYXQiOjE2OTMzNzY5OTcsImV4cCI6MTcyNDkxMjk5N30.W03tfrhNgHrniXqcQk6juV8BLMNifLG8jqdnD5z311o&t=2023-08-30T06%3A29%3A57.507Z",
+		title:
+			"비발디, '사계' 가을 (A.Vivaldi, Autumn from The Four Seasons Op.8) / 이 무지치",
+		coverImgUrl:
+			"https://images.unsplash.com/photo-1506202687253-52e1b29d3527?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+		musicSrcUrl:
+			"https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/Vivaldi%20Autumn%20%20from%20The%20Four%20Seasons%20Op8%20I%20Musici.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL1ZpdmFsZGkgQXV0dW1uICBmcm9tIFRoZSBGb3VyIFNlYXNvbnMgT3A4IEkgTXVzaWNpLm1wMyIsImlhdCI6MTY5NTgxNDkyNCwiZXhwIjoxNzAwOTk4OTI0fQ.M3Rns2bxZFKtLqNJe6sztbSkWEIHuUPY8bfqGUzrlDU&t=2023-09-27T11%3A42%3A04.411Z",
+	},
+	"2023-11": {
+		title: "",
+		coverImgUrl: "",
+		musicSrcUrl: "",
 	},
 };
 
@@ -115,32 +132,34 @@ export const monthClassics: { [key: string]: MonthClassic } = {
 		},
 	},
 	"2023-10": {
-		id: 15,
-		composer: "차이코프스키",
-		title: "피아노 협주곡 1번",
+		id: 53,
+		composer: "비발디",
+		title: "'사계' 중 가을 (The Four Seasons - Autumn)",
 		image:
-			"https://as1.ftcdn.net/v2/jpg/00/44/80/14/1000_F_44801423_qaUrUvPpfjSzsDID4dXeDXQfZJMtEefu.jpg",
-		description: `Tchaikovsky의 "Piano Concerto No. 1"은 19세기 말에 작곡된 클래식 음악 중 하나로, 유명한 클래식 피아노 협주곡 중 하나입니다. 이 곡은 작곡가 Pyotr Ilyich Tchaikovsky가 1874년에 작곡했으며, 현재까지 많은 연주자들과 오케스트라에 의해 연주되고 사랑받고 있습니다.
+			"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Vivaldi.jpg/250px-Vivaldi.jpg",
+		description: `비발디의 '사계' 중 가을은 이탈리아 바로크 시대의 대표작 중 하나로, 계절별 변화를 섬세하게 그려낸 음악입니다. 
 
-    작품의 시대 배경은 로맨틱 시대로, 감성적이고 열정적인 음악이 특징입니다. 이 곡은 3악장으로 구성되어 있으며, 첫 번째 악장은 점점 강렬해지는 현악기와 피아노의 대립을 통해 시작됩니다. 두 번째 악장은 서정적이고 아름다운 선율로 피아노가 주도하는 부분입니다. 마지막 악장은 화려하고 역동적인 연주로 마무리되며, 기교적인 피아노 연주와 오케스트라의 화려한 연주가 조화를 이룹니다.
+    가을은 사계의 세 번째 협주곡으로, 축제를 즐기는 사람들과 숙취에 시달리는 모습, 그리고 마지막으로 사냥꾼들이 야생동물을 추적하는 장면까지 세 악장에 걸쳐서 묘사됩니다.
 
-    "Piano Concerto No. 1"은 Tchaikovsky의 피아노 음악 중 가장 인기 있는 작품 중 하나로 꼽히며, 클래식 음악을 사랑하는 사람들에게는 익숙하고 사랑받는 곡입니다. 이 곡은 그의 재능과 예술적 표현력을 최대한 발휘한 작품 중 하나로 평가받고 있으며, 클래식 음악의 명곡 중 하나로 인정받고 있습니다.`,
-		videoUrl: "https://youtu.be/YXL0dkG-Qro",
+    비발디의 사계 중 가을은 비발디의 뛰어난 음악적 재능을 엿볼 수 있는 작품들입니다. 각각의 악장마다 독특한 분위기와 특징이 있으며, 가을날의 다양한 풍경을 생생하게 표현하고 있습니다.`,
+		videoUrl: "https://youtu.be/vYF70wVkeA0?si=13YZgPRqMHhlkAWB",
 		point: {
 			title: "곡 구성과 감상 포인트",
-			description: `1악장 - 강렬하고 역동적인 악장, 대립적인 피아노와 현악기의 연주로 화려함을 느낄 수 있습니다.
-      2악장 - 서정적이고 아름다운 선율, 우아하고 부드러운 연주로 아름다움을 느낄 수 있습니다.
-      3악장 - 화려하고 역동적인 연주, 피아노와 오케스트라의 조화로 흥겨움을 느낄 수 있습니다.
+			description: `1악장 - 풍성한 수확 뒤 축제를 즐기는 사람들의 기쁨과 활력 넘치는 분위기가 전해집니다.
+      2악장 - 숙취로 인해 잠든 사람들의 고통스러움과 동시에 평온함이 느껴집니다.
+      3악장 - 격렬하게 진행되는 사냥 장면 속에서 강렬한 리듬과 역동적인 멜로디를 즐길 수 있습니다.
 
-      이렇게 'Piano Concerto No. 1'은 각 악장마다 강렬함, 아름다움, 화려함과 흥겨움을 전달합니다.`,
+      "사계 중 가을"은 비발디의 창조적인 상상력과 음악적 재능을 통해 가을의 다양한 모습을 섬세하게 그려냈습니다.`,
 		},
 		performar: {
-			name: "조성진",
-			description: `조성진 피아니스트는 음악을 통해 감정과 이야기를 표현하는 예술가입니다. 그의 연주는 강렬하면서도 섬세한 터치로 음악의 깊은 감성을 전달합니다. 그의 손끝에서 피아노의 음색이 만들어지며, 그 소리는 청중들을 감동시킵니다.
-      조성진 피아니스트는 뛰어난 기교와 기술적 솜씨를 가지고 있으며, 그것을 통해 다양한 음악 작품을 완벽하게 해석합니다. 그의 연주는 듣는 이들에게 여러 감정을 일깨워주고, 그 속에서 아름다움과 감동을 찾을 수 있습니다.`,
-			instrumentalists: "피아니스트",
+			name: "클라라 주미 강",
+			description: `클라라 주미 강은 한국계 독일인 바이올리니스트로, 
+      2010년 인디애나폴리스 국제 바이올린 콩쿠르에서 우승하며 세계적인 주목을 받았습니다.
+      그녀의 연주는 정교한 테크닉과 깊은 감성이 더해져 청중들에게 강렬한 감동을 선사합니다. 손끝에서 흘러나오는 바이올린의 소리는 듣는 이들의 마음을 사로잡으며, 음악을 통해 다양한 감정과 이야기를 전달합니다.
+      클라라 주미 강의 연주는 대중적으로 사랑받으며, 클래식 음악을 사랑하는 사람들에게 특별한 경험을 선사합니다.`,
+			instrumentalists: "바이올리니스트",
 			moreLink:
-				"https://namu.wiki/w/%EC%A1%B0%EC%84%B1%EC%A7%84(%ED%94%BC%EC%95%84%EB%8B%88%EC%8A%A4%ED%8A%B8)",
+				"https://namu.wiki/w/%ED%81%B4%EB%9D%BC%EB%9D%BC%20%EC%A3%BC%EB%AF%B8%20%EA%B0%95",
 		},
 	},
 	"2023-11": {

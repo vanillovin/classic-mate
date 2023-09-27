@@ -52,7 +52,7 @@ export default async function HomePage() {
 				<h2
 					className={`text-2xl sm:text-3xl text-center font-medium drop-shadow-md`}
 				>
-					클메 TOP16
+					꿀래식 TOP16
 				</h2>
 				<PopularClassics classicsByLikeCount={classicsByLikeCount ?? []} />
 			</div>

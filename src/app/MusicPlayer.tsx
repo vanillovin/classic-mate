@@ -15,7 +15,7 @@ function MusicPlayer() {
 	const timeOfDay = useTimeOfDay();
 
 	const { currentYearMonth } = getCurrentDateInfo();
-	const { title, src } = monthMusics[currentYearMonth];
+	const { title, coverImgUrl, musicSrcUrl } = monthMusics[currentYearMonth];
 
 	const playAudio = () => {
 		audioRef.current?.play();
@@ -61,10 +61,10 @@ function MusicPlayer() {
 					<Image
 						fill={true}
 						alt="album-cover"
-						src="https://images.unsplash.com/photo-1583119912267-cc97c911e416?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+						src={coverImgUrl}
 						className="object-cover"
 					/>
-					<div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+					<div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black/20">
 						<button
 							aria-label={!isPlaying ? "재생" : "정지"}
 							onClick={!isPlaying ? playAudio : pauseAudio}
@@ -142,7 +142,7 @@ function MusicPlayer() {
 					ref={audioRef}
 					onTimeUpdate={updateProgress}
 					onLoadedMetadata={updateProgress}
-					src={src}
+					src={musicSrcUrl}
 					aria-label={`현재 재생 중인 음악: ${title}`}
 				/>
 				<div

@@ -32,7 +32,7 @@ function CommentForm({
 			content,
 			post_id: postId,
 			user_id: session.user.id,
-			nickname: profile?.nickname ?? "클메",
+			nickname: profile?.nickname ?? "꿀메",
 		});
 		if (!error) {
 			setContent("");

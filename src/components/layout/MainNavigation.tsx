@@ -36,13 +36,10 @@ function MainNavigation() {
 			<nav className="w-full max-w-6xl flex items-center justify-between">
 				<Link
 					href="/"
-					className="text-xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r 
+					className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r 
             from-pantone-california-gold to-pantone-metallic-gold animate-fade-in"
 				>
 					{siteConfig.name}
-					<span className="text-xs ml-1 hidden sm:inline">
-						당신의 클래식 메이트
-					</span>
 				</Link>
 				<div className="md:hidden dropdown dropdown-end">
 					<button
@@ -50,7 +47,6 @@ function MainNavigation() {
 						aria-controls="dropdown-menu"
 						className="flex items-center justify-center group cursor-pointer"
 					>
-						<title>드롭다운 메뉴 열기</title>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 24 24"
@@ -75,7 +71,7 @@ function MainNavigation() {
 									href={`/profile/${session.user.id}`}
 									className="font-medium rounded-bl-none rounded-br-none"
 								>
-									{profile?.nickname ?? "클메"}님
+									{profile?.nickname ?? "꿀메"}님
 								</Link>
 							</li>
 						)}
@@ -142,7 +138,7 @@ function MainNavigation() {
 								href={`/profile/${session.user.id}`}
 								className="tooltip tooltip-bottom border-r transition-all px-1 h-full flex items-center justify-center bg-pantone-powder hover:bg-pantone-champagne border-pantone-champagne"
 							>
-								{profile?.nickname ?? "클메"}님
+								{profile?.nickname ?? "꿀메"}님
 							</Link>
 							<SignOutButton className="tooltip tooltip-bottom px-1 h-full bg-pantone-powder hover:bg-pantone-champagne">
 								<svg

@@ -40,7 +40,7 @@ function Newspaper() {
 					<div
 						className={`flex-1 font-semibold text-xl sm:text-3xl text-center`}
 					>
-						클래식메이트
+						꿀래식메이트
 						<div className="font-normal text-sm sm:text-base">
 							- 이 달의 클래식 -
 						</div>
