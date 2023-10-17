@@ -7,6 +7,7 @@ import Newspaper from "./Newspaper";
 import PopularClassics from "./PopularClassics";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import { createServerClient } from "@/utils/supabase-server";
+import Link from "next/link";
 
 const dmSerifDisplay = DM_Serif_Display({
 	subsets: ["latin"],
@@ -27,7 +28,7 @@ export default async function HomePage() {
 
 			<div className="my-12">
 				<h2
-					className={`text-2xl sm:text-3xl text-center font-medium drop-shadow-md`}
+					className={`text-2xl sm:text-3xl text-center font-medium drop-shadow-sm text-black`}
 				>
 					오늘의 한 문장
 				</h2>
@@ -35,7 +36,7 @@ export default async function HomePage() {
 			</div>
 
 			<h2
-				className={`text-3xl sm:text-4xl text-center drop-shadow-md text-pantone-dark-navy 
+				className={`text-3xl sm:text-4xl text-center drop-shadow-sm text-black 
         ${dmSerifDisplay.className}
       `}
 			>
@@ -49,11 +50,15 @@ export default async function HomePage() {
 			<Newspaper />
 
 			<div className="my-12">
-				<h2
-					className={`text-2xl sm:text-3xl text-center font-medium drop-shadow-md`}
-				>
-					꿀래식 TOP16
-				</h2>
+				<div className="flex items-center justify-center gap-x-1 text-2xl sm:text-3xl font-medium text-center drop-shadow-sm text-black">
+					<h2>꿀래식 TOP16</h2>
+					<Link
+						href="/classics"
+						className="p-1 hover:text-pantone-metallic-gold hover:drop-shadow-md"
+					>
+						{">"}
+					</Link>
+				</div>
 				<PopularClassics classicsByLikeCount={classicsByLikeCount ?? []} />
 			</div>
 

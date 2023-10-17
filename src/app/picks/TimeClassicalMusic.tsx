@@ -10,16 +10,16 @@ function TimeClassicalMusic() {
 	const timeOfDay = useTimeOfDay();
 
 	return (
-		<table className="w-full border border-black bg-white rounded-sm shadow-md">
+		<table className="w-full rounded-sm shadow-lg bg-white">
 			<tbody>
 				{Object.keys(classicsByTime).map((key) => (
 					<tr
 						key={key}
-						className="border-b border-black last:border-0 text-sm sm:text-base"
+						className="border-b last:border-0 text-sm sm:text-base border-black/70"
 					>
 						<th
 							scope="row"
-							className={`border-r border-black p-1 sm:p-3
+							className={`border-r p-1 sm:p-3 border-black/70
               ${
 								key === timeOfDay &&
 								"bg-pantone-brandy-sniffer text-pantone-sun-kiss"

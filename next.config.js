@@ -51,7 +51,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'i.namu.wiki',
+        hostname: 'f4.bcbits.com',
         port: '',
         pathname: '/**',
       },

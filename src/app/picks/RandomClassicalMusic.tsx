@@ -8,11 +8,11 @@ function RandomClassicalMusic({ classics }: { classics: Classic[] }) {
 
 	return (
 		<div className="flex flex-col items-center justify-center">
-			<div className="relative border-8 bg-white w-full sm:w-[500px] h-[350px] sm:h-[450px] overflow-hidden rounded-tl-lg rounded-tr-lg shadow-md">
+			<div className="relative border-8 bg-white w-full sm:w-[500px] h-[350px] sm:h-[450px] overflow-hidden rounded-tl-lg rounded-tr-lg shadow-sm">
 				{Items()}
 				<div className="absolute z-10 w-full h-full bg-opacity-40 bg-gradient-to-br from-white via-blue-200 to-blue-400 opacity-20"></div>
 			</div>
-			<div className="flex gap-4 sm:gap-8 items-center justify-center border-8 w-full sm:w-[500px] h-[200px] sm:h-[300px] rounded-bl-lg rounded-br-lg bg-bluegold-palette-blue1 shadow-md">
+			<div className="flex gap-4 sm:gap-8 items-center justify-center border-8 w-full sm:w-[500px] h-[200px] sm:h-[300px] rounded-bl-lg rounded-br-lg shadow-md bg-bluegold-palette-blue1">
 				<button
 					tabIndex={0}
 					aria-label="랜덤 클래식 음악 추천 버튼"
@@ -39,7 +39,7 @@ function RandomClassicalMusic({ classics }: { classics: Classic[] }) {
 							</span>
 						</Link>
 					) : (
-						<div className="text-center p-2">
+						<div className="text-center p-2 text-pantone-starwhite">
 							버튼을 클릭해 랜덤 클래식 음악을 추천받으세요!
 						</div>
 					)}

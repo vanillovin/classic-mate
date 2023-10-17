@@ -1,16 +1,22 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 const ScrollToTopButton = () => {
-	const [isVisible, setIsVisible] = useState(false);
+	const buttonRef = useRef<HTMLButtonElement | null>(null);
 	const timerId = useRef<number | null>(null);
 
 	const toggleVisibility = () => {
 		if (window.scrollY > 300) {
-			setIsVisible(true);
+			if (buttonRef.current) {
+				buttonRef.current.style.opacity = "1";
+				buttonRef.current.style.visibility = "visible";
+			}
 		} else {
-			setIsVisible(false);
+			if (buttonRef.current) {
+				buttonRef.current.style.opacity = "0";
+				buttonRef.current.style.visibility = "hidden";
+			}
 		}
 
 		if (timerId.current !== null) {
@@ -18,7 +24,10 @@ const ScrollToTopButton = () => {
 		}
 
 		timerId.current = window.setTimeout(() => {
-			setIsVisible(false);
+			if (buttonRef.current) {
+				buttonRef.current.style.opacity = "0";
+				buttonRef.current.style.visibility = "hidden";
+			}
 		}, 2000);
 	};
 
@@ -35,11 +44,13 @@ const ScrollToTopButton = () => {
 		return () => window.removeEventListener("scroll", toggleVisibility);
 	}, []);
 
-	return isVisible ? (
+	return (
 		<button
+			ref={buttonRef}
 			onClick={handleScrollToTop}
 			aria-label="위로 가기"
-			className="fixed z-10 left-1/2 bottom-4 transform -translate-x-1/2 p-3 sm:p-4 rounded-full shadow-inner bg-white/50 hover:bg-white/80"
+			className="fixed z-10 left-1/2 bottom-4 transform -translate-x-1/2 p-3 sm:p-4 rounded-full shadow-inner bg-white/50 hover:bg-white/80 transition-opacity duration-500"
+			style={{ opacity: 0 }}
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +67,7 @@ const ScrollToTopButton = () => {
 				/>
 			</svg>
 		</button>
-	) : null;
+	);
 };
 
 export default ScrollToTopButton;

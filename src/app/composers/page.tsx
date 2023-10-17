@@ -19,7 +19,7 @@ export default async function ComposersPage() {
 		.order("id", { ascending: true });
 
 	return (
-		<section className="px-6 pt-12 pb-24 -mt-2 sm:-mt-4 w-full h-full min-h-screen bg-pantone-babys-breath">
+		<section className="px-6 pt-24 sm:pt-32 pb-24 -mt-14 sm:-mt-20 w-full h-full min-h-screen bg-pantone-babys-breath">
 			<div className="max-w-6xl mx-auto">
 				<h1
 					className={`flex flex-col items-center text-2xl sm:text-4xl drop-shadow-md mb-16 ${mont.className}`}

@@ -54,8 +54,9 @@ function MusicPlayer() {
 			style={{
 				backgroundImage: `url(${musicPlayerBackgroundImageURLs[timeOfDay]})`,
 			}}
-			className="relative w-full h-full p-6 py-10 sm:p-12 flex flex-col sm:flex-row items-center bg-center bg-cover rounded-sm shadow-md select-none"
+			className="relative w-full h-full p-6 py-10 sm:p-12 flex flex-col sm:flex-row items-center bg-center bg-cover rounded-md shadow-md select-none"
 		>
+			<div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-white/10" />
 			<div className="flex relative items-center justify-between">
 				<div className="w-24 h-24 sm:w-36 sm:h-36 relative overflow-hidden rounded-sm shadow-lg -ml-16 sm:ml-0 z-[1]">
 					<Image
@@ -64,7 +65,7 @@ function MusicPlayer() {
 						src={coverImgUrl}
 						className="object-cover"
 					/>
-					<div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black/20">
+					<div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black/10">
 						<button
 							aria-label={!isPlaying ? "재생" : "정지"}
 							onClick={!isPlaying ? playAudio : pauseAudio}

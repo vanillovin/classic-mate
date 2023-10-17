@@ -50,8 +50,8 @@
 html,
 body {
   font-family: "Pretendard", "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-  background: rgb(251,250,246);
-  background: radial-gradient(circle, rgba(251,250,246,1) 0%, rgba(223,211,175,1) 100%);
+  background: rgba(251,250,246,.6);
+  background: radial-gradient(circle, rgba(251,250,246,.6) 0%, rgba(223,211,175,.6) 100%);
 }
 
 input[type='range']::-webkit-slider-thumb {

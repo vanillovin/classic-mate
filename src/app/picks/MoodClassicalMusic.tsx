@@ -13,7 +13,7 @@ function MoodClassicalMusic() {
 			{[...classicalMusicByMoodMap].map(([key, value]) => (
 				<div
 					key={key}
-					className={`relative w-full rounded-sm p-4 shadow-md bg-opacity-70 hover:animate-tada
+					className={`relative w-full rounded-sm p-4 shadow-lg bg-opacity-70 hover:animate-tada
             ${value.bgColor}
           `}
 				>

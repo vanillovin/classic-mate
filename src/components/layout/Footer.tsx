@@ -1,35 +1,22 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
-import { type SiteConfig, siteConfig } from "@/config/site";
+import { siteConfig } from "@/config/site";
 
 function Footer() {
-	const pathname = usePathname();
-
-	const bgColor = pathname.includes("picks")
-		? "bg-pantone-brandy-sniffer"
-		: "bg-pantone-metallic-gold";
+	const links = Object.entries(siteConfig.links);
 
 	return (
 		<footer
-			className={`sticky w-full flex items-center justify-center top-[100vh] p-4 sm:p-8 text-center text-sm sm:text-base text-white ${bgColor}`}
+			className={`sticky w-full flex items-center justify-center top-[100vh] p-4 sm:p-8 text-center text-sm sm:text-base text-white bg-pantone-metallic-gold`}
 		>
 			<div className="w-full max-w-6xl">
 				<ul className="flex items-center justify-center">
-					{Object.keys(siteConfig.links).map((key, index) => (
-						<li key={index}>
-							<Link
-								target="_blank"
-								href={siteConfig.links[key as keyof SiteConfig["links"]]}
-								className="hover:underline"
-							>
+					{links.map(([key, value], index) => (
+						<li key={key}>
+							<Link target="_blank" href={value} className="hover:underline">
 								{key}
 							</Link>
-							{index < Object.values(siteConfig.links).length - 1 && (
-								<span className="mx-1">|</span>
-							)}
+							{index < links.length - 1 && <span className="mx-1">|</span>}
 						</li>
 					))}
 				</ul>

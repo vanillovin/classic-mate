@@ -69,7 +69,7 @@ function WeatherClassicalMusic() {
 	return (
 		<div
 			style={{ backgroundImage: `url(${backgroundImageURL})` }}
-			className="h-60 flex items-center justify-center rounded-sm shadow-md bg-center bg-cover border border-black p-4"
+			className="h-60 flex items-center justify-center rounded-sm shadow-lg bg-center bg-cover p-4"
 		>
 			{weather ? (
 				<div

@@ -30,11 +30,11 @@ function Newspaper() {
 
 	return (
 		<div
-			className={`flex flex-col gap-4 sm:gap-8 p-2 sm:p-4 rounded-sm mb-8 shadow-md text-black bg-cherish-natural ${hahmlet.className}`}
+			className={`flex flex-col gap-4 sm:gap-8 p-2 sm:p-4 rounded-md mb-8 shadow-md text-black bg-cherish-natural/90 ${hahmlet.className}`}
 		>
-			<div className="border rounded-sm border-cherish-ivory">
-				<div className="h-16 sm:h-20 flex items-center border-t border-b-2 border-cherish-ivory">
-					<div className="h-full border-r px-4 sm:px-8 text-xl drop-shadow-sm sm:text-3xl flex items-center justify-center border-cherish-ivory">
+			<div className="border rounded-sm border-cherish-ivory/90">
+				<div className="h-16 sm:h-20 flex items-center border-t border-b-2 border-cherish-ivory/90">
+					<div className="h-full border-r px-4 sm:px-8 text-xl drop-shadow-sm sm:text-3xl flex items-center justify-center border-cherish-ivory/90">
 						𝄞
 					</div>
 					<div
@@ -45,7 +45,7 @@ function Newspaper() {
 							- 이 달의 클래식 -
 						</div>
 					</div>
-					<div className="h-full font-semibold border-l px-2 sm:px-8 flex flex-col items-center justify-center text-sm sm:text-base border-cherish-ivory">
+					<div className="h-full font-semibold border-l px-2 sm:px-8 flex flex-col items-center justify-center text-sm sm:text-base border-cherish-ivory/90">
 						<div className="text-base sm:text-lg">{currentMonth}월호</div>
 						<div className="-mt-1 text-vintage-holiday-red">
 							#{currentYearMonth.substring(2, 7).replace("-", "")}
@@ -65,21 +65,21 @@ function Newspaper() {
 						<p className="my-6 leading-6 whitespace-pre-line">{description}</p>
 						<Link
 							href={`/classics/${id}`}
-							className="px-2 py-1 rounded-sm shadow-sm border transition-all border-opacity-50 text-white border-white hover:bg-cherish-apricot"
+							className="px-2 py-1 rounded-sm shadow-sm border transition-all border-opacity-50 text-white border-white hover:bg-cherish-apricot/90"
 						>
 							더 보기
 						</Link>
 					</div>
 				</div>
 
-				<div className="flex flex-col md:flex-row items-center px-4 py-8 border-t border-y my-4 border-cherish-ivory">
+				<div className="flex flex-col md:flex-row items-center px-4 py-8 border-t border-y my-4 border-cherish-ivory/90">
 					<div className="w-full md:w-1/2 pb-8 md:p-4">
 						<h3 className="whitespace-pre-line text-lg text-center md:text-start font-medium mb-4  drop-shadow-md text-autumn-darkblue">
 							{point.title}
 						</h3>
 						<p className="whitespace-pre-line leading-6">{point.description}</p>
 					</div>
-					<div className="hidden md:block sm:border-r mr-4 h-88 border-cherish-ivory" />
+					<div className="hidden md:block sm:border-r mr-4 h-88 border-cherish-ivory/90" />
 					<div className="w-full md:w-1/2 h-[200px] sm:h-[300px] relative rounded-sm overflow-hidden">
 						<Image
 							fill
@@ -103,7 +103,7 @@ function Newspaper() {
 						<p className="text-center leading-6">{performar.description}</p>
 						<Link
 							target="_blank"
-							className="mt-4 text-sm font-medium hover:underline underline-offset-4 text-autumn-darkblue"
+							className="mt-6 text-sm font-medium hover:underline underline-offset-4 text-autumn-darkblue"
 							href={performar.moreLink}
 						>
 							{performar.name} {performar.instrumentalists}가 더 궁금하다면

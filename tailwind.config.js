@@ -104,6 +104,9 @@ module.exports = {
       fontSize: {
         '2xs': '.5rem',
       },
+      scale: {
+        '102': '1.02',
+      },
       spacing: { 
         'left-17': '4.25rem', 
         'left-30': '7.50rem', 

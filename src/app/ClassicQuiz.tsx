@@ -8,11 +8,14 @@ import { getCurrentDateInfo } from "@/utils/dateUtils";
 function ClassicQuiz() {
 	const [userAnswer, setUserAnswer] = useState<number | null>(null);
 	const { currentDateString, currentDay } = getCurrentDateInfo();
-	const currentQuiz = quizData[currentDateString] ?? quizData["2023-09-01"];
+	const currentQuiz = quizData[currentDateString] ?? quizData["2023-10-01"];
 
 	const renderOptions = () => {
 		return currentQuiz.options.map((option, index) => (
-			<label key={index} className="flex items-center justify-center gap-1">
+			<label
+				key={index}
+				className="flex items-center justify-center gap-1 cursor-pointer"
+			>
 				<input
 					type="radio"
 					value={index}
@@ -27,17 +30,17 @@ function ClassicQuiz() {
 	};
 
 	return (
-		<div className="w-full p-4 bg-white border border-black rounded-sm shadow-md text-center">
+		<div className="w-full p-4 rounded-md shadow-md text-center bg-white/90">
 			<h2 className="flex flex-col items-center justify-center font-semibold text-2xl sm:text-3xl gap-2 drop-shadow-md">
-				<span className="text-sm sm:text-base bg-autumn-gold px-2 py-1 rounded-full">
+				<span className="text-sm sm:text-base px-3 py-1 rounded-full bg-autumn-gold">
 					{currentDateString.replaceAll("-", ". ")} {currentDay}
 				</span>
 				오늘의 클래식 퀴즈!
 			</h2>
-			<h3 className="font-medium text-lg my-1 underline underline-offset-4">
+			<h3 className="font-medium text-lg sm:text-2xg my-1 underline underline-offset-4">
 				Q. {currentQuiz.question}
 			</h3>
-			<div className="flex flex-col sm:flex-row items-center justify-center gap-4 px-2 py-4">
+			<div className="text-sm sm:text-base flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 px-2 py-2 sm:py-4">
 				{renderOptions()}
 			</div>
 			<div>

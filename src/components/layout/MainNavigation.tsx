@@ -13,31 +13,34 @@ function MainNavigation() {
 	const { profile } = useAuth();
 	const { session } = useSupabase();
 	const pathname = usePathname();
-	// const [scrollY, setScrollY] = useState(0);
+	const [isScrolled, setIsScrolled] = useState(false);
 
-	// useEffect(() => {
-	// 	const handleScroll = () => {
-	// 		setScrollY(window.scrollY);
-	// 	};
+	useEffect(() => {
+		const handleScroll = () => {
+			setIsScrolled(window.scrollY > 0);
+		};
 
-	// 	window.addEventListener("scroll", handleScroll);
+		window.addEventListener("scroll", handleScroll);
 
-	// 	return () => {
-	// 		window.removeEventListener("scroll", handleScroll);
-	// 	};
-	// }, []);
-
-	// const isScrolled = scrollY > 0;
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+		};
+	}, []);
 
 	return (
 		<header
-			className={`w-full sticky top-0 z-20 flex items-center justify-center px-4 h-12 sm:h-16 select-none bg-white/95 backdrop-blur-sm transition-all shadow-sm`}
+			className={`w-full sticky top-0 z-20 flex items-center justify-center px-4 h-12 sm:h-16 select-none transition-all bg-white
+        ${
+					isScrolled
+						? "bg-opacity-95 backdrop-blur shadow-md"
+						: "bg-opacity-10 shadow-md"
+				}
+      `}
 		>
 			<nav className="w-full max-w-6xl flex items-center justify-between">
 				<Link
 					href="/"
-					className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r 
-            from-pantone-california-gold to-pantone-metallic-gold animate-fade-in"
+					className={`text-xl sm:text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pantone-california-gold to-pantone-metallic-gold animate-fade-in`}
 				>
 					{siteConfig.name}
 				</Link>
@@ -51,7 +54,9 @@ function MainNavigation() {
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 24 24"
 							fill="currentColor"
-							className="w-6 h-6 text-pantone-pale-gold"
+							className={`w-6 h-6 ${
+								isScrolled ? "text-pantone-pale-gold" : "text-white"
+							}`}
 						>
 							<path
 								fillRule="evenodd"
@@ -123,7 +128,9 @@ function MainNavigation() {
                     ${
 											pathname === nav.href
 												? "text-vintage-holiday-brown font-semibold"
-												: "text-pantone-metallic-gold hover:text-vintage-holiday-brown"
+												: isScrolled
+												? "text-pantone-metallic-gold hover:text-vintage-holiday-brown"
+												: "text-black hover:text-vintage-holiday-brown"
 										}
                   `}
 								>
@@ -161,7 +168,9 @@ function MainNavigation() {
 						<li>
 							<Link
 								href="/login"
-								className="bg-pantone-california-gold bg-opacity-50 text-xs sm:text-sm text-white rounded-sm flex items-center px-1 hover:bg-opacity-70 transition-all"
+								className={`bg-pantone-california-gold/60 text-xs sm:text-sm rounded-sm flex items-center px-1 hover:bg-pantone-california-gold/90 transition-all
+                  ${isScrolled ? "text-white" : "text-black"}
+                `}
 							>
 								로그인·회원가입
 							</Link>

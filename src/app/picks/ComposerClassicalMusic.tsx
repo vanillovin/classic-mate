@@ -64,7 +64,7 @@ function ComposerClassicalMusic() {
 				{data?.map((composer) => (
 					<article
 						key={composer.id}
-						className="group relative p-2 bg-white shadow-md border border-black rounded-sm w-56 h-72 flex flex-col items-center justify-center"
+						className="group relative p-2 shadow-lg rounded-sm w-56 h-72 flex flex-col items-center justify-center bg-white"
 					>
 						<div className="w-40 h-52 relative overflow-hidden rounded-sm">
 							<Image
