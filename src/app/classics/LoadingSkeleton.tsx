@@ -4,7 +4,7 @@ import React from "react";
 
 export default function LoadingSkeleton() {
 	return (
-		<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4">
+		<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 p-1">
 			{Array.from({ length: 16 }).map((_, index) => (
 				<div
 					key={index}

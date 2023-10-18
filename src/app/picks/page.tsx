@@ -24,9 +24,9 @@ export default async function PicksPage() {
 	const { data } = await supabase.from("all_classics").select();
 
 	return (
-		<div className="px-6 pt-24 sm:pt-32 pb-24 -mt-14 sm:-mt-20 w-full h-full bg-pantone-white-pepper">
-			<div className="max-w-6xl mx-auto flex flex-col gap-y-8 sm:gap-y-16">
-				<div className="rounded-sm shadow-lg p-3 sm:p-4 bg-pantone-cream">
+		<div className="px-3 sm:px-6 pt-20 sm:pt-32 pb-24 -mt-14 sm:-mt-20 w-full h-full bg-pantone-white-pepper">
+			<div className="max-w-6xl mx-auto flex flex-col gap-y-10 sm:gap-y-16">
+				<div className="rounded-sm shadow-lg p-3 sm:p-4 bg-pantone-powder/90">
 					<div className="font-semibold text-lg sm:text-2xl">
 						무슨 클래식 음악을 들어야 할지 모르겠다면?
 						<br />
@@ -53,11 +53,11 @@ export default async function PicksPage() {
 
 				<section id="time">
 					<h2
-						className={`text-center text-2xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
+						className={`text-center text-3xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
 					>
 						Time.
 					</h2>
-					<p className="text-center pt-3 py-6 text-pantone-dark-navy">
+					<p className="text-center text-sm sm:text-base pt-3 py-6 text-pantone-dark-navy">
 						하루를 완성하는 클래식 음악, 시간대별 듣기 좋은 곡을 추천해드릴게요.
 					</p>
 					<TimeClassicalMusic />
@@ -65,11 +65,11 @@ export default async function PicksPage() {
 
 				<section id="weather">
 					<h2
-						className={`text-center text-2xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
+						className={`text-center text-3xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
 					>
 						Weather.
 					</h2>
-					<p className="text-center pt-3 py-6 text-pantone-dark-navy">
+					<p className="text-center text-sm sm:text-base pt-3 py-6 text-pantone-dark-navy">
 						현재 날씨와 어울리는 클래식 음악으로 하루를 더욱 특별하게 만들어
 						보세요.
 					</p>
@@ -78,11 +78,11 @@ export default async function PicksPage() {
 
 				<section id="composer" className="h-96">
 					<h2
-						className={`text-center text-2xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
+						className={`text-center text-3xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
 					>
 						Composer.
 					</h2>
-					<p className="text-center pt-3 py-6 text-pantone-dark-navy">
+					<p className="text-center text-sm sm:text-base pt-3 py-6 text-pantone-dark-navy">
 						클래식 작곡가들과 그들이 선사하는 음악 세계를 만나보세요.
 					</p>
 					<ComposerClassicalMusic />
@@ -90,11 +90,11 @@ export default async function PicksPage() {
 
 				<section id="genre" className="">
 					<h2
-						className={`text-center text-2xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
+						className={`text-center text-3xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
 					>
 						Genre.
 					</h2>
-					<p className="text-center pt-3 py-6 text-pantone-dark-navy">
+					<p className="text-center text-sm sm:text-base pt-3 py-6 text-pantone-dark-navy">
 						다양한 장르의 클래식 곡들로 음악적 스펙트럼을 넓혀보세요!
 					</p>
 					<GenreClassicalMusic classics={data ?? []} />
@@ -102,11 +102,11 @@ export default async function PicksPage() {
 
 				<section id="random" className="">
 					<h2
-						className={`text-center text-2xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
+						className={`text-center text-3xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
 					>
 						Random.
 					</h2>
-					<p className="text-center pt-3 py-6 text-pantone-dark-navy">
+					<p className="text-center text-sm sm:text-base pt-3 py-6 text-pantone-dark-navy">
 						어떤 곡이 당신을 기다리고 있을까요? 랜덤 버튼을 클릭해보세요!
 					</p>
 					<RandomClassicalMusic classics={data ?? []} />
@@ -114,11 +114,11 @@ export default async function PicksPage() {
 
 				<section id="mood" className="">
 					<h2
-						className={`text-center text-2xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
+						className={`text-center text-3xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
 					>
 						Mood.
 					</h2>
-					<p className="text-center pt-3 py-6 text-pantone-dark-navy">
+					<p className="text-center text-sm sm:text-base pt-3 py-6 text-pantone-dark-navy">
 						오늘은 어떤 기분인가요? 당신의 감정 온도에 맞는 클래식 음악 추천해
 						드립니다.
 					</p>

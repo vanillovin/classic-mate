@@ -39,7 +39,7 @@ function RandomClassicalMusic({ classics }: { classics: Classic[] }) {
 							</span>
 						</Link>
 					) : (
-						<div className="text-center p-2 text-pantone-starwhite">
+						<div className="text-center text-sm sm:text-base p-2 text-pantone-starwhite">
 							버튼을 클릭해 랜덤 클래식 음악을 추천받으세요!
 						</div>
 					)}

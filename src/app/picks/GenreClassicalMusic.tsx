@@ -15,7 +15,7 @@ function GenreClassicalMusic({ classics }: { classics: Classic[] }) {
 	const results =
 		selectedGenre === "all"
 			? classics
-			: classics.filter((classic) => classic.genre === selectedGenre);
+			: classics.filter((classic) => classic.genre.includes(selectedGenre));
 
 	return (
 		<div>
@@ -24,7 +24,7 @@ function GenreClassicalMusic({ classics }: { classics: Classic[] }) {
 					<button
 						key={genre}
 						onClick={() => setSelectedGenre(genre)}
-						className={`warm-vintage-off-white-1 px-2 sm:border-r last:border-r-0 text-warm-vintage-off-white hover:bg-white/20
+						className={`text-sm sm:text-base px-2 border-r last:border-r-0 text-warm-vintage-off-white hover:bg-white/20
               ${genre === selectedGenre && "text-white bg-white/20"}
             `}
 					>
@@ -32,10 +32,10 @@ function GenreClassicalMusic({ classics }: { classics: Classic[] }) {
 					</button>
 				))}
 			</div>
-			<p className="text-sm sm:text-base text-center p-4 font-light text-pantone-powder">
-				{description}
+			<p className="text-sm sm:text-base text-center px-4 pt-3 py-6 font-light leading-4">
+				{description ? `❝${description}❞` : ""}
 			</p>
-			<div className="no-scrollbar grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 rounded-sm shadow-md max-h-80 overflow-y-auto border p-2 border-black/80">
+			<div className="comm-scrollbar grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 rounded-sm shadow-md max-h-80 overflow-y-auto border p-2 border-black/80">
 				{results.map((result) => (
 					<Link
 						key={result.id}

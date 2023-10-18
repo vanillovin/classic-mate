@@ -52,10 +52,7 @@ export default async function HomePage() {
 			<div className="my-12">
 				<div className="flex items-center justify-center gap-x-1 text-2xl sm:text-3xl font-medium text-center drop-shadow-sm text-black">
 					<h2>꿀래식 TOP16</h2>
-					<Link
-						href="/classics"
-						className="p-1 hover:text-pantone-metallic-gold hover:drop-shadow-md"
-					>
+					<Link href="/classics" className="p-2 text-black/60">
 						{">"}
 					</Link>
 				</div>

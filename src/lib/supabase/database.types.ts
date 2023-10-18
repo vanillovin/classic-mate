@@ -14,7 +14,7 @@ export interface Database {
 					composer: string;
 					cover_image: string;
 					description: string;
-					genre: string;
+					genre: string[];
 					id: number;
 					like_count: number;
 					tags: string[];
@@ -26,7 +26,7 @@ export interface Database {
 					composer: string;
 					cover_image: string;
 					description: string;
-					genre: string;
+					genre: string[];
 					id?: never;
 					like_count?: number;
 					tags: string[];
@@ -38,7 +38,7 @@ export interface Database {
 					composer?: string;
 					cover_image?: string;
 					description?: string;
-					genre?: string;
+					genre: string[];
 					id?: never;
 					like_count?: number;
 					tags?: string[];

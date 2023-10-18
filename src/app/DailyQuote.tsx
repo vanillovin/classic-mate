@@ -22,7 +22,7 @@ function DailyQuote() {
 				<p className="text-center whitespace-pre-line text-base sm:text-lg font-medium my-1">
 					{currentQuote.sentence}
 				</p>
-				<p className="text-2xl sm:text-3xl text-gray-400 -mt-2">❞</p>
+				<p className="text-2xl sm:text-3xl text-gray-400 -mt-2"></p>
 				<p className="text-sm sm:text-base -mt-4">-{currentQuote.author}-</p>
 			</div>
 		</div>

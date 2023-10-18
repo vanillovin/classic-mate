@@ -37,7 +37,7 @@ function ClassicQuiz() {
 				</span>
 				오늘의 클래식 퀴즈!
 			</h2>
-			<h3 className="font-medium text-lg sm:text-2xg my-1 underline underline-offset-4">
+			<h3 className="font-medium text-lg sm:text-2xg pt-2 pb-1 underline underline-offset-4">
 				Q. {currentQuiz.question}
 			</h3>
 			<div className="text-sm sm:text-base flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 px-2 py-2 sm:py-4">

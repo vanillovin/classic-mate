@@ -3,8 +3,8 @@
 import React from "react";
 import Link from "next/link";
 
-import { classicsByTime } from "./data";
-import useTimeOfDay from "@/hooks/useTimeOfDay";
+import { classicsByTime, timePeriods } from "./data";
+import useTimeOfDay, { type TimeOfDay } from "@/hooks/useTimeOfDay";
 
 function TimeClassicalMusic() {
 	const timeOfDay = useTimeOfDay();
@@ -12,7 +12,7 @@ function TimeClassicalMusic() {
 	return (
 		<table className="w-full rounded-sm shadow-lg bg-white">
 			<tbody>
-				{Object.keys(classicsByTime).map((key) => (
+				{Object.entries(classicsByTime).map(([key, value]) => (
 					<tr
 						key={key}
 						className="border-b last:border-0 text-sm sm:text-base border-black/70"
@@ -26,9 +26,12 @@ function TimeClassicalMusic() {
 							}
             `}
 						>
-							{key}
+							<p>{key}</p>
+							<p className="-mt-1 text-xs sm:text-sm font-light">
+								({timePeriods[key as TimeOfDay]})
+							</p>
 						</th>
-						{classicsByTime[key].map((classic) => (
+						{value.map((classic) => (
 							<td
 								key={classic.id}
 								className={`leading-4 text-center
