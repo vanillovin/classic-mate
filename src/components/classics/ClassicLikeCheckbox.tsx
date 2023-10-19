@@ -1,14 +1,14 @@
 "use client";
 
-import { toast } from "react-toastify";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
 import HeartIcon from "../icons/HeartIcon";
 import supabase from "@/lib/supabase/client";
 import { useSupabase } from "../providers/supabase-provider";
 
-type ClassicLikeButtonProps = {
+type ClassicLikeCheckboxProps = {
 	classicId: number;
 	classicTitle: string;
 	className?: string;
@@ -18,6 +18,7 @@ type ClassicLikeButtonProps = {
 
 const CLASSIC_LIKES_QUERY_KEY = (userId: string) => ["classicLikes", userId];
 
+// TODO: 실제 서버 likeCount 변경
 async function fetchClssicLikes(userId: string): Promise<ClassicLike[]> {
 	const { data } = await supabase
 		.from("classic_likes")
@@ -26,15 +27,16 @@ async function fetchClssicLikes(userId: string): Promise<ClassicLike[]> {
 	return data ?? [];
 }
 
-function ClassicLikeButton({
+function ClassicLikeCheckbox({
 	classicId,
 	classicTitle,
 	className = "",
 	serverLikeCount,
 	isShowLikeCount = false,
-}: ClassicLikeButtonProps) {
+}: ClassicLikeCheckboxProps) {
 	const queryClient = useQueryClient();
 	const { supabase, session } = useSupabase();
+	const checkboxId = `checkbox-${classicId}`;
 
 	const { data: likes } = useQuery({
 		queryKey: CLASSIC_LIKES_QUERY_KEY(session?.user.id ?? ""),
@@ -42,9 +44,9 @@ function ClassicLikeButton({
 		enabled: !!session,
 	});
 	const [isHovered, setIsHovered] = useState(false);
+	const handleHoverInAndOut = () => setIsHovered(!isHovered);
 	const isLiked = !!likes?.find((like) => like.classic_id === classicId);
 	const [likeCount, setLikeCount] = useState(serverLikeCount);
-	const handleHoverInAndOut = () => setIsHovered(!isHovered);
 
 	async function addLike() {
 		const { error } = await supabase.from("classic_likes").insert({
@@ -104,7 +106,7 @@ function ClassicLikeButton({
 		},
 	});
 
-	async function handleAddOrRemoveLike(e: React.MouseEvent<HTMLButtonElement>) {
+	function handleAddOrRemoveLike(e: React.MouseEvent<HTMLInputElement>) {
 		e.preventDefault();
 		if (!session) {
 			return toast.error("로그인 후 이용 가능합니다.");
@@ -114,21 +116,32 @@ function ClassicLikeButton({
 	}
 
 	return (
-		<button
-			aria-label={`클래식 좋아요${isLiked ? " 취소" : ""}`}
-			onMouseEnter={handleHoverInAndOut}
-			onMouseLeave={handleHoverInAndOut}
-			onClick={handleAddOrRemoveLike}
-			className={`flex items-center justify-center ${className}`}
-		>
-			<HeartIcon
-				fill={isLiked ? "currentColor" : isHovered ? "currentColor " : "none"}
+		<div className={`flex items-center justify-center ${className}`}>
+			<label
+				htmlFor={checkboxId}
+				className="flex items-center justify-center cursor-pointer"
+			>
+				<HeartIcon
+					fill={isLiked ? "currentColor" : isHovered ? "currentColor " : "none"}
+					onMouseEnter={handleHoverInAndOut}
+					onMouseLeave={handleHoverInAndOut}
+					onClick={handleAddOrRemoveLike}
+				/>
+			</label>
+			<input
+				id={checkboxId}
+				type="checkbox"
+				checked={isLiked}
+				// aria-checked={isLiked}
+				aria-label={`클래식 좋아요${isLiked ? " 취소" : ""}`}
+				className={`hidden`}
 			/>
+			<span aria-live="polite"></span>
 			{isShowLikeCount && (
 				<span className="text-sm sm:text-base">{likeCount}</span>
 			)}
-		</button>
+		</div>
 	);
 }
 
-export default ClassicLikeButton;
+export default ClassicLikeCheckbox;

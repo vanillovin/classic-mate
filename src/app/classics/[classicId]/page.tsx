@@ -4,7 +4,7 @@ import { convertToEmbeddedURL } from "@/utils/youtubeUtils";
 import { createServerClient } from "@/utils/supabase-server";
 import Comments from "./Comments";
 import TagLinkList from "@/components/TagLinkList";
-import ClassicLikeButton from "@/components/classics/ClassicLikeButton";
+import ClassicLikeCheckbox from "@/components/classics/ClassicLikeCheckbox";
 
 export default async function ClassicDetailPage({
 	params,
@@ -35,7 +35,7 @@ export default async function ClassicDetailPage({
 			<p className="text-center text-sm sm:text-base my-4 sm:px-12">
 				{classic.description}
 			</p>
-			<ClassicLikeButton
+			<ClassicLikeCheckbox
 				isShowLikeCount
 				classicId={classic.id}
 				classicTitle={classic.title}

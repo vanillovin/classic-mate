@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import ClassicLikeButton from "@/components/classics/ClassicLikeButton";
+import ClassicLikeCheckbox from "@/components/classics/ClassicLikeCheckbox";
 
 function ClassicItem({
 	classic,
@@ -19,26 +19,23 @@ function ClassicItem({
 		>
 			<div>
 				<div className="flex items-center justify-between">
-					<h2 className="text-sm sm:text-base font-semibold">
+					<h2 className="text-sm sm:text-base font-semibold overflow-hidden whitespace-nowrap truncate">
 						{classic.title}
 					</h2>
-					<ClassicLikeButton
-						className="pl-1 pb-1"
+					<ClassicLikeCheckbox
 						classicId={classic.id}
 						classicTitle={classic.title}
 						serverLikeCount={likeCount}
 					/>
 				</div>
-				<p className="text-xs sm:text-sm my-1">
-					{classic.description.length > 70
-						? `${classic.description.substring(0, 70)}...`
-						: classic.description}
+				<p className="text-xs sm:text-sm my-1 h-12 sm:h-16 overflow-hidden">
+					{`${classic.description.substring(0, 70)}...`}
 				</p>
 				<ul className={`flex flex-wrap items-center gap-1`}>
 					{classic.tags.map((tag) => (
 						<li
 							key={tag}
-							className="text-xs sm:text-sm rounded-sm p-1 bg-vintage-holiday-red text-white"
+							className="text-xs sm:text-sm rounded-sm p-1 bg-vintage-holiday-red/95 text-white"
 						>
 							{tag}
 						</li>
