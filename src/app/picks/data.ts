@@ -5,7 +5,7 @@ export const timePeriods: {
 } = {
 	dawn: "0시~5시",
 	morning: "5시~9시",
-	afternoon: "09시~17시",
+	afternoon: "9시~17시",
 	evening: "17시~21시",
 	night: "21시~24시",
 };

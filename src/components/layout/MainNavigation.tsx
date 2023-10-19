@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
 import { siteConfig } from "@/config/site";
@@ -13,6 +13,8 @@ function MainNavigation() {
 	const { profile } = useAuth();
 	const { session } = useSupabase();
 	const pathname = usePathname();
+
+	const [isOpen, setIsOpen] = useState(false);
 	const [isScrolled, setIsScrolled] = useState(false);
 
 	useEffect(() => {
@@ -44,10 +46,12 @@ function MainNavigation() {
 				>
 					{siteConfig.name}
 				</Link>
-				<div className="md:hidden dropdown dropdown-end">
-					<button
+				<details className={`md:hidden dropdown dropdown-end`}>
+					<summary
 						aria-haspopup="true"
 						aria-controls="dropdown-menu"
+						onClick={() => setIsOpen(!isOpen)}
+						aria-label={isOpen ? "드롭다운 메뉴 닫기" : "드롭다운 메뉴 열기"}
 						className="flex items-center justify-center group cursor-pointer"
 					>
 						<svg
@@ -64,7 +68,7 @@ function MainNavigation() {
 								clipRule="evenodd"
 							/>
 						</svg>
-					</button>
+					</summary>
 					<ul
 						id="dropdown-menu"
 						tabIndex={0}
@@ -116,7 +120,7 @@ function MainNavigation() {
 							</li>
 						)}
 					</ul>
-				</div>
+				</details>
 				<ul className="max-w-6xl hidden md:flex items-center font-medium gap-x-3">
 					{siteConfig.mainNav
 						.slice(1, siteConfig.mainNav.length)
