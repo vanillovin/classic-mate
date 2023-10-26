@@ -9,8 +9,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useSupabase } from "@/components/providers/supabase-provider";
 
 function CommentItem({ comment }: { comment: ClassicComment }) {
-	const { session } = useSupabase();
-	const { supabase } = useSupabase();
+	const { session, supabase } = useSupabase();
 	const queryClient = useQueryClient();
 	const [isEditing, setIsEditing] = useState(false);
 	const [content, setContent] = useState(comment.content);
@@ -51,10 +50,10 @@ function CommentItem({ comment }: { comment: ClassicComment }) {
 	return (
 		<li
 			key={comment.id}
-			className="border-b last:border-none border-white bg-white bg-opacity-40 p-2"
+			className="w-full border-b last:border-none border-white bg-white bg-opacity-40 p-2"
 		>
 			{!isEditing ? (
-				<>
+				<div className="w-full">
 					<div className="flex items-center justify-between">
 						<div className="flex items-center">
 							<Link
@@ -75,6 +74,7 @@ function CommentItem({ comment }: { comment: ClassicComment }) {
 						{session?.user.id === comment.user_id && (
 							<div className="flex gap-1">
 								<button
+									aria-label="댓글 수정"
 									className="text-gray-800 text-sm"
 									onClick={() => setIsEditing(true)}
 								>
@@ -94,6 +94,7 @@ function CommentItem({ comment }: { comment: ClassicComment }) {
 									</svg>
 								</button>
 								<button
+									aria-label="댓들 삭제"
 									className="text-gray-800 text-sm"
 									onClick={handleDeleteComment}
 								>
@@ -115,23 +116,25 @@ function CommentItem({ comment }: { comment: ClassicComment }) {
 							</div>
 						)}
 					</div>
-					<p className="py-1">{comment.content}</p>
-				</>
+					<p className="w-full py-1 whitespace-pre-wrap">{comment.content}</p>
+				</div>
 			) : (
 				<>
 					<textarea
 						value={content}
 						onChange={(e) => setContent(e.target.value)}
-						className="w-full p-1 rounded-sm max-h-32"
+						className="w-full p-1 rounded-sm max-h-32 outline-none resize-none"
 					/>
 					<div className="text-end">
 						<button
-							className="text-sm py-1 px-2 rounded-sm opacity-70  hover:opacity-100 transition-all text-white bg-pantone-berkeley-blue"
+							aria-label="수정 확인"
+							className="text-sm py-1 px-2 rounded-sm opacity-70 hover:opacity-100 transition-all text-white bg-pantone-berkeley-blue"
 							onClick={handleEditComment}
 						>
 							확인
 						</button>
 						<button
+							aria-label="수정 취소"
 							className="text-sm py-1 px-2 rounded-sm ml-1 opacity-70 hover:opacity-100 transition-all text-white bg-pantone-dark-navy"
 							onClick={() => setIsEditing(false)}
 						>

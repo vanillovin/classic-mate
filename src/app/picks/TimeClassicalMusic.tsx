@@ -19,12 +19,13 @@ function TimeClassicalMusic() {
 					>
 						<th
 							scope="row"
+							aria-current={key === timeOfDay ? "time" : undefined}
 							className={`border-r p-1 sm:p-3 border-black/70
-              ${
-								key === timeOfDay &&
-								"bg-pantone-brandy-sniffer text-pantone-sun-kiss"
-							}
-            `}
+                ${
+									key === timeOfDay &&
+									"bg-pantone-brandy-sniffer text-pantone-sun-kiss"
+								}
+              `}
 						>
 							<p>{key}</p>
 							<p className="-mt-1 text-xs sm:text-sm font-light">

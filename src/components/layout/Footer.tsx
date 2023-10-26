@@ -7,7 +7,7 @@ function Footer() {
 
 	return (
 		<footer
-			className={`sticky w-full flex items-center justify-center top-[100vh] p-4 sm:p-8 text-center text-sm sm:text-base text-white bg-pantone-metallic-gold`}
+			className={`sticky w-full flex items-center justify-center top-[100vh] p-4 sm:p-8 text-center text-sm sm:text-base text-black bg-pantone-metallic-gold`}
 		>
 			<div className="w-full max-w-6xl">
 				<ul className="flex items-center justify-center">

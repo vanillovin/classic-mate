@@ -9,8 +9,8 @@ export default function LoadingSkeleton() {
 				<div
 					key={index}
 					className="
-            rounded-sm p-4 bg-[#BCC8D1]/80
-            relative 
+            rounded-sm p-4 h-20 bg-pantone-latte/80
+            relative
             before:absolute before:inset-0
             before:-translate-x-full
             before:animate-[shimmer_2s_infinite]
@@ -22,9 +22,9 @@ export default function LoadingSkeleton() {
             before:border-t before:border-rose-100/10
           "
 				>
-					<div className="space-y-2">
-						<div className="h-3 w-3/5 rounded-md bg-black/10"></div>
-						<div className="h-3 w-4/5 rounded-md bg-black/5"></div>
+					<div className="w-full h-full flex flex-col justify-center space-y-3">
+						<div className="h-3 w-3/5 rounded-md bg-black/5"></div>
+						<div className="h-3 w-4/5 rounded-md bg-black/10"></div>
 					</div>
 				</div>
 			))}

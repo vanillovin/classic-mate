@@ -14,7 +14,7 @@ function CommentForm({ classicId }: { classicId: string }) {
 
 	const [content, setContent] = useState("");
 
-	const isButtonDisabled = content.replace(/\s/g, "").length < 3;
+	const isButtonDisabled = content.replace(/\s/g, "").length < 4;
 
 	function clearInputs() {
 		setContent("");
@@ -41,21 +41,31 @@ function CommentForm({ classicId }: { classicId: string }) {
 	}
 
 	return (
-		<form onSubmit={handleSubmit} className="flex gap-1">
-			<input
+		<form onSubmit={handleSubmit} className="flex gap-1 h-8">
+			<textarea
 				name="content"
 				placeholder="댓글을 입력해 주세요."
 				value={content}
 				onChange={(e) => setContent(e.target.value)}
 				minLength={4}
+				maxLength={200}
 				required
-				className="w-5/6 rounded-sm p-1 flex-1 focus:outline-none"
+				className="w-5/6 h-full rounded-sm p-1 flex-1 focus:outline-none resize-none"
 			/>
+			{content && content.replace(/\s/g, "").length < 5 && (
+				<p
+					className={`px-1 ${
+						!isButtonDisabled ? "text-green-500" : "text-red-500"
+					}`}
+				>
+					{content.replace(/\s/g, "").length} / 4
+				</p>
+			)}
 			<button
 				type="submit"
 				disabled={isButtonDisabled}
 				aria-label="댓글 달기"
-				className={`font-medium bg-opacity-70 rounded-sm px-2 py-1 text-white bg-pantone-california-gold
+				className={`h-full font-medium bg-opacity-70 rounded-sm px-2 py-1 text-white bg-pantone-california-gold
           ${!isButtonDisabled && "hover:bg-opacity-100 transition-all"}
         `}
 			>

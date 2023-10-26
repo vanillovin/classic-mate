@@ -41,7 +41,7 @@ function SearchForm() {
 					e.preventDefault();
 					setKeywordParamAndNavigate();
 				}}
-				className="h-8 flex items-center border-b border-black focus-within:border-pantone-berkeley-blue"
+				className="h-8 flex items-center border-b text-black border-black focus-within:border-pantone-brandy-sniffer"
 			>
 				<input
 					value={keyword}
@@ -50,14 +50,19 @@ function SearchForm() {
 					className="rounded-sm h-full px-2 focus:outline-none bg-transparent placeholder:font-light"
 					required
 				/>
-				<button type="submit" className="px-2 h-full bg-transparent">
+				<button
+					type="submit"
+					className="px-2 h-full bg-transparent"
+					aria-label="검색하기"
+				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
 						viewBox="0 0 24 24"
-						strokeWidth="1"
+						strokeWidth="1.5"
 						stroke="currentColor"
-						className="w-5 h-5 text-black "
+						className="w-5 h-5 text-black hover:text-pantone-brandy-sniffer"
+						// role='' // HTML요소의 역할
 					>
 						<path
 							strokeLinecap="round"
@@ -77,9 +82,9 @@ function SearchForm() {
 				)}
 			</form>
 
-			<div className="dropdown dropdown-bottom mobile:dropdown-end">
+			<div className="dropdown dropdown-bottom mobile:dropdown-end text-black">
 				<label tabIndex={0} className="group cursor-pointer">
-					<button className="flex items-center hover:text-pantone-berkeley-blue">
+					<button className="flex items-center hover:text-pantone-brandy-sniffer">
 						최신순
 						<svg
 							xmlns="http://www.w3.org/2000/svg"

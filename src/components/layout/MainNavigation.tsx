@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
 import { siteConfig } from "@/config/site";
@@ -51,7 +51,8 @@ function MainNavigation() {
 						aria-haspopup="true"
 						aria-controls="dropdown-menu"
 						onClick={() => setIsOpen(!isOpen)}
-						aria-label={isOpen ? "드롭다운 메뉴 닫기" : "드롭다운 메뉴 열기"}
+						aria-label="드롭다운 메뉴 "
+						aria-expanded={isOpen}
 						className="flex items-center justify-center group cursor-pointer"
 					>
 						<svg
@@ -147,11 +148,25 @@ function MainNavigation() {
 							<Link
 								data-tip="프로필"
 								href={`/profile/${session.user.id}`}
-								className="tooltip tooltip-bottom border-r transition-all px-1 h-full flex items-center justify-center bg-pantone-powder hover:bg-pantone-champagne border-pantone-champagne"
+								className={`tooltip tooltip-bottom border-r transition-all px-1 h-full flex items-center justify-center 
+                  ${
+										isScrolled
+											? "bg-pantone-powder hover:bg-pantone-champagne border-pantone-champagne"
+											: "bg-white/80 hover:bg-gray-200"
+									}
+                `}
 							>
 								{profile?.nickname ?? "꿀메"}님
 							</Link>
-							<SignOutButton className="tooltip tooltip-bottom px-1 h-full bg-pantone-powder hover:bg-pantone-champagne">
+							<SignOutButton
+								className={`tooltip tooltip-bottom px-1 h-full 
+                ${
+									isScrolled
+										? "bg-pantone-powder hover:bg-pantone-champagne"
+										: "bg-white/80 hover:bg-gray-200"
+								}
+              `}
+							>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
 									fill="none"

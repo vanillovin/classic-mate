@@ -3,50 +3,54 @@
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const isValidTag = (tag: string) => {
-	return /^[가-힣]+$/g.test(tag);
-};
-
 function TagsSearchForm({ tags }: { tags: string[] }) {
 	const router = useRouter();
 	const searchParams = useSearchParams();
 	const [searchInput, setSearchInput] = useState("");
 	const [error, setError] = useState("");
 
+	const isValidTag = (tag: string) => /^[가-힣]+$/g.test(tag);
+	const isTagAlreadySelected = (tag: string) =>
+		[...Array(3)].some(
+			(_, i) => searchParams.get(`tag${i + 1}`) === encodeURIComponent(tag),
+		);
+	const isTagLimitReached = () =>
+		[...Array(3)].every((_, i) => searchParams.has(`tag${i + 1}`));
+
 	const handleSearchSubmit = () => {
-		if (isValidTag(searchInput)) {
-			const params = new URLSearchParams(searchParams.toString());
-			let nextTagIndex = 1;
-
-			while (params.has(`tag${nextTagIndex}`) && nextTagIndex <= 3) {
-				nextTagIndex++;
-			}
-
-			if (nextTagIndex <= 3) {
-				const matchingTag = tags.find((tag) => tag === searchInput);
-
-				if (!matchingTag) {
-					setError("일치하는 태그가 없습니다.");
-					return;
-				}
-
-				for (let i = 1; i <= 3; i++) {
-					if (params.get(`tag${i}`) === encodeURIComponent(matchingTag)) {
-						setError("이미 선택된 태그입니다.");
-						return;
-					}
-				}
-
-				params.set(`tag${nextTagIndex}`, encodeURIComponent(matchingTag));
-				router.push(`tags?${params.toString()}`);
-				setError("");
-				setSearchInput("");
-			} else {
-				setError("최대 3개의 태그를 선택할 수 있습니다.");
-			}
-		} else {
+		if (!isValidTag(searchInput)) {
 			setError("공백 없이 한글로만 입력해 주세요.");
+			return;
 		}
+
+		if (isTagAlreadySelected(searchInput)) {
+			setError("이미 선택된 태그입니다.");
+			return;
+		}
+
+		if (isTagLimitReached()) {
+			setError("최대 3개의 태그를 선택할 수 있습니다.");
+			return;
+		}
+
+		const matchingTag = tags.find((tag) => tag === searchInput);
+
+		if (!matchingTag) {
+			setError("일치하는 태그가 없습니다.");
+			return;
+		}
+
+		const params = new URLSearchParams(searchParams.toString());
+		let nextTagIndex = 1;
+
+		while (params.has(`tag${nextTagIndex}`)) nextTagIndex++;
+
+		params.set(`tag${nextTagIndex}`, encodeURIComponent(matchingTag));
+
+		router.push(`tags?${params.toString()}`);
+
+		setError("");
+		setSearchInput("");
 	};
 
 	return (

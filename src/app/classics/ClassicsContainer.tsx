@@ -60,7 +60,7 @@ function ClassicsContainer() {
 							</p>
 						)}
 						<ClassicList classics={data.classics ?? []} />
-						<div className="flex items-center justify-center mt-8">
+						<div className="flex items-center justify-center mt-14">
 							<Pagination
 								pathname="/classics"
 								currentPage={+page}

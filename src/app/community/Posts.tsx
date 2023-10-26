@@ -39,16 +39,16 @@ function Posts({ count }: { count: number }) {
 
 	return (
 		<div>
-			<div className="grid md:grid-cols-2 gap-0 sm:gap-2 md:gap-4 shadow-sm sm:shadow-none">
+			<div className="grid md:grid-cols-2 gap-0 sm:gap-2 md:gap-4 shadow-sm sm:shadow-none text-black">
 				{posts?.map((post) => (
 					<Link
 						key={post.id}
 						href={`/community/${post.id}`}
-						className="shadow-sm relative group border-b last:border-b-0 sm:border-0 sm:last:border-b-0 border-[#EBE5E1]"
+						className="shadow-md relative group border-b last:border-b-0 sm:border-0 sm:last:border-b-0 border-black"
 					>
-						<div className="flex items-center justify-between px-3 py-3 sm:py-4 transition-all bg-[#BCC8D1] group-hover:bg-[#C2D7E8]">
+						<div className="flex items-center justify-between px-3 py-3 sm:py-4 transition-all bg-pantone-latte group-hover:bg-pantone-toffee">
 							<div className="text-sm sm:text-base font-medium space-y-1">
-								<p className="w-fit font-light text-xs sm:text-sm text-center border px-1 border-white text-white">
+								<p className="w-fit text-xs sm:text-sm text-center px-1 border border-white bg-white/40">
 									{post.category_name}
 								</p>
 								<p className="font-medium">{post.title}</p>
@@ -104,11 +104,11 @@ function Posts({ count }: { count: number }) {
 								</div>
 							</div>
 						</div>
-						<div className="hidden sm:block absolute w-full h-full top-1 left-1 border border-black" />
+						<div className="hidden sm:block absolute w-full h-full top-1 left-1 border border-black/80" />
 					</Link>
 				))}
 			</div>
-			<div>
+			<div className="mt-14">
 				<Pagination
 					pathname="/community"
 					currentPage={+page}
