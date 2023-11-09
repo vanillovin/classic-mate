@@ -3,16 +3,18 @@
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 
-import useTimeOfDay from "@/hooks/useTimeOfDay";
+import useTimeOfDay, { emojiByTimeOfDay } from "@/hooks/useTimeOfDay";
 import { getCurrentDateInfo } from "@/utils/dateUtils";
 import { monthMusics, musicPlayerBackgroundImageURLs } from "./data";
+import useCurrentTime from "@/hooks/useCurrentTime";
 
 function MusicPlayer() {
-	const audioRef = useRef<HTMLAudioElement | null>(null);
-	const [isPlaying, setIsPlaying] = useState(false);
-	const [currentTime, setCurrentTime] = useState(0);
-	const [duration, setDuration] = useState(0);
 	const timeOfDay = useTimeOfDay();
+	const currentTime = useCurrentTime();
+	const [duration, setDuration] = useState(0);
+	const [isPlaying, setIsPlaying] = useState(false);
+	const [audioCurrentTime, setAudioCurrentTime] = useState(0);
+	const audioRef = useRef<HTMLAudioElement | null>(null);
 
 	const { currentYearMonth } = getCurrentDateInfo();
 	const { title, coverImgUrl, musicSrcUrl } = monthMusics[currentYearMonth];
@@ -28,21 +30,21 @@ function MusicPlayer() {
 	};
 
 	const updateProgress = () => {
-		const currentTime = audioRef.current?.currentTime;
+		const audioCurrentTime = audioRef.current?.currentTime;
 		const duration = audioRef.current?.duration;
-		setCurrentTime(currentTime || 0);
+		setAudioCurrentTime(audioCurrentTime || 0);
 		setDuration(duration || 0);
 	};
 
 	const handleProgressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const time = parseFloat(event.target.value);
 		audioRef.current!.currentTime = time;
-		setCurrentTime(time);
+		setAudioCurrentTime(time);
 	};
 
-	const progressValue = isNaN((currentTime / duration) * 100)
+	const progressValue = isNaN((audioCurrentTime / duration) * 100)
 		? 0
-		: (currentTime / duration) * 100;
+		: (audioCurrentTime / duration) * 100;
 
 	const textColor =
 		timeOfDay === "morning" || timeOfDay === "afternoon"
@@ -53,8 +55,9 @@ function MusicPlayer() {
 		<div
 			style={{
 				backgroundImage: `url(${musicPlayerBackgroundImageURLs[timeOfDay]})`,
+				transition: "background-image 0.5s ease-in-out",
 			}}
-			className="relative w-full h-full p-6 py-10 sm:p-12 flex flex-col sm:flex-row items-center bg-center bg-cover rounded-md shadow-md select-none"
+			className="relative w-full h-full py-16 sm:p-12 flex flex-col sm:flex-row items-center bg-center bg-cover rounded-md shadow-md select-none"
 		>
 			<div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-white/10" />
 			<div className="flex relative items-center justify-between">
@@ -133,7 +136,7 @@ function MusicPlayer() {
 						type="range"
 						min={0}
 						max={duration}
-						value={currentTime}
+						value={audioCurrentTime}
 						onInput={handleProgressChange}
 						className="bg-transparent w-full appearance-none absolute top-0 left-0 cursor-pointer"
 						aria-label="재생 진행률"
@@ -148,9 +151,15 @@ function MusicPlayer() {
 					onEnded={() => setIsPlaying(false)}
 				/>
 				<div
-					className={`text-sm sm:text-lg text-center leading-4 font-light drop-shadow-sm ${textColor}`}
+					className={`text-sm sm:text-lg leading-4 font-light drop-shadow-sm ${textColor}`}
 				>
 					{title}
+				</div>
+				<div
+					className={`flex items-center gap-x-1 text-sm sm:text-base leading-4 font-light drop-shadow-sm mt-3 -mb-6 ${textColor}`}
+				>
+					<div className="rounded-xl px-2 bg-white/40">현재 시간</div>{" "}
+					{currentTime} {emojiByTimeOfDay[timeOfDay]}
 				</div>
 			</div>
 		</div>
