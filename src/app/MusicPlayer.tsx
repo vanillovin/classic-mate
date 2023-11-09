@@ -127,7 +127,7 @@ function MusicPlayer() {
 						max={100}
 						value={progressValue}
 						className="w-full [&::-webkit-progress-bar]:h-1 sm:[&::-webkit-progress-bar]:h-2 [&::-webkit-progress-bar]:rounded-lg [&::-webkit-progress-value]:rounded-lg 
-              [&::-webkit-progress-bar]:bg-gray-200 [&::-webkit-progress-value]:bg-white [&::-moz-progress-bar]:bg-white"
+              [&::-webkit-progress-bar]:bg-black/20 [&::-webkit-progress-value]:bg-white [&::-moz-progress-bar]:bg-white"
 					></progress>
 					<input
 						type="range"

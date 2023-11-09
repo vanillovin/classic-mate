@@ -40,14 +40,14 @@ export const musicPlayerBackgroundImageURLs = {
 export const monthMusics: {
 	[key: string]: { title: string; coverImgUrl: string; musicSrcUrl: string };
 } = {
-	"2023-10": {
+	"2023-11": {
 		title: "Tchaikovsky: Piano Concerto No.1 1st Movement / Yeol Eum Son",
 		coverImgUrl:
 			"https://images.unsplash.com/photo-1513883049090-d0b7439799bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
 		musicSrcUrl:
 			"https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/Yeol%20Eum%20Son%20-%20Tchikovsky%20Piano%20Concerto%20No1%201st.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL1llb2wgRXVtIFNvbiAtIFRjaGlrb3Zza3kgUGlhbm8gQ29uY2VydG8gTm8xIDFzdC5tcDMiLCJpYXQiOjE2OTMzNzY5OTcsImV4cCI6MTcyNDkxMjk5N30.W03tfrhNgHrniXqcQk6juV8BLMNifLG8jqdnD5z311o&t=2023-08-30T06%3A29%3A57.507Z",
 	},
-	"2023-11": {
+	"2023-12": {
 		title: "Tchaikovsky: Piano Concerto No.1 1st Movement / Yeol Eum Son",
 		coverImgUrl:
 			"https://images.unsplash.com/photo-1513883049090-d0b7439799bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
@@ -57,7 +57,7 @@ export const monthMusics: {
 };
 
 export const monthClassics: { [key: string]: MonthClassic } = {
-	"2023-10": {
+	"2023-11": {
 		id: 15,
 		composer: "차이코프스키",
 		title: "피아노 협주곡 1번",
@@ -86,7 +86,7 @@ export const monthClassics: { [key: string]: MonthClassic } = {
 				"https://namu.wiki/w/%EC%A1%B0%EC%84%B1%EC%A7%84(%ED%94%BC%EC%95%84%EB%8B%88%EC%8A%A4%ED%8A%B8)",
 		},
 	},
-	"2023-11": {
+	"2023-12": {
 		id: 15,
 		composer: "차이코프스키",
 		title: "피아노 협주곡 1번",
@@ -118,36 +118,6 @@ export const monthClassics: { [key: string]: MonthClassic } = {
 };
 
 export const quizData: QuizData = {
-	"2023-10-26": {
-		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
-		options: ["O", "X"],
-		answer: 0,
-	},
-	"2023-10-27": {
-		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "영웅", "합창", "영광"],
-		answer: 2,
-	},
-	"2023-10-28": {
-		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
-		options: ["피아노", "바이올린", "첼로", "오보에"],
-		answer: 0,
-	},
-	"2023-10-29": {
-		question: "다음 중 가장 짧은 음표는?",
-		options: ["♩", "♪", "♫", "♬"],
-		answer: 0,
-	},
-	"2023-10-30": {
-		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "영웅", "합창", "영광"],
-		answer: 2,
-	},
-	"2023-10-31": {
-		question: "다음 중 가장 짧은 음표는?",
-		options: ["♩", "♪", "♫", "♬"],
-		answer: 0,
-	},
 	"2023-11-01": {
 		question: "다음 중 가장 짧은 음표는?",
 		options: ["♩", "♪", "♫", "♬"],
@@ -184,6 +154,11 @@ export const quizData: QuizData = {
 		answer: 2,
 	},
 	"2023-11-08": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2023-11-09": {
 		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
 		options: ["피아노", "바이올린", "첼로", "오보에"],
 		answer: 0,
@@ -293,37 +268,166 @@ export const quizData: QuizData = {
 		options: ["비창", "영웅", "합창", "영광"],
 		answer: 2,
 	},
+	"2023-12-01": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2023-12-02": {
+		question: "비발디의 대표작은?",
+		options: ["운명교향곡", "사계", "로망스", "터키행진곡"],
+		answer: 1,
+	},
+	"2023-12-03": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2023-12-04": {
+		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
+		options: ["O", "X"],
+		answer: 0,
+	},
+	"2023-12-05": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2023-12-06": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2023-12-07": {
+		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "영웅", "합창", "영광"],
+		answer: 2,
+	},
+	"2023-12-08": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2023-12-09": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2023-12-10": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2023-12-11": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2023-12-12": {
+		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
+		options: ["O", "X"],
+		answer: 0,
+	},
+	"2023-12-13": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2023-12-14": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2023-12-15": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2023-12-16": {
+		question: "비발디의 대표작은?",
+		options: ["운명교향곡", "사계", "로망스", "터키행진곡"],
+		answer: 1,
+	},
+	"2023-12-17": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2023-12-18": {
+		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
+		options: ["O", "X"],
+		answer: 0,
+	},
+	"2023-12-19": {
+		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "영웅", "합창", "영광"],
+		answer: 2,
+	},
+	"2023-12-20": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2023-12-21": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2023-12-22": {
+		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "영웅", "합창", "영광"],
+		answer: 2,
+	},
+	"2023-12-23": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2023-12-24": {
+		question: "비발디의 대표작은?",
+		options: ["운명교향곡", "사계", "로망스", "터키행진곡"],
+		answer: 1,
+	},
+	"2023-12-25": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2023-12-26": {
+		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
+		options: ["O", "X"],
+		answer: 0,
+	},
+	"2023-12-27": {
+		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "영웅", "합창", "영광"],
+		answer: 2,
+	},
+	"2023-12-28": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2023-12-29": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2023-12-30": {
+		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "영웅", "합창", "영광"],
+		answer: 2,
+	},
+	"2023-12-31": {
+		question: "베토벤은 어떤 병으로 인해 음악 활동에 어려움을 겪었나요?",
+		options: ["심장병", "기관지염", "난청", "당뇨병"],
+		answer: 2,
+	},
 };
 
 export const dailyQuoteData: {
 	[date: string]: { sentence: string; author: string };
 } = {
-	"2023-10-26": {
-		sentence: "사실상 내가 아는 모든 작가는 음악가에 가깝다.",
-		author: "트 보네굿",
-	},
-	"2023-10-27": {
-		sentence:
-			"화가는 캔버스위에 그림을 그린다. 하지만 음악가는 정적 위에 그들의 그림을 그린다 ",
-		author: "레오포드 스토코브스키",
-	},
-	"2023-10-28": {
-		sentence:
-			"음악은, 이름을 붙일 수 없다고 이름할 수 있으며, 절대 알 수가 없는 의사소통이라고 할 수 있다.",
-		author: "레오나드 번스타인",
-	},
-	"2023-10-29": {
-		sentence: "음악은 감정의 속기 (빨리 기록하는 방법)이다.",
-		author: "톨스토이",
-	},
-	"2023-10-30": {
-		sentence: "나는 아름다운 멜로디가 말해주는 끔찍한 이야기가 좋다.",
-		author: "탐 웨이트",
-	},
-	"2023-10-31": {
-		sentence: "음악이 없다면, 나에게 삶은 텅 빈 것이다.",
-		author: "제인 오스틴",
-	},
 	"2023-11-01": {
 		sentence:
 			"음악을 듣는 사람은 그의 고독을 느낀다. 사람이 살면서 한번은 하는 경험이다.",
@@ -795,5 +899,31 @@ export const dailyQuoteData: {
 		sentence:
 			"음악은 언어 홀로는 절대 할수 없는 곳에서 감성적으로 우리를 어루만진다 ",
 		author: "조니 뎁",
+	},
+	"2024-02-12": {
+		sentence: "사실상 내가 아는 모든 작가는 음악가에 가깝다.",
+		author: "트 보네굿",
+	},
+	"2024-02-13": {
+		sentence:
+			"화가는 캔버스위에 그림을 그린다. 하지만 음악가는 정적 위에 그들의 그림을 그린다 ",
+		author: "레오포드 스토코브스키",
+	},
+	"2024-02-14": {
+		sentence:
+			"음악은, 이름을 붙일 수 없다고 이름할 수 있으며, 절대 알 수가 없는 의사소통이라고 할 수 있다.",
+		author: "레오나드 번스타인",
+	},
+	"2024-02-15": {
+		sentence: "음악은 감정의 속기 (빨리 기록하는 방법)이다.",
+		author: "톨스토이",
+	},
+	"2024-02-16": {
+		sentence: "나는 아름다운 멜로디가 말해주는 끔찍한 이야기가 좋다.",
+		author: "탐 웨이트",
+	},
+	"2024-02-17": {
+		sentence: "음악이 없다면, 나에게 삶은 텅 빈 것이다.",
+		author: "제인 오스틴",
 	},
 };

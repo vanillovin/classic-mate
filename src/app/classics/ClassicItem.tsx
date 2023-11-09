@@ -15,7 +15,7 @@ function ClassicItem({
 	return (
 		<Link
 			href={`/classics/${classic.id}`}
-			className="rounded-md shadow-md p-2 cursor-pointer flex flex-col hover:shadow-lg justify-between transition-all bg-white bg-opacity-95 hover:bg-simple-palette-gold/50 hover:scale-102"
+			className="rounded-md shadow-md p-2 cursor-pointer flex flex-col hover:shadow-lg justify-between transition-all bg-white/95 hover:bg-simple-palette-gold/50 hover:scale-102"
 		>
 			<div>
 				<div className="flex items-center justify-between">

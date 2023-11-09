@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 
 import SignOutButton from "@/components/SignOutButton";
 import { createServerClient } from "@/utils/supabase-server";
@@ -30,13 +30,15 @@ export default async function Layout({
 	if (!profile) return notFound();
 
 	return (
-		<section className="px-6 pt-6 pb-24 h-screen">
+		<section className="max-w-6xl mx-auto px-3 sm:px-6 pt-3 sm:pt-6 pb-24 h-screen">
 			<div className="flex flex-col sm:flex-row shadow-md h-full">
 				<div className="flex flex-row sm:flex-col p-3 sm:p-5 w-full sm:w-fit bg-[#FFF]">
 					<div className="relative w-24 h-24 sm:w-40 sm:h-40 rounded-sm overflow-hidden">
 						<Image
-							src={"/kylie-paz-cbl1K6yJlDI-unsplash.jpg"}
-							alt=""
+							src={
+								"https://upload.wikimedia.org/wikipedia/commons/b/b1/Edvard_Munch_-_The_Sun_%281911%29.jpg"
+							}
+							alt="profile image"
 							fill={true}
 							className="object-cover"
 						/>
@@ -51,11 +53,11 @@ export default async function Layout({
 							<div className="flex gap-1 py-1">
 								<Link
 									href={`/profile/${params.userId}/edit`}
-									className="rounded-sm p-1 text-sm sm:text-base bg-black text-white hover:bg-pantone-dark-navy"
+									className="rounded-sm p-1 font-light text-sm sm:text-base bg-[#F5E8C7] hover:bg-[#DEBA9D]"
 								>
 									회원정보수정
 								</Link>
-								<SignOutButton className="rounded-sm p-1 text-sm sm:text-base bg-[#F2F2F2] hover:bg-[#D6D8D7]">
+								<SignOutButton className="rounded-sm p-1 font-light text-sm sm:text-base text-white bg-[#9E7777] hover:bg-[#6F4C5B]">
 									로그아웃
 								</SignOutButton>
 							</div>

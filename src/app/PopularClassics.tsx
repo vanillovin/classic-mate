@@ -27,7 +27,7 @@ function PopularClassics({
 						>
 							<div className="flex flex-col items-center gap-y-1">
 								<p
-									className={`text-2xl sm:text-3xl font-semibold text-pantone-pale-gold ${dmSerifDisplay.className}`}
+									className={`text-2xl sm:text-3xl font-semibold text-vintage-holiday-brown ${dmSerifDisplay.className}`}
 								>
 									- {index + 1} -
 								</p>
@@ -68,7 +68,7 @@ function PopularClassics({
 						>
 							<div className="flex flex-col items-center gap-y-1">
 								<p
-									className={`text-2xl font-semibold text-pantone-pale-gold ${dmSerifDisplay.className}`}
+									className={`text-2xl font-semibold text-vintage-holiday-brown ${dmSerifDisplay.className}`}
 								>
 									- {index + 5} -
 								</p>
@@ -109,7 +109,7 @@ function PopularClassics({
 						>
 							<div className="flex flex-col items-center gap-y-1">
 								<p
-									className={`text-2xl font-semibold text-pantone-pale-gold ${dmSerifDisplay.className}`}
+									className={`text-2xl font-semibold text-vintage-holiday-brown ${dmSerifDisplay.className}`}
 								>
 									- {index + 9} -
 								</p>
@@ -150,7 +150,7 @@ function PopularClassics({
 						>
 							<div className="flex flex-col items-center gap-y-1">
 								<p
-									className={`text-2xl font-semibold text-pantone-pale-gold ${dmSerifDisplay.className}`}
+									className={`text-2xl font-semibold text-vintage-holiday-brown ${dmSerifDisplay.className}`}
 								>
 									- {index + 13} -
 								</p>

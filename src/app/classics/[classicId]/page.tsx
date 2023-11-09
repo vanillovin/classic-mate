@@ -29,7 +29,12 @@ export default async function ClassicDetailPage({
 			<h1 className="text-xl sm:text-2xl font-semibold">{classic.title}</h1>
 			<ul className="flex items-center text-sm sm:text-base">
 				<li className="mr-1 text-sm sm:text-base">{classic.composer} ·</li>
-				<li className="mr-1 text-sm sm:text-base">{classic.genre} ·</li>
+				<li className="mr-1 text-sm sm:text-base">
+					{Array.isArray(classic.genre)
+						? classic.genre.map((genre) => `${genre} `)
+						: classic.genre}{" "}
+					·
+				</li>
 				<li className="text-sm sm:text-base">{classic.year}</li>
 			</ul>
 			<p className="text-center text-sm sm:text-base my-4 sm:px-12">

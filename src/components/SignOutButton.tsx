@@ -13,7 +13,12 @@ function SignOutButton({ className, children }: SignOutButtonProps) {
 	const { signOut } = useAuth();
 
 	return (
-		<button data-tip="로그아웃" onClick={signOut} className={`${className}`}>
+		<button
+			data-tip="로그아웃"
+			aria-label="로그아웃"
+			onClick={signOut}
+			className={className}
+		>
 			{children}
 		</button>
 	);

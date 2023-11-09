@@ -134,7 +134,7 @@ function ClassicLikeCheckbox({
 				checked={isLiked}
 				// aria-checked={isLiked}
 				aria-label={`클래식 좋아요${isLiked ? " 취소" : ""}`}
-				className={`hidden`}
+				className="hidden"
 			/>
 			<span aria-live="polite"></span>
 			{isShowLikeCount && (

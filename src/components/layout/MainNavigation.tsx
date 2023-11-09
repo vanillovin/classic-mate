@@ -10,9 +10,9 @@ import { useAuth } from "../providers/auth-provider";
 import { useSupabase } from "../providers/supabase-provider";
 
 function MainNavigation() {
+	const pathname = usePathname();
 	const { profile } = useAuth();
 	const { session } = useSupabase();
-	const pathname = usePathname();
 
 	const [isOpen, setIsOpen] = useState(false);
 	const [isScrolled, setIsScrolled] = useState(false);

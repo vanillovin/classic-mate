@@ -44,12 +44,14 @@ export default async function ProfilePage({
 							<Link
 								href={`/classics/${like.classic_id}`}
 								aria-label={`${like.classic_title} 클래식 음악으로 연결되는 링크`}
-								className="flex items-center justify-between w-full h-full p-2 hover:underline underline-offset-2"
+								className="group flex items-center justify-between w-full h-full p-2"
 							>
-								<span className="font-medium mr-1">{like.classic_title}</span>
+								<span className="font-medium mr-1 group-hover:underline underline-offset-2">
+									{like.classic_title}
+								</span>
 								<time
 									dateTime={like.created_at}
-									className="text-sm no-underline text-gray-400"
+									className="text-sm text-gray-400"
 								>
 									{like.created_at.split("T")[0]}
 								</time>
@@ -72,12 +74,14 @@ export default async function ProfilePage({
 							<Link
 								href={`/classics/${post.id}`}
 								aria-label={`${post.title} 게시글로 연결되는 링크`}
-								className="flex items-center justify-between w-full h-full p-2 hover:underline underline-offset-2"
+								className="group flex items-center justify-between w-full h-full p-2"
 							>
-								<span className="font-medium mr-1">{post.title}</span>
+								<span className="font-medium mr-1 group-hover:underline underline-offset-2">
+									{post.title}
+								</span>
 								<time
 									dateTime={post.created_at}
-									className="text-sm no-underline text-gray-400"
+									className="text-sm text-gray-400"
 								>
 									{post.created_at.split("T")[0]}
 								</time>

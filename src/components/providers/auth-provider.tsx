@@ -46,8 +46,7 @@ export const AuthProvider = ({ session, children }: AuthProviderProps) => {
 				setProfile(data);
 			});
 		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [session]);
 
 	const value = useMemo(() => {
 		return {

@@ -55,14 +55,22 @@ function Newspaper() {
 				{/* <div className='border-t -mt-7 mb-5'></div> */}
 
 				<div className="flex flex-col md:flex-row p-4 items-center">
-					<div className="w-full mobile:min-w-[350px] h-[400px] mobile:h-[500px] relative rounded-sm overflow-hidden shadow-sm">
-						<Image fill alt={composer} className="w-full h-full" src={image} />
+					<div className="w-full md:min-w-[350px] h-[400px] md:h-[500px] relative rounded-sm overflow-hidden shadow-sm">
+						<Image
+							objectFit="cover"
+							src={image}
+							alt={composer}
+							layout="fill"
+							className="w-full h-full"
+						/>
 					</div>
 					<div className="flex flex-col items-center justify-center pt-6 md:p-6">
 						<h2 className="text-lg text-center sm:text-2xl font-medium drop-shadow-md">
 							{composer} : {title}
 						</h2>
-						<p className="my-6 leading-6 whitespace-pre-line">{description}</p>
+						<p className="my-6 leading-6 whitespace-pre-line text-sm md:text-base">
+							{description}
+						</p>
 						<Link
 							href={`/classics/${id}`}
 							className="px-2 py-1 rounded-sm shadow-sm border transition-all border-opacity-50 text-white border-white hover:bg-cherish-apricot/90"
@@ -77,10 +85,12 @@ function Newspaper() {
 						<h3 className="whitespace-pre-line text-lg text-center md:text-start font-medium mb-4  drop-shadow-md text-autumn-darkblue">
 							{point.title}
 						</h3>
-						<p className="whitespace-pre-line leading-6">{point.description}</p>
+						<p className="whitespace-pre-line leading-6 text-sm md:text-base">
+							{point.description}
+						</p>
 					</div>
 					<div className="hidden md:block sm:border-r mr-4 h-88 border-cherish-ivory/90" />
-					<div className="w-full md:w-1/2 h-[200px] sm:h-[300px] relative rounded-sm overflow-hidden">
+					<div className="w-full md:w-1/2 h-[250px] md:h-[350px] relative rounded-sm overflow-hidden">
 						<Image
 							fill
 							alt="sheet"
@@ -100,10 +110,12 @@ function Newspaper() {
 						/>
 					</div>
 					<div className="md:w-1/2 flex flex-col items-center justify-center py-10 md:p-6">
-						<p className="text-center leading-6">{performar.description}</p>
+						<p className="text-center leading-6 text-sm md:text-base">
+							{performar.description}
+						</p>
 						<Link
 							target="_blank"
-							className="mt-6 text-sm font-medium hover:underline underline-offset-4 text-autumn-darkblue"
+							className="mt-6 text-xs md:text-sm font-medium hover:underline underline-offset-4 text-autumn-darkblue"
 							href={performar.moreLink}
 						>
 							{performar.name} {performar.instrumentalists}가 더 궁금하다면
