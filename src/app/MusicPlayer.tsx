@@ -126,8 +126,8 @@ function MusicPlayer() {
 					<progress
 						max={100}
 						value={progressValue}
-						className="w-full [&::-webkit-progress-bar]:h-1 sm:[&::-webkit-progress-bar]:h-2 [&::-webkit-progress-bar]:rounded-lg [&::-webkit-progress-value]:rounded-lg 
-              [&::-webkit-progress-bar]:bg-black/20 [&::-webkit-progress-value]:bg-white [&::-moz-progress-bar]:bg-white"
+						className="w-full [&::-webkit-progress-bar]:h-2 [&::-webkit-progress-bar]:rounded-lg [&::-webkit-progress-value]:rounded-lg 
+              [&::-webkit-progress-bar]:bg-white/40 [&::-webkit-progress-value]:bg-white [&::-moz-progress-bar]:bg-white"
 					></progress>
 					<input
 						type="range"
@@ -140,11 +140,12 @@ function MusicPlayer() {
 					/>
 				</div>
 				<audio
+					src={musicSrcUrl}
 					ref={audioRef}
 					onTimeUpdate={updateProgress}
 					onLoadedMetadata={updateProgress}
-					src={musicSrcUrl}
 					aria-label={`현재 재생 중인 음악: ${title}`}
+					onEnded={() => setIsPlaying(false)}
 				/>
 				<div
 					className={`text-sm sm:text-lg text-center leading-4 font-light drop-shadow-sm ${textColor}`}
