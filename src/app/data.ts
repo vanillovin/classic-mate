@@ -40,24 +40,24 @@ export const musicPlayerBackgroundImageURLs = {
 export const monthMusics: {
 	[key: string]: { title: string; coverImgUrl: string; musicSrcUrl: string };
 } = {
-	"2023-11": {
-		title: "Tchaikovsky: Piano Concerto No.1 1st Movement / Yeol Eum Son",
-		coverImgUrl:
-			"https://images.unsplash.com/photo-1513883049090-d0b7439799bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-		musicSrcUrl:
-			"https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/Yeol%20Eum%20Son%20-%20Tchikovsky%20Piano%20Concerto%20No1%201st.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL1llb2wgRXVtIFNvbiAtIFRjaGlrb3Zza3kgUGlhbm8gQ29uY2VydG8gTm8xIDFzdC5tcDMiLCJpYXQiOjE2OTMzNzY5OTcsImV4cCI6MTcyNDkxMjk5N30.W03tfrhNgHrniXqcQk6juV8BLMNifLG8jqdnD5z311o&t=2023-08-30T06%3A29%3A57.507Z",
-	},
 	"2023-12": {
-		title: "Tchaikovsky: Piano Concerto No.1 1st Movement / Yeol Eum Son",
+		title: "Tchaikovsky: Piano Concerto No.1 1st Movement / Georgii Cherkin",
 		coverImgUrl:
 			"https://images.unsplash.com/photo-1513883049090-d0b7439799bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
 		musicSrcUrl:
-			"https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/Yeol%20Eum%20Son%20-%20Tchikovsky%20Piano%20Concerto%20No1%201st.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL1llb2wgRXVtIFNvbiAtIFRjaGlrb3Zza3kgUGlhbm8gQ29uY2VydG8gTm8xIDFzdC5tcDMiLCJpYXQiOjE2OTMzNzY5OTcsImV4cCI6MTcyNDkxMjk5N30.W03tfrhNgHrniXqcQk6juV8BLMNifLG8jqdnD5z311o&t=2023-08-30T06%3A29%3A57.507Z",
+			"https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/Tchaikovsky%20-%20Piano%20Concerto%20No.%201%20-%201st%20Movement.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL1RjaGFpa292c2t5IC0gUGlhbm8gQ29uY2VydG8gTm8uIDEgLSAxc3QgTW92ZW1lbnQubXAzIiwiaWF0IjoxNzAxNjc5NDA0LCJleHAiOjE3MTIwNDc0MDR9.T5G9cMEOVTcMbbR37VQLUJHiuy9i7B348TG1L8ELkf4&t=2023-12-04T08%3A43%3A25.431Z",
+	},
+	"2024-01": {
+		title: "Tchaikovsky: Piano Concerto No.1 1st Movement / Georgii Cherkin",
+		coverImgUrl:
+			"https://images.unsplash.com/photo-1513883049090-d0b7439799bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+		musicSrcUrl:
+			"https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/Tchaikovsky%20-%20Piano%20Concerto%20No.%201%20-%201st%20Movement.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL1RjaGFpa292c2t5IC0gUGlhbm8gQ29uY2VydG8gTm8uIDEgLSAxc3QgTW92ZW1lbnQubXAzIiwiaWF0IjoxNzAxNjc5NDA0LCJleHAiOjE3MTIwNDc0MDR9.T5G9cMEOVTcMbbR37VQLUJHiuy9i7B348TG1L8ELkf4&t=2023-12-04T08%3A43%3A25.431Z",
 	},
 };
 
 export const monthClassics: { [key: string]: MonthClassic } = {
-	"2023-11": {
+	"2023-12": {
 		id: 15,
 		composer: "차이코프스키",
 		title: "피아노 협주곡 1번",
@@ -86,7 +86,7 @@ export const monthClassics: { [key: string]: MonthClassic } = {
 				"https://namu.wiki/w/%EC%A1%B0%EC%84%B1%EC%A7%84(%ED%94%BC%EC%95%84%EB%8B%88%EC%8A%A4%ED%8A%B8)",
 		},
 	},
-	"2023-12": {
+	"2024-01": {
 		id: 15,
 		composer: "차이코프스키",
 		title: "피아노 협주곡 1번",
@@ -118,156 +118,6 @@ export const monthClassics: { [key: string]: MonthClassic } = {
 };
 
 export const quizData: QuizData = {
-	"2023-11-01": {
-		question: "다음 중 가장 짧은 음표는?",
-		options: ["♩", "♪", "♫", "♬"],
-		answer: 0,
-	},
-	"2023-11-02": {
-		question: "비발디의 대표작은?",
-		options: ["운명교향곡", "사계", "로망스", "터키행진곡"],
-		answer: 1,
-	},
-	"2023-11-03": {
-		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "운명", "합창", "명곡"],
-		answer: 1,
-	},
-	"2023-11-04": {
-		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
-		options: ["O", "X"],
-		answer: 0,
-	},
-	"2023-11-05": {
-		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
-		options: ["피아노", "바이올린", "첼로", "오보에"],
-		answer: 0,
-	},
-	"2023-11-06": {
-		question: "다음 중 가장 짧은 음표는?",
-		options: ["♩", "♪", "♫", "♬"],
-		answer: 0,
-	},
-	"2023-11-07": {
-		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "영웅", "합창", "영광"],
-		answer: 2,
-	},
-	"2023-11-08": {
-		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
-		options: ["피아노", "바이올린", "첼로", "오보에"],
-		answer: 0,
-	},
-	"2023-11-09": {
-		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
-		options: ["피아노", "바이올린", "첼로", "오보에"],
-		answer: 0,
-	},
-	"2023-11-10": {
-		question: "다음 중 가장 짧은 음표는?",
-		options: ["♩", "♪", "♫", "♬"],
-		answer: 0,
-	},
-	"2023-11-11": {
-		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "운명", "합창", "명곡"],
-		answer: 1,
-	},
-	"2023-11-12": {
-		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
-		options: ["O", "X"],
-		answer: 0,
-	},
-	"2023-11-13": {
-		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "운명", "합창", "명곡"],
-		answer: 1,
-	},
-	"2023-11-14": {
-		question: "다음 중 가장 짧은 음표는?",
-		options: ["♩", "♪", "♫", "♬"],
-		answer: 0,
-	},
-	"2023-11-15": {
-		question: "다음 중 가장 짧은 음표는?",
-		options: ["♩", "♪", "♫", "♬"],
-		answer: 0,
-	},
-	"2023-11-16": {
-		question: "비발디의 대표작은?",
-		options: ["운명교향곡", "사계", "로망스", "터키행진곡"],
-		answer: 1,
-	},
-	"2023-11-17": {
-		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "운명", "합창", "명곡"],
-		answer: 1,
-	},
-	"2023-11-18": {
-		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
-		options: ["O", "X"],
-		answer: 0,
-	},
-	"2023-11-19": {
-		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "영웅", "합창", "영광"],
-		answer: 2,
-	},
-	"2023-11-20": {
-		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
-		options: ["피아노", "바이올린", "첼로", "오보에"],
-		answer: 0,
-	},
-	"2023-11-21": {
-		question: "다음 중 가장 짧은 음표는?",
-		options: ["♩", "♪", "♫", "♬"],
-		answer: 0,
-	},
-	"2023-11-22": {
-		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "영웅", "합창", "영광"],
-		answer: 2,
-	},
-	"2023-11-23": {
-		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
-		options: ["피아노", "바이올린", "첼로", "오보에"],
-		answer: 0,
-	},
-	"2023-11-24": {
-		question: "비발디의 대표작은?",
-		options: ["운명교향곡", "사계", "로망스", "터키행진곡"],
-		answer: 1,
-	},
-	"2023-11-25": {
-		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "운명", "합창", "명곡"],
-		answer: 1,
-	},
-	"2023-11-26": {
-		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
-		options: ["O", "X"],
-		answer: 0,
-	},
-	"2023-11-27": {
-		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "영웅", "합창", "영광"],
-		answer: 2,
-	},
-	"2023-11-28": {
-		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
-		options: ["피아노", "바이올린", "첼로", "오보에"],
-		answer: 0,
-	},
-	"2023-11-29": {
-		question: "다음 중 가장 짧은 음표는?",
-		options: ["♩", "♪", "♫", "♬"],
-		answer: 0,
-	},
-	"2023-11-30": {
-		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "영웅", "합창", "영광"],
-		answer: 2,
-	},
 	"2023-12-01": {
 		question: "다음 중 가장 짧은 음표는?",
 		options: ["♩", "♪", "♫", "♬"],
@@ -423,148 +273,166 @@ export const quizData: QuizData = {
 		options: ["심장병", "기관지염", "난청", "당뇨병"],
 		answer: 2,
 	},
+	"2024-01-01": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-01-02": {
+		question: "비발디의 대표작은?",
+		options: ["운명교향곡", "사계", "로망스", "터키행진곡"],
+		answer: 1,
+	},
+	"2024-01-03": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2024-01-04": {
+		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
+		options: ["O", "X"],
+		answer: 0,
+	},
+	"2024-01-05": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2024-01-06": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-01-07": {
+		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "영웅", "합창", "영광"],
+		answer: 2,
+	},
+	"2024-01-08": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2024-01-09": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2024-01-10": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-01-11": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2024-01-12": {
+		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
+		options: ["O", "X"],
+		answer: 0,
+	},
+	"2024-01-13": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2024-01-14": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-01-15": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-01-16": {
+		question: "비발디의 대표작은?",
+		options: ["운명교향곡", "사계", "로망스", "터키행진곡"],
+		answer: 1,
+	},
+	"2024-01-17": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2024-01-18": {
+		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
+		options: ["O", "X"],
+		answer: 0,
+	},
+	"2024-01-19": {
+		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "영웅", "합창", "영광"],
+		answer: 2,
+	},
+	"2024-01-20": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2024-01-21": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-01-22": {
+		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "영웅", "합창", "영광"],
+		answer: 2,
+	},
+	"2024-01-23": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2024-01-24": {
+		question: "비발디의 대표작은?",
+		options: ["운명교향곡", "사계", "로망스", "터키행진곡"],
+		answer: 1,
+	},
+	"2024-01-25": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2024-01-26": {
+		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
+		options: ["O", "X"],
+		answer: 0,
+	},
+	"2024-01-27": {
+		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "영웅", "합창", "영광"],
+		answer: 2,
+	},
+	"2024-01-28": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2024-01-29": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-01-30": {
+		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "영웅", "합창", "영광"],
+		answer: 2,
+	},
+	"2024-01-31": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
 };
 
 export const dailyQuoteData: {
 	[date: string]: { sentence: string; author: string };
 } = {
-	"2023-11-01": {
-		sentence:
-			"음악을 듣는 사람은 그의 고독을 느낀다. 사람이 살면서 한번은 하는 경험이다.",
-		author: "로버트 브라우닝",
-	},
-	"2023-11-02": {
-		sentence:
-			"만약 극단적인 자기중심주의자가 되는 것이, 내가 믿기에는, 내가 나의 예술이나 음악을 하는 것이라면, 그렇다면 당신들은 나를 그렇게 (자기주심주의자) 불러도 된다. 나는 내가 하는 일과 내가 말하는 그것을 믿는다.",
-		author: "존 레논",
-	},
-	"2023-11-03": {
-		sentence:
-			"너의 진심으로 살아라. 너의 사랑을 표현하라. 너의 열정을 나누어라. 너의 꿈을 향해 전진하라. 너의 말대로 걸어라. 춤추고 너의 음악을 노래하라. 너의 축복을 받아들여라. 오늘을 가치있게 기억하도록 만들어라.",
-		author: "스티브 마라볼리",
-	},
-	"2023-11-04": {
-		sentence:
-			"정보는 지식이 아니다. 지식은 지혜가 아니다. 지혜는 진리가 아니라. 진리는 아름다움이 아니다. 아름다움은 사랑이 아니다. 사랑은 음악이 아니다. 음악이 모든것중에 최고이다.",
-		author: "프랑크 자파",
-	},
-	"2023-11-05": {
-		sentence: "음악은 마음의 학문이다 그것은 연설이 끝나는 곳에서 시작된다.",
-		author: "알폰소 드 라마티네",
-	},
-	"2023-11-06": {
-		sentence:
-			"베토벤은 당신에게 베토벤이나 모짜르트와 같은 것은 사람답게 되는 것이라고 말해준다. 바하는 우주처럼 되는 것이 무엇인지 말해준다.",
-		author: "글라스 아담스",
-	},
-	"2023-11-07": {
-		sentence:
-			"음악은 노트에서 나타나는 것이 아니다. 그것은 노트사이의 정적에 있다.",
-		author: "볼프강 아마데우스 모짜르트",
-	},
-	"2023-11-08": {
-		sentence:
-			"음악은 사람을 로맨틱하게 만든다 적어도 누군가의 두려움은 가져간다. 현재에도 마찬가지이다.",
-		author: "오스타 와일드",
-	},
-	"2023-11-09": {
-		sentence: "나는 하나의 알파벳을 적는 대신, 10000개의 노트를 쓰겠소.",
-		author: "루드비히 반 베토벤",
-	},
-	"2023-11-10": {
-		sentence:
-			"음악없이 꾸미려고 한다면, 시간은 그저 꼭 내야하는 고지서처럼 지루한 생산활동의 데드라인이나 날들 일 것이다.",
-		author: "프랑크 자파",
-	},
-	"2023-11-11": {
-		sentence:
-			"나에게 나는 것을 가르쳐 줄 수 없다면, 대신 노래하는 것을 가르쳐 주렴.",
-		author: "J.M.바리, 피터팬에서",
-	},
-	"2023-11-12": {
-		sentence: "음악은 가장 강력한 마법의 형식이다.",
-		author: "마릴린 맨슨",
-	},
-	"2023-11-13": {
-		sentence: "음악은 정적에 따르는 한컵의 와인이다.",
-		author: "버트 플립",
-	},
-	"2023-11-14": {
-		sentence:
-			"음악은 영혼의 언어이다. 그것은 갈등을 없애주는 ,평화를 가져다주는 삶의 비밀을 열어준다.",
-		author: "",
-	},
-	"2023-11-15": {
-		sentence: "영혼의 음악은 우주를 통해 들을수 있다.",
-		author: "라오 쑤",
-	},
-	"2023-11-16": {
-		sentence: "음악은 굳건하게 닫힌 마음을 열어주는 마법의 키처럼 작동한다.",
-		author: "마리아 어거스트 본 트랩",
-	},
-	"2023-11-17": {
-		sentence:
-			"음악은, 당신의 당혹감을 풀어주고 당신의 성격이나 감성을 정화시켜주는데 도움이 된다. 그리고 보살핌이 필요한 슬픔의 시간에 당신의 안에 있는 살아있는 기쁨을 용솟움치도록 도와준다.",
-		author: "본헤퍼",
-	},
-	"2023-11-18": {
-		sentence: "음악은 영혼의 폭발이다.",
-		author: "페레데릭 델리우스",
-	},
-	"2023-11-19": {
-		sentence: "나의 개인적인 취미는 독서와 음악감상과 침묵이다.",
-		author: "에디뜨 시트웰",
-	},
-	"2023-11-20": {
-		sentence:
-			"음악은 대단한 화합가이다. 믿기힘든 힘을 가지고 있다. 모든 점이 다른 사람들을 하나로 만들어주는 공통점이다.",
-		author: "사라 데슨",
-	},
-	"2023-11-21": {
-		sentence: "음악은 사람에게 없어서는 안되는 기쁨을 만들어낸다.",
-		author: "컨퓨시오스",
-	},
-	"2023-11-22": {
-		sentence: "음악은 나의 더 높은 힘이다.",
-		author: "올리버 제임스",
-	},
-	"2023-11-23": {
-		sentence:
-			"처음엔 그는 뭔가 음악이라고 생각하는 것을 들었다. 그는 사람들의 노래소리를 들었다.  그의 뒤에서, 광대한 공간과 시간을 가로지르는, 그가 막 떠나온 왼쪽으로부터도 역시 그는 음악을 들었다. 하지만 아마도 그것은 메아리였을 것이다.",
-		author: "로이스 로울리",
-	},
-	"2023-11-24": {
-		sentence: "음악이나 시가 중단되거나 방해를 받는 것은 언제나 치명적이다.",
-		author: "조지 엘리엇",
-	},
-	"2023-11-25": {
-		sentence:
-			"당신이 들은것이 무엇인지 나에게 말해보라. 그러면 내가 당신이 누구인지 말해줄테니.",
-		author: "티파니 디바르토로",
-	},
-	"2023-11-26": {
-		sentence:
-			"넘쳐흐르는 나의 심장은, 아프고 상처받았을때면 음악으로 인해 치유받고 회복한다.",
-		author: "마틴 루터",
-	},
-	"2023-11-27": {
-		sentence:
-			"우리 정부가 아무리 부패하고, 탐욕스럽고, 비정하다 해도 우리의 기업과 미디어와 우리의 종교와 자선기관이 그렇게 된다해도, 음악은 여전히 멋지다.",
-		author: "커트 보네거트",
-	},
-	"2023-11-28": {
-		sentence: "내 안에 음악이 가득하면, 인생은 노력없이도 흘러가는 것 같다.",
-		author: "조지 엘리엇",
-	},
-	"2023-11-29": {
-		sentence:
-			"음악은 모든이들의 일이다. 단지 출판인들이 본인들이 그것을 소유했다고 생각할 뿐이다.",
-		author: "존 레논",
-	},
-	"2023-11-30": {
-		sentence: "인생은 아름다운 멜로디와 같다. 단지 가사들이 그것을 망칠뿐이다.",
-		author: "한스 크리스찬 앤더슨",
-	},
 	"2023-12-01": {
 		sentence:
 			"깊게 숨을 쉬어야 합니다. 그리고 음악이 당신께 흐르도록 하세요. 그것을 충분히 즐기세요. 스스로 경외롭게 느끼도록 하세요. 음악을 연주할때, 음악이 그 자체의 아름다움으로 당신의 마음을 깨도록 내버려 두세요.",
@@ -925,5 +793,142 @@ export const dailyQuoteData: {
 	"2024-02-17": {
 		sentence: "음악이 없다면, 나에게 삶은 텅 빈 것이다.",
 		author: "제인 오스틴",
+	},
+	"2024-02-18": {
+		sentence:
+			"음악을 듣는 사람은 그의 고독을 느낀다. 사람이 살면서 한번은 하는 경험이다.",
+		author: "로버트 브라우닝",
+	},
+	"2024-02-19": {
+		sentence:
+			"만약 극단적인 자기중심주의자가 되는 것이, 내가 믿기에는, 내가 나의 예술이나 음악을 하는 것이라면, 그렇다면 당신들은 나를 그렇게 (자기주심주의자) 불러도 된다. 나는 내가 하는 일과 내가 말하는 그것을 믿는다.",
+		author: "존 레논",
+	},
+	"2024-02-20": {
+		sentence:
+			"너의 진심으로 살아라. 너의 사랑을 표현하라. 너의 열정을 나누어라. 너의 꿈을 향해 전진하라. 너의 말대로 걸어라. 춤추고 너의 음악을 노래하라. 너의 축복을 받아들여라. 오늘을 가치있게 기억하도록 만들어라.",
+		author: "스티브 마라볼리",
+	},
+	"2024-02-21": {
+		sentence:
+			"정보는 지식이 아니다. 지식은 지혜가 아니다. 지혜는 진리가 아니라. 진리는 아름다움이 아니다. 아름다움은 사랑이 아니다. 사랑은 음악이 아니다. 음악이 모든것중에 최고이다.",
+		author: "프랑크 자파",
+	},
+	"2024-02-22": {
+		sentence: "음악은 마음의 학문이다 그것은 연설이 끝나는 곳에서 시작된다.",
+		author: "알폰소 드 라마티네",
+	},
+	"2024-02-23": {
+		sentence:
+			"베토벤은 당신에게 베토벤이나 모짜르트와 같은 것은 사람답게 되는 것이라고 말해준다. 바하는 우주처럼 되는 것이 무엇인지 말해준다.",
+		author: "글라스 아담스",
+	},
+	"2024-02-24": {
+		sentence:
+			"음악은 노트에서 나타나는 것이 아니다. 그것은 노트사이의 정적에 있다.",
+		author: "볼프강 아마데우스 모짜르트",
+	},
+	"2024-02-25": {
+		sentence:
+			"음악은 사람을 로맨틱하게 만든다 적어도 누군가의 두려움은 가져간다. 현재에도 마찬가지이다.",
+		author: "오스타 와일드",
+	},
+	"2024-02-26": {
+		sentence: "나는 하나의 알파벳을 적는 대신, 10000개의 노트를 쓰겠소.",
+		author: "루드비히 반 베토벤",
+	},
+	"2024-02-27": {
+		sentence:
+			"음악없이 꾸미려고 한다면, 시간은 그저 꼭 내야하는 고지서처럼 지루한 생산활동의 데드라인이나 날들 일 것이다.",
+		author: "프랑크 자파",
+	},
+	"2024-02-28": {
+		sentence:
+			"나에게 나는 것을 가르쳐 줄 수 없다면, 대신 노래하는 것을 가르쳐 주렴.",
+		author: "J.M.바리, 피터팬에서",
+	},
+	"2024-02-29": {
+		sentence: "음악은 가장 강력한 마법의 형식이다.",
+		author: "마릴린 맨슨",
+	},
+	"2024-03-01": {
+		sentence: "음악은 정적에 따르는 한컵의 와인이다.",
+		author: "버트 플립",
+	},
+	"2024-03-02": {
+		sentence:
+			"음악은 영혼의 언어이다. 그것은 갈등을 없애주는 ,평화를 가져다주는 삶의 비밀을 열어준다.",
+		author: "",
+	},
+	"2024-03-03": {
+		sentence: "영혼의 음악은 우주를 통해 들을수 있다.",
+		author: "라오 쑤",
+	},
+	"2024-03-04": {
+		sentence: "음악은 굳건하게 닫힌 마음을 열어주는 마법의 키처럼 작동한다.",
+		author: "마리아 어거스트 본 트랩",
+	},
+	"2024-03-05": {
+		sentence:
+			"음악은, 당신의 당혹감을 풀어주고 당신의 성격이나 감성을 정화시켜주는데 도움이 된다. 그리고 보살핌이 필요한 슬픔의 시간에 당신의 안에 있는 살아있는 기쁨을 용솟움치도록 도와준다.",
+		author: "본헤퍼",
+	},
+	"2024-03-06": {
+		sentence: "음악은 영혼의 폭발이다.",
+		author: "페레데릭 델리우스",
+	},
+	"2024-03-07": {
+		sentence: "나의 개인적인 취미는 독서와 음악감상과 침묵이다.",
+		author: "에디뜨 시트웰",
+	},
+	"2024-03-08": {
+		sentence:
+			"음악은 대단한 화합가이다. 믿기힘든 힘을 가지고 있다. 모든 점이 다른 사람들을 하나로 만들어주는 공통점이다.",
+		author: "사라 데슨",
+	},
+	"2024-03-09": {
+		sentence: "음악은 사람에게 없어서는 안되는 기쁨을 만들어낸다.",
+		author: "컨퓨시오스",
+	},
+	"2024-03-10": {
+		sentence: "음악은 나의 더 높은 힘이다.",
+		author: "올리버 제임스",
+	},
+	"2024-03-11": {
+		sentence:
+			"처음엔 그는 뭔가 음악이라고 생각하는 것을 들었다. 그는 사람들의 노래소리를 들었다.  그의 뒤에서, 광대한 공간과 시간을 가로지르는, 그가 막 떠나온 왼쪽으로부터도 역시 그는 음악을 들었다. 하지만 아마도 그것은 메아리였을 것이다.",
+		author: "로이스 로울리",
+	},
+	"2024-03-12": {
+		sentence: "음악이나 시가 중단되거나 방해를 받는 것은 언제나 치명적이다.",
+		author: "조지 엘리엇",
+	},
+	"2024-03-13": {
+		sentence:
+			"당신이 들은것이 무엇인지 나에게 말해보라. 그러면 내가 당신이 누구인지 말해줄테니.",
+		author: "티파니 디바르토로",
+	},
+	"2024-03-14": {
+		sentence:
+			"넘쳐흐르는 나의 심장은, 아프고 상처받았을때면 음악으로 인해 치유받고 회복한다.",
+		author: "마틴 루터",
+	},
+	"2024-03-15": {
+		sentence:
+			"우리 정부가 아무리 부패하고, 탐욕스럽고, 비정하다 해도 우리의 기업과 미디어와 우리의 종교와 자선기관이 그렇게 된다해도, 음악은 여전히 멋지다.",
+		author: "커트 보네거트",
+	},
+	"2024-03-16": {
+		sentence: "내 안에 음악이 가득하면, 인생은 노력없이도 흘러가는 것 같다.",
+		author: "조지 엘리엇",
+	},
+	"2024-03-17": {
+		sentence:
+			"음악은 모든이들의 일이다. 단지 출판인들이 본인들이 그것을 소유했다고 생각할 뿐이다.",
+		author: "존 레논",
+	},
+	"2024-03-18": {
+		sentence: "인생은 아름다운 멜로디와 같다. 단지 가사들이 그것을 망칠뿐이다.",
+		author: "한스 크리스찬 앤더슨",
 	},
 };

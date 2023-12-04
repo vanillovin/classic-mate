@@ -74,21 +74,11 @@ function CommentItem({ comment, postId, commentCount }: CommentItemProps) {
 				</div>
 				{session?.user.id === comment.user_id && (
 					<div className="dropdown dropdown-left">
-						<label tabIndex={0} className="cursor-pointer">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								fill="none"
-								viewBox="0 0 24 24"
-								strokeWidth={1.5}
-								stroke="currentColor"
-								className="w-4 h-4 hover:text-peachmoon-rose"
-							>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									d="M3.75 9h16.5m-16.5 6.75h16.5"
-								/>
-							</svg>
+						<label
+							tabIndex={0}
+							className="cursor-pointer font-medium hover:text-pantone-brandy-sniffer"
+						>
+							⋯
 						</label>
 						<ul
 							tabIndex={0}

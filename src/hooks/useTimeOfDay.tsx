@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import useCurrentTime from "./useCurrentTime";
 
 export type TimeOfDay = "dawn" | "morning" | "afternoon" | "evening" | "night";
 
@@ -19,7 +18,6 @@ export const emojiByTimeOfDay = {
 
 function useTimeOfDay() {
 	const [timeOfDay, setTimeOfDay] = useState<TimeOfDay>("dawn");
-	const currentTime = useCurrentTime();
 
 	useEffect(() => {
 		function setTime() {

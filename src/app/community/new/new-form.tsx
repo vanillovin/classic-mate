@@ -56,7 +56,7 @@ function NewForm({ profile }: { profile: Profile }) {
 				<select
 					name="category_name"
 					id="category"
-					className="w-full block p-2 rounded-sm border focus:outline-none focus:border-black"
+					className="w-full block p-2 rounded-sm border focus:outline-none focus:border-pantone-dark-navy"
 					required
 				>
 					<option value="">카테고리를 선택해주세요.</option>
@@ -72,7 +72,7 @@ function NewForm({ profile }: { profile: Profile }) {
 					id="title"
 					name="title"
 					placeholder="제목을 입력해주세요."
-					className="w-full block p-2 rounded-sm border focus:outline-none focus:border-black"
+					className="w-full block p-2 rounded-sm border focus:outline-none focus:border-pantone-dark-navy"
 					minLength={3}
 					maxLength={50}
 					required
@@ -87,7 +87,7 @@ function NewForm({ profile }: { profile: Profile }) {
 					name="content"
 					placeholder="내용을 입력해주세요."
 					minLength={3}
-					className="w-full block p-2 rounded-sm border h-80 max-h-96 focus:outline-none focus:border-black"
+					className="w-full block p-2 rounded-sm border h-80 max-h-96 focus:outline-none focus:border-pantone-dark-navy"
 					required
 				/>
 			</div>

@@ -20,7 +20,7 @@ function MoodClassicalMusic() {
 					<h3 className="sm:text-lg font-semibold drop-shadow-md">
 						{value.name}
 					</h3>
-					<ul className="mt-2 px-1 text-sm sm:text-base">
+					<ul className="mt-2 text-sm sm:text-base">
 						{value.data.map((classic, index) => (
 							<li key={index} className="pb-1 last:pb-0 text-pantone-dark-navy">
 								<Link

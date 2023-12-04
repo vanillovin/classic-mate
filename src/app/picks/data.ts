@@ -270,7 +270,7 @@ export const classicalMusicByMood: {
 } = {
 	romantic: {
 		name: "로맨틱한 🌹",
-		bgColor: "bg-rose-400",
+		bgColor: "bg-[#9A3B3B]",
 		data: [
 			{
 				id: 54,
@@ -291,8 +291,8 @@ export const classicalMusicByMood: {
 		],
 	},
 	relaxing: {
-		name: "휴식과 편안함을 주는 ☁️",
-		bgColor: "bg-green-200",
+		name: "휴식과 편안함을 주는 🌼",
+		bgColor: "bg-[#5B9A8B]",
 		data: [
 			{
 				id: 44,
@@ -305,7 +305,7 @@ export const classicalMusicByMood: {
 	},
 	energetic: {
 		name: "에너지와 활기 넘치는 ⚡️",
-		bgColor: "bg-yellow-200",
+		bgColor: "bg-[#F7E987]",
 		data: [
 			{
 				id: 58,
@@ -326,7 +326,7 @@ export const classicalMusicByMood: {
 	},
 	calm: {
 		name: "수면과 명상을 위한 🌙",
-		bgColor: "bg-blue-200",
+		bgColor: "bg-[#93A9D1]",
 		data: [
 			{
 				id: 59,
@@ -346,86 +346,10 @@ export const classicalMusicByMood: {
 			},
 		],
 	},
-	mysterious: {
-		name: "신비로운 🌌",
-		bgColor: "bg-purple-200",
-		data: [
-			{
-				id: 62,
-				composer: "Wolfgang Amadeus Mozart",
-				title: "마술피리 (Die Zauberflöte)",
-			},
-			{ id: 40, composer: "Claude Debussy", title: "달빛 (Clair de Lune)" },
-			{
-				id: 63,
-				composer: "Gustav Holst",
-				title: "행성 중 천왕성 (The Planets - Uranus)",
-			},
-		],
-	},
-	playful: {
-		name: "재미있고 유쾌한 😄",
-		bgColor: "bg-orange-300",
-		data: [
-			{
-				id: 70,
-				composer: "Gioachino Rossini",
-				title: "윌리엄텔 서곡 (William Tell Overture Final)",
-			},
-			{
-				id: 56,
-				composer: "Antonio Vivaldi",
-				title: "사계 중 봄 (Spring from The Four Seasons)",
-			},
-			{
-				id: 72,
-				composer: "Johannes Brahms",
-				title: "헝가리 무곡 (Hungarian Dance No. 5)",
-			},
-		],
-	},
-	passionate: {
-		name: "열정적인 🔥",
-		bgColor: "bg-red-400",
-		data: [
-			{
-				id: 68,
-				composer: "Johannes Brahms",
-				title:
-					"피아노 협주곡 2번 (Piano Concerto No. 2 in B-flat major, Op. 83)",
-			},
-			{
-				id: 50,
-				composer: "Franz Liszt",
-				title: "사랑의 꿈 (Liebesträume No. 3)",
-			},
-			{
-				id: 49,
-				composer: "Piotr Ilyich Tchaikovsky",
-				title: "백조의 호수 (Scène - Swan Lake)",
-			},
-		],
-	},
-	serene: {
-		name: "고요한 🌿",
-		bgColor: "bg-gray-200",
-		data: [
-			{
-				id: 67,
-				composer: "Johann Sebastian Bach",
-				title: "골드베르크 변주곡 (Goldberg Variations)",
-			},
-			{ id: 51, composer: "Franz Schubert", title: "아베 마리아 (Ave Maria)" },
-			{
-				id: 73,
-				composer: "Frédéric Chopin",
-				title: "스케르초 4번 (Scherzo No. 4 in E Major, Op. 54)",
-			},
-		],
-	},
+
 	sentimental: {
 		name: "감성적인 💕",
-		bgColor: "bg-pink-200",
+		bgColor: "bg-[#E19898]",
 		data: [
 			{
 				id: 71,
@@ -445,9 +369,10 @@ export const classicalMusicByMood: {
 			},
 		],
 	},
+
 	dreamy: {
-		name: "몽환적인 🌟",
-		bgColor: "bg-teal-200",
+		name: "몽환적인 ☁️",
+		bgColor: "bg-[#C2DED1]",
 		data: [
 			{ id: 66, composer: "Erik Satie", title: "그노시엔스 (Gnossiennes)" },
 			{ id: 65, composer: "Maurice Ravel", title: "볼레로 (Boléro)" },
@@ -455,6 +380,83 @@ export const classicalMusicByMood: {
 				id: 64,
 				composer: "Gustav Holst",
 				title: "행성 (The Planets), 제2악장: 금성 (Venus)",
+			},
+		],
+	},
+	mysterious: {
+		name: "신비로운 🔮",
+		bgColor: "bg-[#B08BBB]",
+		data: [
+			{
+				id: 62,
+				composer: "Wolfgang Amadeus Mozart",
+				title: "마술피리 (Die Zauberflöte)",
+			},
+			{ id: 40, composer: "Claude Debussy", title: "달빛 (Clair de Lune)" },
+			{
+				id: 63,
+				composer: "Gustav Holst",
+				title: "행성 중 천왕성 (The Planets - Uranus)",
+			},
+		],
+	},
+	serene: {
+		name: "고요한 🕊️",
+		bgColor: "bg-[#F3EEEA]",
+		data: [
+			{
+				id: 67,
+				composer: "Johann Sebastian Bach",
+				title: "골드베르크 변주곡 (Goldberg Variations)",
+			},
+			{ id: 51, composer: "Franz Schubert", title: "아베 마리아 (Ave Maria)" },
+			{
+				id: 73,
+				composer: "Frédéric Chopin",
+				title: "스케르초 4번 (Scherzo No. 4 in E Major, Op. 54)",
+			},
+		],
+	},
+	passionate: {
+		name: "열정적인 🔥",
+		bgColor: "bg-[#CD1818]",
+		data: [
+			{
+				id: 68,
+				composer: "Johannes Brahms",
+				title:
+					"피아노 협주곡 2번 (Piano Concerto No. 2 in B-flat major, Op. 83)",
+			},
+			{
+				id: 50,
+				composer: "Franz Liszt",
+				title: "사랑의 꿈 (Liebesträume No. 3)",
+			},
+			{
+				id: 49,
+				composer: "Piotr Ilyich Tchaikovsky",
+				title: "백조의 호수 (Scène - Swan Lake)",
+			},
+		],
+	},
+	playful: {
+		name: "재미있고 유쾌한 🧸",
+		bgColor: "bg-[#F3B664]",
+		data: [
+			{
+				id: 70,
+				composer: "Gioachino Rossini",
+				title: "윌리엄텔 서곡 (William Tell Overture Final)",
+			},
+			{
+				id: 56,
+				composer: "Antonio Vivaldi",
+				title: "사계 중 봄 (Spring from The Four Seasons)",
+			},
+			{
+				id: 72,
+				composer: "Johannes Brahms",
+				title: "헝가리 무곡 (Hungarian Dance No. 5)",
 			},
 		],
 	},

@@ -57,7 +57,7 @@ function MusicPlayer() {
 				backgroundImage: `url(${musicPlayerBackgroundImageURLs[timeOfDay]})`,
 				transition: "background-image 0.5s ease-in-out",
 			}}
-			className="relative w-full h-full py-16 sm:p-12 flex flex-col sm:flex-row items-center bg-center bg-cover rounded-md shadow-md select-none"
+			className="relative w-full h-full px-6 py-16 sm:p-12 flex flex-col sm:flex-row items-center bg-center bg-cover rounded-md shadow-md select-none"
 		>
 			<div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-white/10" />
 			<div className="flex relative items-center justify-between">
@@ -151,15 +151,19 @@ function MusicPlayer() {
 					onEnded={() => setIsPlaying(false)}
 				/>
 				<div
-					className={`text-sm sm:text-lg leading-4 font-light drop-shadow-sm ${textColor}`}
+					className={`text-sm sm:text-lg font-medium text-center sm:text-start leading-4 ${textColor}`}
 				>
 					{title}
 				</div>
 				<div
-					className={`flex items-center gap-x-1 text-sm sm:text-base leading-4 font-light drop-shadow-sm mt-3 -mb-6 ${textColor}`}
+					className={`flex items-center justify-center sm:justify-start gap-x-1 text-sm sm:text-base leading-4 font-light mt-3 sm:-mb-6 ${textColor}`}
 				>
-					<div className="rounded-xl px-2 bg-white/40">현재 시간</div>{" "}
-					{currentTime} {emojiByTimeOfDay[timeOfDay]}
+					<div className="rounded-full px-2 font-semibold shadow-md bg-white text-black">
+						now
+					</div>{" "}
+					<span className="font-medium">
+						{currentTime} {emojiByTimeOfDay[timeOfDay]}
+					</span>
 				</div>
 			</div>
 		</div>

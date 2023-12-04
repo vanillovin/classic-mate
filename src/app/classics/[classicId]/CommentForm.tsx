@@ -50,12 +50,12 @@ function CommentForm({ classicId }: { classicId: string }) {
 				minLength={4}
 				maxLength={200}
 				required
-				className="w-5/6 h-full rounded-sm p-1 flex-1 focus:outline-none resize-none"
+				className="w-5/6 h-full rounded-sm px-2 py-1 flex-1 focus:outline-none resize-none"
 			/>
 			{content && content.replace(/\s/g, "").length < 5 && (
 				<p
-					className={`px-1 ${
-						!isButtonDisabled ? "text-green-500" : "text-red-500"
+					className={`flex items-center justify-center ${
+						!isButtonDisabled ? "text-[#527853]" : "text-[#8C3333]"
 					}`}
 				>
 					{content.replace(/\s/g, "").length} / 4

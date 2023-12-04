@@ -69,13 +69,13 @@ function WeatherClassicalMusic() {
 	return (
 		<div
 			style={{ backgroundImage: `url(${backgroundImageURL})` }}
-			className="h-60 flex items-center justify-center rounded-sm shadow-lg bg-center bg-cover p-4"
+			className="h-64 flex items-center justify-center rounded-sm shadow-lg bg-center bg-cover p-4"
 		>
 			{weather ? (
 				<div
 					className={`h-full flex flex-col sm:flex-row items-center justify-center ${parentTextColor}`}
 				>
-					<div className="flex items-center justify-center bg-white bg-opacity-20 mr-0 sm:mr-2 mobile:bg-transparent pl-2 rounded-sm">
+					<div className="flex items-center justify-center bg-white/20 mr-0 sm:mr-2 sm:bg-transparent pl-2 rounded-sm">
 						<div className="flex sm:flex-col items-center sm:items-start">
 							<p className="font-semibold sm:font-bold text-lg">{`${weather.main.temp.toFixed()}℃`}</p>
 							<p className="hidden sm:block font-semibold">
@@ -99,7 +99,7 @@ function WeatherClassicalMusic() {
 							/>
 						</div>
 					</div>
-					<div className="mt-2 sm:mt-0 text-center mobile:text-start">
+					<div className="mt-3 sm:mt-0 text-center sm:text-start">
 						<h2 className="font-semibold sm:text-lg drop-shadow-md">
 							{classicsByWeather[weather.weather[0].main].name}
 						</h2>

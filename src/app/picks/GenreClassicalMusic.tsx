@@ -33,7 +33,7 @@ function GenreClassicalMusic({ classics }: { classics: Classic[] }) {
 				))}
 			</div>
 			<p className="text-sm sm:text-base text-center px-4 pt-3 py-6 font-light leading-4">
-				{description ? `❝${description}❞` : ""}
+				{description ? `❝ ${description} ❞` : ""}
 			</p>
 			<div className="comm-scrollbar grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 rounded-sm shadow-md max-h-80 overflow-y-auto border p-2 border-black/80">
 				{results.map((result) => (

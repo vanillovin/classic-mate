@@ -30,14 +30,14 @@ function ClassicQuiz() {
 	};
 
 	return (
-		<div className="w-full p-4 rounded-md shadow-md text-center bg-white/90">
-			<h2 className="flex flex-col items-center justify-center font-semibold text-2xl sm:text-3xl gap-2 drop-shadow-md">
+		<div className="w-full p-4 rounded-md shadow-md text-center bg-white/90 text-black">
+			<h2 className="flex flex-col items-center justify-center font-semibold text-2xl sm:text-3xl gap-3 drop-shadow-md">
 				<span className="text-sm sm:text-base px-3 py-1 rounded-full bg-autumn-gold">
 					{currentDateString.replaceAll("-", ". ")} {currentDay}
 				</span>
 				오늘의 클래식 퀴즈!
 			</h2>
-			<h3 className="font-medium text-lg sm:text-2xg pt-2 pb-1 underline underline-offset-4">
+			<h3 className="font-medium text-lg sm:text-2xg pt-3 pb-1 underline underline-offset-4">
 				Q. {currentQuiz.question}
 			</h3>
 			<div className="text-sm sm:text-base flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 px-2 py-2 sm:py-4">
@@ -46,9 +46,11 @@ function ClassicQuiz() {
 			<div>
 				{userAnswer !== null ? (
 					userAnswer === currentQuiz.answer ? (
-						<p className="font-medium text-autumn-emerald">정답입니다!</p>
+						<p className="font-semibold text-sm sm:text-base text-autumn-emerald">
+							정답입니다!
+						</p>
 					) : (
-						<p className="font-medium text-autumn-darkred">
+						<p className="font-semibold text-sm sm:text-base text-autumn-darkred">
 							틀렸습니다. 다시 시도해보세요!
 						</p>
 					)
