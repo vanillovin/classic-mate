@@ -3,7 +3,9 @@ import { redirect } from "next/navigation";
 import EditForm from "./edit-form";
 import { createServerClient } from "@/utils/supabase-server";
 
-export default async function EditPostPage() {
+export default async function EditPostPage({
+	params: { id },
+}: { params: { id: string } }) {
 	const supabase = createServerClient();
 	const {
 		data: { user },
@@ -21,9 +23,19 @@ export default async function EditPostPage() {
 	//   redirect('/error');
 	// }
 
+	const { data: post, error: fetchPostError } = await supabase
+		.from("test_posts")
+		.select("*")
+		.match({ id })
+		.single();
+
+	if (!post || fetchPostError) {
+		redirect(`/community`);
+	}
+
 	return (
 		<div className="px-6 sm:px-12 pt-6 sm:pt-12 pb-24">
-			<EditForm />
+			<EditForm oldPost={post} />
 		</div>
 	);
 }

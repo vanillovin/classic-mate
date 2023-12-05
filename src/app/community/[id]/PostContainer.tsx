@@ -75,11 +75,14 @@ function PostContainer({ postId, serverPost }: PostContainerProps) {
 		modalRef.current?.showModal();
 	}
 
+	// 삭제2번눌러도똑같은결과나옴. 삭제보단글작성주문연타했을때문제가있어서 mutation? 주문2번 글쓰기2번 막으려고 useMutation 쓴다!!
+	// 로딩안쓰면mutation해도다를게없음. isloading할수잇고 muatation안써도optimistic쓸수잇다.
 	async function deletePost() {
 		const { error } = await supabase
 			.from("test_posts")
 			.delete()
 			.eq("id", postId);
+
 		if (!error) {
 			router.push("/community");
 			queryClient.invalidateQueries(["posts"]);
@@ -103,7 +106,7 @@ function PostContainer({ postId, serverPost }: PostContainerProps) {
 					<div className="flex items-center flex-wrap">
 						<Link
 							href={`/community?cat=${post.category_name}`}
-							className="px-1 rounded-sm mr-1 text-sm sm:text-base bg-pantone-powder"
+							className="px-1 rounded-sm mr-1 text-sm sm:text-base bg-pantone-champagne hover:bg-pantone-latte"
 						>
 							{post.category_name}
 						</Link>
@@ -111,21 +114,11 @@ function PostContainer({ postId, serverPost }: PostContainerProps) {
 					</div>
 					{session?.user.id === post.user_id && (
 						<div className="dropdown dropdown-end">
-							<label tabIndex={0} className="cursor-pointer">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									strokeWidth={1.5}
-									stroke="currentColor"
-									className="w-5 h-5 hover:text-peachmoon-rose"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										d="M3.75 9h16.5m-16.5 6.75h16.5"
-									/>
-								</svg>
+							<label
+								tabIndex={0}
+								className="cursor-pointer text-lg font-medium hover:text-pantone-brandy-sniffer"
+							>
+								☰
 							</label>
 							<ul
 								tabIndex={0}
@@ -135,12 +128,12 @@ function PostContainer({ postId, serverPost }: PostContainerProps) {
 									<Link
 										href={{
 											pathname: `/community/${postId}/edit`,
-											query: {
-												id: postId,
-												category_name: post?.category_name,
-												title: post?.title,
-												content: post?.content,
-											},
+											// query: {
+											// 	id: postId,
+											// 	category_name: post?.category_name,
+											// 	title: post?.title,
+											// 	content: post?.content,
+											// },
 										}}
 										className="flex items-center"
 									>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useSupabase } from "@/components/providers/supabase-provider";
 
 type EditPostFormData = {
@@ -32,13 +32,12 @@ function validateAndPrepareData(
 	};
 }
 
-function NewForm() {
+function EditForm({ oldPost }: { oldPost: Post }) {
+	console.log("EditForm oldPost", oldPost);
 	const router = useRouter();
 	const { supabase } = useSupabase();
-	const searchParams = useSearchParams();
 	const [isLoading, setIsLoading] = useState(false);
-	const { id, category_name, title, content } =
-		Object.fromEntries(searchParams);
+	const { id, category_name, title, content } = oldPost;
 
 	async function updatePost(formData: FormData) {
 		setIsLoading(true);
@@ -99,7 +98,7 @@ function NewForm() {
 					name="title"
 					defaultValue={title}
 					placeholder="제목을 입력해주세요."
-					className="w-full block p-2 rounded-sm border focus:outline-none focus:border-black"
+					className="w-full block p-2 rounded-sm border focus:outline-none focus:border-pantone-dark-navy"
 					minLength={3}
 					required
 				/>
@@ -114,7 +113,7 @@ function NewForm() {
 					defaultValue={content}
 					placeholder="내용을 입력해주세요."
 					minLength={3}
-					className="w-full block p-2 rounded-sm border h-80 max-h-96 focus:outline-none focus:border-black"
+					className="w-full block p-2 rounded-sm border h-80 max-h-96 focus:outline-none focus:border-pantone-dark-navy"
 					required
 				/>
 			</div>
@@ -138,4 +137,4 @@ function NewForm() {
 	);
 }
 
-export default NewForm;
+export default EditForm;
