@@ -2,9 +2,11 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 import Posts from "./Posts";
-import SearchForm from "./SearchForm";
+import SortOptions from "./SortOptions";
 import { siteConfig } from "@/config/site";
 import { createServerClient } from "@/utils/supabase-server";
+import KeywordSearchForm from "./KeywordSerchForm";
+import CategorySelect from "./CategorySelect";
 
 export const metadata: Metadata = siteConfig.metaData["community"];
 
@@ -31,16 +33,20 @@ export default async function CommunityPage() {
 				</p>
 			</div>
 
-			<div className="flex flex-wrap gap-2 justify-between my-10">
-				{user && (
-					<Link
-						href="/community/new"
-						className="px-2 py-1 rounded-sm text-white transition-colors bg-[#404040] hover:bg-[#000]"
-					>
-						글쓰기
-					</Link>
-				)}
-				<SearchForm />
+			<div className="text-sm sm:text-base flex flex-wrap gap-1 sm:gap-2 items-center justify-between mt-10">
+				<Link
+					href={user ? "/community/new" : "login"}
+					className="flex items-center justify-center px-1 sm:px-2 py-1 rounded-sm transition-colors shadow-sm 
+          bg-pantone-toffee hover:bg-pantone-cocoa text-warm-vintage-off-white"
+				>
+					새글쓰기
+				</Link>
+				<CategorySelect />
+				<SortOptions />
+			</div>
+
+			<div className="flex items-center justify-center mt-4 mb-8">
+				<KeywordSearchForm />
 			</div>
 
 			<div className="flex flex-col">
