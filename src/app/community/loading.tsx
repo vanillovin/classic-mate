@@ -1,6 +1,8 @@
 import React from "react";
-import SearchForm from "./SearchForm";
+import SortOptions from "./SortOptions";
+import CategorySelect from "./CategorySelect";
 import LoadingSkeleton from "./LoadingSkeleton";
+import KeywordSearchForm from "./KeywordSerchForm";
 
 export default function Loading() {
 	return (
@@ -15,8 +17,16 @@ export default function Loading() {
 				</p>
 			</div>
 
-			<div className="flex flex-wrap gap-2 justify-between my-10">
-				<SearchForm />
+			<div className="text-sm sm:text-base flex flex-wrap gap-1 sm:gap-2 items-center justify-between mt-10">
+				<div className="flex items-center justify-center px-2 py-1 rounded-sm transition-colors shadow-sm bg-pantone-toffee hover:bg-pantone-cocoa text-warm-vintage-off-white">
+					새글쓰기
+				</div>
+				<CategorySelect />
+				<SortOptions />
+			</div>
+
+			<div className="flex items-center justify-center mt-4 mb-8">
+				<KeywordSearchForm />
 			</div>
 
 			<LoadingSkeleton />

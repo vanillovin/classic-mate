@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 
 import Posts from "./Posts";
 import SortOptions from "./SortOptions";
+import CategorySelect from "./CategorySelect";
+import KeywordSearchForm from "./KeywordSerchForm";
 import { siteConfig } from "@/config/site";
 import { createServerClient } from "@/utils/supabase-server";
-import KeywordSearchForm from "./KeywordSerchForm";
-import CategorySelect from "./CategorySelect";
 
 export const metadata: Metadata = siteConfig.metaData["community"];
 
