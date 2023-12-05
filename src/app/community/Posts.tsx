@@ -10,6 +10,7 @@ import { formatTimestamp } from "@/utils/dateUtils";
 import Pagination from "@/components/Pagination";
 
 export type SortType = "created_at" | "comment_count" | "view_count";
+export type CategoryType = "자유" | "클래식";
 
 const ITEMS_PER_PAGE = 16;
 
@@ -18,11 +19,12 @@ function Posts({ count }: { count: number }) {
 	const page = searchParams.get("page") ?? "1";
 	const keyword = searchParams.get("keyword") ?? "";
 	const sortType = (searchParams.get("sort") as SortType) ?? "created_at";
+	const categoryName = (searchParams.get("cat") as CategoryType) ?? "";
 
 	const { from, to } = getPagination(count, +page, 16);
 	const { data: posts, isError } = useQuery({
-		queryKey: ["posts", page, sortType, keyword],
-		queryFn: () => getPosts(sortType, keyword, from, to),
+		queryKey: ["posts", page, sortType, keyword, categoryName],
+		queryFn: () => getPosts(sortType, keyword, from, to, categoryName),
 		suspense: true,
 	});
 
