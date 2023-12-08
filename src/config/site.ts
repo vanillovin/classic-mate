@@ -4,7 +4,7 @@ export const siteConfig = {
 	name: "꿀래식",
 	mainNav: [
 		{ title: "홈", href: "/" },
-		{ title: "모든 클래식", href: "/classics" },
+		{ title: "모든 클래식", href: "/classical-music" },
 		{ title: "추천 클래식", href: "/picks" },
 		{ title: "모든 작곡가", href: "/composers" },
 		{ title: "태그로 찾기", href: "/tags" },
@@ -25,7 +25,7 @@ export const siteConfig = {
 				url: "https://kkulassic-d9m3vlyh8-vanillovin.vercel.app/",
 			},
 		},
-		classics: {
+		"classical-music": {
 			title: "모든 클래식 | 꿀래식",
 			description: "꿀래식의 모든 클래식 음악들을 즐겨보세요!",
 			keywords: ["classical music", "클래식", "클래식 음악", "모든 클래식"],

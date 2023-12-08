@@ -25,7 +25,7 @@ function NewForm({ profile }: { profile: Profile }) {
 		const id = uuidv4();
 
 		try {
-			const { error } = await supabase.from("test_posts").insert({
+			const { error } = await supabase.from("posts").insert({
 				id,
 				user_id: profile.id,
 				nickname: profile.nickname ?? "꿀메",

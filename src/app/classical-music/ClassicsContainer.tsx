@@ -5,11 +5,11 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 
 import { getPagination } from "@/utils/pagination";
-import ClassicList from "./ClassicList";
+import ClassicalMusicList from "./ClassicalMusicList";
 import LoadingSkeleton from "./LoadingSkeleton";
 import Pagination from "@/components/Pagination";
 import ClassicsSearchForm from "./ClassicsSearchForm";
-import { type ClassicsResult, getClassics } from "./getClassics";
+import { type ClassicsResult, getClassicalMusic } from "./getClassicalMusic";
 
 // const SELECTED_FIELDS = "id, title, author"; // 필요한 필드
 const ITEMS_PER_PAGE = 16;
@@ -31,8 +31,8 @@ function ClassicsContainer() {
 		ITEMS_PER_PAGE,
 	);
 	const { isLoading, data, isError } = useQuery({
-		queryKey: ["classics", page, keyword],
-		queryFn: () => getClassics(from, to, keyword),
+		queryKey: ["classicalMusic", page, keyword],
+		queryFn: () => getClassicalMusic(from, to, keyword),
 		suspense: true,
 	});
 
@@ -59,10 +59,10 @@ function ClassicsContainer() {
 								검색결과 {data.classics.length}개 ({data.took}초)
 							</p>
 						)}
-						<ClassicList classics={data.classics ?? []} />
+						<ClassicalMusicList classics={data.classics ?? []} />
 						<div className="flex items-center justify-center mt-14">
 							<Pagination
-								pathname="/classics"
+								pathname="/classical-music"
 								currentPage={+page}
 								totalPages={Math.ceil((data.count ?? 0) / ITEMS_PER_PAGE)}
 							/>

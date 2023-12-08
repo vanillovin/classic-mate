@@ -32,7 +32,7 @@ function MoodClassicalMusic() {
 								</Link>
 								<span className="mx-1">|</span>
 								<Link
-									href={`/classics/${classic.id}`}
+									href={`/classical-music/${classic.id}`}
 									className="font-medium hover:underline"
 								>
 									{classic.title}

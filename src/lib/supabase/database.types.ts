@@ -9,7 +9,22 @@ export type Json =
 export interface Database {
 	public: {
 		Tables: {
-			all_classics: {
+			categories: {
+				Row: {
+					id: string;
+					name: string;
+				};
+				Insert: {
+					id?: string;
+					name: string;
+				};
+				Update: {
+					id?: string;
+					name?: string;
+				};
+				Relationships: [];
+			};
+			classical_music: {
 				Row: {
 					composer: string;
 					cover_image: string;
@@ -48,9 +63,10 @@ export interface Database {
 				};
 				Relationships: [];
 			};
-			classic_comments: {
+			classical_music_comments: {
 				Row: {
-					classic_id: number;
+					classical_music_id: number;
+					classical_music_title: string | null;
 					content: string;
 					created_at: string;
 					id: number;
@@ -59,7 +75,8 @@ export interface Database {
 					user_id: string;
 				};
 				Insert: {
-					classic_id: number;
+					classical_music_id: number;
+					classical_music_title?: string | null;
 					content: string;
 					created_at?: string;
 					id?: never;
@@ -68,7 +85,8 @@ export interface Database {
 					user_id: string;
 				};
 				Update: {
-					classic_id?: number;
+					classical_music_id?: number;
+					classical_music_title?: string | null;
 					content?: string;
 					created_at?: string;
 					id?: never;
@@ -78,51 +96,103 @@ export interface Database {
 				};
 				Relationships: [
 					{
-						foreignKeyName: "classic_comments_classic_id_fkey";
-						columns: ["classic_id"];
-						referencedRelation: "all_classics";
+						foreignKeyName: "classical_music_comments_classical_music_id_fkey";
+						columns: ["classical_music_id"];
+						isOneToOne: false;
+						referencedRelation: "classical_music";
 						referencedColumns: ["id"];
 					},
 					{
-						foreignKeyName: "classic_comments_user_id_fkey";
+						foreignKeyName: "classical_music_comments_user_id_fkey";
 						columns: ["user_id"];
+						isOneToOne: false;
 						referencedRelation: "users";
 						referencedColumns: ["id"];
 					},
 				];
 			};
-			classic_likes: {
+			classical_music_likes: {
 				Row: {
 					classic_id: number;
-					classic_title: string;
+					classical_music_title: string;
 					created_at: string;
 					id: number;
 					user_id: string;
 				};
 				Insert: {
 					classic_id: number;
-					classic_title: string;
+					classical_music_title: string;
 					created_at?: string;
 					id?: never;
 					user_id: string;
 				};
 				Update: {
 					classic_id?: number;
-					classic_title?: string;
+					classical_music_title?: string;
 					created_at?: string;
 					id?: never;
 					user_id?: string;
 				};
 				Relationships: [
 					{
-						foreignKeyName: "classic_likes_classic_id_fkey";
+						foreignKeyName: "classical_music_likes_classic_id_fkey";
 						columns: ["classic_id"];
-						referencedRelation: "all_classics";
+						isOneToOne: false;
+						referencedRelation: "classical_music";
 						referencedColumns: ["id"];
 					},
 					{
-						foreignKeyName: "classic_likes_user_id_fkey";
+						foreignKeyName: "classical_music_likes_user_id_fkey";
 						columns: ["user_id"];
+						isOneToOne: false;
+						referencedRelation: "users";
+						referencedColumns: ["id"];
+					},
+				];
+			};
+			comments: {
+				Row: {
+					content: string;
+					created_at: string;
+					id: number;
+					nickname: string;
+					post_id: string;
+					post_title: string | null;
+					updated_at: string;
+					user_id: string;
+				};
+				Insert: {
+					content: string;
+					created_at?: string;
+					id?: never;
+					nickname: string;
+					post_id: string;
+					post_title?: string | null;
+					updated_at?: string;
+					user_id: string;
+				};
+				Update: {
+					content?: string;
+					created_at?: string;
+					id?: never;
+					nickname?: string;
+					post_id?: string;
+					post_title?: string | null;
+					updated_at?: string;
+					user_id?: string;
+				};
+				Relationships: [
+					{
+						foreignKeyName: "comments_post_id_fkey";
+						columns: ["post_id"];
+						isOneToOne: false;
+						referencedRelation: "posts";
+						referencedColumns: ["id"];
+					},
+					{
+						foreignKeyName: "comments_user_id_fkey";
+						columns: ["user_id"];
+						isOneToOne: false;
 						referencedRelation: "users";
 						referencedColumns: ["id"];
 					},
@@ -193,107 +263,13 @@ export interface Database {
 					{
 						foreignKeyName: "messages_user_id_fkey";
 						columns: ["user_id"];
+						isOneToOne: false;
 						referencedRelation: "users";
 						referencedColumns: ["id"];
 					},
 				];
 			};
-			profiles: {
-				Row: {
-					avatar_url: string | null;
-					description: string | null;
-					full_name: string | null;
-					id: string;
-					nickname: string | null;
-					updated_at: string | null;
-					website: string | null;
-				};
-				Insert: {
-					avatar_url?: string | null;
-					description?: string | null;
-					full_name?: string | null;
-					id: string;
-					nickname?: string | null;
-					updated_at?: string | null;
-					website?: string | null;
-				};
-				Update: {
-					avatar_url?: string | null;
-					description?: string | null;
-					full_name?: string | null;
-					id?: string;
-					nickname?: string | null;
-					updated_at?: string | null;
-					website?: string | null;
-				};
-				Relationships: [
-					{
-						foreignKeyName: "profiles_id_fkey";
-						columns: ["id"];
-						referencedRelation: "users";
-						referencedColumns: ["id"];
-					},
-				];
-			};
-			test_categories: {
-				Row: {
-					id: string;
-					name: string;
-				};
-				Insert: {
-					id?: string;
-					name: string;
-				};
-				Update: {
-					id?: string;
-					name?: string;
-				};
-				Relationships: [];
-			};
-			test_comments: {
-				Row: {
-					content: string;
-					created_at: string;
-					id: number;
-					nickname: string;
-					post_id: string;
-					updated_at: string;
-					user_id: string;
-				};
-				Insert: {
-					content: string;
-					created_at?: string;
-					id?: never;
-					nickname: string;
-					post_id: string;
-					updated_at?: string;
-					user_id: string;
-				};
-				Update: {
-					content?: string;
-					created_at?: string;
-					id?: never;
-					nickname?: string;
-					post_id?: string;
-					updated_at?: string;
-					user_id?: string;
-				};
-				Relationships: [
-					{
-						foreignKeyName: "test_comments_post_id_fkey";
-						columns: ["post_id"];
-						referencedRelation: "test_posts";
-						referencedColumns: ["id"];
-					},
-					{
-						foreignKeyName: "test_comments_user_id_fkey";
-						columns: ["user_id"];
-						referencedRelation: "users";
-						referencedColumns: ["id"];
-					},
-				];
-			};
-			test_posts: {
+			posts: {
 				Row: {
 					category_name: string;
 					comment_count: number;
@@ -332,14 +308,54 @@ export interface Database {
 				};
 				Relationships: [
 					{
-						foreignKeyName: "test_posts_category_name_fkey";
+						foreignKeyName: "posts_category_name_fkey";
 						columns: ["category_name"];
-						referencedRelation: "test_categories";
+						isOneToOne: false;
+						referencedRelation: "categories";
 						referencedColumns: ["name"];
 					},
 					{
-						foreignKeyName: "test_posts_user_id_fkey";
+						foreignKeyName: "posts_user_id_fkey";
 						columns: ["user_id"];
+						isOneToOne: false;
+						referencedRelation: "users";
+						referencedColumns: ["id"];
+					},
+				];
+			};
+			profiles: {
+				Row: {
+					avatar_url: string | null;
+					description: string | null;
+					full_name: string | null;
+					id: string;
+					nickname: string | null;
+					updated_at: string | null;
+					website: string | null;
+				};
+				Insert: {
+					avatar_url?: string | null;
+					description?: string | null;
+					full_name?: string | null;
+					id: string;
+					nickname?: string | null;
+					updated_at?: string | null;
+					website?: string | null;
+				};
+				Update: {
+					avatar_url?: string | null;
+					description?: string | null;
+					full_name?: string | null;
+					id?: string;
+					nickname?: string | null;
+					updated_at?: string | null;
+					website?: string | null;
+				};
+				Relationships: [
+					{
+						foreignKeyName: "profiles_id_fkey";
+						columns: ["id"];
+						isOneToOne: true;
 						referencedRelation: "users";
 						referencedColumns: ["id"];
 					},
@@ -360,3 +376,83 @@ export interface Database {
 		};
 	};
 }
+
+export type Tables<
+	PublicTableNameOrOptions extends
+		| keyof (Database["public"]["Tables"] & Database["public"]["Views"])
+		| { schema: keyof Database },
+	TableName extends PublicTableNameOrOptions extends { schema: keyof Database }
+		? keyof (Database[PublicTableNameOrOptions["schema"]]["Tables"] &
+				Database[PublicTableNameOrOptions["schema"]]["Views"])
+		: never = never,
+> = PublicTableNameOrOptions extends { schema: keyof Database }
+	? (Database[PublicTableNameOrOptions["schema"]]["Tables"] &
+			Database[PublicTableNameOrOptions["schema"]]["Views"])[TableName] extends {
+			Row: infer R;
+	  }
+		? R
+		: never
+	: PublicTableNameOrOptions extends keyof (Database["public"]["Tables"] &
+			Database["public"]["Views"])
+	? (Database["public"]["Tables"] &
+			Database["public"]["Views"])[PublicTableNameOrOptions] extends {
+			Row: infer R;
+	  }
+		? R
+		: never
+	: never;
+
+export type TablesInsert<
+	PublicTableNameOrOptions extends
+		| keyof Database["public"]["Tables"]
+		| { schema: keyof Database },
+	TableName extends PublicTableNameOrOptions extends { schema: keyof Database }
+		? keyof Database[PublicTableNameOrOptions["schema"]]["Tables"]
+		: never = never,
+> = PublicTableNameOrOptions extends { schema: keyof Database }
+	? Database[PublicTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+			Insert: infer I;
+	  }
+		? I
+		: never
+	: PublicTableNameOrOptions extends keyof Database["public"]["Tables"]
+	? Database["public"]["Tables"][PublicTableNameOrOptions] extends {
+			Insert: infer I;
+	  }
+		? I
+		: never
+	: never;
+
+export type TablesUpdate<
+	PublicTableNameOrOptions extends
+		| keyof Database["public"]["Tables"]
+		| { schema: keyof Database },
+	TableName extends PublicTableNameOrOptions extends { schema: keyof Database }
+		? keyof Database[PublicTableNameOrOptions["schema"]]["Tables"]
+		: never = never,
+> = PublicTableNameOrOptions extends { schema: keyof Database }
+	? Database[PublicTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+			Update: infer U;
+	  }
+		? U
+		: never
+	: PublicTableNameOrOptions extends keyof Database["public"]["Tables"]
+	? Database["public"]["Tables"][PublicTableNameOrOptions] extends {
+			Update: infer U;
+	  }
+		? U
+		: never
+	: never;
+
+export type Enums<
+	PublicEnumNameOrOptions extends
+		| keyof Database["public"]["Enums"]
+		| { schema: keyof Database },
+	EnumName extends PublicEnumNameOrOptions extends { schema: keyof Database }
+		? keyof Database[PublicEnumNameOrOptions["schema"]]["Enums"]
+		: never = never,
+> = PublicEnumNameOrOptions extends { schema: keyof Database }
+	? Database[PublicEnumNameOrOptions["schema"]]["Enums"][EnumName]
+	: PublicEnumNameOrOptions extends keyof Database["public"]["Enums"]
+	? Database["public"]["Enums"][PublicEnumNameOrOptions]
+	: never;

@@ -3,7 +3,7 @@
 import React from "react";
 
 import TagList from "./TagList";
-import ClassicList from "./ClassicList";
+import ClassicalMusicList from "./ClassicalMusicList";
 import TagsSearchForm from "@/app/tags/TagsSearchForm";
 
 type TagContainerProps = {
@@ -24,7 +24,10 @@ function TagsContainer({ classics, selectedTags }: TagContainerProps) {
 		<>
 			<TagsSearchForm tags={allTags} />
 			<TagList tags={allTags} selectedTags={selectedTags} />
-			<ClassicList classics={filteredClassics} selectedTags={selectedTags} />
+			<ClassicalMusicList
+				classics={filteredClassics}
+				selectedTags={selectedTags}
+			/>
 		</>
 	);
 }

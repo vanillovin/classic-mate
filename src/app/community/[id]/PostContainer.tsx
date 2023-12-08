@@ -12,7 +12,7 @@ import { useSupabase } from "@/components/providers/supabase-provider";
 
 async function fetchPostData(postId: string): Promise<Post | null> {
 	const { data } = await supabase
-		.from("test_posts")
+		.from("posts")
 		.select("*")
 		.match({ id: postId })
 		.single();
@@ -38,7 +38,7 @@ function PostContainer({ postId, serverPost }: PostContainerProps) {
 
 	const increaseViewCount = useCallback(async () => {
 		await supabase
-			.from("test_posts")
+			.from("posts")
 			.update({ view_count: post!.view_count + 1 })
 			.eq("id", postId);
 	}, [post, postId, supabase]);
@@ -78,10 +78,7 @@ function PostContainer({ postId, serverPost }: PostContainerProps) {
 	// 삭제2번눌러도똑같은결과나옴. 삭제보단글작성주문연타했을때문제가있어서 mutation? 주문2번 글쓰기2번 막으려고 useMutation 쓴다!!
 	// 로딩안쓰면mutation해도다를게없음. isloading할수잇고 muatation안써도optimistic쓸수잇다.
 	async function deletePost() {
-		const { error } = await supabase
-			.from("test_posts")
-			.delete()
-			.eq("id", postId);
+		const { error } = await supabase.from("posts").delete().eq("id", postId);
 
 		if (!error) {
 			router.push("/community");
@@ -128,12 +125,6 @@ function PostContainer({ postId, serverPost }: PostContainerProps) {
 									<Link
 										href={{
 											pathname: `/community/${postId}/edit`,
-											// query: {
-											// 	id: postId,
-											// 	category_name: post?.category_name,
-											// 	title: post?.title,
-											// 	content: post?.content,
-											// },
 										}}
 										className="flex items-center"
 									>

@@ -39,7 +39,7 @@ function GenreClassicalMusic({ classics }: { classics: Classic[] }) {
 				{results.map((result) => (
 					<Link
 						key={result.id}
-						href={`/classics/${result.id}`}
+						href={`/classical-music/${result.id}`}
 						className="text-center font-medium text-sm sm:text-base tracking-tight leading-tight sm:leading-tight border border-black/80 rounded-sm flex items-center justify-center bg-warm-vintage-off-white p-2 shadow-md hover:bg-pantone-berkeley-blue hover:text-warm-vintage-off-white transition-all"
 					>
 						{result.title}

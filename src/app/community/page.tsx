@@ -18,7 +18,7 @@ export default async function CommunityPage() {
 		data: { user },
 	} = await supabase.auth.getUser();
 	const { data: posts, count } = await supabase
-		.from("test_posts")
+		.from("posts")
 		.select("*", { count: "exact" });
 
 	return (

@@ -110,7 +110,7 @@ function WeatherClassicalMusic() {
 										key={classic.id}
 										className="hover:underline underline-offset-4"
 									>
-										<Link href={`/classics/${classic.id}`}>
+										<Link href={`/classical-music/${classic.id}`}>
 											+ {classic.title}
 										</Link>
 									</li>

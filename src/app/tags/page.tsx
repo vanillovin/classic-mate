@@ -15,7 +15,7 @@ type Props = {
 
 export default async function TagsPage(props: Props) {
 	const supabase = createServerClient();
-	const { data, error } = await supabase.from("all_classics").select();
+	const { data, error } = await supabase.from("classical_music").select();
 	const selectedTags = [
 		decodeURIComponent(props?.searchParams?.tag1 ?? ""),
 		decodeURIComponent(props?.searchParams?.tag2 ?? ""),

@@ -6,13 +6,13 @@ type ClassicListProps = {
 	selectedTags: string[];
 };
 
-function ClassicList({ classics, selectedTags }: ClassicListProps) {
+function ClassicalMusicList({ classics, selectedTags }: ClassicListProps) {
 	return (
 		<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 my-6">
 			{classics?.map((classic) => (
 				<Link
 					key={classic.id}
-					href={`/classics/${classic.id}`}
+					href={`/classical-music/${classic.id}`}
 					className="group rounded-sm shadow-md p-1 sm:p-2 bg-opacity-60 hover:bg-opacity-100 transition-all bg-white"
 				>
 					<p className="font-medium text-sm sm:text-base group-hover:underline underline-offset-2">
@@ -40,4 +40,4 @@ function ClassicList({ classics, selectedTags }: ClassicListProps) {
 	);
 }
 
-export default ClassicList;
+export default ClassicalMusicList;

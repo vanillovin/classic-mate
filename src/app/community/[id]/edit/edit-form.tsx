@@ -51,7 +51,7 @@ function EditForm({ oldPost }: { oldPost: Post }) {
 
 		try {
 			const { error } = await supabase
-				.from("test_posts")
+				.from("posts")
 				.update(updateData)
 				.eq("id", id);
 

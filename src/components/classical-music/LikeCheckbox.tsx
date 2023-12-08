@@ -8,7 +8,7 @@ import HeartIcon from "../icons/HeartIcon";
 import supabase from "@/lib/supabase/client";
 import { useSupabase } from "../providers/supabase-provider";
 
-type ClassicLikeCheckboxProps = {
+type LikeCheckboxProps = {
 	classicId: number;
 	classicTitle: string;
 	className?: string;
@@ -21,19 +21,19 @@ const CLASSIC_LIKES_QUERY_KEY = (userId: string) => ["classicLikes", userId];
 // TODO: 실제 서버 likeCount 변경
 async function fetchClssicLikes(userId: string): Promise<ClassicLike[]> {
 	const { data } = await supabase
-		.from("classic_likes")
+		.from("classical_music_likes")
 		.select("*")
 		.eq("user_id", userId);
 	return data ?? [];
 }
 
-function ClassicLikeCheckbox({
+function LikeCheckbox({
 	classicId,
 	classicTitle,
 	className = "",
 	serverLikeCount,
 	isShowLikeCount = false,
-}: ClassicLikeCheckboxProps) {
+}: LikeCheckboxProps) {
 	const queryClient = useQueryClient();
 	const { supabase, session } = useSupabase();
 	const checkboxId = `checkbox-${classicId}`;
@@ -49,14 +49,14 @@ function ClassicLikeCheckbox({
 	const [likeCount, setLikeCount] = useState(serverLikeCount);
 
 	async function addLike() {
-		const { error } = await supabase.from("classic_likes").insert({
+		const { error } = await supabase.from("classical_music_likes").insert({
 			classic_title: classicTitle,
 			classic_id: classicId,
 			user_id: session!.user.id,
 		});
 		if (error) throw error;
 		const { error: updateError } = await supabase
-			.from("all_classics")
+			.from("classical_music")
 			.update({ like_count: likeCount })
 			.eq("id", classicId);
 		if (updateError) throw updateError;
@@ -64,13 +64,13 @@ function ClassicLikeCheckbox({
 
 	async function removeLike() {
 		const { error } = await supabase
-			.from("classic_likes")
+			.from("classical_music_likes")
 			.delete()
 			.eq("classic_id", classicId);
 		if (error) throw error;
 
 		const { error: updateError } = await supabase
-			.from("all_classics")
+			.from("classical_music")
 			.update({ like_count: likeCount })
 			.eq("id", classicId);
 		if (updateError) throw updateError;
@@ -87,7 +87,7 @@ function ClassicLikeCheckbox({
 		},
 		onSuccess: () => {},
 		onSettled: () => {
-			queryClient.invalidateQueries(["classicLikes", session!.user.id]);
+			queryClient.invalidateQueries(["classicalMusicLikes", session!.user.id]);
 		},
 	});
 
@@ -102,7 +102,7 @@ function ClassicLikeCheckbox({
 		},
 		onSuccess: () => {},
 		onSettled: () => {
-			queryClient.invalidateQueries(["classicLikes", session!.user.id]);
+			queryClient.invalidateQueries(["classicalMusicLikes", session!.user.id]);
 		},
 	});
 
@@ -144,4 +144,4 @@ function ClassicLikeCheckbox({
 	);
 }
 
-export default ClassicLikeCheckbox;
+export default LikeCheckbox;

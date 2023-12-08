@@ -24,7 +24,7 @@ export default async function EditPostPage({
 	// }
 
 	const { data: post, error: fetchPostError } = await supabase
-		.from("test_posts")
+		.from("posts")
 		.select("*")
 		.match({ id })
 		.single();

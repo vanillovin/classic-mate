@@ -1,23 +1,23 @@
 import notFound from "./not-found";
 
-import { convertToEmbeddedURL } from "@/utils/youtubeUtils";
-import { createServerClient } from "@/utils/supabase-server";
 import Comments from "./Comments";
 import TagLinkList from "@/components/TagLinkList";
-import ClassicLikeCheckbox from "@/components/classics/ClassicLikeCheckbox";
+import LikeCheckbox from "@/components/classical-music/LikeCheckbox";
+import { convertToEmbeddedURL } from "@/utils/youtubeUtils";
+import { createServerClient } from "@/utils/supabase-server";
 
 export default async function ClassicDetailPage({
-	params,
-}: { params: { classicId: string } }) {
+	params: { classicalMusicId },
+}: { params: { classicalMusicId: string } }) {
 	const supabase = createServerClient();
 	const { data: classics } = await supabase
-		.from("all_classics")
+		.from("classical_music")
 		.select("*")
-		.eq("id", params.classicId);
+		.eq("id", classicalMusicId);
 	const { data: comments } = await supabase
-		.from("classic_comments")
+		.from("classical_music_comments")
 		.select("*")
-		.eq("classic_id", params.classicId)
+		.eq("classic_id", classicalMusicId)
 		.order("created_at", { ascending: false });
 
 	const classic = classics?.[0];
@@ -27,9 +27,9 @@ export default async function ClassicDetailPage({
 	return (
 		<section className="w-full max-w-6xl mx-auto flex flex-col items-center p-3 sm:p-6">
 			<h1 className="text-xl sm:text-2xl font-semibold">{classic.title}</h1>
-			<ul className="flex items-center text-sm sm:text-base">
-				<li className="mr-1 text-sm sm:text-base">{classic.composer} ·</li>
-				<li className="mr-1 text-sm sm:text-base">
+			<ul className="flex items-center text-sm sm:text-base gap-x-1 mt-1">
+				<li className="text-sm sm:text-base">{classic.composer} ·</li>
+				<li className="text-sm sm:text-base">
 					{Array.isArray(classic.genre)
 						? classic.genre.map((genre) => `${genre} `)
 						: classic.genre}{" "}
@@ -40,21 +40,21 @@ export default async function ClassicDetailPage({
 			<p className="text-center text-sm sm:text-base my-4 sm:px-12">
 				{classic.description}
 			</p>
-			<ClassicLikeCheckbox
+			<div className="flex items-center">
+				{/* <p className="font-medium">태그 :</p> */}
+				<TagLinkList
+					tags={classic.tags}
+					className="border-b-2 px-1 ml-1 text-sm sm:text-base transition-colors border-pantone-brandy-sniffer/80 hover:text-pantone-brandy-sniffer"
+				/>
+			</div>
+			<LikeCheckbox
 				isShowLikeCount
 				classicId={classic.id}
 				classicTitle={classic.title}
 				serverLikeCount={classic.like_count}
-				className="rounded-sm bg-white p-1 mb-4 hover:bg-opacity-70 transition-all"
+				className="rounded-sm p-1 mt-6 mb-8 hover:bg-opacity-70 transition-colors bg-white"
 			/>
-			<div className="flex items-center">
-				<p className="font-medium">태그 :</p>
-				<TagLinkList
-					tags={classic.tags}
-					className="border-b-2 border-white px-1 ml-1 text-sm sm:text-base hover:text-white transition-all"
-				/>
-			</div>
-			<div className="w-full h-[300px] sm:h-[600px] sm:px-12 mt-8">
+			<div className="w-full h-[300px] sm:h-[600px] sm:px-12">
 				<iframe
 					loading="lazy"
 					src={`${convertToEmbeddedURL(classic.video_url ?? "")}`}
@@ -63,7 +63,11 @@ export default async function ClassicDetailPage({
 					className="w-full h-full rounded-sm"
 				></iframe>
 			</div>
-			<Comments classicId={params.classicId} comments={comments ?? []} />
+			<Comments
+				classicalMusicId={classicalMusicId}
+				classicalMusicTitle={classic.title}
+				comments={comments ?? []}
+			/>
 		</section>
 	);
 }

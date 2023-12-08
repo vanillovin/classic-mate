@@ -21,7 +21,7 @@ export const metadata: Metadata = siteConfig.metaData["picks"];
 
 export default async function PicksPage() {
 	const supabase = createServerClient();
-	const { data } = await supabase.from("all_classics").select();
+	const { data } = await supabase.from("classical_music").select();
 
 	return (
 		<div className="px-3 sm:px-6 pt-20 sm:pt-32 pb-24 -mt-14 sm:-mt-20 w-full h-full bg-pantone-white-pepper">
@@ -120,7 +120,7 @@ export default async function PicksPage() {
 					</h2>
 					<p className="text-center text-sm sm:text-base pt-3 py-6 text-pantone-dark-navy">
 						오늘은 어떤 기분인가요? 당신의 감정 온도에 맞는 클래식 음악 추천해
-						드립니다.
+						드립니다 :)
 					</p>
 					<MoodClassicalMusic />
 				</section>

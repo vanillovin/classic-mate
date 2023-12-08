@@ -12,12 +12,12 @@ export default async function PostPage({
 	const supabase = createServerClient();
 	// const { data: { user } } = await supabase.auth.getUser();
 	const { data: post } = await supabase
-		.from("test_posts")
+		.from("posts")
 		.select("*")
 		.match({ id })
 		.single();
 	const { data: comments } = await supabase
-		.from("test_comments")
+		.from("comments")
 		.select("*")
 		.order("created_at", { ascending: false })
 		.eq("post_id", id);
@@ -31,7 +31,11 @@ export default async function PostPage({
 					<PostContainer postId={id} serverPost={post} />
 				</section>
 				<section className="w-full md:w-1/2 h-[350px] md:h-[700px] flex flex-col p-4 gap-y-1 sm:gap-y-2">
-					<CommentContainer postId={id} serverComments={comments ?? []} />
+					<CommentContainer
+						postId={id}
+						postTitle={post.title}
+						serverComments={comments ?? []}
+					/>
 				</section>
 			</div>
 		</article>

@@ -10,7 +10,7 @@ function TimeClassicalMusic() {
 	const timeOfDay = useTimeOfDay();
 
 	return (
-		<table className="w-full rounded-sm shadow-lg bg-white">
+		<table className="w-full rounded-sm shadow-lg bg-white/95">
 			<tbody>
 				{Object.entries(classicsByTime).map(([key, value]) => (
 					<tr
@@ -43,7 +43,7 @@ function TimeClassicalMusic() {
                 `}
 							>
 								<Link
-									href={`/classics/${classic.id}`}
+									href={`/classical-music/${classic.id}`}
 									className="block w-full h-full px-1 py-4 sm:px-4 sm:py-2 hover:underline "
 								>
 									{classic.title}

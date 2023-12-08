@@ -24,7 +24,7 @@ function CommentItem({ comment, postId, commentCount }: CommentItemProps) {
 
 	async function decreaseCommentCount() {
 		const { data, error } = await supabase
-			.from("test_posts")
+			.from("posts")
 			.update({ comment_count: commentCount - 1 })
 			.eq("id", postId);
 		console.log(data, error);
@@ -32,7 +32,7 @@ function CommentItem({ comment, postId, commentCount }: CommentItemProps) {
 
 	async function deleteComment() {
 		const { error } = await supabase
-			.from("test_comments")
+			.from("comments")
 			.delete()
 			.eq("id", comment.id);
 		if (!error) {
@@ -44,7 +44,7 @@ function CommentItem({ comment, postId, commentCount }: CommentItemProps) {
 	async function editComment() {
 		if (isDisabled) return;
 		const { error } = await supabase
-			.from("test_comments")
+			.from("comments")
 			.update({ content, updated_at: new Date().toISOString() })
 			.eq("id", comment.id);
 		if (!error) {

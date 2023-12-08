@@ -12,7 +12,7 @@ export default async function ArtistDetailPage({
 
 	const [composersData, classicsData] = await Promise.all([
 		supabase.from("composers").select().eq("name", decodedName),
-		supabase.from("all_classics").select().eq("composer", decodedName),
+		supabase.from("classical_music").select().eq("composer", decodedName),
 	]);
 
 	const { data, error } = composersData;
@@ -108,7 +108,7 @@ function WorkItem({ classic }: { classic: Classic }) {
 	return (
 		<Link
 			key={classic.id}
-			href={`/classics/${classic.id}`}
+			href={`/classical-music/${classic.id}`}
 			className="rounded-sm p-4 bg-gradient-conic from-pantone-babys-breath to-old-palette-gold hover:to-pantone-metallic-gold shadow-md transition-all"
 		>
 			<p className="font-semibold overflow-hidden whitespace-nowrap truncate">

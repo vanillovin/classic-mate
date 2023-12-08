@@ -17,14 +17,14 @@ function CommentItem({ comment }: { comment: ClassicComment }) {
 	async function handleEditComment() {
 		if (comment.content === content) return;
 		const { error } = await supabase
-			.from("classic_comments")
+			.from("classical_music_comments")
 			.update({ content, updated_at: new Date().toISOString() })
 			.eq("id", comment.id);
 		if (!error) {
 			setIsEditing(false);
 			queryClient.invalidateQueries([
-				"classicComments",
-				String(comment.classic_id),
+				"classicalMusicComments",
+				String(comment.classical_music_id),
 			]);
 		} else {
 			toast.error(`댓글 수정 실패 ${error.message}`);
@@ -34,13 +34,13 @@ function CommentItem({ comment }: { comment: ClassicComment }) {
 	async function handleDeleteComment() {
 		if (!confirm("댓글을 삭제하시겠습니까?")) return;
 		const { error } = await supabase
-			.from("classic_comments")
+			.from("classical_music_comments")
 			.delete()
 			.eq("id", comment.id);
 		if (!error) {
 			queryClient.invalidateQueries([
-				"classicComments",
-				String(comment.classic_id),
+				"classicalMusicComments",
+				String(comment.classical_music_id),
 			]);
 		} else {
 			toast.error(`댓글 삭제 실패 ${error.message}`);

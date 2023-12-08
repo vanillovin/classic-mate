@@ -12,7 +12,7 @@ export async function getPosts(
 	const decodeKeyword = decodeURIComponent(keyword);
 
 	let query = supabase
-		.from("test_posts")
+		.from("posts")
 		.select("*")
 		.ilike("title", `%${decodeKeyword}%`);
 

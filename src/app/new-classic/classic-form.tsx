@@ -32,7 +32,7 @@ export default function ClassicForm() {
 		const description = String(formData.get("description"));
 		const cover_image = String(formData.get("cover_image"));
 		const video_url = String(formData.get("video_url"));
-		const { error } = await supabase.from("all_classics").insert({
+		const { error } = await supabase.from("classical_music").insert({
 			title,
 			genre,
 			composer,

@@ -64,9 +64,9 @@ function ComposerClassicalMusic() {
 				{data?.map((composer) => (
 					<article
 						key={composer.id}
-						className="group relative p-2 shadow-lg rounded-sm w-56 h-72 flex flex-col items-center justify-center bg-white"
+						className="group relative p-2 shadow-lg rounded-sm w-56 h-76 flex flex-col items-center justify-center bg-white"
 					>
-						<div className="w-40 h-52 relative overflow-hidden rounded-sm">
+						<div className="w-44 h-56 relative overflow-hidden rounded-sm">
 							<Image
 								fill
 								alt={`${composer.englishName} profile image`}

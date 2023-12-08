@@ -3,9 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import ClassicLikeCheckbox from "@/components/classics/ClassicLikeCheckbox";
+import LikeCheckbox from "@/components/classical-music/LikeCheckbox";
 
-function ClassicItem({
+function ClassicalMusicItem({
 	classic,
 	likeCount,
 }: {
@@ -14,7 +14,7 @@ function ClassicItem({
 }) {
 	return (
 		<Link
-			href={`/classics/${classic.id}`}
+			href={`/classical-music/${classic.id}`}
 			className="rounded-md shadow-md p-2 cursor-pointer flex flex-col hover:shadow-lg justify-between transition-all bg-white/95 hover:bg-simple-palette-gold/50 hover:scale-102"
 		>
 			<div>
@@ -22,7 +22,7 @@ function ClassicItem({
 					<h2 className="text-sm sm:text-base font-semibold overflow-hidden whitespace-nowrap truncate">
 						{classic.title}
 					</h2>
-					<ClassicLikeCheckbox
+					<LikeCheckbox
 						classicId={classic.id}
 						classicTitle={classic.title}
 						serverLikeCount={likeCount}
@@ -49,4 +49,4 @@ function ClassicItem({
 	);
 }
 
-export default ClassicItem;
+export default ClassicalMusicItem;

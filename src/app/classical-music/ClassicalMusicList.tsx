@@ -1,8 +1,8 @@
 "use client";
 
-import ClassicItem from "./ClassicItem";
+import ClassicItem from "./ClassicalMusicItem";
 
-function ClassicList({ classics }: { classics: Classic[] }) {
+function ClassicalMusicList({ classics }: { classics: Classic[] }) {
 	return (
 		<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 p-1">
 			{classics?.map((classic) => (
@@ -16,4 +16,4 @@ function ClassicList({ classics }: { classics: Classic[] }) {
 	);
 }
 
-export default ClassicList;
+export default ClassicalMusicList;

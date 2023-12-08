@@ -1,12 +1,12 @@
 import supabase from "@/lib/supabase/client";
 
-export async function getClassicComments(
-	classicId: string,
+export async function getClassicalMusicComments(
+	classicalMusicId: string,
 ): Promise<ClassicComment[]> {
 	const { data } = await supabase
-		.from("classic_comments")
+		.from("classical_music_comments")
 		.select("*")
-		.eq("classic_id", classicId)
+		.eq("classical_music_id", classicalMusicId)
 		.order("created_at", { ascending: false });
 	return data ?? [];
 }

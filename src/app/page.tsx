@@ -1,17 +1,17 @@
 import Link from "next/link";
 
-import ClassicQuiz from "./ClassicQuiz";
-import DailyQuote from "./DailyQuote";
-import MusicPlayer from "./MusicPlayer";
-import Newspaper from "./Newspaper";
-import PopularClassics from "./PopularClassics";
+import ClassicQuiz from "@/components/home/ClassicQuiz";
+import DailyQuote from "@/components/home/DailyQuote";
+import MusicPlayer from "@/components/home/MusicPlayer";
+import Newspaper from "@/components/home/Newspaper";
+import PopularClassics from "@/components/home/PopularClassics";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import { createServerClient } from "@/utils/supabase-server";
 
 export default async function HomePage() {
 	const supabase = createServerClient();
 	const { data: classicsByLikeCount } = await supabase
-		.from("all_classics")
+		.from("classical_music")
 		.select("*")
 		.order("like_count", { ascending: false })
 		.range(0, 15);

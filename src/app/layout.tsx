@@ -31,7 +31,7 @@ export default async function RootLayout({
 	return (
 		<html lang="ko">
 			<head />
-			<body className="no-scrollbar">
+			<body className="scrollbar">
 				<ReactQueryProvider>
 					<SupabaseProvider session={session}>
 						<SupabaseListener serverAccessToken={session?.access_token} />

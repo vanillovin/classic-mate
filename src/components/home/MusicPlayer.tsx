@@ -5,7 +5,7 @@ import React, { useRef, useState } from "react";
 
 import useTimeOfDay from "@/hooks/useTimeOfDay";
 import { getCurrentDateInfo } from "@/utils/dateUtils";
-import { monthMusics, musicPlayerBackgroundImageURLs } from "./data";
+import { monthMusics, musicPlayerBackgroundImageURLs } from "../../app/data";
 import useCurrentTime from "@/hooks/useCurrentTime";
 
 function MusicPlayer() {

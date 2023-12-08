@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-import { quizData } from "./data";
+import { quizData } from "../../app/data";
 import { getCurrentDateInfo } from "@/utils/dateUtils";
 
 function ClassicQuiz() {

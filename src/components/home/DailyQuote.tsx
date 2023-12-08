@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { dailyQuoteData } from "./data";
+import { dailyQuoteData } from "../../app/data";
 import { getCurrentDateInfo } from "@/utils/dateUtils";
 
 const bgImgUrl =

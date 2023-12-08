@@ -9,16 +9,18 @@ import CommentForm from "./CommentForm";
 
 function CommentContainer({
 	postId,
+	postTitle,
 	serverComments,
 }: {
 	postId: string;
+	postTitle: string;
 	serverComments: PostComment[];
 }) {
 	const { data: comments } = useQuery({
 		queryKey: ["postComments", postId],
 		queryFn: async () => {
 			const { data } = await supabase
-				.from("test_comments")
+				.from("comments")
 				.select()
 				.order("created_at", { ascending: false })
 				.eq("post_id", postId);
@@ -34,7 +36,11 @@ function CommentContainer({
 				<span className="font-medium">{comments?.length}</span>
 				개의 댓글
 			</p>
-			<CommentForm postId={postId} commentCount={comments?.length ?? 0} />
+			<CommentForm
+				postId={postId}
+				postTitle={postTitle}
+				commentCount={comments?.length ?? 0}
+			/>
 			<ul className="comm-scrollbar overflow-y-scroll flex-1 mt-2">
 				{comments ? (
 					comments.length > 0 ? (

@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Hahmlet } from "next/font/google";
 
-import { monthClassics } from "./data";
+import { monthClassics } from "../../app/data";
 import { getCurrentDateInfo } from "@/utils/dateUtils";
 import { convertToEmbeddedURL } from "@/utils/youtubeUtils";
 
@@ -72,7 +72,7 @@ function Newspaper() {
 							{description}
 						</p>
 						<Link
-							href={`/classics/${id}`}
+							href={`/classical-music/${id}`}
 							className="px-2 py-1 rounded-sm shadow-sm border transition-all border-opacity-50 text-white border-white hover:bg-cherish-apricot/90"
 						>
 							더 보기

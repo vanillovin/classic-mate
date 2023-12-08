@@ -8,7 +8,7 @@ export type ClassicsResult = {
 	error?: PostgrestError | null;
 };
 
-export async function getClassics(
+export async function getClassicalMusic(
 	from: number = 0,
 	to: number = 15,
 	keyword: string = "",
@@ -17,7 +17,7 @@ export async function getClassics(
 	const decodeKeword = decodeURIComponent(keyword);
 
 	const { data, error, count } = await supabase
-		.from("all_classics")
+		.from("classical_music")
 		.select("*", { count: "exact" })
 		.ilike("title", `%${decodeKeword}%`)
 		.range(from, to);

@@ -26,7 +26,7 @@ function RandomClassicalMusic({ classics }: { classics: Classic[] }) {
 						<Link
 							tabIndex={0}
 							target="_blank"
-							href={`/classics/${randomClassic?.id}`}
+							href={`/classical-music/${randomClassic?.id}`}
 							aria-label={`${randomClassic?.title} 상세 정보 보기`}
 							className={`w-24 sm:w-28 h-24 sm:h-28 font-medium text-sm sm:text-base text-center p-1 sm:p-2 rounded-full flex items-center justify-center 
                 shadow-[inset_0_-8px_8px_rgba(0,0,0,.1)] hover:underline underline-offset-auto hover:bg-opacity-70 ${

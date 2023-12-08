@@ -22,7 +22,7 @@ function PopularClassics({
 					{classicsByLikeCount?.slice(0, 4).map((classic, index) => (
 						<Link
 							key={index}
-							href={`/classics/${classic.id}`}
+							href={`/classical-music/${classic.id}`}
 							className="rounded-md p-2 flex flex-col gap-y-1 mobile:gap-y-2 justify-between shadow-sm bg-white hover:bg-old-palette-cream transition-colors"
 						>
 							<div className="flex flex-col items-center gap-y-1">
@@ -63,7 +63,7 @@ function PopularClassics({
 					{classicsByLikeCount?.slice(4, 8).map((classic, index) => (
 						<Link
 							key={index}
-							href={`/classics/${classic.id}`}
+							href={`/classical-music/${classic.id}`}
 							className="rounded-md p-2 flex flex-col gap-y-1 mobile:gap-y-2 justify-between shadow-sm bg-white hover:bg-old-palette-cream transition-colors"
 						>
 							<div className="flex flex-col items-center gap-y-1">
@@ -104,7 +104,7 @@ function PopularClassics({
 					{classicsByLikeCount?.slice(8, 12).map((classic, index) => (
 						<Link
 							key={index}
-							href={`/classics/${classic.id}`}
+							href={`/classical-music/${classic.id}`}
 							className="rounded-md p-2 flex flex-col gap-y-1 mobile:gap-y-2 justify-between shadow-sm bg-white hover:bg-old-palette-cream transition-colors"
 						>
 							<div className="flex flex-col items-center gap-y-1">
@@ -145,7 +145,7 @@ function PopularClassics({
 					{classicsByLikeCount?.slice(12, 16).map((classic, index) => (
 						<Link
 							key={index}
-							href={`/classics/${classic.id}`}
+							href={`/classical-music/${classic.id}`}
 							className="rounded-md p-2 flex flex-col gap-y-1 mobile:gap-y-2 justify-between shadow-sm bg-white hover:bg-old-palette-cream transition-colors"
 						>
 							<div className="flex flex-col items-center gap-y-1">

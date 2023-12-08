@@ -9,8 +9,13 @@ import { useAuth } from "@/components/providers/auth-provider";
 
 function CommentForm({
 	postId,
+	postTitle,
 	commentCount,
-}: { postId: string; commentCount: number }) {
+}: {
+	postId: string;
+	postTitle: string;
+	commentCount: number;
+}) {
 	const queryClient = useQueryClient();
 	const [content, setContent] = useState("");
 	const { profile } = useAuth();
@@ -18,7 +23,7 @@ function CommentForm({
 
 	async function increaseCommentCount(postId: string, commentCount: number) {
 		await supabase
-			.from("test_posts")
+			.from("posts")
 			.update({ comment_count: commentCount + 1 })
 			.eq("id", postId);
 	}
@@ -28,9 +33,10 @@ function CommentForm({
 			toast.error("로그인 후 이용 가능합니다.");
 			return;
 		}
-		const { error } = await supabase.from("test_comments").insert({
+		const { error } = await supabase.from("comments").insert({
 			content,
 			post_id: postId,
+			post_title: postTitle,
 			user_id: session.user.id,
 			nickname: profile?.nickname ?? "꿀메",
 		});

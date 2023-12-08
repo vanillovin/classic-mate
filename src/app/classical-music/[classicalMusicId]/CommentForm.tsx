@@ -7,7 +7,10 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/components/providers/auth-provider";
 import { useSupabase } from "@/components/providers/supabase-provider";
 
-function CommentForm({ classicId }: { classicId: string }) {
+function CommentForm({
+	classicalMusicId,
+	classicalMusicTitle,
+}: { classicalMusicId: string; classicalMusicTitle: string }) {
 	const queryClient = useQueryClient();
 	const { profile } = useAuth();
 	const { supabase, session } = useSupabase();
@@ -26,15 +29,22 @@ function CommentForm({ classicId }: { classicId: string }) {
 			toast.error("로그인 후 이용 가능합니다");
 			return;
 		}
-		const { error } = await supabase.from("classic_comments").insert({
-			content,
-			user_id: session.user.id,
-			classic_id: classicId,
-			nickname: profile?.nickname ?? "꿀메",
-		});
+		const { data, error } = await supabase
+			.from("classical_music_comments")
+			.insert({
+				content,
+				user_id: session.user.id,
+				nickname: profile?.nickname ?? "꿀메",
+				classical_music_id: classicalMusicId,
+				classical_music_title: classicalMusicTitle,
+			});
+		console.log(data, error);
 		if (!error) {
 			clearInputs();
-			queryClient.invalidateQueries(["classicComments", classicId]);
+			queryClient.invalidateQueries([
+				"classicalMusicComments",
+				classicalMusicId,
+			]);
 		} else {
 			toast.error(`댓글을 작성하지 못했습니다.`);
 		}

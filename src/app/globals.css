@@ -17,9 +17,25 @@
     display: none;
   }
   .no-scrollbar {
-    -ms-overflow-style: none;  /* IE and 엣지 */
     scrollbar-width: none;  /* 파이어폭스 */
+    -ms-overflow-style: none;  /* IE and 엣지 */
   }
+  .scrollbar {
+    overflow-x: hidden;
+  }
+  .scrollbar::-webkit-scrollbar {
+    @apply w-0 sm:w-2;
+  }
+  .scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  .scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-pantone-latte rounded-full;
+  }
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-pantone-toffee;
+  }
+
   /* width */
   .profile-scrollbar::-webkit-scrollbar,
   .comm-scrollbar::-webkit-scrollbar {
