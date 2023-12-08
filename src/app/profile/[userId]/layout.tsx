@@ -53,16 +53,55 @@ export default async function Layout({
 							<div className="flex gap-1 py-1">
 								<Link
 									href={`/profile/${params.userId}/edit`}
-									className="rounded-sm p-1 font-light text-sm sm:text-base bg-[#F5E8C7] hover:bg-[#DEBA9D]"
+									className="rounded-sm p-1 font-light text-sm sm:text-base bg-[#F5E8C7] hover:bg-[#DEBA9D] transition-colors"
 								>
 									회원정보수정
 								</Link>
-								<SignOutButton className="rounded-sm p-1 font-light text-sm sm:text-base text-white bg-[#9E7777] hover:bg-[#6F4C5B]">
+								<SignOutButton className="rounded-sm p-1 font-light text-sm sm:text-base text-white bg-[#9E7777] hover:bg-[#6F4C5B] transition-colors">
 									로그아웃
 								</SignOutButton>
 							</div>
 						)}
-						<ul className=""></ul>
+
+						<ul className="flex flex-row sm:flex-col gap-x-2 sm:gap-x-0 sm:gap-y-3 sm:mt-4 text-sm sm:text-base">
+							{/* <li>
+                <Link href={`/profile/${params.userId}`}>최근활동</Link>
+              </li> */}
+							<li className="font-semibold hidden sm:block">클래식</li>
+							<li>
+								<Link
+									href={`/profile/${params.userId}/liked-music`}
+									className="hover:underline"
+								>
+									좋아하는 클래식
+								</Link>
+							</li>
+							<li>
+								<Link
+									href={`/profile/${params.userId}/commented-music`}
+									className="hover:underline"
+								>
+									작성한 댓글
+								</Link>
+							</li>
+							<li className="font-semibold hidden sm:block mt-2">게시판</li>
+							<li>
+								<Link
+									href={`/profile/${params.userId}/posts`}
+									className="hover:underline"
+								>
+									작성한 게시글
+								</Link>
+							</li>
+							<li>
+								<Link
+									href={`/profile/${params.userId}/comments`}
+									className="hover:underline"
+								>
+									작성한 댓글
+								</Link>
+							</li>
+						</ul>
 					</div>
 				</div>
 				<div className="flex-1 p-3 sm:p-5 overflow-y-scroll profile-scrollbar bg-[#F2F2F2]">
