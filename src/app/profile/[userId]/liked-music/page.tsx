@@ -30,7 +30,7 @@ export default async function LikedMusicPage({
 							className="w-full transition-all border-b last:border-b-0 bg-white"
 						>
 							<Link
-								href={`/classical-music/${like.classic_id}`}
+								href={`/classical-music/${like.classical_music_id}`}
 								aria-label={`${like.classical_music_title} 클래식 음악으로 연결되는 링크`}
 								className="group flex items-center justify-between w-full h-full p-2"
 							>

@@ -9,7 +9,7 @@ import supabase from "@/lib/supabase/client";
 import { useSupabase } from "../providers/supabase-provider";
 
 type LikeCheckboxProps = {
-	classicId: number;
+	classicalMusicId: number;
 	classicTitle: string;
 	className?: string;
 	serverLikeCount: number;
@@ -28,7 +28,7 @@ async function fetchClssicLikes(userId: string): Promise<ClassicLike[]> {
 }
 
 function LikeCheckbox({
-	classicId,
+	classicalMusicId,
 	classicTitle,
 	className = "",
 	serverLikeCount,
@@ -36,7 +36,7 @@ function LikeCheckbox({
 }: LikeCheckboxProps) {
 	const queryClient = useQueryClient();
 	const { supabase, session } = useSupabase();
-	const checkboxId = `checkbox-${classicId}`;
+	const checkboxId = `checkbox-${classicalMusicId}`;
 
 	const { data: likes } = useQuery({
 		queryKey: CLASSIC_LIKES_QUERY_KEY(session?.user.id ?? ""),
@@ -45,20 +45,22 @@ function LikeCheckbox({
 	});
 	const [isHovered, setIsHovered] = useState(false);
 	const handleHoverInAndOut = () => setIsHovered(!isHovered);
-	const isLiked = !!likes?.find((like) => like.classic_id === classicId);
+	const isLiked = !!likes?.find(
+		(like) => like.classical_music_id === classicalMusicId,
+	);
 	const [likeCount, setLikeCount] = useState(serverLikeCount);
 
 	async function addLike() {
 		const { error } = await supabase.from("classical_music_likes").insert({
 			classic_title: classicTitle,
-			classic_id: classicId,
+			classical_music_id: classicalMusicId,
 			user_id: session!.user.id,
 		});
 		if (error) throw error;
 		const { error: updateError } = await supabase
 			.from("classical_music")
 			.update({ like_count: likeCount })
-			.eq("id", classicId);
+			.eq("id", classicalMusicId);
 		if (updateError) throw updateError;
 	}
 
@@ -66,13 +68,13 @@ function LikeCheckbox({
 		const { error } = await supabase
 			.from("classical_music_likes")
 			.delete()
-			.eq("classic_id", classicId);
+			.eq("classical_music_id", classicalMusicId);
 		if (error) throw error;
 
 		const { error: updateError } = await supabase
 			.from("classical_music")
 			.update({ like_count: likeCount })
-			.eq("id", classicId);
+			.eq("id", classicalMusicId);
 		if (updateError) throw updateError;
 	}
 

@@ -33,7 +33,7 @@ export default async function Layout({
 		<section className="max-w-6xl mx-auto px-3 sm:px-6 pt-3 sm:pt-6 pb-24 h-screen">
 			<div className="flex flex-col sm:flex-row shadow-md h-full">
 				<div className="flex flex-col gap-y-2 p-3 sm:p-5 w-full sm:w-fit bg-[#FFF]">
-					<div className="flex flex-row sm:flex-col items-center">
+					<div className="flex flex-row sm:flex-col w-full items-center sm:items-start">
 						<div className="relative w-24 h-24 sm:w-40 sm:h-40 rounded-sm overflow-hidden">
 							<Image
 								src={
@@ -44,7 +44,7 @@ export default async function Layout({
 								className="object-cover"
 							/>
 						</div>
-						<div className="ml-2 sm:ml-0 sm:mt-2">
+						<div className="ml-2 sm:ml-0 sm:mt-2 w-full">
 							<p className="font-semibold">{profile.nickname || "꿀메"}</p>
 							<p className="text-sm sm:text-base">{profile.website}</p>
 							<p className="text-sm sm:text-base">{profile.description}</p>

@@ -113,21 +113,21 @@ export interface Database {
 			};
 			classical_music_likes: {
 				Row: {
-					classic_id: number;
+					classical_music_id: number;
 					classical_music_title: string;
 					created_at: string;
 					id: number;
 					user_id: string;
 				};
 				Insert: {
-					classic_id: number;
+					classical_music_id: number;
 					classical_music_title: string;
 					created_at?: string;
 					id?: never;
 					user_id: string;
 				};
 				Update: {
-					classic_id?: number;
+					classical_music_id?: number;
 					classical_music_title?: string;
 					created_at?: string;
 					id?: never;
@@ -135,8 +135,8 @@ export interface Database {
 				};
 				Relationships: [
 					{
-						foreignKeyName: "classical_music_likes_classic_id_fkey";
-						columns: ["classic_id"];
+						foreignKeyName: "classical_music_likes_classical_music_id_fkey";
+						columns: ["classical_music_id"];
 						isOneToOne: false;
 						referencedRelation: "classical_music";
 						referencedColumns: ["id"];
