@@ -1,14 +1,14 @@
 import { dehydrate } from "@tanstack/query-core";
 
-import { getClassicalMusic } from "./getClassicalMusic";
+import { getClassicalMusicList } from "./getClassicalMusicList";
 import getQueryClient from "../getQueryClient";
 import HydrateOnClient from "../hydrateOnClient";
 import ClassicalMusicContainer from "./ClassicalMusicContainer";
 
 export default async function HydratedClassics() {
 	const queryClient = getQueryClient();
-	await queryClient.prefetchQuery(["classicalMusic", "1", ""], () =>
-		getClassicalMusic(0, 15),
+	await queryClient.prefetchQuery(["classicalMusicList", "1", ""], () =>
+		getClassicalMusicList(0, 15),
 	);
 	const dehydratedState = dehydrate(queryClient);
 

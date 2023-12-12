@@ -1,18 +1,18 @@
 import supabase from "@/lib/supabase/client";
 import type { PostgrestError } from "@supabase/supabase-js";
 
-export type ClassicsResult = {
-	classics: Classic[] | null;
+export type ClassicalMusicListResult = {
+	classicalMusicList: Classic[] | null;
 	count: number | null;
 	took: string;
 	error?: PostgrestError | null;
 };
 
-export async function getClassicalMusic(
+export async function getClassicalMusicList(
 	from: number = 0,
 	to: number = 15,
 	keyword: string = "",
-): Promise<ClassicsResult> {
+): Promise<ClassicalMusicListResult> {
 	const start = Date.now();
 	const decodeKeword = decodeURIComponent(keyword);
 
@@ -24,7 +24,7 @@ export async function getClassicalMusic(
 	const end = Date.now();
 
 	return {
-		classics: data || null,
+		classicalMusicList: data || null,
 		count: count || null,
 		took: ((end - start) / 1000).toFixed(2),
 		error: error || null,

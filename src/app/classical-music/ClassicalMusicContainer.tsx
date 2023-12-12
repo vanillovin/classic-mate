@@ -9,7 +9,10 @@ import ClassicalMusicList from "./ClassicalMusicList";
 import LoadingSkeleton from "./LoadingSkeleton";
 import Pagination from "@/components/Pagination";
 import SearchForm from "./SearchForm";
-import { type ClassicsResult, getClassicalMusic } from "./getClassicalMusic";
+import {
+	type ClassicalMusicListResult,
+	getClassicalMusicList,
+} from "./getClassicalMusicList";
 
 // const SELECTED_FIELDS = "id, title, author"; // 필요한 필드
 const ITEMS_PER_PAGE = 16;
@@ -19,8 +22,8 @@ function ClassicsContainer() {
 	const searchParams = useSearchParams();
 	const page = searchParams.get("page") ?? "1";
 	const keyword = searchParams.get("keyword") ?? "";
-	const prefetchedData = queryClient.getQueryData<ClassicsResult>([
-		"classics",
+	const prefetchedData = queryClient.getQueryData<ClassicalMusicListResult>([
+		"classicalMusic",
 		page,
 		keyword,
 	]);
@@ -32,11 +35,11 @@ function ClassicsContainer() {
 	);
 	const { isLoading, data, isError } = useQuery({
 		queryKey: ["classicalMusic", page, keyword],
-		queryFn: () => getClassicalMusic(from, to, keyword),
+		queryFn: () => getClassicalMusicList(from, to, keyword),
 		suspense: true,
 	});
 
-	if (isError || !Array.isArray(data?.classics)) {
+	if (isError || !Array.isArray(data?.classicalMusicList)) {
 		return (
 			<div className="text-center mt-20">
 				<p>요청하신 페이지가 없거나 데이터가 존재하지 않습니다.</p>
@@ -52,14 +55,16 @@ function ClassicsContainer() {
 		<>
 			<SearchForm />
 			{!isLoading ? (
-				data.classics.length ? (
+				data.classicalMusicList.length ? (
 					<>
 						{keyword && (
 							<p className="m-1 font-light text-gray-400">
-								검색결과 {data.classics.length}개 ({data.took}초)
+								검색결과 {data.classicalMusicList.length}개 ({data.took}초)
 							</p>
 						)}
-						<ClassicalMusicList classics={data.classics ?? []} />
+						<ClassicalMusicList
+							classicalMusicList={data.classicalMusicList ?? []}
+						/>
 						<div className="flex items-center justify-center mt-14">
 							<Pagination
 								pathname="/classical-music"

@@ -2,14 +2,16 @@
 
 import ClassicItem from "./ClassicalMusicItem";
 
-function ClassicalMusicList({ classics }: { classics: Classic[] }) {
+function ClassicalMusicList({
+	classicalMusicList,
+}: { classicalMusicList: Classic[] }) {
 	return (
 		<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 p-1">
-			{classics?.map((classic) => (
+			{classicalMusicList?.map((classicalMusic) => (
 				<ClassicItem
-					key={classic.id}
-					classic={classic}
-					likeCount={classic.like_count}
+					key={classicalMusic.id}
+					classicalMusic={classicalMusic}
+					likeCount={classicalMusic.like_count}
 				/>
 			))}
 		</div>
