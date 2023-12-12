@@ -8,7 +8,7 @@ import { getPagination } from "@/utils/pagination";
 import ClassicalMusicList from "./ClassicalMusicList";
 import LoadingSkeleton from "./LoadingSkeleton";
 import Pagination from "@/components/Pagination";
-import ClassicsSearchForm from "./ClassicsSearchForm";
+import SearchForm from "./SearchForm";
 import { type ClassicsResult, getClassicalMusic } from "./getClassicalMusic";
 
 // const SELECTED_FIELDS = "id, title, author"; // 필요한 필드
@@ -50,7 +50,7 @@ function ClassicsContainer() {
 
 	return (
 		<>
-			<ClassicsSearchForm />
+			<SearchForm />
 			{!isLoading ? (
 				data.classics.length ? (
 					<>

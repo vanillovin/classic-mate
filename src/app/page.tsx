@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import ClassicQuiz from "@/components/home/ClassicQuiz";
+import ClassicalMusicQuiz from "@/components/home/ClassicalMusicQuiz";
 import DailyQuote from "@/components/home/DailyQuote";
 import MusicPlayer from "@/components/home/MusicPlayer";
 import Newspaper from "@/components/home/Newspaper";
@@ -18,7 +18,7 @@ export default async function HomePage() {
 
 	return (
 		<div className="flex flex-col gap-y-12 w-full max-w-6xl mx-auto h-full px-3 sm:px-6 pt-3 sm:pt-6 pb-24">
-			<ClassicQuiz />
+			<ClassicalMusicQuiz />
 
 			<div className="">
 				<h2

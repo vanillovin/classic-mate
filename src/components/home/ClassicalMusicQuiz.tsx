@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { quizData } from "../../app/data";
 import { getCurrentDateInfo } from "@/utils/dateUtils";
 
-function ClassicQuiz() {
+function ClassicalMusicQuiz() {
 	const [userAnswer, setUserAnswer] = useState<number | null>(null);
 	const { currentDateString, currentDay } = getCurrentDateInfo();
 	const currentQuiz = quizData[currentDateString] ?? quizData["2023-10-01"];
@@ -60,4 +60,4 @@ function ClassicQuiz() {
 	);
 }
 
-export default ClassicQuiz;
+export default ClassicalMusicQuiz;

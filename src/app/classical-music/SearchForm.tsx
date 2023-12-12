@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 
 import useKeywordSearchParam from "@/hooks/useSearchParam";
 
-function ClassicsSearchForm() {
+function SearchForm() {
 	const searchParams = useSearchParams();
 	const { navigateWithNewKeywordParam, cancelKeywordSearchParam } =
 		useKeywordSearchParam();
@@ -61,7 +61,7 @@ function ClassicsSearchForm() {
 	);
 }
 
-export default ClassicsSearchForm;
+export default SearchForm;
 
 function CancelButton({ onClick }: { onClick: () => void }) {
 	return (

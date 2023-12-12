@@ -3,7 +3,7 @@ import { dehydrate } from "@tanstack/query-core";
 import { getClassicalMusic } from "./getClassicalMusic";
 import getQueryClient from "../getQueryClient";
 import HydrateOnClient from "../hydrateOnClient";
-import ClassicsContainer from "./ClassicsContainer";
+import ClassicalMusicContainer from "./ClassicalMusicContainer";
 
 export default async function HydratedClassics() {
 	const queryClient = getQueryClient();
@@ -14,7 +14,7 @@ export default async function HydratedClassics() {
 
 	return (
 		<HydrateOnClient state={dehydratedState}>
-			<ClassicsContainer />
+			<ClassicalMusicContainer />
 		</HydrateOnClient>
 	);
 }
