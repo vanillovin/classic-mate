@@ -7,7 +7,9 @@ import { useRouter } from "next/navigation";
 
 import { useSupabase } from "@/components/providers/supabase-provider";
 
-function NewForm({ profile }: { profile: Profile }) {
+type NewFormProps = { profile: Profile };
+
+function NewForm({ profile }: NewFormProps) {
 	const router = useRouter();
 	const { supabase } = useSupabase();
 	const [isLoading, setIsLoading] = useState(false);

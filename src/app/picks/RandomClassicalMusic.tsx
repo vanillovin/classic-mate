@@ -3,7 +3,9 @@
 import Link from "next/link";
 import React, { useState } from "react";
 
-function RandomClassicalMusic({ classics }: { classics: Classic[] }) {
+type RandomClassicalMusicProps = { classics: Classic[] };
+
+function RandomClassicalMusic({ classics }: RandomClassicalMusicProps) {
 	const [randomClassic, setRandomClassic] = useState<Classic>();
 
 	return (

@@ -6,11 +6,11 @@ import Message from "./message";
 import NewMessage from "./new-message";
 import { useSupabase } from "@/components/providers/supabase-provider";
 
-function RealtimeMessages({
-	serverMessages,
-}: {
+type RealtimeMessagesProps = {
 	serverMessages: Message[];
-}) {
+};
+
+function RealtimeMessages({ serverMessages }: RealtimeMessagesProps) {
 	const { supabase, session } = useSupabase();
 	const containerRef = useRef<HTMLUListElement | null>(null);
 	const [messages, setMessages] = useState(serverMessages);

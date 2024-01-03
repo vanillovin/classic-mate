@@ -16,9 +16,11 @@ type LikeCheckboxProps = {
 	isShowLikeCount?: boolean;
 };
 
-const CLASSIC_LIKES_QUERY_KEY = (userId: string) => ["classicLikes", userId];
+const CLASSIC_LIKES_QUERY_KEY = (userId: string) => [
+	"classicalMusicLikes",
+	userId,
+];
 
-// TODO: 실제 서버 likeCount 변경
 async function fetchClssicLikes(userId: string): Promise<ClassicLike[]> {
 	const { data } = await supabase
 		.from("classical_music_likes")
@@ -48,6 +50,7 @@ function LikeCheckbox({
 	const isLiked = !!likes?.find(
 		(like) => like.classical_music_id === classicalMusicId,
 	);
+
 	const [likeCount, setLikeCount] = useState(serverLikeCount);
 
 	async function addLike() {

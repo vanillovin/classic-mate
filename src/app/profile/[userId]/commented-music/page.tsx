@@ -3,11 +3,13 @@ import Link from "next/link";
 
 import { createServerClient } from "@/utils/supabase-server";
 
+type CommentedMusicPageProps = {
+	params: { userId: string };
+};
+
 export default async function CommentedMusicPage({
 	params,
-}: {
-	params: { userId: string };
-}) {
+}: CommentedMusicPageProps) {
 	const supabase = createServerClient();
 
 	const { data: comments } = await supabase

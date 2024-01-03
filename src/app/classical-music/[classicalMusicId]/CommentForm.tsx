@@ -7,10 +7,15 @@ import { useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/components/providers/auth-provider";
 import { useSupabase } from "@/components/providers/supabase-provider";
 
+type CommentFormProps = {
+	classicalMusicId: string;
+	classicalMusicTitle: string;
+};
+
 function CommentForm({
 	classicalMusicId,
 	classicalMusicTitle,
-}: { classicalMusicId: string; classicalMusicTitle: string }) {
+}: CommentFormProps) {
 	const queryClient = useQueryClient();
 	const { profile } = useAuth();
 	const { supabase, session } = useSupabase();

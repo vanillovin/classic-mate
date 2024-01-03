@@ -2,9 +2,11 @@
 
 import React, { useState } from "react";
 
-function NewMessage({
-	sendMessage,
-}: { sendMessage(text: string, clearText: () => void): void }) {
+type NewMessageProps = {
+	sendMessage(text: string, clearText: () => void): void;
+};
+
+function NewMessage({ sendMessage }: NewMessageProps) {
 	const [text, setText] = useState("");
 	const clearText = () => setText("");
 	const isDisabled = text.trim().length < 4;

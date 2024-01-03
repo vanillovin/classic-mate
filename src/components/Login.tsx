@@ -1,9 +1,8 @@
 "use client";
 
-import supabase from "@/lib/supabase/client";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 function Login() {
 	const router = useRouter();

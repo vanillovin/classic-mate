@@ -2,11 +2,11 @@ import Link from "next/link";
 
 import { createServerClient } from "@/utils/supabase-server";
 
-export default async function CommentsPage({
-	params,
-}: {
+type CommentsPageProps = {
 	params: { userId: string };
-}) {
+};
+
+export default async function CommentsPage({ params }: CommentsPageProps) {
 	const supabase = createServerClient();
 
 	const { data: comments, error } = await supabase

@@ -5,13 +5,15 @@ import Image from "next/image";
 
 import LikeCheckbox from "@/components/classical-music/LikeCheckbox";
 
+type ClassicalMusicItemProps = {
+	classicalMusic: Classic;
+	likeCount: number;
+};
+
 function ClassicalMusicItem({
 	classicalMusic,
 	likeCount,
-}: {
-	classicalMusic: Classic;
-	likeCount: number;
-}) {
+}: ClassicalMusicItemProps) {
 	return (
 		<Link
 			href={`/classical-music/${classicalMusic.id}`}

@@ -1,7 +1,8 @@
-import "./globals.css";
 import type { Metadata } from "next";
+import { type PropsWithChildren } from "react";
 import type { SupabaseClient } from "@supabase/auth-helpers-nextjs";
 
+import "./globals.css";
 import { siteConfig } from "@/config/site";
 import Layout from "@/components/layout/Layout";
 import { createServerClient } from "@/utils/supabase-server";
@@ -18,11 +19,7 @@ export const metadata: Metadata = siteConfig.metaData["home"];
 // do not cache this page
 export const revalidate = 0;
 
-export default async function RootLayout({
-	children,
-}: {
-	children: React.ReactNode;
-}) {
+export default async function RootLayout({ children }: PropsWithChildren) {
 	const supabase = createServerClient();
 	const {
 		data: { session },

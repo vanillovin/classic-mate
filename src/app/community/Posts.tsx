@@ -14,7 +14,9 @@ export type CategoryType = "자유" | "클래식";
 
 const ITEMS_PER_PAGE = 16;
 
-function Posts({ count }: { count: number }) {
+type PostsProps = { count: number };
+
+function Posts({ count }: PostsProps) {
 	const searchParams = useSearchParams();
 	const page = searchParams.get("page") ?? "1";
 	const keyword = searchParams.get("keyword") ?? "";

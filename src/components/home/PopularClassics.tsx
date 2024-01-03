@@ -10,11 +10,11 @@ const dmSerifDisplay = DM_Serif_Display({
 	weight: ["400"],
 });
 
-function PopularClassics({
-	classicsByLikeCount,
-}: {
+type PopularClassicsProps = {
 	classicsByLikeCount: Classic[];
-}) {
+};
+
+function PopularClassics({ classicsByLikeCount }: PopularClassicsProps) {
 	return (
 		<div className="carousel w-full mt-4">
 			<div id="slide1" className="carousel-item relative w-full">

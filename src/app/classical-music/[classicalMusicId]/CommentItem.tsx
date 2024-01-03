@@ -8,7 +8,9 @@ import { formatTimestamp } from "@/utils/dateUtils";
 import { useQueryClient } from "@tanstack/react-query";
 import { useSupabase } from "@/components/providers/supabase-provider";
 
-function CommentItem({ comment }: { comment: ClassicComment }) {
+type CommentItemProps = { comment: ClassicComment };
+
+function CommentItem({ comment }: CommentItemProps) {
 	const { session, supabase } = useSupabase();
 	const queryClient = useQueryClient();
 	const [isEditing, setIsEditing] = useState(false);

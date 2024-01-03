@@ -1,14 +1,5 @@
-import React from "react";
-import Link from "next/link";
-
-import { createServerClient } from "@/utils/supabase-server";
-
-export default async function ProfilePage({
-	params,
-}: {
-	params: { userId: string };
-}) {
-	const supabase = createServerClient();
+export default async function ProfilePage() {
+	// const supabase = createServerClient();
 
 	// const [{ data: likes, error: likesError }] = await Promise.all([
 	// 	supabase

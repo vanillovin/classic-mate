@@ -6,9 +6,9 @@ import { createServerClient } from "@/utils/supabase-server";
 
 // export const revalidate = 60;
 
-export default async function PostPage({
-	params: { id },
-}: { params: { id: string } }) {
+type PostPageProps = { params: { id: string } };
+
+export default async function PostPage({ params: { id } }: PostPageProps) {
 	const supabase = createServerClient();
 	// const { data: { user } } = await supabase.auth.getUser();
 	const { data: post } = await supabase

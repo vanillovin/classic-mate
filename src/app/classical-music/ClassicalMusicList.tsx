@@ -2,9 +2,9 @@
 
 import ClassicItem from "./ClassicalMusicItem";
 
-function ClassicalMusicList({
-	classicalMusicList,
-}: { classicalMusicList: Classic[] }) {
+type ClassicalMusicListProps = { classicalMusicList: Classic[] };
+
+function ClassicalMusicList({ classicalMusicList }: ClassicalMusicListProps) {
 	return (
 		<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 p-1">
 			{classicalMusicList?.map((classicalMusic) => (

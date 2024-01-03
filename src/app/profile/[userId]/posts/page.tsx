@@ -1,12 +1,10 @@
 import Link from "next/link";
 
 import { createServerClient } from "@/utils/supabase-server";
-
-export default async function PostsPage({
-	params,
-}: {
+type PostsPageProps = {
 	params: { userId: string };
-}) {
+};
+export default async function PostsPage({ params }: PostsPageProps) {
 	const supabase = createServerClient();
 
 	const { data: posts } = await supabase

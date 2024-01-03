@@ -7,15 +7,13 @@ import { useSupabase } from "@/components/providers/supabase-provider";
 import { useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/components/providers/auth-provider";
 
-function CommentForm({
-	postId,
-	postTitle,
-	commentCount,
-}: {
+type CommentFormProps = {
 	postId: string;
 	postTitle: string;
 	commentCount: number;
-}) {
+};
+
+function CommentForm({ postId, postTitle, commentCount }: CommentFormProps) {
 	const queryClient = useQueryClient();
 	const [content, setContent] = useState("");
 	const { profile } = useAuth();

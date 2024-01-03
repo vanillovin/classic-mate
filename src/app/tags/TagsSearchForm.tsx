@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-function TagsSearchForm({ tags }: { tags: string[] }) {
+type TagsSearchFormProps = { tags: string[] };
+
+function TagsSearchForm({ tags }: TagsSearchFormProps) {
 	const router = useRouter();
 	const searchParams = useSearchParams();
 	const [searchInput, setSearchInput] = useState("");

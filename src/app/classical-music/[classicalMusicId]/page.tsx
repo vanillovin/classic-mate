@@ -6,9 +6,11 @@ import LikeCheckbox from "@/components/classical-music/LikeCheckbox";
 import { convertToEmbeddedURL } from "@/utils/youtubeUtils";
 import { createServerClient } from "@/utils/supabase-server";
 
+type ClassicDetailPageProps = { params: { classicalMusicId: string } };
+
 export default async function ClassicDetailPage({
 	params: { classicalMusicId },
-}: { params: { classicalMusicId: string } }) {
+}: ClassicDetailPageProps) {
 	const supabase = createServerClient();
 	const { data: classics } = await supabase
 		.from("classical_music")

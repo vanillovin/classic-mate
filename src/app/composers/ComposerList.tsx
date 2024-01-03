@@ -7,7 +7,9 @@ import Image from "next/image";
 const FRAME_IMAGE_URL =
 	"https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/frame.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL2ZyYW1lLnBuZyIsImlhdCI6MTY5MzM3NjQ5MCwiZXhwIjoxNzI0OTEyNDkwfQ.45RClMsukndAS-vLdCnxOlShS622w7-2-TNTj0szJfA&t=2023-08-30T06%3A21%3A30.733Z";
 
-function ComposerList({ composers }: { composers: Composer[] }) {
+type ComposerListProps = { composers: Composer[] };
+
+function ComposerList({ composers }: ComposerListProps) {
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
 			{composers.map(

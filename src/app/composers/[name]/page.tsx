@@ -4,9 +4,11 @@ import { notFound } from "next/navigation";
 
 import { createServerClient } from "@/utils/supabase-server";
 
+type ArtistDetailPageProps = { params: { name: string } };
+
 export default async function ArtistDetailPage({
 	params,
-}: { params: { name: string } }) {
+}: ArtistDetailPageProps) {
 	const supabase = createServerClient();
 	const decodedName = decodeURIComponent(params.name);
 

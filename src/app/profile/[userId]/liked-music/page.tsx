@@ -3,11 +3,11 @@ import Link from "next/link";
 
 import { createServerClient } from "@/utils/supabase-server";
 
-export default async function LikedMusicPage({
-	params,
-}: {
+type LikedMusicPageProps = {
 	params: { userId: string };
-}) {
+};
+
+export default async function LikedMusicPage({ params }: LikedMusicPageProps) {
 	const supabase = createServerClient();
 
 	const { data: likes } = await supabase

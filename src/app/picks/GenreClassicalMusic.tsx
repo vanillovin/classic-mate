@@ -5,7 +5,9 @@ import React, { useState } from "react";
 
 import { genreDescriptions } from "./data";
 
-function GenreClassicalMusic({ classics }: { classics: Classic[] }) {
+type GenreClassicalMusicProps = { classics: Classic[] };
+
+function GenreClassicalMusic({ classics }: GenreClassicalMusicProps) {
 	const [selectedGenre, setSelectedGenre] = useState("all");
 	const genres = [
 		"all",

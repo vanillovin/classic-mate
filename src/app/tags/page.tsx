@@ -8,12 +8,12 @@ import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 export const metadata: Metadata = siteConfig.metaData["tags"];
 
-type Props = {
+type TagsPageProps = {
 	params?: { num?: string };
 	searchParams?: { tag1?: string; tag2?: string; tag3?: string };
 };
 
-export default async function TagsPage(props: Props) {
+export default async function TagsPage(props: TagsPageProps) {
 	const supabase = createServerClient();
 	const { data, error } = await supabase.from("classical_music").select();
 	const selectedTags = [

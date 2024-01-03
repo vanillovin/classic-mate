@@ -7,15 +7,16 @@ import CommentItem from "./CommentItem";
 import supabase from "@/lib/supabase/client";
 import CommentForm from "./CommentForm";
 
+type CommentContainerProps = {
+	postId: string;
+	postTitle: string;
+	serverComments: PostComment[];
+};
 function CommentContainer({
 	postId,
 	postTitle,
 	serverComments,
-}: {
-	postId: string;
-	postTitle: string;
-	serverComments: PostComment[];
-}) {
+}: CommentContainerProps) {
 	const { data: comments } = useQuery({
 		queryKey: ["postComments", postId],
 		queryFn: async () => {
