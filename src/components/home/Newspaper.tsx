@@ -72,6 +72,7 @@ function Newspaper() {
 							{description}
 						</p>
 						<Link
+							// rel="preconnect"
 							href={`/classical-music/${id}`}
 							className="px-2 py-1 rounded-sm shadow-sm border transition-all border-opacity-50 text-white border-white hover:bg-cherish-apricot/90"
 						>

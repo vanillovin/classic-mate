@@ -48,11 +48,28 @@ export const monthMusics: {
 			"https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/Tchaikovsky%20-%20Piano%20Concerto%20No.%201%20-%201st%20Movement.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL1RjaGFpa292c2t5IC0gUGlhbm8gQ29uY2VydG8gTm8uIDEgLSAxc3QgTW92ZW1lbnQubXAzIiwiaWF0IjoxNzAxNjc5NDA0LCJleHAiOjE3MTIwNDc0MDR9.T5G9cMEOVTcMbbR37VQLUJHiuy9i7B348TG1L8ELkf4&t=2023-12-04T08%3A43%3A25.431Z",
 	},
 	"2024-01": {
-		title: "Tchaikovsky: Piano Concerto No.1 1st Movement / Georgii Cherkin",
+		title:
+			"Schumann: Piano Concerto in A Minor, Op. 54 - III. Allegro vivace / 조성진",
 		coverImgUrl:
 			"https://images.unsplash.com/photo-1513883049090-d0b7439799bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
 		musicSrcUrl:
-			"https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/public/Tchaikovsky%20-%20Piano%20Concerto%20No.%201%20-%201st%20Movement.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvcHVibGljL1RjaGFpa292c2t5IC0gUGlhbm8gQ29uY2VydG8gTm8uIDEgLSAxc3QgTW92ZW1lbnQubXAzIiwiaWF0IjoxNzAxNjc5NDA0LCJleHAiOjE3MTIwNDc0MDR9.T5G9cMEOVTcMbbR37VQLUJHiuy9i7B348TG1L8ELkf4&t=2023-12-04T08%3A43%3A25.431Z",
+			"https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/musics/Schumann%20Piano%20Concerto%20in%20A%20Minor,%20Op.%2054%20-%20III.%20Allegro%20vivace.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvbXVzaWNzL1NjaHVtYW5uIFBpYW5vIENvbmNlcnRvIGluIEEgTWlub3IsIE9wLiA1NCAtIElJSS4gQWxsZWdybyB2aXZhY2UubXAzIiwiaWF0IjoxNzA0Mjc5MzcxLCJleHAiOjE3MTIwNTUzNzF9.N0KhIQJM_NqfWW008C5vauVAzoN100E-JxNJ6sCJqPQ&t=2024-01-03T10%3A56%3A11.763Z",
+	},
+	"2024-02": {
+		title:
+			"Schumann: Piano Concerto in A Minor, Op. 54 - III. Allegro vivace / 조성진",
+		coverImgUrl:
+			"https://images.unsplash.com/photo-1513883049090-d0b7439799bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+		musicSrcUrl:
+			"https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/musics/Schumann%20Piano%20Concerto%20in%20A%20Minor,%20Op.%2054%20-%20III.%20Allegro%20vivace.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvbXVzaWNzL1NjaHVtYW5uIFBpYW5vIENvbmNlcnRvIGluIEEgTWlub3IsIE9wLiA1NCAtIElJSS4gQWxsZWdybyB2aXZhY2UubXAzIiwiaWF0IjoxNzA0Mjc5MzcxLCJleHAiOjE3MTIwNTUzNzF9.N0KhIQJM_NqfWW008C5vauVAzoN100E-JxNJ6sCJqPQ&t=2024-01-03T10%3A56%3A11.763Z",
+	},
+	"2024-03": {
+		title:
+			"Schumann: Piano Concerto in A Minor, Op. 54 - III. Allegro vivace / 조성진",
+		coverImgUrl:
+			"https://images.unsplash.com/photo-1513883049090-d0b7439799bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+		musicSrcUrl:
+			"https://jdmvzmienwxdttefufzf.supabase.co/storage/v1/object/sign/my%20bucket/musics/Schumann%20Piano%20Concerto%20in%20A%20Minor,%20Op.%2054%20-%20III.%20Allegro%20vivace.mp3?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJteSBidWNrZXQvbXVzaWNzL1NjaHVtYW5uIFBpYW5vIENvbmNlcnRvIGluIEEgTWlub3IsIE9wLiA1NCAtIElJSS4gQWxsZWdybyB2aXZhY2UubXAzIiwiaWF0IjoxNzA0Mjc5MzcxLCJleHAiOjE3MTIwNTUzNzF9.N0KhIQJM_NqfWW008C5vauVAzoN100E-JxNJ6sCJqPQ&t=2024-01-03T10%3A56%3A11.763Z",
 	},
 };
 
@@ -87,187 +104,89 @@ export const monthClassics: { [key: string]: MonthClassic } = {
 		},
 	},
 	"2024-01": {
-		id: 15,
-		composer: "차이코프스키",
-		title: "피아노 협주곡 1번",
+		id: 100,
+		composer: "슈만",
+		title: "피아노 협주곡 Op.54",
 		image:
-			"https://as1.ftcdn.net/v2/jpg/00/44/80/14/1000_F_44801423_qaUrUvPpfjSzsDID4dXeDXQfZJMtEefu.jpg",
-		description: `Tchaikovsky의 "Piano Concerto No. 1"은 19세기 말에 작곡된 클래식 음악 중 하나로, 유명한 클래식 피아노 협주곡 중 하나입니다. 이 곡은 작곡가 Pyotr Ilyich Tchaikovsky가 1874년에 작곡했으며, 현재까지 많은 연주자들과 오케스트라에 의해 연주되고 사랑받고 있습니다.
+			"https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Robert-schumann.jpg/220px-Robert-schumann.jpg",
+		description: `"Piano Concerto Op. 54"은 로버트 슈만이 1845년에 완성한 피아노 협주곡입니다. 이 곡은 슈만이 그의 아내인 클라라에게 바친 곡으로, 그의 사랑을 표현한 음악으로 알려져 있습니다.
 
-    작품의 시대 배경은 로맨틱 시대로, 감성적이고 열정적인 음악이 특징입니다. 이 곡은 3악장으로 구성되어 있으며, 첫 번째 악장은 점점 강렬해지는 현악기와 피아노의 대립을 통해 시작됩니다. 두 번째 악장은 서정적이고 아름다운 선율로 피아노가 주도하는 부분입니다. 마지막 악장은 화려하고 역동적인 연주로 마무리되며, 기교적인 피아노 연주와 오케스트라의 화려한 연주가 조화를 이룹니다.
+이 곡은 3악장으로 구성되어 있습니다. 첫 번째 악장은 강렬한 피아노와 오케스트라의 조화를 통해 화려한 시작을 보여줍니다. 두 번째 악장은 슈만 특유의 서정성을 드러낸 부분으로, 피아노와 오케스트라 간의 대화를 통해 아름다운 선율을 들려줍니다. 마지막 악장은 화려하고 역동적인 연주로 곡을 마무리하며, 슈만의 열정적인 사랑을 음악적으로 표현합니다.
 
-    "Piano Concerto No. 1"은 Tchaikovsky의 피아노 음악 중 가장 인기 있는 작품 중 하나로 꼽히며, 클래식 음악을 사랑하는 사람들에게는 익숙하고 사랑받는 곡입니다. 이 곡은 그의 재능과 예술적 표현력을 최대한 발휘한 작품 중 하나로 평가받고 있으며, 클래식 음악의 명곡 중 하나로 인정받고 있습니다.`,
-		videoUrl: "https://youtu.be/YXL0dkG-Qro",
+"Piano Concerto Op. 54"은 슈만의 대표작 중 하나로, 그의 음악적 역량을 최대한 발휘한 작품입니다. 이 곡을 통해 슈만의 깊은 감성과 그의 아내에 대한 사랑을 느낄 수 있습니다.`,
+		videoUrl: "https://youtu.be/fWDrJT0s1s8?si=dMX7PonEMd6DV1w3",
 		point: {
 			title: "곡 구성과 감상 포인트",
-			description: `1악장 - 강렬하고 역동적인 악장, 대립적인 피아노와 현악기의 연주로 화려함을 느낄 수 있습니다.
-      2악장 - 서정적이고 아름다운 선율, 우아하고 부드러운 연주로 아름다움을 느낄 수 있습니다.
-      3악장 - 화려하고 역동적인 연주, 피아노와 오케스트라의 조화로 흥겨움을 느낄 수 있습니다.
+			description: `1악장 - 화려하고 강렬한 피아노와 오케스트라의 조화, 슈만의 사랑을 음악적으로 표현합니다.
+  2악장 - 슈만 특유의 서정성을 드러내는 부분, 피아노와 오케스트라의 대화를 통해 아름다운 선율을 들려줍니다.
+  3악장 - 화려하고 역동적인 연주로 곡을 마무리, 슈만의 열정적인 사랑을 음악적으로 표현합니다.
 
-      이렇게 'Piano Concerto No. 1'은 각 악장마다 강렬함, 아름다움, 화려함과 흥겨움을 전달합니다.`,
+  이렇게 'Piano Concerto Op. 54'은 각 악장마다 화려함, 아름다움, 역동성을 전달합니다.`,
 		},
 		performar: {
-			name: "조성진",
-			description: `조성진 피아니스트는 음악을 통해 감정과 이야기를 표현하는 예술가입니다. 그의 연주는 강렬하면서도 섬세한 터치로 음악의 깊은 감성을 전달합니다. 그의 손끝에서 피아노의 음색이 만들어지며, 그 소리는 청중들을 감동시킵니다.
-      조성진 피아니스트는 뛰어난 기교와 기술적 솜씨를 가지고 있으며, 그것을 통해 다양한 음악 작품을 완벽하게 해석합니다. 그의 연주는 듣는 이들에게 여러 감정을 일깨워주고, 그 속에서 아름다움과 감동을 찾을 수 있습니다.`,
+			name: "유자 왕",
+			description: `유자 왕은 중국 출신의 세계적인 피아니스트로, 화려하고 역동적인 연주 스타일로 널리 알려져 있습니다. 그녀의 연주는 강렬한 감성과 탁월한 기교를 보여주며, 청중들에게 깊은 감동을 선사합니다. 다양한 음악 작품을 그만의 독특한 해석으로 연주해 듣는 이들에게 감정의 폭을 넓혀주고, 그 속에서 아름다움과 감동을 찾을 수 있게 합니다.`,
 			instrumentalists: "피아니스트",
-			moreLink:
-				"https://namu.wiki/w/%EC%A1%B0%EC%84%B1%EC%A7%84(%ED%94%BC%EC%95%84%EB%8B%88%EC%8A%A4%ED%8A%B8)",
+			moreLink: "https://namu.wiki/w/%EC%9C%A0%EC%9E%90%20%EC%99%95",
+		},
+	},
+	"2024-02": {
+		id: 100,
+		composer: "슈만",
+		title: "피아노 협주곡 Op.54",
+		image:
+			"https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Robert-schumann.jpg/220px-Robert-schumann.jpg",
+		description: `"Piano Concerto Op. 54"은 로버트 슈만이 1845년에 완성한 피아노 협주곡입니다. 이 곡은 슈만이 그의 아내인 클라라에게 바친 곡으로, 그의 사랑을 표현한 음악으로 알려져 있습니다.
+
+이 곡은 3악장으로 구성되어 있습니다. 첫 번째 악장은 강렬한 피아노와 오케스트라의 조화를 통해 화려한 시작을 보여줍니다. 두 번째 악장은 슈만 특유의 서정성을 드러낸 부분으로, 피아노와 오케스트라 간의 대화를 통해 아름다운 선율을 들려줍니다. 마지막 악장은 화려하고 역동적인 연주로 곡을 마무리하며, 슈만의 열정적인 사랑을 음악적으로 표현합니다.
+
+"Piano Concerto Op. 54"은 슈만의 대표작 중 하나로, 그의 음악적 역량을 최대한 발휘한 작품입니다. 이 곡을 통해 슈만의 깊은 감성과 그의 아내에 대한 사랑을 느낄 수 있습니다.`,
+		videoUrl: "https://youtu.be/fWDrJT0s1s8?si=dMX7PonEMd6DV1w3",
+		point: {
+			title: "곡 구성과 감상 포인트",
+			description: `1악장 - 화려하고 강렬한 피아노와 오케스트라의 조화, 슈만의 사랑을 음악적으로 표현합니다.
+  2악장 - 슈만 특유의 서정성을 드러내는 부분, 피아노와 오케스트라의 대화를 통해 아름다운 선율을 들려줍니다.
+  3악장 - 화려하고 역동적인 연주로 곡을 마무리, 슈만의 열정적인 사랑을 음악적으로 표현합니다.
+
+  이렇게 'Piano Concerto Op. 54'은 각 악장마다 화려함, 아름다움, 역동성을 전달합니다.`,
+		},
+		performar: {
+			name: "유자 왕",
+			description: `유자 왕은 중국 출신의 세계적인 피아니스트로, 화려하고 역동적인 연주 스타일로 널리 알려져 있습니다. 그녀의 연주는 강렬한 감성과 탁월한 기교를 보여주며, 청중들에게 깊은 감동을 선사합니다. 다양한 음악 작품을 그만의 독특한 해석으로 연주해 듣는 이들에게 감정의 폭을 넓혀주고, 그 속에서 아름다움과 감동을 찾을 수 있게 합니다.`,
+			instrumentalists: "피아니스트",
+			moreLink: "https://namu.wiki/w/%EC%9C%A0%EC%9E%90%20%EC%99%95",
+		},
+	},
+	"2024-03": {
+		id: 100,
+		composer: "슈만",
+		title: "피아노 협주곡 Op.54",
+		image:
+			"https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Robert-schumann.jpg/220px-Robert-schumann.jpg",
+		description: `"Piano Concerto Op. 54"은 로버트 슈만이 1845년에 완성한 피아노 협주곡입니다. 이 곡은 슈만이 그의 아내인 클라라에게 바친 곡으로, 그의 사랑을 표현한 음악으로 알려져 있습니다.
+
+이 곡은 3악장으로 구성되어 있습니다. 첫 번째 악장은 강렬한 피아노와 오케스트라의 조화를 통해 화려한 시작을 보여줍니다. 두 번째 악장은 슈만 특유의 서정성을 드러낸 부분으로, 피아노와 오케스트라 간의 대화를 통해 아름다운 선율을 들려줍니다. 마지막 악장은 화려하고 역동적인 연주로 곡을 마무리하며, 슈만의 열정적인 사랑을 음악적으로 표현합니다.
+
+"Piano Concerto Op. 54"은 슈만의 대표작 중 하나로, 그의 음악적 역량을 최대한 발휘한 작품입니다. 이 곡을 통해 슈만의 깊은 감성과 그의 아내에 대한 사랑을 느낄 수 있습니다.`,
+		videoUrl: "https://youtu.be/fWDrJT0s1s8?si=dMX7PonEMd6DV1w3",
+		point: {
+			title: "곡 구성과 감상 포인트",
+			description: `1악장 - 화려하고 강렬한 피아노와 오케스트라의 조화, 슈만의 사랑을 음악적으로 표현합니다.
+  2악장 - 슈만 특유의 서정성을 드러내는 부분, 피아노와 오케스트라의 대화를 통해 아름다운 선율을 들려줍니다.
+  3악장 - 화려하고 역동적인 연주로 곡을 마무리, 슈만의 열정적인 사랑을 음악적으로 표현합니다.
+
+  이렇게 'Piano Concerto Op. 54'은 각 악장마다 화려함, 아름다움, 역동성을 전달합니다.`,
+		},
+		performar: {
+			name: "유자 왕",
+			description: `유자 왕은 중국 출신의 세계적인 피아니스트로, 화려하고 역동적인 연주 스타일로 널리 알려져 있습니다. 그녀의 연주는 강렬한 감성과 탁월한 기교를 보여주며, 청중들에게 깊은 감동을 선사합니다. 다양한 음악 작품을 그만의 독특한 해석으로 연주해 듣는 이들에게 감정의 폭을 넓혀주고, 그 속에서 아름다움과 감동을 찾을 수 있게 합니다.`,
+			instrumentalists: "피아니스트",
+			moreLink: "https://namu.wiki/w/%EC%9C%A0%EC%9E%90%20%EC%99%95",
 		},
 	},
 };
 
 export const quizData: QuizData = {
-	"2023-12-01": {
-		question: "다음 중 가장 짧은 음표는?",
-		options: ["♩", "♪", "♫", "♬"],
-		answer: 0,
-	},
-	"2023-12-02": {
-		question: "비발디의 대표작은?",
-		options: ["운명교향곡", "사계", "로망스", "터키행진곡"],
-		answer: 1,
-	},
-	"2023-12-03": {
-		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "운명", "합창", "명곡"],
-		answer: 1,
-	},
-	"2023-12-04": {
-		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
-		options: ["O", "X"],
-		answer: 0,
-	},
-	"2023-12-05": {
-		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
-		options: ["피아노", "바이올린", "첼로", "오보에"],
-		answer: 0,
-	},
-	"2023-12-06": {
-		question: "다음 중 가장 짧은 음표는?",
-		options: ["♩", "♪", "♫", "♬"],
-		answer: 0,
-	},
-	"2023-12-07": {
-		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "영웅", "합창", "영광"],
-		answer: 2,
-	},
-	"2023-12-08": {
-		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
-		options: ["피아노", "바이올린", "첼로", "오보에"],
-		answer: 0,
-	},
-	"2023-12-09": {
-		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
-		options: ["피아노", "바이올린", "첼로", "오보에"],
-		answer: 0,
-	},
-	"2023-12-10": {
-		question: "다음 중 가장 짧은 음표는?",
-		options: ["♩", "♪", "♫", "♬"],
-		answer: 0,
-	},
-	"2023-12-11": {
-		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "운명", "합창", "명곡"],
-		answer: 1,
-	},
-	"2023-12-12": {
-		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
-		options: ["O", "X"],
-		answer: 0,
-	},
-	"2023-12-13": {
-		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "운명", "합창", "명곡"],
-		answer: 1,
-	},
-	"2023-12-14": {
-		question: "다음 중 가장 짧은 음표는?",
-		options: ["♩", "♪", "♫", "♬"],
-		answer: 0,
-	},
-	"2023-12-15": {
-		question: "다음 중 가장 짧은 음표는?",
-		options: ["♩", "♪", "♫", "♬"],
-		answer: 0,
-	},
-	"2023-12-16": {
-		question: "비발디의 대표작은?",
-		options: ["운명교향곡", "사계", "로망스", "터키행진곡"],
-		answer: 1,
-	},
-	"2023-12-17": {
-		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "운명", "합창", "명곡"],
-		answer: 1,
-	},
-	"2023-12-18": {
-		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
-		options: ["O", "X"],
-		answer: 0,
-	},
-	"2023-12-19": {
-		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "영웅", "합창", "영광"],
-		answer: 2,
-	},
-	"2023-12-20": {
-		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
-		options: ["피아노", "바이올린", "첼로", "오보에"],
-		answer: 0,
-	},
-	"2023-12-21": {
-		question: "다음 중 가장 짧은 음표는?",
-		options: ["♩", "♪", "♫", "♬"],
-		answer: 0,
-	},
-	"2023-12-22": {
-		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "영웅", "합창", "영광"],
-		answer: 2,
-	},
-	"2023-12-23": {
-		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
-		options: ["피아노", "바이올린", "첼로", "오보에"],
-		answer: 0,
-	},
-	"2023-12-24": {
-		question: "비발디의 대표작은?",
-		options: ["운명교향곡", "사계", "로망스", "터키행진곡"],
-		answer: 1,
-	},
-	"2023-12-25": {
-		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "운명", "합창", "명곡"],
-		answer: 1,
-	},
-	"2023-12-26": {
-		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
-		options: ["O", "X"],
-		answer: 0,
-	},
-	"2023-12-27": {
-		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "영웅", "합창", "영광"],
-		answer: 2,
-	},
-	"2023-12-28": {
-		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
-		options: ["피아노", "바이올린", "첼로", "오보에"],
-		answer: 0,
-	},
-	"2023-12-29": {
-		question: "다음 중 가장 짧은 음표는?",
-		options: ["♩", "♪", "♫", "♬"],
-		answer: 0,
-	},
-	"2023-12-30": {
-		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
-		options: ["비창", "영웅", "합창", "영광"],
-		answer: 2,
-	},
 	"2023-12-31": {
 		question: "베토벤은 어떤 병으로 인해 음악 활동에 어려움을 겪었나요?",
 		options: ["심장병", "기관지염", "난청", "당뇨병"],
@@ -424,6 +343,306 @@ export const quizData: QuizData = {
 		answer: 2,
 	},
 	"2024-01-31": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-02-01": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-02-02": {
+		question: "비발디의 대표작은?",
+		options: ["운명교향곡", "사계", "로망스", "터키행진곡"],
+		answer: 1,
+	},
+	"2024-02-03": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2024-02-04": {
+		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
+		options: ["O", "X"],
+		answer: 0,
+	},
+	"2024-02-05": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2024-02-06": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-02-07": {
+		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "영웅", "합창", "영광"],
+		answer: 2,
+	},
+	"2024-02-08": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2024-02-09": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2024-02-10": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-02-11": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2024-02-12": {
+		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
+		options: ["O", "X"],
+		answer: 0,
+	},
+	"2024-02-13": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2024-02-14": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-02-15": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-02-16": {
+		question: "비발디의 대표작은?",
+		options: ["운명교향곡", "사계", "로망스", "터키행진곡"],
+		answer: 1,
+	},
+	"2024-02-17": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2024-02-18": {
+		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
+		options: ["O", "X"],
+		answer: 0,
+	},
+	"2024-02-19": {
+		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "영웅", "합창", "영광"],
+		answer: 2,
+	},
+	"2024-02-20": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2024-02-21": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-02-22": {
+		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "영웅", "합창", "영광"],
+		answer: 2,
+	},
+	"2024-02-23": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2024-02-24": {
+		question: "비발디의 대표작은?",
+		options: ["운명교향곡", "사계", "로망스", "터키행진곡"],
+		answer: 1,
+	},
+	"2024-02-25": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2024-02-26": {
+		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
+		options: ["O", "X"],
+		answer: 0,
+	},
+	"2024-02-27": {
+		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "영웅", "합창", "영광"],
+		answer: 2,
+	},
+	"2024-02-28": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2024-02-29": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-03-01": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-03-02": {
+		question: "비발디의 대표작은?",
+		options: ["운명교향곡", "사계", "로망스", "터키행진곡"],
+		answer: 1,
+	},
+	"2024-03-03": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2024-03-04": {
+		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
+		options: ["O", "X"],
+		answer: 0,
+	},
+	"2024-03-05": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2024-03-06": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-03-07": {
+		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "영웅", "합창", "영광"],
+		answer: 2,
+	},
+	"2024-03-08": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2024-03-09": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2024-03-10": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-03-11": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2024-03-12": {
+		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
+		options: ["O", "X"],
+		answer: 0,
+	},
+	"2024-03-13": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2024-03-14": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-03-15": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-03-16": {
+		question: "비발디의 대표작은?",
+		options: ["운명교향곡", "사계", "로망스", "터키행진곡"],
+		answer: 1,
+	},
+	"2024-03-17": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2024-03-18": {
+		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
+		options: ["O", "X"],
+		answer: 0,
+	},
+	"2024-03-19": {
+		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "영웅", "합창", "영광"],
+		answer: 2,
+	},
+	"2024-03-20": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2024-03-21": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-03-22": {
+		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "영웅", "합창", "영광"],
+		answer: 2,
+	},
+	"2024-03-23": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2024-03-24": {
+		question: "비발디의 대표작은?",
+		options: ["운명교향곡", "사계", "로망스", "터키행진곡"],
+		answer: 1,
+	},
+	"2024-03-25": {
+		question: "베토벤의 5번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "운명", "합창", "명곡"],
+		answer: 1,
+	},
+	"2024-03-26": {
+		question: "안토니오 비발디가 태어난 도시는 '베네치아'이다.",
+		options: ["O", "X"],
+		answer: 0,
+	},
+	"2024-03-27": {
+		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "영웅", "합창", "영광"],
+		answer: 2,
+	},
+	"2024-03-28": {
+		question: '바흐의 "토카타와 푸가"는 어떤 악기로 연주되는 곡인가요?',
+		options: ["피아노", "바이올린", "첼로", "오보에"],
+		answer: 0,
+	},
+	"2024-03-29": {
+		question: "다음 중 가장 짧은 음표는?",
+		options: ["♩", "♪", "♫", "♬"],
+		answer: 0,
+	},
+	"2024-03-30": {
+		question: "베토벤의 9번 교향곡은 몇 번이라고 불리나요?",
+		options: ["비창", "영웅", "합창", "영광"],
+		answer: 2,
+	},
+	"2024-03-31": {
 		question: "다음 중 가장 짧은 음표는?",
 		options: ["♩", "♪", "♫", "♬"],
 		answer: 0,
