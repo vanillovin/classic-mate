@@ -52,7 +52,7 @@ function LikeCheckbox({
 
 	async function addLike() {
 		const { error } = await supabase.from("classical_music_likes").insert({
-			classic_title: classicTitle,
+			classical_music_title: classicTitle,
 			classical_music_id: classicalMusicId,
 			user_id: session!.user.id,
 		});
