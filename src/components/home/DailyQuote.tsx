@@ -1,11 +1,10 @@
 "use client";
 
-import React from "react";
 import { dailyQuoteData } from "../../app/data";
 import { getCurrentDateInfo } from "@/utils/dateUtils";
 
 const bgImgUrl =
-	"https://images.unsplash.com/photo-1487424439918-bc6b5bef0380?q=80&w=1333&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+	"https://plus.unsplash.com/premium_photo-1674917070243-905c3bbf1576?q=80&w=1226&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
 function DailyQuote() {
 	const { currentDateString } = getCurrentDateInfo();

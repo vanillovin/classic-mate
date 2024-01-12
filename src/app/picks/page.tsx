@@ -24,9 +24,9 @@ export default async function PicksPage() {
 	const { data } = await supabase.from("classical_music").select();
 
 	return (
-		<div className="px-3 sm:px-6 pt-20 sm:pt-32 pb-24 -mt-14 sm:-mt-20 w-full h-full bg-pantone-white-pepper">
+		<div className="px-3 sm:px-6 pt-20 sm:pt-32 pb-24 -mt-14 sm:-mt-20 w-full h-full bg-pantone-white-pepper/80">
 			<div className="max-w-6xl mx-auto flex flex-col gap-y-10 sm:gap-y-16">
-				<div className="rounded-sm shadow-lg p-3 sm:p-4 bg-pantone-powder/90">
+				<div className="rounded-sm shadow-lg p-3 sm:p-4 bg-pantone-powder/80">
 					<div className="font-semibold text-lg sm:text-2xl">
 						무슨 클래식 음악을 들어야 할지 모르겠다면?
 						<br />

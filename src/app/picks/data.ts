@@ -270,7 +270,7 @@ export const classicalMusicByMood: {
 } = {
 	romantic: {
 		name: "로맨틱한 🌹",
-		bgColor: "bg-[#9A3B3B]",
+		bgColor: "bg-[#9A3B3B]/50",
 		data: [
 			{
 				id: 54,
@@ -419,7 +419,7 @@ export const classicalMusicByMood: {
 	},
 	passionate: {
 		name: "열정적인 🔥",
-		bgColor: "bg-[#CD1818]",
+		bgColor: "bg-[#CD1818]/50",
 		data: [
 			{
 				id: 68,

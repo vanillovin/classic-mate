@@ -10,6 +10,7 @@ import { createServerClient } from "@/utils/supabase-server";
 
 export default async function HomePage() {
 	const supabase = createServerClient();
+
 	const { data: classicsByLikeCount } = await supabase
 		.from("classical_music")
 		.select("*")

@@ -90,7 +90,7 @@ function WeatherClassicalMusic() {
 								{weather.weather[0].description}
 							</p>
 						</div>
-						<div className="w-10 sm:w-20 h-10 sm:h-20 relative overflow-hidden">
+						<div className="sm:mx-2 w-10 sm:w-20 h-10 sm:h-20 relative overflow-hidden">
 							<Image
 								fill
 								className="w-full h-full"

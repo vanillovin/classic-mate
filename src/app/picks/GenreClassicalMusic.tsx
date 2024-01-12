@@ -26,15 +26,18 @@ function GenreClassicalMusic({ classics }: GenreClassicalMusicProps) {
 					<button
 						key={genre}
 						onClick={() => setSelectedGenre(genre)}
-						className={`text-sm sm:text-base px-2 border-r last:border-r-0 text-warm-vintage-off-white hover:bg-white/20
-              ${genre === selectedGenre && "text-white bg-white/20"}
+						className={`text-sm sm:text-base font-medium px-2 border-r last:border-r-0 text-warm-vintage-off-white hover:bg-white/20
+              ${
+								genre === selectedGenre &&
+								"text-white font-semibold bg-white/20"
+							}
             `}
 					>
 						{genre}
 					</button>
 				))}
 			</div>
-			<p className="text-sm sm:text-base text-center px-4 pt-3 py-6 font-light leading-4">
+			<p className="text-sm sm:text-base text-center p-8 font-light leading-4">
 				{description ? `❝ ${description} ❞` : ""}
 			</p>
 			<div className="comm-scrollbar grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 rounded-sm shadow-md max-h-80 overflow-y-auto border p-2 border-black/80">

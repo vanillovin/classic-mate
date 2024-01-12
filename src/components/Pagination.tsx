@@ -6,8 +6,8 @@ type PaginationProps = {
 	totalPages: number;
 };
 
+// TODO: "이전 페이지"와 "다음 페이지" 버튼
 function Pagination({ pathname, currentPage, totalPages }: PaginationProps) {
-	// "이전 페이지"와 "다음 페이지" 버튼
 	return (
 		<div className="flex items-center justify-center">
 			<ul className="flex items-center gap-x-2 ">
