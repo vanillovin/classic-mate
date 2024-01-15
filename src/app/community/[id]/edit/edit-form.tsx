@@ -33,7 +33,6 @@ function validateAndPrepareData(
 }
 
 function EditForm({ oldPost }: { oldPost: Post }) {
-	console.log("EditForm oldPost", oldPost);
 	const router = useRouter();
 	const { supabase } = useSupabase();
 	const [isLoading, setIsLoading] = useState(false);

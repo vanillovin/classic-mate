@@ -6,28 +6,28 @@ import { notFound } from "next/navigation";
 import SignOutButton from "@/components/SignOutButton";
 import { createServerClient } from "@/utils/supabase-server";
 
-export default async function Layout({
-	params,
-	children,
-}: {
+type ProfileLayoutProps = {
 	params: { userId: string };
 	children: React.ReactNode;
-}) {
+};
+
+export default async function Layout({ params, children }: ProfileLayoutProps) {
 	const supabase = createServerClient();
 
 	const {
 		data: { session },
-	} = await supabase.auth.getSession();
-	const { data } = await supabase
+  } = await supabase.auth.getSession();
+  
+	const { data, error } = await supabase
 		.from("profiles")
 		.select()
 		.eq("id", params.userId);
 
 	const profile = data?.[0];
 
-	// if (!session) redirect("/unauthenticated");
-
-	if (!profile) return notFound();
+	if (!profile || error) {
+		return notFound();
+	}
 
 	return (
 		<section className="max-w-6xl mx-auto px-3 sm:px-6 pt-3 sm:pt-6 pb-24 h-screen">
@@ -65,9 +65,6 @@ export default async function Layout({
 					</div>
 
 					<ul className="flex flex-row sm:flex-col gap-x-2 sm:gap-x-0 sm:gap-y-3 sm:mt-4 text-sm sm:text-base">
-						{/* <li>
-                <Link href={`/profile/${params.userId}`}>최근활동</Link>
-              </li> */}
 						<li className="font-semibold">클래식</li>
 						<li>
 							<Link

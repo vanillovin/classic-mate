@@ -2,7 +2,7 @@ import React from "react";
 import SortOptions from "./SortOptions";
 import CategorySelect from "./CategorySelect";
 import LoadingSkeleton from "./LoadingSkeleton";
-import KeywordSearchForm from "./KeywordSerchForm";
+import KeywordSearchForm from "./KeywordSearchForm";
 
 export default function Loading() {
 	return (

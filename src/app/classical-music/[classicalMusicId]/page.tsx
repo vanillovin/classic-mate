@@ -1,6 +1,6 @@
 import notFound from "./not-found";
 
-import Comments from "./Comments";
+import CommentContainer from "./CommentContainer";
 import TagLinkList from "@/components/TagLinkList";
 import LikeCheckbox from "@/components/classical-music/LikeCheckbox";
 import { convertToEmbeddedURL } from "@/utils/youtubeUtils";
@@ -67,7 +67,7 @@ export default async function ClassicDetailPage({
 					className="w-full h-full rounded-sm"
 				></iframe>
 			</div>
-			<Comments
+			<CommentContainer
 				classicalMusicId={classicalMusicId}
 				classicalMusicTitle={classicalMusic.title}
 				comments={comments ?? []}

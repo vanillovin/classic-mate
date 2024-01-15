@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Posts from "./Posts";
 import SortOptions from "./SortOptions";
 import CategorySelect from "./CategorySelect";
-import KeywordSearchForm from "./KeywordSerchForm";
+import KeywordSearchForm from "./KeywordSearchForm";
 import { siteConfig } from "@/config/site";
 import { createServerClient } from "@/utils/supabase-server";
 

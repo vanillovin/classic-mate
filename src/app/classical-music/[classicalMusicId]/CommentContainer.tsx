@@ -13,7 +13,7 @@ type CommentsProps = {
 	comments: ClassicComment[];
 };
 
-function Comments({
+function CommentContainer({
 	classicalMusicId,
 	classicalMusicTitle,
 	comments,
@@ -40,4 +40,4 @@ function Comments({
 	);
 }
 
-export default Comments;
+export default CommentContainer;
