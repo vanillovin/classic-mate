@@ -18,7 +18,7 @@ export default async function HomePage() {
 		.range(0, 15);
 
 	return (
-		<div className="flex flex-col gap-y-12 w-full max-w-6xl mx-auto h-full px-3 sm:px-6 pt-3 sm:pt-6 pb-24">
+		<div className="flex flex-col gap-y-16 w-full max-w-6xl mx-auto h-full px-3 sm:px-6 pt-3 sm:pt-6 pb-24">
 			<ClassicalMusicQuiz />
 
 			<div className="">

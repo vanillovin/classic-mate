@@ -24,8 +24,8 @@ export default async function PicksPage() {
 	const { data } = await supabase.from("classical_music").select();
 
 	return (
-		<div className="px-3 sm:px-6 pt-20 sm:pt-32 pb-24 -mt-14 sm:-mt-20 w-full h-full bg-pantone-white-pepper/80">
-			<div className="max-w-6xl mx-auto flex flex-col gap-y-10 sm:gap-y-16">
+		<div className="scroll-smooth px-3 sm:px-6 pt-20 sm:pt-32 pb-24 -mt-14 sm:-mt-20 w-full h-full bg-pantone-white-pepper/70">
+			<div className="max-w-6xl mx-auto flex flex-col gap-y-10 sm:gap-y-20">
 				<div className="rounded-sm shadow-lg p-3 sm:p-4 bg-pantone-powder/80">
 					<div className="font-semibold text-lg sm:text-2xl">
 						무슨 클래식 음악을 들어야 할지 모르겠다면?
@@ -51,7 +51,7 @@ export default async function PicksPage() {
 					</ul>
 				</div>
 
-				<section id="time">
+				<section id="time" className="scroll-mt">
 					<h2
 						className={`text-center text-3xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
 					>
@@ -63,7 +63,7 @@ export default async function PicksPage() {
 					<TimeClassicalMusic />
 				</section>
 
-				<section id="weather">
+				<section id="weather" className="scroll-mt">
 					<h2
 						className={`text-center text-3xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
 					>
@@ -76,7 +76,7 @@ export default async function PicksPage() {
 					<WeatherClassicalMusic />
 				</section>
 
-				<section id="composer" className="h-96">
+				<section id="composer" className="scroll-mt h-96">
 					<h2
 						className={`text-center text-3xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
 					>
@@ -88,7 +88,7 @@ export default async function PicksPage() {
 					<ComposerClassicalMusic />
 				</section>
 
-				<section id="genre" className="">
+				<section id="genre" className="scroll-mt">
 					<h2
 						className={`text-center text-3xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
 					>
@@ -100,7 +100,7 @@ export default async function PicksPage() {
 					<GenreClassicalMusic classics={data ?? []} />
 				</section>
 
-				<section id="random" className="">
+				<section id="random" className="scroll-mt">
 					<h2
 						className={`text-center text-3xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
 					>
@@ -112,7 +112,7 @@ export default async function PicksPage() {
 					<RandomClassicalMusic classics={data ?? []} />
 				</section>
 
-				<section id="mood" className="">
+				<section id="mood" className="scroll-mt">
 					<h2
 						className={`text-center text-3xl sm:text-4xl font-semibold drop-shadow-lg ${dmSerifDisplay.className}`}
 					>

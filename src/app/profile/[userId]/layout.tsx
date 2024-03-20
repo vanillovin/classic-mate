@@ -16,8 +16,8 @@ export default async function Layout({ params, children }: ProfileLayoutProps) {
 
 	const {
 		data: { session },
-  } = await supabase.auth.getSession();
-  
+	} = await supabase.auth.getSession();
+
 	const { data, error } = await supabase
 		.from("profiles")
 		.select()

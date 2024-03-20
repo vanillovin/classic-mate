@@ -3,16 +3,10 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Hahmlet } from "next/font/google";
 
 import { monthClassics } from "../../app/data";
 import { getCurrentDateInfo } from "@/utils/dateUtils";
 import { convertToEmbeddedURL } from "@/utils/youtubeUtils";
-
-const hahmlet = Hahmlet({
-	subsets: ["latin"],
-	weight: ["400", "500", "600"],
-});
 
 function Newspaper() {
 	const { currentMonth, currentYearMonth } = getCurrentDateInfo();
@@ -30,7 +24,7 @@ function Newspaper() {
 
 	return (
 		<div
-			className={`flex flex-col gap-4 sm:gap-8 p-2 sm:p-4 rounded-md mb-8 shadow-md text-black bg-cherish-natural/90 ${hahmlet.className}`}
+			className={`flex flex-col gap-4 sm:gap-8 p-2 sm:p-4 rounded-md mb-8 shadow-md text-black bg-cherish-natural/90`}
 		>
 			<div className="border rounded-sm border-cherish-ivory/90">
 				<div className="h-16 sm:h-20 flex items-center border-t border-b-2 border-cherish-ivory/90">

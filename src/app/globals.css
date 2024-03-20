@@ -4,6 +4,12 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  .scroll-mt {
+    scroll-margin-top: 100px;
+  }
   .font-outline-1 {
     -webkit-text-stroke: .1px white;
   }

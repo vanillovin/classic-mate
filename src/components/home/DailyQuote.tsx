@@ -9,7 +9,7 @@ const bgImgUrl =
 function DailyQuote() {
 	const { currentDateString } = getCurrentDateInfo();
 	const currentQuote =
-		dailyQuoteData[currentDateString] ?? dailyQuoteData["2023-08-11"];
+		dailyQuoteData[currentDateString] ?? dailyQuoteData["2024-03-01"];
 
 	return (
 		<div
